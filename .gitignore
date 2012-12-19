@@ -1,3 +1,7 @@
+backups/
+swank/
+auto-save-list/
 ac-comphist.dat
+places
 *.elc
 *.el~
