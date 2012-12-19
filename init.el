@@ -4,6 +4,9 @@
 (add-to-list 'package-archives 
     '("marmalade" .
       "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives
+  '("melpa" . 
+    "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
 
 ;; rainbow parens
@@ -55,6 +58,10 @@
  '(rainbow-delimiters-depth-9-face ((t (:foreground "royal blue"))))
  '(rainbow-delimiters-unmatched-face ((t (:foreground "medium orchid")))))
 
+(push "/pi/pymatter/scala/bin/" exec-path)
+(push "/home/darth10/bin/" exec-path)
+(push "/usr/bin/" exec-path)
+
 (require 'yasnippet-bundle)
 (setq yas/root-directory "~/.emacs.d/snippets")
 (yas/load-directory yas/root-directory)
@@ -81,9 +88,21 @@
 	'(lambda ()
 		(scala-mode-feature-electric-mode)))
 
-;; scala utils
-(push "/pi/pymatter/scala/bin/" exec-path)
-(push "/usr/bin/" exec-path)
+;; nrepl
+(add-hook 'nrepl-interaction-mode-hook
+  'nrepl-turn-on-eldoc-mode)
+(setq nrepl-tab-command 'indent-for-tab-command)
+(add-to-list 'same-window-buffer-names "*nrepl*")
+
+(add-hook 'nrepl-mode-hook 'subword-mode)
+(add-hook 'nrepl-mode-hook 'paredit-mode)
+(add-hook 'nrepl-mode-hook 'rainbow-delimiters-mode)
+
+;; ritz
+(setq clojure-swank-command
+      (if (or (locate-file "lein" exec-path) (locate-file "lein.bat" exec-path))
+	  "lein ritz-in %s"
+	"echo \"lein ritz-in %s\" | $SHELL -l"))
 
 ;; eclim
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/eclim/"))
