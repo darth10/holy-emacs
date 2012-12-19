@@ -98,6 +98,10 @@
 (add-hook 'nrepl-mode-hook 'paredit-mode)
 (add-hook 'nrepl-mode-hook 'rainbow-delimiters-mode)
 
+(add-hook 'clojure-mode-hook 'subword-mode)
+(add-hook 'clojure-mode-hook 'paredit-mode)
+(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
+
 ;; ritz
 (setq clojure-swank-command
       (if (or (locate-file "lein" exec-path) (locate-file "lein.bat" exec-path))
@@ -121,6 +125,7 @@
 
 
 ;; my shortcuts
+
 (defun split-and-term ()
   "Split window and start terminal"
   (interactive)
@@ -128,5 +133,19 @@
   (other-window 1)
   (term "/bin/bash"))
 
+(defun split-and-nrepl-jack-in ()
+  "Split window and start nREPL"
+  (interactive)
+  (split-window-right)
+  (nrepl-jack-in nil))
+
+(defun split-and-nrepl ()
+  "Split window and start nREPL client"
+  (interactive)
+  (split-window-right)
+  (nrepl (read-from-minibuffer "Port: ")))
+
 (global-set-key (kbd "C-x <f7>") 'split-and-term)
+(global-set-key (kbd "C-x <f8>") 'split-and-nrepl)
+(global-set-key (kbd "C-x C-<f8>") 'split-and-nrepl-jack-in)
 (put 'upcase-region 'disabled nil)
