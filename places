@@ -1,7 +1,0 @@
-;;; -*- coding: utf-8 -*-
-(("/home/darth10/.emacs.d/elpa/ac-slime-0.2/ac-slime-autoloads.el" . 1403)
- ("/home/darth10/.emacs.d/elpa/auto-complete-1.4/auto-complete-autoloads.el" . 220)
- ("/home/darth10/.emacs.d/elpa/popup-0.5/popup-autoloads.el" . 170)
- ("/home/darth10/.emacs.d/elpa/slime-20100404.1/slime-autoloads.el" . 2550)
- ("/home/darth10/.emacs.d/init.el" . 2000)
- ("/home/darth10/workspace/ClojureSample/src/ClojureSample/core.clj" . 643))
