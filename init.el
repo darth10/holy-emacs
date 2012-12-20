@@ -143,7 +143,8 @@
   "Split window and start nREPL client"
   (interactive)
   (split-window-right)
-  (nrepl (read-from-minibuffer "Port: ")))
+  (nrepl
+	(string-to-number (read-from-minibuffer "Port: "))))
 
 (global-set-key (kbd "C-x <f7>") 'split-and-term)
 (global-set-key (kbd "C-x <f8>") 'split-and-nrepl)
