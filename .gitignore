@@ -1,5 +1,7 @@
 backups/
 swank/
+eshell/
+elpa/archives/
 auto-save-list/
 ac-comphist.dat
 places
