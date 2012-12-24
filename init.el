@@ -169,4 +169,6 @@
 (global-set-key (kbd "C-x <f7>") 'split-and-term)
 (global-set-key (kbd "C-x <f8>") 'split-and-nrepl)
 (global-set-key (kbd "C-x C-<f8>") 'split-and-nrepl-jack-in)
+(global-set-key (kbd "C-c (") 'paredit-mode)
 (put 'upcase-region 'disabled nil)
+
