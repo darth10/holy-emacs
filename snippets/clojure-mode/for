@@ -1,0 +1,4 @@
+#name: for
+# --
+(for [${1:item} ${2:coll}]
+  $0)
