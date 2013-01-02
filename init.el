@@ -76,6 +76,9 @@
 (push "/home/darth10/bin/" exec-path)
 (push "/usr/bin/" exec-path)
 
+;; backup settings
+(setq backup-directory-alist `(("." . "~/.emacs-saves")))
+
 (require 'yasnippet-bundle)
 (setq yas/root-directory "~/.emacs.d/snippets")
 (yas/load-directory yas/root-directory)
