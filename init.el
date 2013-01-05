@@ -169,9 +169,17 @@
   (nrepl
 	(string-to-number (read-from-minibuffer "Port: "))))
 
+(defun git-diff-tree ()
+  (interactive)
+  (magit-diff-working-tree "HEAD"))
+
 (global-set-key (kbd "C-x <f7>") 'split-and-term)
 (global-set-key (kbd "C-x <f8>") 'split-and-nrepl)
 (global-set-key (kbd "C-x C-<f8>") 'split-and-nrepl-jack-in)
-(global-set-key (kbd "C-c (") 'paredit-mode)
-(put 'upcase-region 'disabled nil)
 
+(global-set-key (kbd "C-c (") 'paredit-mode)
+(global-set-key (kbd "M-g s") 'magit-status)
+(global-set-key (kbd "M-g d") 'git-diff-tree)
+
+(put 'upcase-region 'disabled nil)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
