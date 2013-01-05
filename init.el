@@ -1,11 +1,11 @@
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
 (require 'package)
-(add-to-list 'package-archives 
+(add-to-list 'package-archives
     '("marmalade" .
       "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives
-  '("melpa" . 
+  '("melpa" .
     "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
 
@@ -90,7 +90,7 @@
 (setq ac-delay 0.5) ;; eclipse uses 500ms
 (define-key ac-complete-mode-map "\t" 'ac-complete)
 (define-key ac-complete-mode-map "\r" nil)
- 
+
 ;; configure auto complete to work in slime
 (add-to-list 'load-path "~/.emacs.d/elpa/ac-slime-0.2")
 (require 'ac-slime)
