@@ -88,12 +88,6 @@
 (define-key ac-complete-mode-map "\t" 'ac-complete)
 (define-key ac-complete-mode-map "\r" nil)
 
-;; configure auto complete to work in slime
-(add-to-list 'load-path "~/.emacs.d/elpa/ac-slime-0.2")
-(require 'ac-slime)
-(add-hook 'slime-mode-hook 'set-up-slime-ac)
-(add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
-
 ;; scala-mode
 (add-to-list 'load-path "~/.emacs.d/scala-emacs")
 (require 'scala-mode-auto)
