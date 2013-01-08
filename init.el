@@ -164,9 +164,21 @@
   (interactive)
   (magit-diff-working-tree "HEAD"))
 
+(setq gdb-many-windows t)
+
 (global-set-key (kbd "C-x <f7>") 'split-and-term)
 (global-set-key (kbd "C-x <f8>") 'split-and-nrepl)
 (global-set-key (kbd "C-x C-<f8>") 'split-and-nrepl-jack-in)
+
+; gdb shortcuts
+(global-set-key (kbd "C-x <f11>") 'gdb)
+(global-set-key (kbd "C-<f11>") 'gdb-display-gdb-buffer)
+(global-set-key (kbd "<f12>") 'gdb-display-source-buffer)
+(global-set-key (kbd "<f11>") 'gud-run)
+(global-set-key (kbd "<f5>") 'gud-step)
+(global-set-key (kbd "<f6>") 'gud-next)
+(global-set-key (kbd "<f7>") 'gud-finish)
+(global-set-key (kbd "<f8>") 'gud-cont)
 
 (global-set-key (kbd "C-c (") 'paredit-mode)
 (global-set-key (kbd "M-g s") 'magit-status)
