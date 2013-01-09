@@ -131,6 +131,12 @@
                              (add-to-list 'ac-sources 'ac-source-emacs-eclim)
                              (add-to-list 'ac-sources 'ac-source-emacs-eclim-c-dot)))
 
+;; info docs
+(eval-after-load 'info
+  '(progn
+     (push "/opt/local/share/info" Info-default-directory-list)
+     (push "~/.emacs.d/info" Info-default-directory-list)))
+
 ;; org-mode shortcuts
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 (global-set-key "\C-cl" 'org-store-link)
@@ -170,8 +176,9 @@
 (global-set-key (kbd "C-x <f8>") 'split-and-nrepl)
 (global-set-key (kbd "C-x C-<f8>") 'split-and-nrepl-jack-in)
 
-; gdb shortcuts
+; gdb and info shortcuts
 (global-set-key (kbd "C-x <f11>") 'gdb)
+(global-set-key (kbd "C-x <f3>") 'info-lookup-symbol)
 (global-set-key (kbd "C-<f11>") 'gdb-display-gdb-buffer)
 (global-set-key (kbd "<f12>") 'gdb-display-source-buffer)
 (global-set-key (kbd "<f11>") 'gud-run)

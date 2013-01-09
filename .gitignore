@@ -3,6 +3,7 @@ swank/
 eshell/
 elpa/archives/
 auto-save-list/
+info/
 ac-comphist.dat
 places
 *.elc
