@@ -131,6 +131,16 @@
                              (add-to-list 'ac-sources 'ac-source-emacs-eclim)
                              (add-to-list 'ac-sources 'ac-source-emacs-eclim-c-dot)))
 
+;; c-eldoc
+(setq c-eldoc-includes "`pkg-config glib-2.0 gio-2.0 --cflags` -I/usr/include -I./ -I../ ")
+(load "c-eldoc")
+(add-hook 'c-mode-hook 'c-turn-on-eldoc-mode)
+
+;; elisp eldoc
+(add-hook 'emacs-lisp-mode-hook
+          '(lambda ()
+	     (turn-on-eldoc-mode)))
+
 ;; info docs
 (eval-after-load 'info
   '(progn
