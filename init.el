@@ -173,8 +173,8 @@
   "Split window and start nREPL client"
   (interactive)
   (split-window-right)
-  (nrepl
-	(string-to-number (read-from-minibuffer "Port: "))))
+  (nrepl "localhost"
+	 (string-to-number (read-from-minibuffer "Port: "))))
 
 (defun git-diff-tree ()
   (interactive)
