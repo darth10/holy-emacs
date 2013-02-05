@@ -97,9 +97,7 @@
 		(scala-mode-feature-electric-mode)))
 
 ;; nrepl
-(add-hook 'nrepl-interaction-mode-hook
-  'nrepl-turn-on-eldoc-mode)
-(setq nrepl-tab-command 'indent-for-tab-command)
+(add-hook 'nrepl-interaction-mode-hook 'nrepl-turn-on-eldoc-mode)
 (add-to-list 'same-window-buffer-names "*nrepl*")
 
 (add-hook 'nrepl-mode-hook 'subword-mode)
