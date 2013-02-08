@@ -8,3 +8,4 @@ ac-comphist.dat
 places
 *.elc
 *.el~
+/url/cookies
