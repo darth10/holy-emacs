@@ -103,6 +103,7 @@
 (add-hook 'nrepl-mode-hook 'subword-mode)
 (add-hook 'nrepl-mode-hook 'paredit-mode)
 (add-hook 'nrepl-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'nrepl-mode-hook 'clojure-test-mode)
 
 (add-hook 'clojure-mode-hook 'subword-mode)
 (add-hook 'clojure-mode-hook 'paredit-mode)
@@ -180,9 +181,12 @@
 
 (setq gdb-many-windows t)
 
+; nrepl shortcuts
 (global-set-key (kbd "C-x <f7>") 'split-and-term)
 (global-set-key (kbd "C-x <f8>") 'split-and-nrepl)
 (global-set-key (kbd "C-x C-<f8>") 'split-and-nrepl-jack-in)
+(global-set-key (kbd "C-x t") 'clojure-test-run-tests)
+(global-set-key (kbd "C-x T") 'clojure-test-run-test)
 
 ; gdb and info shortcuts
 (global-set-key (kbd "C-x <f11>") 'gdb)
