@@ -187,7 +187,8 @@
 
 (defun git-diff-tree ()
   (interactive)
-  (magit-diff-working-tree "HEAD"))
+  (magit-diff-working-tree "HEAD")
+  (other-window 1))
 
 (setq gdb-many-windows t)
 
