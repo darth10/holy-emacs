@@ -211,8 +211,10 @@
 
 (global-set-key (kbd "C-c (") 'paredit-mode)
 (global-set-key (kbd "M-g M-s") 'magit-status)
+(global-set-key (kbd "M-g d") 'vc-diff)
 (global-set-key (kbd "M-g M-d") 'git-diff-tree)
 (global-set-key (kbd "M-g M-f") 'helm-ls-git-ls)
+(global-set-key (kbd "M-g M-r") 'vc-git-grep)
 
 (put 'upcase-region 'disabled nil)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
