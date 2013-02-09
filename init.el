@@ -80,6 +80,7 @@
 ;; helm
 (add-to-list 'load-path "~/.emacs.d/helm/")
 (require 'helm-config)
+(require 'helm-ls-git)
 (helm-mode)
 
 ;; backup settings
@@ -209,8 +210,9 @@
 (global-set-key (kbd "<f8>") 'gud-cont)
 
 (global-set-key (kbd "C-c (") 'paredit-mode)
-(global-set-key (kbd "M-g s") 'magit-status)
-(global-set-key (kbd "M-g d") 'git-diff-tree)
+(global-set-key (kbd "M-g M-s") 'magit-status)
+(global-set-key (kbd "M-g M-d") 'git-diff-tree)
+(global-set-key (kbd "M-g M-f") 'helm-ls-git-ls)
 
 (put 'upcase-region 'disabled nil)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
