@@ -50,6 +50,10 @@
   '(button ((t (:background "green" :foreground "black"))))
   '(escape-glyph ((t (:foreground "#ddaa6f" :weight bold))))
   '(header-line ((((class color) (min-colors 89)) (:background "#303030" :foreground "#e7f6da"))))
+  '(helm-ff-directory ((t (:background "LightGray" :foreground "black"))))
+  '(helm-header ((t (:background "black" :foreground "dim gray"))))
+  '(helm-separator ((t (:foreground "gray"))))
+  '(helm-source-header ((t (:background "green" :foreground "black" :weight bold :height 1.0 :family "Courier New"))))
   '(highlight ((t (:background "#454545" :foreground "#ffffff" :underline t))))
   '(isearch ((t (:background "green" :foreground "black"))))
   '(lazy-highlight ((((class color) (min-colors 89)) (:background "#384048" :foreground "#a0a8b0"))))
@@ -72,6 +76,11 @@
 (push "/pi/pymatter/scala/bin/" exec-path)
 (push "/home/darth10/bin/" exec-path)
 (push "/usr/bin/" exec-path)
+
+;; helm
+(add-to-list 'load-path "~/.emacs.d/helm/")
+(require 'helm-config)
+(helm-mode)
 
 ;; backup settings
 (setq backup-directory-alist `(("." . "~/.emacs-saves")))
