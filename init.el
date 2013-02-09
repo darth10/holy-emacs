@@ -215,6 +215,7 @@
 (global-set-key (kbd "M-g M-d") 'git-diff-tree)
 (global-set-key (kbd "M-g M-f") 'helm-ls-git-ls)
 (global-set-key (kbd "M-g M-r") 'vc-git-grep)
+(global-set-key (kbd "M-g M-l") 'magit-log)
 
 (put 'upcase-region 'disabled nil)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
