@@ -146,9 +146,9 @@
 (add-hook 'c-mode-hook 'c-turn-on-eldoc-mode)
 
 ;; elisp eldoc
+(add-hook 'emacs-lisp-mode-hook 'paredit-mode)
 (add-hook 'emacs-lisp-mode-hook
-          '(lambda ()
-	     (turn-on-eldoc-mode)))
+          '(lambda () (turn-on-eldoc-mode)))
 
 ;; info docs
 (eval-after-load 'info
