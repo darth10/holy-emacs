@@ -163,6 +163,12 @@
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-iswitchb)
 
+;; recompile function
+(defun recompile-emacs-d ()
+  "Recompile everything in ~/.emacs.d"
+  (interactive)
+  (byte-recompile-directory (expand-file-name "~/.emacs.d") 0))
+
 ;; my shortcuts
 
 (defun split-and-term ()
