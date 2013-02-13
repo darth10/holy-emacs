@@ -92,6 +92,24 @@
 (define-key ac-complete-mode-map "\t" 'ac-complete)
 (define-key ac-complete-mode-map "\r" nil)
 
+;; ruby-electric
+(require 'ruby-mode)
+(add-to-list 'auto-mode-alist '("\\.rb\\'" . ruby-mode))
+(autoload 'ruby-mode "ruby-mode" "Major mode for editing Ruby code" t)
+(add-hook 'ruby-mode-hook (lambda () (local-set-key "\r" 'newline-and-indent)))
+
+(defun ruby-insert-end ()
+  "Insert \"end\" at point and reindent current line."
+  (interactive)
+  (insert "end")
+  (ruby-indent-line t)
+  (end-of-line))
+
+(add-hook 'ruby-mode-hook
+	  (lambda ()
+	    (require 'ruby-electric)
+	    (ruby-electric-mode t)))
+
 ;; scala-mode
 (add-to-list 'load-path "~/.emacs.d/scala-emacs")
 (require 'scala-mode-auto)
