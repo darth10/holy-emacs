@@ -24,8 +24,6 @@
  '(ebnf-terminal-font (quote (11 Matrix "Black" "White")))
  '(eclim-eclipse-dirs (quote ("/usr/lib/eclipse")))
  '(eclimd-executable nil)
- '(ensime-graphical-tooltips t)
- '(ensime-sbt-compile-on-save nil)
  '(fancy-splash-image nil)
  '(global-eclim-mode t)
  '(inhibit-default-init t)
