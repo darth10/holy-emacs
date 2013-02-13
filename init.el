@@ -22,10 +22,7 @@
  '(custom-safe-themes (quote ("3d84717766913e2deb8cadf7ddee8d64db1a6bcc4de7e4e36fc1bcca8727ded5" "915cfe1e618f69b4eecd8decc182cd97e5b88b675a6d8c54b18fdcc84c4b14a7" "d360b815962bdfb45c4f77dfb9a60d2c9efc72eeb52f96b781201bb271a665b6" "c6174d0904327dc80cf2615340d4ff773e7cb28d295d51b41b0aa78385a5c54a" "cef9254a1332af631898cf793fe3b3081685088db57001899c6ab3148f4cdc85" "79757ce4abcf1d7bbc7698215a7c4a73f0c4a35118a8f9106ebb1bbcf6d5a693" "af07043eef48c8b9868add839d195e78dc21ba7d63a9fd1be3db47ec3cecb860" "446ea630982d51dd3ee7bbb813151a72f2246b2646a2198564b9b8106de8f155" "7641335320fa8e6a311491f58f0e5c3733b44a7936148d4349381d119f6cca83" "946efabf968fa25ced521351c5901a378cad402669cbce92b72983cd852cd750" default)))
  '(ebnf-non-terminal-font (quote (11 Matrix "Black" "White")))
  '(ebnf-terminal-font (quote (11 Matrix "Black" "White")))
- '(eclim-eclipse-dirs (quote ("/usr/lib/eclipse")))
- '(eclimd-executable nil)
  '(fancy-splash-image nil)
- '(global-eclim-mode t)
  '(inhibit-default-init t)
  '(inhibit-startup-screen t)
  '(initial-buffer-choice "~/pymatter/")
@@ -121,21 +118,6 @@
       (if (or (locate-file "lein" exec-path) (locate-file "lein.bat" exec-path))
 	  "lein ritz-in %s"
 	"echo \"lein ritz-in %s\" | $SHELL -l"))
-
-;; eclim
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/eclim/"))
-;; only add the vendor path when you want to use the libraries provided with emacs-eclim
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/eclim/vendor"))
-(require 'eclim)
-
-(setq eclim-auto-save t)
-(global-eclim-mode)
-
-;; add the emacs-eclim source
-(require 'ac-emacs-eclim-source)
-(add-hook 'eclim-mode-hook (lambda ()
-                             (add-to-list 'ac-sources 'ac-source-emacs-eclim)
-                             (add-to-list 'ac-sources 'ac-source-emacs-eclim-c-dot)))
 
 ;; c-eldoc
 (setq c-eldoc-includes "`pkg-config glib-2.0 gio-2.0 --cflags` -I/usr/include -I./ -I../ ")

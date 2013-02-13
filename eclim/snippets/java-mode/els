@@ -1,5 +1,0 @@
-#name : else { ... }
-# --
-else {
-  `yas/selected-text`$0
-} 
