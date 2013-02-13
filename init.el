@@ -73,8 +73,7 @@
   '(rainbow-delimiters-unmatched-face ((t (:foreground "medium orchid"))))
   '(region ((t (:background "white" :foreground "black"))))))
 
-(push "/pi/pymatter/scala/bin/" exec-path)
-(push "/home/darth10/bin/" exec-path)
+(push "/home/darth10/pymatter/bin/" exec-path)
 (push "/usr/bin/" exec-path)
 
 ;; helm
