@@ -151,7 +151,6 @@ This should only be called after matching against `ruby-here-doc-end-re'."
     (define-key map (kbd "M-C-n") 'ruby-end-of-block)
     (define-key map (kbd "M-C-h") 'ruby-mark-defun)
     (define-key map (kbd "M-C-q") 'ruby-indent-exp)
-    (define-key map (kbd "TAB")   'ruby-indent-line)
     (define-key map (kbd "C-M-h") 'backward-kill-word)
     (define-key map (kbd "C-j")   'reindent-then-newline-and-indent)
     (define-key map (kbd "C-m")   'newline)
@@ -768,7 +767,7 @@ and `\\' when preceded by `?'."
           (setq indent (ruby-indent-size (current-column) (nth 2 state))))
          (t
           (setq indent (+ (current-column) ruby-indent-level)))))
-       
+
        ((and (nth 2 state) (< (nth 2 state) 0)) ; in negative nest
         (setq indent (ruby-indent-size (current-column) (nth 2 state)))))
       (when indent
