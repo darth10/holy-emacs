@@ -117,6 +117,7 @@
   (require 'yari)
   (rvm-use-default)
   (local-set-key (kbd "C-?") 'yari)
+  (local-set-key (kbd "C-c i") 'run-ruby)
   (local-set-key (kbd "C-c r") 'rinari-rake)
   (local-set-key (kbd "C-x T") 'rinari-run-all-test)
   (ruby-electric-mode t))

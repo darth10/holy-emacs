@@ -47,7 +47,7 @@
 
 (defvar inf-ruby-mode-map
   (let ((map (copy-keymap comint-mode-map)))
-    (define-key map (kbd "C-c C-l") 'inf-ruby-load-file)
+    (define-key map (kbd "C-c C-k") 'inf-ruby-load-file)
     (define-key map (kbd "C-x C-e") 'ruby-send-last-sexp)
     (define-key map (kbd "TAB") 'inf-ruby-complete)
     map)
@@ -91,7 +91,7 @@ next one.")
   (define-key ruby-mode-map "\C-c\C-r" 'ruby-send-region)
   (define-key ruby-mode-map "\C-c\M-r" 'ruby-send-region-and-go)
   (define-key ruby-mode-map "\C-c\C-z" 'ruby-switch-to-inf)
-  (define-key ruby-mode-map "\C-c\C-l" 'ruby-load-file)
+  (define-key ruby-mode-map "\C-c\C-k" 'ruby-load-file)
   (define-key ruby-mode-map "\C-c\C-s" 'inf-ruby))
 
 (defvar inf-ruby-buffer nil "Current irb process buffer.")
