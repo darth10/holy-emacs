@@ -105,14 +105,23 @@
   (ruby-indent-line t)
   (end-of-line))
 
-(add-hook 'ruby-mode-hook
-	  (lambda ()
-	    (require 'rvm)
-	    (require 'ruby-electric)
-	    (require 'yari)
-	    (rvm-use-default)
-	    (local-set-key (kbd "C-?") 'yari)
-	    (ruby-electric-mode t)))
+(defun rinari-run-all-test ()
+  (interactive)
+  (rinari-rake "test"))
+
+(defun my-ruby-setup ()
+  (require 'rvm)
+  (require 'ruby-electric)
+  (require 'ido)
+  (require 'rinari)
+  (require 'yari)
+  (rvm-use-default)
+  (local-set-key (kbd "C-?") 'yari)
+  (local-set-key (kbd "C-c r") 'rinari-rake)
+  (local-set-key (kbd "C-x T") 'rinari-run-all-test)
+  (ruby-electric-mode t))
+
+(add-hook 'ruby-mode-hook 'my-ruby-setup)
 
 ;; scala-mode
 (add-to-list 'load-path "~/.emacs.d/scala-emacs")
