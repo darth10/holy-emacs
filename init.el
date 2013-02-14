@@ -142,7 +142,9 @@
 (add-hook 'nrepl-mode-hook 'clojure-test-mode)
 
 (defun my-clojure-setup  ()
-  (local-set-key (kbd "C-?") 'nrepl-doc))
+  (local-set-key (kbd "C-?") 'nrepl-doc)
+  (local-set-key (kbd "C-x T") 'clojure-test-run-tests)
+  (local-set-key (kbd "C-x t") 'clojure-test-run-test))
 
 (add-hook 'nrepl-interaction-mode-hook 'my-clojure-setup)
 
@@ -218,8 +220,6 @@
 (global-set-key (kbd "C-x <f7>") 'split-and-term)
 (global-set-key (kbd "C-x <f8>") 'split-and-nrepl)
 (global-set-key (kbd "C-x C-<f8>") 'split-and-nrepl-jack-in)
-(global-set-key (kbd "C-x t") 'clojure-test-run-tests)
-(global-set-key (kbd "C-x T") 'clojure-test-run-test)
 
 ; gdb and info shortcuts
 (global-set-key (kbd "C-x <f11>") 'gdb)
