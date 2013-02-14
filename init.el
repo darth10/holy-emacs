@@ -107,7 +107,11 @@
 
 (add-hook 'ruby-mode-hook
 	  (lambda ()
+	    (require 'rvm)
 	    (require 'ruby-electric)
+	    (require 'yari)
+	    (rvm-use-default)
+	    (local-set-key (kbd "C-?") 'yari)
 	    (ruby-electric-mode t)))
 
 ;; scala-mode
@@ -204,7 +208,7 @@
 
 ; gdb and info shortcuts
 (global-set-key (kbd "C-x <f11>") 'gdb)
-(global-set-key (kbd "C-x <f3>") 'info-lookup-symbol)
+(global-set-key (kbd "C-?") 'info-lookup-symbol)
 (global-set-key (kbd "C-<f11>") 'gdb-display-gdb-buffer)
 (global-set-key (kbd "<f12>") 'gdb-display-source-buffer)
 (global-set-key (kbd "<f11>") 'gud-run)
