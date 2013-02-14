@@ -140,6 +140,11 @@
 (add-hook 'nrepl-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'nrepl-mode-hook 'clojure-test-mode)
 
+(defun my-clojure-setup  ()
+  (local-set-key (kbd "C-?") 'nrepl-doc))
+
+(add-hook 'nrepl-interaction-mode-hook 'my-clojure-setup)
+
 (add-hook 'clojure-mode-hook 'subword-mode)
 (add-hook 'clojure-mode-hook 'paredit-mode)
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
