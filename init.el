@@ -76,6 +76,7 @@
 (require 'helm-config)
 (require 'helm-ls-git)
 (helm-mode)
+(global-set-key (kbd "C-x <f2>") 'helm-imenu)
 
 ;; backup settings
 (setq backup-directory-alist `(("." . "~/.emacs-saves")))
