@@ -129,9 +129,7 @@
 (add-to-list 'load-path "~/.emacs.d/scala-emacs")
 (require 'scala-mode-auto)
 
-(add-hook 'scala-mode-hook
-	'(lambda ()
-		(scala-mode-feature-electric-mode)))
+(add-hook 'scala-mode-hook '(lambda () (scala-mode-feature-electric-mode)))
 
 ;; nrepl
 (add-hook 'nrepl-interaction-mode-hook 'nrepl-turn-on-eldoc-mode)
@@ -165,9 +163,10 @@
 (add-hook 'c-mode-hook 'c-turn-on-eldoc-mode)
 
 ;; elisp eldoc
+
 (add-hook 'emacs-lisp-mode-hook 'paredit-mode)
-(add-hook 'emacs-lisp-mode-hook
-          '(lambda () (turn-on-eldoc-mode)))
+(add-hook 'emacs-lisp-mode-hook '(lambda () (turn-on-eldoc-mode)))
+(add-hook 'lisp-interaction-mode-hook '(lambda () (local-set-key (kbd "C-c C-k") 'eval-print-last-sexp)))
 
 ;; info docs
 (eval-after-load 'info
