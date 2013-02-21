@@ -252,4 +252,5 @@
 (global-set-key (kbd "M-g M-l") 'magit-log)
 
 (put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
