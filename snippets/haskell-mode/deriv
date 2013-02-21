@@ -1,0 +1,4 @@
+#name : deriving
+#contributor : Michel Rijnders <g.a.c.rijnders@gmail.com>
+# --
+deriving (${1:classes})

@@ -99,6 +99,8 @@
 (defun my-haskell-setup ()
   (turn-on-haskell-doc-mode)
   (haskell-indent-mode)
+  (yas/minor-mode)
+  (local-set-key (kbd "C-<tab>") 'dabbrev-expand)
   (local-set-key (kbd "C-c C-k") 'inferior-haskell-load-file))
 
 (add-hook 'haskell-mode-hook 'my-haskell-setup)

@@ -1,0 +1,4 @@
+#name : arrow
+#contributor : Akhil Wali <akhil.wali.10@gmail.com>
+# --
+${1:x} -> $0

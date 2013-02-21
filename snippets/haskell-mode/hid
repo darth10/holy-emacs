@@ -1,0 +1,4 @@
+#name : hiding
+#contributor : Michel Rijnders <g.a.c.rijnders@gmail.com>
+# --
+hiding (${1:names})

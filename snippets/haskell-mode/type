@@ -1,0 +1,4 @@
+#name : type
+#contributor : Michel Rijnders <g.a.c.rijnders@gmail.com>
+# --
+type ${1:Synonym} = ${2:Base}

@@ -1,0 +1,4 @@
+#name : type declaration with constraint
+#contributor : Akhil Wali <akhil.wali.10@gmail.com>
+# --
+${1:func} :: (${2:C a}) => ${3:a} -> ${4:b}

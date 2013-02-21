@@ -1,0 +1,5 @@
+#name : import hiding
+#contributor : Michel Rijnders <g.a.c.rijnders@gmail.com>
+# --
+import ${1:module} hiding (${2:names})
+$0

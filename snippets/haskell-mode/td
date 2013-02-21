@@ -1,0 +1,4 @@
+#name : type declaration
+#contributor : Akhil Wali <akhil.wali.10@gmail.com>
+# --
+${1:func} :: ${2:a} -> ${3:b}

@@ -1,0 +1,5 @@
+#name : class
+#contributor : Akhil Wali <akhil.wali.10@gmail.com>
+# --
+class ${1:Name} where
+    $0
