@@ -93,6 +93,17 @@
 (define-key ac-complete-mode-map "\t" 'ac-complete)
 (define-key ac-complete-mode-map "\r" nil)
 
+;; haskell-mode
+(require 'haskell-mode)
+(require 'ghci-completion)
+(defun my-haskell-setup ()
+  (turn-on-haskell-doc-mode)
+  (haskell-indent-mode)
+  (local-set-key (kbd "C-c C-k") 'inferior-haskell-load-file))
+
+(add-hook 'haskell-mode-hook 'my-haskell-setup)
+(add-hook 'inferior-haskell-mode-hook 'ghci-completion-mode)
+
 ;; ruby-electric
 (require 'ruby-mode)
 (add-to-list 'auto-mode-alist '("\\.rb\\'" . ruby-mode))
