@@ -78,6 +78,11 @@
 (helm-mode)
 (global-set-key (kbd "C-x <f2>") 'helm-imenu)
 
+;; move regions
+(require 'regions)
+(global-set-key (kbd "M-<up>") 'move-line-region-up)
+(global-set-key (kbd "M-<down>") 'move-line-region-down)
+
 ;; backup settings
 (setq backup-directory-alist `(("." . "~/.emacs-saves")))
 
