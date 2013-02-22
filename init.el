@@ -96,15 +96,23 @@
 ;; haskell-mode
 (require 'haskell-mode)
 (require 'ghci-completion)
+
+(defun my-haskell-bindings ()
+  (local-set-key (kbd "C-<tab>") 'dabbrev-expand))
+
 (defun my-haskell-setup ()
   (turn-on-haskell-doc-mode)
   (haskell-indent-mode)
   (yas/minor-mode)
-  (local-set-key (kbd "C-<tab>") 'dabbrev-expand)
+  (my-haskell-bindings)
   (local-set-key (kbd "C-c C-k") 'inferior-haskell-load-file))
 
+(defun my-haskell-inf-setup ()
+  (ghci-completion-mode)
+  (my-haskell-bindings))
+
 (add-hook 'haskell-mode-hook 'my-haskell-setup)
-(add-hook 'inferior-haskell-mode-hook 'ghci-completion-mode)
+(add-hook 'inferior-haskell-mode-hook 'my-haskell-inf-setup)
 
 ;; ruby-electric
 (require 'ruby-mode)
