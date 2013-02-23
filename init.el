@@ -122,6 +122,11 @@
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-iswitchb)
 
+(defun list-processes-and-switch ()
+  (interactive)
+  (list-processes)
+  (other-window 1))
+
 (defun move-to-window ()
   (interactive)
   (let ((wind-key (read-key "Select next window")))
@@ -149,6 +154,7 @@
   (other-window 1))
 
 (global-set-key (kbd "C-x <f7>") 'split-and-term)
+(global-set-key (kbd "C-x <f3>") 'list-processes-and-switch)
 (global-set-key (kbd "C-|") 'move-to-window)
 (global-set-key (kbd "C-?") 'info-lookup-symbol)
 (global-set-key (kbd "C-c (") 'paredit-mode)
