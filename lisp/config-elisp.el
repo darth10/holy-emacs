@@ -8,6 +8,7 @@
 (defun configure-elisp ()
   (paredit-mode)
   (turn-on-eldoc-mode)
+  (local-set-key "\r" 'newline-and-indent)
   (local-set-key (kbd "C-x <f10>") 'split-and-ielm)
   (local-set-key (kbd "C-x <f5>") 'eval-buffer))
 
