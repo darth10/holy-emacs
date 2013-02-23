@@ -86,11 +86,12 @@
 ;; backup settings
 (setq backup-directory-alist `(("." . "~/.emacs-saves")))
 
+;; yasnippet
 (require 'yasnippet-bundle)
 (setq yas/root-directory "~/.emacs.d/snippets")
 (yas/load-directory yas/root-directory)
 
-;; auto complete
+;; auto-complete
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
 (ac-config-default)
@@ -98,101 +99,14 @@
 (define-key ac-complete-mode-map "\t" 'ac-complete)
 (define-key ac-complete-mode-map "\r" nil)
 
-;; haskell-mode
-(require 'haskell-mode)
-(require 'ghci-completion)
+;; language configurations
+(require 'config-clojure)
+(require 'config-ruby)
+(require 'config-haskell)
+(require 'config-scala)
+(require 'config-elisp)
 
-(defun my-haskell-bindings ()
-  (local-set-key (kbd "C-<tab>") 'dabbrev-expand))
-
-(defun my-haskell-setup ()
-  (turn-on-haskell-doc-mode)
-  (haskell-indent-mode)
-  (yas/minor-mode)
-  (my-haskell-bindings)
-  (local-set-key (kbd "C-c C-k") 'inferior-haskell-load-file))
-
-(defun my-haskell-inf-setup ()
-  (ghci-completion-mode)
-  (my-haskell-bindings))
-
-(add-hook 'haskell-mode-hook 'my-haskell-setup)
-(add-hook 'inferior-haskell-mode-hook 'my-haskell-inf-setup)
-
-;; ruby-electric
-(require 'ruby-mode)
-(add-to-list 'auto-mode-alist '("\\.rb\\'" . ruby-mode))
-(autoload 'ruby-mode "ruby-mode" "Major mode for editing Ruby code" t)
-(add-hook 'ruby-mode-hook (lambda () (local-set-key "\r" 'newline-and-indent)))
-
-(defun ruby-insert-end ()
-  "Insert \"end\" at point and reindent current line."
-  (interactive)
-  (insert "end")
-  (ruby-indent-line t)
-  (end-of-line))
-
-(defun rinari-run-all-test ()
-  (interactive)
-  (rinari-rake "test"))
-
-(defun my-ruby-setup ()
-  (require 'rvm)
-  (require 'ruby-electric)
-  (require 'ido)
-  (require 'rinari)
-  (require 'yari)
-  (rvm-use-default)
-  (local-set-key (kbd "C-?") 'yari)
-  (local-set-key (kbd "C-c i") 'run-ruby)
-  (local-set-key (kbd "C-c r") 'rinari-rake)
-  (local-set-key (kbd "C-x T") 'rinari-run-all-test)
-  (ruby-electric-mode t))
-
-(add-hook 'ruby-mode-hook 'my-ruby-setup)
-
-;; scala-mode
-(add-to-list 'load-path "~/.emacs.d/scala-emacs")
-(require 'scala-mode-auto)
-
-(add-hook 'scala-mode-hook '(lambda () (scala-mode-feature-electric-mode)))
-
-;; nrepl
-(add-hook 'nrepl-interaction-mode-hook 'nrepl-turn-on-eldoc-mode)
-(add-to-list 'same-window-buffer-names "*nrepl*")
-
-(add-hook 'nrepl-mode-hook 'subword-mode)
-(add-hook 'nrepl-mode-hook 'paredit-mode)
-(add-hook 'nrepl-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'nrepl-mode-hook 'clojure-test-mode)
-
-(defun my-clojure-setup  ()
-  (local-set-key (kbd "C-?") 'nrepl-doc)
-  (local-set-key (kbd "C-x T") 'clojure-test-run-tests)
-  (local-set-key (kbd "C-x t") 'clojure-test-run-test))
-
-(add-hook 'nrepl-interaction-mode-hook 'my-clojure-setup)
-
-(add-hook 'clojure-mode-hook 'subword-mode)
-(add-hook 'clojure-mode-hook 'paredit-mode)
-(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
-
-;; ritz
-(setq clojure-swank-command
-      (if (or (locate-file "lein" exec-path) (locate-file "lein.bat" exec-path))
-	  "lein ritz-in %s"
-	"echo \"lein ritz-in %s\" | $SHELL -l"))
-
-;; c-eldoc
-(setq c-eldoc-includes "`pkg-config glib-2.0 gio-2.0 --cflags` -I/usr/include -I./ -I../ ")
-(load "c-eldoc")
-(add-hook 'c-mode-hook 'c-turn-on-eldoc-mode)
-
-;; elisp eldoc
-
-(add-hook 'emacs-lisp-mode-hook 'paredit-mode)
-(add-hook 'emacs-lisp-mode-hook '(lambda () (turn-on-eldoc-mode)))
-(add-hook 'lisp-interaction-mode-hook '(lambda () (local-set-key (kbd "C-c C-k") 'eval-print-last-sexp)))
+(require 'config-c) ;; linux only
 
 ;; info docs
 (eval-after-load 'info
@@ -207,13 +121,10 @@
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-iswitchb)
 
-;; recompile function
 (defun recompile-emacs-d ()
   "Recompile everything in ~/.emacs.d"
   (interactive)
   (byte-recompile-directory (expand-file-name "~/.emacs.d") 0))
-
-;; my shortcuts
 
 (defun split-and-term ()
   "Split window and start terminal"
@@ -222,43 +133,15 @@
   (other-window 1)
   (term "/bin/bash"))
 
-(defun split-and-nrepl-jack-in ()
-  "Split window and start nREPL"
-  (interactive)
-  (split-window-right)
-  (nrepl-jack-in nil))
-
-(defun split-and-nrepl ()
-  "Split window and start nREPL client"
-  (interactive)
-  (split-window-right)
-  (nrepl "localhost"
-	 (string-to-number (read-from-minibuffer "Port: "))))
-
 (defun git-diff-tree ()
   (interactive)
   (magit-diff-working-tree "HEAD")
   (other-window 1))
 
-(setq gdb-many-windows t)
-
-; nrepl shortcuts
 (global-set-key (kbd "C-x <f7>") 'split-and-term)
-(global-set-key (kbd "C-x <f8>") 'split-and-nrepl)
-(global-set-key (kbd "C-x C-<f8>") 'split-and-nrepl-jack-in)
-
-; gdb and info shortcuts
-(global-set-key (kbd "C-x <f11>") 'gdb)
 (global-set-key (kbd "C-?") 'info-lookup-symbol)
-(global-set-key (kbd "C-<f11>") 'gdb-display-gdb-buffer)
-(global-set-key (kbd "<f12>") 'gdb-display-source-buffer)
-(global-set-key (kbd "<f11>") 'gud-run)
-(global-set-key (kbd "<f5>") 'gud-step)
-(global-set-key (kbd "<f6>") 'gud-next)
-(global-set-key (kbd "<f7>") 'gud-finish)
-(global-set-key (kbd "<f8>") 'gud-cont)
-
 (global-set-key (kbd "C-c (") 'paredit-mode)
+
 (global-set-key (kbd "M-g M-s") 'magit-status)
 (global-set-key (kbd "M-g d") 'vc-diff)
 (global-set-key (kbd "M-g M-d") 'git-diff-tree)
