@@ -29,6 +29,7 @@
   (nrepl-switch-to-repl-buffer))
 
 (defun clojure-bindings ()
+  (local-set-key "\r" 'newline-and-indent)
   (local-set-key (kbd "C-x <f10>") 'split-and-nrepl-jack-in)
   (local-set-key (kbd "C-x <f5>") 'load-file-in-nrepl)
   (local-set-key (kbd "C-x <f8>") 'split-and-nrepl))

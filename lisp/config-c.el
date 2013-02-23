@@ -8,6 +8,7 @@
 
 (defun configure-c ()
   (c-turn-on-eldoc-mode)
+  (local-set-key "\r" 'newline-and-indent)
   (local-set-key (kbd "C-x <f10>") 'gdb)
   (local-set-key (kbd "C-x <f5>") 'gud-run)
   (local-set-key (kbd "<f5>") 'gud-step)
