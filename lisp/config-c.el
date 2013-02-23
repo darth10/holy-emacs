@@ -10,12 +10,12 @@
   (c-turn-on-eldoc-mode)
   (local-set-key (kbd "C-x <f10>") 'gdb)
   (local-set-key (kbd "C-x <f5>") 'gud-run)
-  (local-set-key (kbd "C-<f11>") 'gdb-display-gdb-buffer)
   (local-set-key (kbd "<f5>") 'gud-step)
   (local-set-key (kbd "<f6>") 'gud-next)
   (local-set-key (kbd "<f7>") 'gud-finish)
   (local-set-key (kbd "<f8>") 'gud-cont)
-  (local-set-key (kbd "<f12>") 'gdb-display-source-buffer))
+  (local-set-key (kbd "<f11>") 'gdb-display-gdb-buffer)
+  (local-set-key (kbd "<f12>") 'gdb-display-disassembly-buffer))
 
 (add-hook 'c-mode-hook 'configure-c)
 
