@@ -101,6 +101,7 @@
 (define-key ac-complete-mode-map "\r" nil)
 
 ;; language configurations
+(require 'config-js)
 (require 'config-clojure)
 (require 'config-ruby)
 (require 'config-haskell)
