@@ -75,6 +75,7 @@
 (add-to-list 'load-path "~/.emacs.d/helm/")
 (require 'helm-config)
 (require 'helm-ls-git)
+(setq helm-split-window-default-side 'same)
 (helm-mode)
 (global-set-key (kbd "C-x <f2>") 'helm-imenu)
 
