@@ -456,23 +456,23 @@ Paredit behaves badly if parentheses are imbalanced, so exercise
                  "|body"))
 
    "Barfage & Slurpage"
-   (("C-)" "C-<right>")
+   (("C-)" "M-<right>")
                 paredit-forward-slurp-sexp
                 ("(foo (bar |baz) quux zot)"
                  "(foo (bar |baz quux) zot)")
                 ("(a b ((c| d)) e f)"
                  "(a b ((c| d) e) f)"))
-   (("C-}" "C-<left>")
+   (("C-}" "M-<left>")
                 paredit-forward-barf-sexp
                 ("(foo (bar |baz quux) zot)"
                  "(foo (bar |baz) quux zot)"))
-   (("C-(" "C-M-<left>" "ESC C-<left>")
+   (("C-(" "C-M-<left>" "ESC M-<left>")
                 paredit-backward-slurp-sexp
                 ("(foo bar (baz| quux) zot)"
                  "(foo (bar baz| quux) zot)")
                 ("(a b ((c| d)) e f)"
                  "(a (b (c| d)) e f)"))
-   (("C-{" "C-M-<right>" "ESC C-<right>")
+   (("C-{" "C-M-<right>" "ESC M-<right>")
                 paredit-backward-barf-sexp
                 ("(foo (bar baz |quux) zot)"
                  "(foo bar (baz |quux) zot)"))
