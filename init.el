@@ -122,6 +122,15 @@
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-iswitchb)
 
+(defun move-to-window ()
+  (interactive)
+  (let ((wind-key (read-key "Select next window")))
+    (cond ((eq wind-key 'left)  (windmove-left))
+	  ((eq wind-key 'right) (windmove-right))
+	  ((eq wind-key 'up)    (windmove-up))
+	  ((eq wind-key 'down)  (windmove-down))
+	  (t                    (message "Unknown window")))))
+
 (defun recompile-emacs-d ()
   "Recompile everything in ~/.emacs.d"
   (interactive)
@@ -140,6 +149,7 @@
   (other-window 1))
 
 (global-set-key (kbd "C-x <f7>") 'split-and-term)
+(global-set-key (kbd "C-|") 'move-to-window)
 (global-set-key (kbd "C-?") 'info-lookup-symbol)
 (global-set-key (kbd "C-c (") 'paredit-mode)
 
