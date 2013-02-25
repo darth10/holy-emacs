@@ -4,6 +4,7 @@ eshell/
 elpa/archives/
 auto-save-list/
 info/
+server/
 ac-comphist.dat
 places
 *.elc
