@@ -3,8 +3,10 @@
 (require 'haskell-mode)
 (require 'ghci-completion)
 
-(defun haskell-bindings ()
-  (local-set-key "\r" 'newline-and-indent)
+(defun haskell-newline-binding ()
+  (local-set-key "\r" 'newline-and-indent))
+
+(defun haskell-complete-binding ()
   (local-set-key (kbd "C-<tab>") 'dabbrev-expand))
 
 (defun load-file-in-inf-haskell ()
@@ -16,16 +18,17 @@
   (turn-on-haskell-doc-mode)
   (haskell-indent-mode)
   (yas/minor-mode)
-  (haskell-bindings)
+  (haskell-newline-binding)
+  (haskell-complete-binding)
   (local-set-key (kbd "C-x <f10>") 'switch-to-haskell)
   (local-set-key (kbd "C-x <f5>") 'load-file-in-inf-haskell))
 
 (defun configure-haskell-cabal ()
-  (haskell-bindings))
+  (haskell-newline-binding))
 
 (defun configure-haskell-inf ()
   (ghci-completion-mode)
-  (haskell-bindings))
+  (haskell-complete-binding))
 
 (add-hook 'haskell-mode-hook 'configure-haskell)
 (add-hook 'inferior-haskell-mode-hook 'configure-haskell-inf)
