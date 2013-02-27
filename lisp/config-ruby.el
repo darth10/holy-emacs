@@ -29,7 +29,7 @@
   (local-set-key (kbd "C-?") 'yari)
   (local-set-key (kbd "C-x <f10>") 'run-ruby)
   (local-set-key (kbd "C-x <f5>") 'load-file-in-inf-ruby)
-  (local-set-key (kbd "C-c r") 'rinari-rake)
+  (local-set-key (kbd "C-x <f8>") 'rinari-rake)
   (local-set-key (kbd "C-x T") 'rinari-run-all-test)
   (ruby-electric-mode t))
 
