@@ -129,6 +129,24 @@
   (list-processes)
   (other-window 1))
 
+(defun w-resize (key)
+  "Interactively resize the window"
+  (interactive "cUse {/} to resize vertically, or </> to resize horizontally")
+  (cond
+   ((eq key (string-to-char "{"))
+    (enlarge-window 1)
+    (call-interactively 'w-resize))
+   ((eq key (string-to-char "}"))
+    (enlarge-window -1)
+    (call-interactively 'w-resize))
+   ((eq key (string-to-char ">"))
+    (enlarge-window-horizontally 1)
+    (call-interactively 'w-resize))
+   ((eq key (string-to-char "<"))
+    (enlarge-window-horizontally -1)
+    (call-interactively 'w-resize))
+   (t (push key unread-command-events))))
+
 (defun move-to-window ()
   (interactive)
   (let ((wind-key (read-key "Select next window")))
@@ -160,6 +178,7 @@
 (global-set-key (kbd "C-|") 'move-to-window)
 (global-set-key (kbd "C-?") 'info-lookup-symbol)
 (global-set-key (kbd "C-c (") 'paredit-mode)
+(global-set-key (kbd "C-c +") 'w-resize)
 
 (global-set-key (kbd "M-g M-s") 'magit-status)
 (global-set-key (kbd "M-g d") 'vc-diff)
