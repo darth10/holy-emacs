@@ -124,6 +124,10 @@
 (global-set-key "\C-cb" 'org-iswitchb)
 (add-hook 'org-mode-hook 'auto-complete-mode)
 
+;; dynamic cursor color
+(require 'hcz-cursor)
+(add-hook 'post-command-hook 'hcz-set-cursor-color-according-to-mode)
+
 (defun list-processes-and-switch ()
   (interactive)
   (list-processes)
