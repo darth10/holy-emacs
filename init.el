@@ -108,7 +108,9 @@
 (require 'config-scala)
 (require 'config-elisp)
 
-(require 'config-c) ;; linux only
+;; linux only
+(require 'config-c)
+(require 'config-guile)
 
 ;; info docs
 (eval-after-load 'info
