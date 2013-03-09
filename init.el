@@ -116,6 +116,21 @@
      (push "/opt/local/share/info" Info-default-directory-list)
      (push "~/.emacs.d/info" Info-default-directory-list)))
 
+;; breadcrumb
+(require 'breadcrumb)
+(defun bc-clear-and-msg ()
+  (interactive)
+  (bc-clear)
+  (message "All breadcrumbs deleted!"))
+
+(global-set-key (kbd "C-c C-b") 'bc-set)
+(global-set-key (kbd "C-c M-b") 'bc-list)
+(global-set-key (kbd "C-c C-S-b") 'bc-clear-and-msg)
+(global-set-key (kbd "C-c C-<left>") 'bc-previous)
+(global-set-key (kbd "C-c C-<right>") 'bc-next)
+(global-set-key (kbd "C-c C-<up>") 'bc-local-previous)
+(global-set-key (kbd "C-c C-<down>") 'bc-local-next)
+
 ;; org-mode shortcuts
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 (global-set-key "\C-cl" 'org-store-link)
