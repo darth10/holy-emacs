@@ -3,7 +3,7 @@
 (setq gdb-many-windows t)
 
 ;; eldoc
-(setq c-eldoc-includes "`pkg-config glib-2.0 gio-2.0 --cflags` -I/usr/include -I./ -I../ ")
+(setq c-eldoc-includes "`pkg-config glib-2.0 gio-2.0 --cflags` `guile-config compile` -I/usr/include -I./ -I../ ")
 (load "c-eldoc")
 
 (defun configure-c ()
