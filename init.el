@@ -208,6 +208,10 @@
 (global-set-key (kbd "M-g M-r") 'vc-git-grep)
 (global-set-key (kbd "M-g M-l") 'magit-log)
 
+(require 'highlight-token)
+(global-set-key (kbd "C-<f3>") 'hlt-highlight-current-word)
+(global-set-key (kbd "C-S-<f3>") 'hlt-unhighlight-all-prop)
+
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
