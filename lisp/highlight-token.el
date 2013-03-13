@@ -10,8 +10,7 @@
     (hlt-next-highlight)
     (call-interactively 'hlt-interactive-search))
    ((eq key 27)                  ;; escape key
-    (hlt-unhighlight-all-prop t)
-    (push key unread-command-events))
+    (hlt-unhighlight-all-prop t))
    (t
     (push key unread-command-events))))
 
