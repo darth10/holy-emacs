@@ -6,6 +6,9 @@
       "http://marmalade-repo.org/packages/"))
 (package-initialize)
 
+;; highlight current line
+(global-hl-line-mode t)
+
 ;; rainbow parens
 (require 'rainbow-delimiters)
 (global-rainbow-delimiters-mode)
@@ -49,7 +52,8 @@
   '(helm-header ((t (:background "black" :foreground "dim gray"))))
   '(helm-separator ((t (:foreground "gray"))))
   '(helm-source-header ((t (:background "green" :foreground "black" :weight bold :height 1.0 :family "Courier New"))))
-  '(highlight ((t (:background "#454545" :foreground "#ffffff" :underline t))))
+  '(highlight ((t (:background "#454545" :foreground "#ffffff"))))
+  '(hl-line ((t (:background "gray27" :foreground "green"))))
   '(isearch ((t (:background "green" :foreground "black"))))
   '(lazy-highlight ((((class color) (min-colors 89)) (:background "#384048" :foreground "#a0a8b0"))))
   '(minibuffer-prompt ((t (:foreground "green"))))
