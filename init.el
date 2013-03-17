@@ -200,7 +200,8 @@
 
 (global-set-key (kbd "C-x <f7>") 'split-and-term)
 (global-set-key (kbd "C-x <f3>") 'list-processes-and-switch)
-(global-set-key (kbd "C-x <f6>") 'linum-mode)
+(global-set-key (kbd "C-<f4>") 'global-hl-line-mode)
+(global-set-key (kbd "C-<f6>") 'linum-mode)
 (global-set-key (kbd "C-|") 'move-to-window)
 (global-set-key (kbd "C-?") 'info-lookup-symbol)
 (global-set-key (kbd "C-c (") 'paredit-mode)
