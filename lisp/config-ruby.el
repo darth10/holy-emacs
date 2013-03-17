@@ -27,9 +27,9 @@
   (rvm-use-default)
   (local-set-key "\r" 'newline-and-indent)
   (local-set-key (kbd "C-?") 'yari)
-  (local-set-key (kbd "C-x <f10>") 'run-ruby)
-  (local-set-key (kbd "C-x <f5>") 'load-file-in-inf-ruby)
-  (local-set-key (kbd "C-x <f8>") 'rinari-rake)
+  (local-set-key (kbd "C-<f10>") 'run-ruby)
+  (local-set-key (kbd "C-<f5>") 'load-file-in-inf-ruby)
+  (local-set-key (kbd "C-<f8>") 'rinari-rake)
   (local-set-key (kbd "C-x T") 'rinari-run-all-test)
   (ruby-electric-mode t))
 
