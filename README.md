@@ -43,8 +43,8 @@
 | `M-<down>`      | Move line or region down.                                                                                                    |
 | `M-g d`         | `git diff` for current file.                                                                                                 |
 | `M-g M-d`       | `git diff` for current git repository.                                                                                       |
-| `M-g M-s`       | Show git repository status.                                                                                                  |
-| `M-g M-l`       | Show git log.                                                                                                                |
+| `M-g M-s`       | Show current git repository status.                                                                                          |
+| `M-g M-l`       | Show current git repository log.                                                                                             |
 | `M-g M-f`       | Find file in current git repository.                                                                                         |
 | `M-g M-r`       | `git grep` in current git repository.                                                                                        |
 
