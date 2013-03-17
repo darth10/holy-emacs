@@ -30,9 +30,9 @@
 
 (defun clojure-bindings ()
   (local-set-key "\r" 'newline-and-indent)
-  (local-set-key (kbd "C-x <f10>") 'split-and-nrepl-jack-in)
-  (local-set-key (kbd "C-x <f5>") 'load-file-in-nrepl)
-  (local-set-key (kbd "C-x <f8>") 'split-and-nrepl))
+  (local-set-key (kbd "C-<f10>") 'split-and-nrepl-jack-in)
+  (local-set-key (kbd "C-<f5>") 'load-file-in-nrepl)
+  (local-set-key (kbd "C-<f8>") 'split-and-nrepl))
 
 (defun configure-clojure ()
   (subword-mode)
