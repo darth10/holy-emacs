@@ -20,8 +20,8 @@
   (yas/minor-mode)
   (haskell-newline-binding)
   (haskell-complete-binding)
-  (local-set-key (kbd "C-x <f10>") 'switch-to-haskell)
-  (local-set-key (kbd "C-x <f5>") 'load-file-in-inf-haskell))
+  (local-set-key (kbd "C-<f10>") 'switch-to-haskell)
+  (local-set-key (kbd "C-<f5>") 'load-file-in-inf-haskell))
 
 (defun configure-haskell-cabal ()
   (haskell-newline-binding))
