@@ -18,7 +18,7 @@
 | Binding         | Description                                                                                                                  |
 | --------------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | `C-x <f3>`      | Show process list.                                                                                                           |
-| `C-x <f7>`      | Open terminal.                                                                                                               |
+| `C-x <f7>`      | Open terminal. Available only on GNU/Linux.                                                                                  |
 | `C-<f2>`        | Helm i-menu. Useful for code navigation.                                                                                     |
 | `C-<f3>`        | Highlight token under cursor. Use `[` or `]` to navigate to previous or next hit, or `ESC` to remove all highlighted tokens. |
 | `C-S-<f3>`      | Remove all highlighted tokens.                                                                                               |
@@ -112,9 +112,9 @@ Requires Ruby and Rake.
 | `C-?`           | Show ri documentation for current word. |
 | `C-x T`         | Run all tests via `rake test`.          |
 
-### Guile Scheme (available on GNU/Linux only)
+### Guile Scheme
 
-Requires Guile and libguile.
+Available only on GNU/Linux. Requires Guile and libguile.
 
 | Binding         | Description                          |
 | --------------- | ------------------------------------ |
@@ -122,7 +122,9 @@ Requires Guile and libguile.
 | `C-<f8>`        | Connect to Guile REPL server.        |
 | `C-<f10>`       | Start Guile REPL server and connect. |
 
-### C (available on GNU/Linux only)
+### C
+
+Available only on GNU/Linux.
 
 | Binding         | Description                   |
 | --------------- | ----------------------------- |
