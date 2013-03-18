@@ -5,7 +5,7 @@
 
 ;;;### (autoloads (nrepl nrepl-jack-in nrepl-disable-on-existing-clojure-buffers
 ;;;;;;  nrepl-enable-on-existing-clojure-buffers nrepl-interaction-mode)
-;;;;;;  "nrepl" "nrepl.el" (20753 17717))
+;;;;;;  "nrepl" "nrepl.el" (20807 14111))
 ;;; Generated autoloads from nrepl.el
 
 (autoload 'nrepl-interaction-mode "nrepl" "\
@@ -16,12 +16,14 @@ Minor mode for nrepl interaction from a Clojure buffer.
 \(fn &optional ARG)" t nil)
 
 (autoload 'nrepl-enable-on-existing-clojure-buffers "nrepl" "\
-Enable `nrepl-interaction-mode' on existing Clojure buffers.
+Enable interaction mode on existing Clojure buffers.
+See command `nrepl-interaction-mode'.
 
 \(fn)" t nil)
 
 (autoload 'nrepl-disable-on-existing-clojure-buffers "nrepl" "\
-Disable `nrepl-interaction-mode' on existing Clojure buffers.
+Disable interaction mode on existing Clojure buffers.
+See command `nrepl-interaction-mode'.
 
 \(fn)" t nil)
 
@@ -35,13 +37,15 @@ start the server.
 (add-hook 'nrepl-connected-hook 'nrepl-enable-on-existing-clojure-buffers)
 
 (autoload 'nrepl "nrepl" "\
-
+Connect nrepl to HOST and PORT.
 
 \(fn HOST PORT)" t nil)
 
+(eval-after-load 'clojure-mode '(progn (define-key clojure-mode-map (kbd "C-c M-j") 'nrepl-jack-in) (define-key clojure-mode-map (kbd "C-c M-c") 'nrepl)))
+
 ;;;***
 
-;;;### (autoloads nil nil ("nrepl-pkg.el") (20753 17717 587359))
+;;;### (autoloads nil nil ("nrepl-pkg.el") (20807 14111 614655))
 
 ;;;***
 

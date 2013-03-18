@@ -25,8 +25,7 @@
   (keyboard-escape-quit)
   (split-window-right)
   (nrepl-load-current-buffer)
-  (nrepl-set-ns (nrepl-current-ns))
-  (nrepl-switch-to-repl-buffer))
+  (nrepl-switch-to-repl-buffer (nrepl-current-ns)))
 
 (defun clojure-bindings ()
   (local-set-key "\r" 'newline-and-indent)
