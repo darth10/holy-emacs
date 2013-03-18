@@ -25,28 +25,43 @@
 | `C-<f4>`        | Toggle highlight current line.                                                                                               |
 | `C-<f6>`        | Toggle line numbers.                                                                                                         |
 | `C-c (`         | Toggle paredit-mode. Useful for editing Lisp code.                                                                           |
-| `C-c a`         | Show org-mode agenda.                                                                                                        |
-| `C-c b`         | List org-mode buffers.                                                                                                       |
-| `C-c c`         | Capture org-mode template.                                                                                                   |
-| `C-c l`         | Strore org-mode link.                                                                                                        |
-| `C-c M-b`       | Show bookmark list.                                                                                                          |
-| `C-c C-b`       | Add bookmark.                                                                                                                |
-| `C-c C-S-b`     | Delete all bookmarks.                                                                                                        |
-| `C-c C-<left>`  | Move to previous bookmark.                                                                                                   |
-| `C-c C-<right>` | Move to next bookmark.                                                                                                       |
-| `C-c C-<up>`    | Move to previous bookmark in current buffer.                                                                                 |
-| `C-c C-<down>`  | Move to next bookmark in current buffer.                                                                                     |
 | `C-S-\`	  | Move to window.                                                                                                              |
 | `C-+`           | Interactively resize current window.                                                                                         |
 | `C-?`           | Look up any documentation. Changes behaviour depending on major mode, and defaults to available info documentation.          |
 | `M-<up>`        | Move line or region up.                                                                                                      |
 | `M-<down>`      | Move line or region down.                                                                                                    |
-| `M-g d`         | `git diff` for current file.                                                                                                 |
-| `M-g M-d`       | `git diff` for current git repository.                                                                                       |
-| `M-g M-s`       | Show current git repository status.                                                                                          |
-| `M-g M-l`       | Show current git repository log.                                                                                             |
-| `M-g M-f`       | Find file in current git repository.                                                                                         |
-| `M-g M-r`       | `git grep` in current git repository.                                                                                        |
+
+### Git integration
+
+| Binding         | Description                            |
+| --------------- | -------------------------------------- |
+| `M-g d`         | `git diff` for current file.           |
+| `M-g M-d`       | `git diff` for current git repository. |
+| `M-g M-s`       | Show current git repository status.    |
+| `M-g M-l`       | Show current git repository log.       |
+| `M-g M-f`       | Find file in current git repository.   |
+| `M-g M-r`       | `git grep` in current git repository.  |
+
+### Bookmarks
+
+| Binding         | Description                                  |
+| --------------- | -------------------------------------------- |
+| `C-c M-b`       | Show bookmark list.                          |
+| `C-c C-b`       | Add bookmark.                                |
+| `C-c C-S-b`     | Delete all bookmarks.                        |
+| `C-c C-<left>`  | Move to previous bookmark.                   |
+| `C-c C-<right>` | Move to next bookmark.                       |
+| `C-c C-<up>`    | Move to previous bookmark in current buffer. |
+| `C-c C-<down>`  | Move to next bookmark in current buffer.     |
+
+### org-mode
+
+| Binding         | Description                |
+| --------------- | -------------------------- |
+| `C-c a`         | Show org-mode agenda.      |
+| `C-c b`         | List org-mode buffers.     |
+| `C-c c`         | Capture org-mode template. |
+| `C-c l`         | Store org-mode link.      |
 
 ## Mode-specific key bindings
 
