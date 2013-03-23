@@ -19,6 +19,8 @@
 | --------------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | `C-x <f3>`      | Show process list.                                                                                                           |
 | `C-x <f7>`      | Open terminal. Available only on GNU/Linux.                                                                                  |
+| `C-x <f11>`     | Show calendar. 	   	     	     											 |
+| `C-x <f12>`     | Show calculator.                                                                                                             |
 | `C-<f2>`        | Helm i-menu. Useful for code navigation.                                                                                     |
 | `C-<f3>`        | Highlight token under cursor. Use `[` or `]` to navigate to previous or next hit, or `ESC` to remove all highlighted tokens. |
 | `C-S-<f3>`      | Remove all highlighted tokens.                                                                                               |
