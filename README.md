@@ -1,6 +1,6 @@
 ## Overview
 
-* Support for editing/debugging Clojure, C, JavaScript, Guile Scheme and Ruby.
+* Support for editing/debugging Clojure, Emacs Lisp, Scheme, JavaScript, Ruby, Haskell and C.
 * Emphasis on use of function keys.
 * Identical (almost) bindings across different major modes.
 * Includes helm and autocomplete.
