@@ -103,6 +103,8 @@
 (define-key ac-complete-mode-map "\t" 'ac-complete)
 (define-key ac-complete-mode-map "\r" nil)
 
+(require 'config-ediff)
+
 ;; language configurations
 (require 'config-js)
 (require 'config-clojure)
@@ -199,6 +201,8 @@
 
 (global-set-key (kbd "C-x <f7>") 'split-and-term)
 (global-set-key (kbd "C-x <f3>") 'list-processes-and-switch)
+(global-set-key (kbd "C-x <f10>") 'ediff-buffers)
+(global-set-key (kbd "C-x S-<f10>") 'ediff)
 (global-set-key (kbd "C-x <f11>") 'calendar)
 (global-set-key (kbd "C-x <f12>") 'calculator)
 (global-set-key (kbd "C-<f2>") 'helm-imenu)
@@ -210,6 +214,7 @@
 (global-set-key (kbd "C-c (") 'paredit-mode)
 
 (global-set-key (kbd "M-g M-s") 'magit-status)
+(global-set-key (kbd "M-g <f10>") 'vc-ediff)
 (global-set-key (kbd "M-g d") 'vc-diff)
 (global-set-key (kbd "M-g M-d") 'git-diff-tree)
 (global-set-key (kbd "M-g M-f") 'helm-ls-git-ls)
