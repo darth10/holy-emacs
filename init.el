@@ -208,6 +208,7 @@
 (global-set-key (kbd "C-<f2>") 'helm-imenu)
 (global-set-key (kbd "C-<f4>") 'global-hl-line-mode)
 (global-set-key (kbd "C-<f6>") 'linum-mode)
+(global-set-key (kbd "C-<f9>") 'toggle-truncate-lines)
 (global-set-key (kbd "C-+") 'w-resize)
 (global-set-key (kbd "C-|") 'move-to-window)
 (global-set-key (kbd "C-?") 'info-lookup-symbol)
