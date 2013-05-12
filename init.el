@@ -108,6 +108,8 @@
 ;; language configurations
 (require 'config-js)
 (require 'config-clojure)
+(require 'config-python)
+(require 'config-sql)
 (require 'config-ruby)
 (require 'config-haskell)
 (require 'config-scala)
