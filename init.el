@@ -233,3 +233,8 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (server-start)
+
+;; edit server
+
+(require 'edit-server)
+(edit-server-start)
