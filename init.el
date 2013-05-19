@@ -159,6 +159,11 @@
 (require 'hcz-cursor)
 (add-hook 'post-command-hook 'hcz-set-cursor-color-according-to-mode)
 
+(defun find-user-init-file ()
+  "Edit the user-init-file, in another window."
+  (interactive)
+  (find-file-other-window user-init-file))
+
 (defun list-processes-and-switch ()
   (interactive)
   (list-processes)
@@ -214,6 +219,7 @@
 (global-set-key (kbd "C-x S-<f10>") 'ediff)
 (global-set-key (kbd "C-x <f11>") 'calendar)
 (global-set-key (kbd "C-x <f12>") 'calculator)
+(global-set-key (kbd "C-x <C-M-return>") 'find-user-init-file)
 (global-set-key (kbd "C-<f2>") 'helm-imenu)
 (global-set-key (kbd "C-<f4>") 'global-hl-line-mode)
 (global-set-key (kbd "C-<f6>") 'linum-mode)
