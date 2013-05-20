@@ -7,6 +7,7 @@ info/
 server/
 ac-comphist.dat
 places
+.mc-lists.el
 *.elc
 *.el~
 /url/cookies

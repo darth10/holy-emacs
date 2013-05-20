@@ -15,26 +15,29 @@
 
 ## Global key kindings
 
-| Binding         | Description                                                                                                                  |
-| --------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `C-x <f3>`      | Show process list.                                                                                                           |
-| `C-x <f7>`      | Open terminal. Available only on GNU/Linux.                                                                                  |
-| `C-x <f10>`     | Start Ediff between buffers.     											                                                 |
-| `C-x S-<f10>`   | Start Ediff between files. 	     											                                                 |
-| `C-x <f11>`     | Show calendar. 	   	     	     											                                                 |
-| `C-x <f12>`     | Show calculator.                                                                                                             |
-| `C-<f2>`        | Helm i-menu. Useful for code navigation.                                                                                     |
-| `C-<f3>`        | Highlight token under cursor. Use `[` or `]` to navigate to previous or next hit, or `ESC` to remove all highlighted tokens. |
-| `C-S-<f3>`      | Remove all highlighted tokens.                                                                                               |
-| `C-<f4>`        | Toggle highlight current line.                                                                                               |
-| `C-<f6>`        | Toggle line numbers.                                                                                                         |
-| `C-<f9>`        | Toggle truncate lines (word wrapping).                                                                                       |
-| `C-c (`         | Toggle paredit-mode. Useful for editing Lisp code.                                                                           |
-| `C-S-\`	      | Move to window.                                                                                                              |
-| `C-+`           | Interactively resize current window.                                                                                         |
-| `C-?`           | Look up any documentation. Changes behaviour depending on major mode, and defaults to available info documentation.          |
-| `M-<up>`        | Move line or region up.                                                                                                      |
-| `M-<down>`      | Move line or region down.                                                                                                    |
+| Binding           | Description                                                                                                                  |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `C-x <f3>`        | Show process list.                                                                                                           |
+| `C-x <f7>`        | Open terminal. Available only on GNU/Linux.                                                                                  |
+| `C-x <f10>`       | Start Ediff between buffers.     											                                                   |
+| `C-x S-<f10>`     | Start Ediff between files. 	     											                                               |
+| `C-x <f11>`       | Show calendar. 	   	     	     											                                               |
+| `C-x <C-M-return>`| Show init.el file.  	     	     											                                               |
+| `C-x <f12>`       | Show calculator.                                                                                                             |
+| `C-<f2>`          | Helm i-menu. Useful for code navigation.                                                                                     |
+| `C-<f3>`          | Highlight token under cursor. Use `[` or `]` to navigate to previous or next hit, or `ESC` to remove all highlighted tokens. |
+| `C-S-<f3>`        | Remove all highlighted tokens.                                                                                               |
+| `C-<f4>`          | Toggle highlight current line.                                                                                               |
+| `C-<f6>`          | Toggle line numbers.                                                                                                         |
+| `C-<f9>`          | Toggle truncate lines (word wrapping).                                                                                       |
+| `C-c (`           | Toggle paredit-mode. Useful for editing Lisp code.                                                                           |
+| `C-S-\`	        | Move to window.                                                                                                              |
+| `C-+`             | Interactively resize current window.                                                                                         |
+| `C-?`             | Look up any documentation. Changes behaviour depending on major mode, and defaults to available info documentation.          |
+| `C-<XF86Back>`    | Previous buffer (Thinkpad only).                                                                                             |
+| `C-<XF86Forward>` | Next buffer (Thinkpad only).                                                                                                 |
+| `M-<up>`          | Move line or region up.                                                                                                      |
+| `M-<down>`        | Move line or region down.                                                                                                    |
 
 ### Git integration
 
@@ -47,6 +50,15 @@
 | `M-g M-l`       | Show current git repository log.       |
 | `M-g M-f`       | Find file in current git repository.   |
 | `M-g M-r`       | `git grep` in current git repository.  |
+
+### Multiple cursors
+
+| Binding         | Description                            |
+| --------------- | -------------------------------------- |
+| `C-x <C-return>`| Edit lines with multiple cursors.      |
+| `C->`           | Mark next line or word.                |
+| `C-<`           | Mark preivous line or word.            |
+| `C-c C-<f3>`    | Mark all words like selected word.     |
 
 ### Bookmarks
 
