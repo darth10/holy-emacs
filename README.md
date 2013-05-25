@@ -80,7 +80,7 @@
 | Binding         | Description                |
 | --------------- | -------------------------- |
 | `C-c a`         | Show org-mode agenda.      |
-| `C-c a`         | Show org-mode timeline.    |
+| `C-x t`         | Show org-mode timeline.    |
 | `C-c b`         | List org-mode buffers.     |
 | `C-c c`         | Capture org-mode template. |
 | `C-c l`         | Store org-mode link.       |
