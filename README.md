@@ -26,7 +26,7 @@
 | `C-x <f12>`       | Show calculator.                                                                                                             |
 | `C-x ?`           | Open man page. Available only on GNU/Linux.                                                                                  |
 | `C-x G`           | Run grep.                                                                                                                    |
-| `C-x g`           | Run recursive grep. Helpful for searching in files.                                                                          |
+| `C-x g`           | Run recursive grep. Useful for searching in files.                                                                           |
 | `C-<f2>`          | Helm i-menu. Useful for code navigation.                                                                                     |
 | `C-<f3>`          | Highlight token under cursor. Use `[` or `]` to navigate to previous or next hit, or `ESC` to remove all highlighted tokens. |
 | `C-S-<f3>`        | Remove all highlighted tokens.                                                                                               |
