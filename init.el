@@ -106,6 +106,7 @@
 ;; mode configurations
 (require 'config-ediff)
 (require 'config-org)
+(require 'config-web)
 
 ;; language configurations
 (require 'config-js)
