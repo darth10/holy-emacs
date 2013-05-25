@@ -37,8 +37,8 @@
 | `C-S-\`	        | Move to window.                                                                                                              |
 | `C-+`             | Interactively resize current window.                                                                                         |
 | `C-?`             | Look up any documentation. Changes behaviour depending on major mode, and defaults to available info documentation.          |
-| `C-<XF86Back>`    | Previous buffer (Thinkpad only).                                                                                             |
-| `C-<XF86Forward>` | Next buffer (Thinkpad only).                                                                                                 |
+| `C-<XF86Back>`    | Previous buffer. Available only on ThinkPads keyboards.                                                                      |
+| `C-<XF86Forward>` | Next buffer. Available only on ThinkPad keyboards.                                                                           |
 | `M-<up>`          | Move line or region up.                                                                                                      |
 | `M-<down>`        | Move line or region down.                                                                                                    |
 
