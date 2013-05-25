@@ -208,6 +208,7 @@
   (magit-diff-working-tree "HEAD")
   (other-window 1))
 
+(global-set-key (kbd "C-x ?") 'woman)
 (global-set-key (kbd "C-x <f7>") 'split-and-term)
 (global-set-key (kbd "C-x <f3>") 'list-processes-and-switch)
 (global-set-key (kbd "C-x <f10>") 'ediff-buffers)
