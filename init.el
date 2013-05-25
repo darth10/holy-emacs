@@ -103,7 +103,9 @@
 (define-key ac-complete-mode-map "\t" 'ac-complete)
 (define-key ac-complete-mode-map "\r" nil)
 
+;; mode configurations
 (require 'config-ediff)
+(require 'config-org)
 
 ;; language configurations
 (require 'config-js)
@@ -139,14 +141,6 @@
 (global-set-key (kbd "C-c C-<right>") 'bc-next)
 (global-set-key (kbd "C-c C-<up>") 'bc-local-previous)
 (global-set-key (kbd "C-c C-<down>") 'bc-local-next)
-
-;; org-mode shortcuts
-(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
-(global-set-key "\C-cl" 'org-store-link)
-(global-set-key "\C-cc" 'org-capture)
-(global-set-key "\C-ca" 'org-agenda)
-(global-set-key "\C-cb" 'org-iswitchb)
-(add-hook 'org-mode-hook 'auto-complete-mode)
 
 ;; multiple cursors
 (require 'multiple-cursors)
@@ -228,6 +222,7 @@
 (global-set-key (kbd "C-|") 'move-to-window)
 (global-set-key (kbd "C-?") 'info-lookup-symbol)
 (global-set-key (kbd "C-c (") 'paredit-mode)
+(global-set-key (kbd "C-c b") 'org-iswitchb)
 (global-set-key (kbd "C-<XF86Back>") 'previous-buffer)
 (global-set-key (kbd "C-<XF86Forward>") 'next-buffer)
 
