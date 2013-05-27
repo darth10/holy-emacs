@@ -1,5 +1,7 @@
 ;;; Configuration for Clojure
 
+(require 'config-common)
+
 (add-hook 'nrepl-interaction-mode-hook 'nrepl-turn-on-eldoc-mode)
 (add-to-list 'same-window-buffer-names "*nrepl*")
 
@@ -34,9 +36,7 @@
   (local-set-key (kbd "C-<f8>") 'split-and-nrepl))
 
 (defun configure-clojure ()
-  (subword-mode)
-  (paredit-mode)
-  (rainbow-delimiters-mode))
+  (subword-mode))
 
 (defun configure-clojure-nrepl ()
   (configure-clojure)
@@ -47,8 +47,9 @@
   (local-set-key (kbd "C-x T") 'clojure-test-run-tests)
   (local-set-key (kbd "C-x t") 'clojure-test-run-test))
 
-(add-hook 'clojure-mode-hook 'clojure-bindings)
 (add-hook 'clojure-mode-hook 'configure-clojure)
+(add-hook 'clojure-mode-hook 'configure-lisp)
+(add-hook 'clojure-mode-hook 'clojure-bindings)
 (add-hook 'nrepl-mode-hook 'configure-clojure-nrepl)
 (add-hook 'nrepl-interaction-mode-hook 'configure-clojure-nrepl-inf)
 
