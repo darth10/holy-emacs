@@ -111,16 +111,16 @@
 ;; language configurations
 (require 'config-js)
 (require 'config-clojure)
-(require 'config-python)
-(require 'config-sql)
-(require 'config-ruby)
-(require 'config-haskell)
-(require 'config-scala)
 (require 'config-elisp)
+(require 'config-scheme)
+(require 'config-scala)
+(require 'config-haskell)
+(require 'config-python)
+(require 'config-ruby)
+(require 'config-sql)
 
 ;; linux only
 (require 'config-c)
-(require 'config-guile)
 
 ;; info docs
 (eval-after-load 'info
