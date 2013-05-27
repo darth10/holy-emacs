@@ -98,6 +98,14 @@
 | `ESC M-<up>`    | Splice current sexp by killing backward. |
 | `ESC M-<down>`  | Splice current sexp by killing forward.  |
 
+### All Lisp modes
+
+Available in Clojure, Scheme and Emacs Lisp modes.
+
+| Binding         | Description                              |
+| --------------- | ---------------------------------------- |
+| `C-<f12>`       | Toggle highlight s-expresion.            |
+
 ### Clojure
 
 Requires Leiningen with nREPL middleware.
@@ -110,6 +118,15 @@ Requires Leiningen with nREPL middleware.
 | `C-?`           | Show nREPL documentation for current word.     |
 | `C-x T`         | Run all tests for current namespace.           |
 | `C-x t`         | Run current test.                              |
+
+### Scheme
+
+Requires Racket or Guile Scheme.
+
+| Binding         | Description                          |
+| --------------- | ------------------------------------ |
+| `C-<f5>`        | Evaluate current buffer in REPL.     |
+| `C-<f10>`       | Start Scheme REPL server and connect.|
 
 ### Emacs Lisp
 
@@ -148,16 +165,6 @@ Requires Ruby and Rake.
 | `C-<f10>`       | Start irb REPL.                         |
 | `C-?`           | Show ri documentation for current word. |
 | `C-x T`         | Run all tests via `rake test`.          |
-
-### Guile Scheme
-
-Available only on GNU/Linux. Requires Guile and libguile.
-
-| Binding         | Description                          |
-| --------------- | ------------------------------------ |
-| `C-<f5>`        | Evaluate current buffer in REPL.     |
-| `C-<f8>`        | Connect to Guile REPL server.        |
-| `C-<f10>`       | Start Guile REPL server and connect. |
 
 ### C
 
