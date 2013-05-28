@@ -3,7 +3,7 @@
 ;;; Code:
 
 
-;;;### (autoloads nil "geiser" "geiser.el" (20795 41389))
+;;;### (autoloads nil "geiser" "geiser.el" (20900 63903))
 ;;; Generated autoloads from geiser.el
 
 (autoload 'geiser-version "geiser-version" "\
@@ -74,7 +74,7 @@ Disable Geiser's mode (useful in Scheme buffers)." t)
 ;;;;;;  "geiser-log.el" "geiser-menu.el" "geiser-mode.el" "geiser-pkg.el"
 ;;;;;;  "geiser-popup.el" "geiser-racket.el" "geiser-reload.el" "geiser-repl.el"
 ;;;;;;  "geiser-syntax.el" "geiser-table.el" "geiser-version.el"
-;;;;;;  "geiser-xref.el") (20795 41391 280435))
+;;;;;;  "geiser-xref.el") (20900 63905 139003))
 
 ;;;***
 
