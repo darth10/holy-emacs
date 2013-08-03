@@ -10,8 +10,16 @@
 * Quickly create and navigate across bookmarks via breadcrumb.
 * Automatically save backup files to `~/.emacs-saves/`.
 * Recomile entire `~/.emacs.d` using the `recompile-emacs-d` function.
-* Info documentation. Use `fetch-info-docs.sh`.
-* Ruby ri documentation on Linux. Use `build-ri-doc.sh`.
+
+## Scripts
+
+All scripts are in the `script/` folder.
+
+| Script             | Description                                                                                 |
+| ------------------ | ------------------------------------------------------------------------------------------- |
+| clean.sh           | Delete all compiled Emacs Lisp files.                                                       |
+| fetch-info-docs.sh | Fetch info documentation. Available only on GNU/Linux.                                      |
+| build-ri-doc.sh    | Fetch and build Ruby ri documentation on Linux. Available only on GNU/Linux. Requires rvm.  |
 
 ## Global key kindings
 
