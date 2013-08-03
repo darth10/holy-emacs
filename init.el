@@ -105,6 +105,7 @@
 
 ;; mode configurations
 (require 'config-ediff)
+(require 'config-dired)
 (require 'config-org)
 (require 'config-web)
 

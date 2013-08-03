@@ -75,6 +75,12 @@
 | `C-c C-<up>`    | Move to previous bookmark in current buffer. |
 | `C-c C-<down>`  | Move to next bookmark in current buffer.     |
 
+### Dired mode
+
+| Binding         | Description                            |
+| --------------- | -------------------------------------- |
+| `C-x C-/`       | Switch to editable (wdired-mode)       |
+
 ### org-mode
 
 | Binding         | Description                |
