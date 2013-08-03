@@ -74,13 +74,6 @@
 (push "/home/darth10/pymatter/bin/" exec-path)
 (push "/usr/bin/" exec-path)
 
-;; helm
-(add-to-list 'load-path "~/.emacs.d/helm/")
-(require 'helm-config)
-(require 'helm-ls-git)
-(setq helm-split-window-default-side 'same)
-(helm-mode)
-
 ;; move regions
 (require 'regions)
 (global-set-key (kbd "M-<up>") 'move-line-region-up)
@@ -103,6 +96,7 @@
 (define-key ac-complete-mode-map "\r" nil)
 
 ;; mode configurations
+(require 'config-helm)
 (require 'config-ediff)
 (require 'config-dired)
 (require 'config-org)
