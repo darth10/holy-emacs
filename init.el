@@ -28,7 +28,6 @@
  '(fancy-splash-image nil)
  '(inhibit-default-init t)
  '(inhibit-startup-screen t)
- '(initial-buffer-choice "~/pymatter/")
  '(js-auto-indent-flag t)
  '(js-indent-level 2)
  '(rainbow-delimiters-highlight-braces-p nil)
