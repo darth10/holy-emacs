@@ -15,4 +15,9 @@
 (setq mweb-filename-extensions '("php" "htm" "html" "ctp" "phtml" "php4" "php5"))
 (multi-web-global-mode 1)
 
+(defun configure-html ()
+  (local-set-key "\r" 'newline-and-indent))
+
+(add-hook 'html-mode-hook 'configure-html)
+
 (provide 'config-web)
