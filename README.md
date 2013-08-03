@@ -22,7 +22,8 @@
 | `C-x <f10>`       | Start Ediff between buffers.     											                                                   |
 | `C-x S-<f10>`     | Start Ediff between files. 	     											                                               |
 | `C-x <f11>`       | Show calendar. 	   	     	     											                                               |
-| `C-x <C-M-return>`| Show init.el file.  	     	     											                                               |
+| `C-x <C-M-RET>`   | Show init.el file.  	     	     											                                               |
+| `C-x RET RET`     | Set rectangular region mark.  	     	     											                                   |
 | `C-x <f12>`       | Show calculator.                                                                                                             |
 | `C-x ?`           | Open man page. Available only on GNU/Linux.                                                                                  |
 | `C-x G`           | Run grep.                                                                                                                    |
@@ -58,7 +59,7 @@
 
 | Binding         | Description                            |
 | --------------- | -------------------------------------- |
-| `C-x <C-return>`| Edit lines with multiple cursors.      |
+| `C-x <C-RET>`| Edit lines with multiple cursors.      |
 | `C->`           | Mark next line or word.                |
 | `C-<`           | Mark preivous line or word.            |
 | `C-c C-<f3>`    | Mark all words like selected word.     |
