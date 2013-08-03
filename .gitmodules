@@ -1,6 +1,6 @@
-[submodule "helm"]
+[submodule "lisp.git/helm"]
 	path = helm
 	url = git@github.com:emacs-helm/helm.git
-[submodule "scala-mode2"]
+[submodule "lisp.git/scala-mode2"]
 	path = scala-mode2
 	url = git@github.com:hvesalai/scala-mode2.git
