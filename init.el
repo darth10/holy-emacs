@@ -216,6 +216,7 @@
 (global-set-key (kbd "C-x <f11>") 'calendar)
 (global-set-key (kbd "C-x <f12>") 'calculator)
 (global-set-key (kbd "C-x <C-M-return>") 'find-user-init-file)
+(global-set-key (kbd "C-x RET RET") 'set-rectangular-region-anchor)
 (global-set-key (kbd "C-x G") 'grep)
 (global-set-key (kbd "C-x g") 'rgrep)
 (global-set-key (kbd "C-<f2>") 'helm-imenu)
