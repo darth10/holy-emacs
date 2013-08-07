@@ -1,5 +1,6 @@
 ;;; Configuration for Web (HTML, CSS)
 
+(require 'config-common)
 (require 'multi-web-mode)
 (require 'rainbow-mode)
 
@@ -15,8 +16,7 @@
 (setq mweb-filename-extensions '("php" "htm" "html" "ctp" "phtml" "php4" "php5"))
 (multi-web-global-mode 1)
 
-(defun configure-html ()
-  (local-set-key "\r" 'newline-and-indent))
+(defconfig configure-html)
 
 (add-hook 'html-mode-hook 'configure-html)
 

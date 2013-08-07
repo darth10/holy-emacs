@@ -1,10 +1,10 @@
 ;;; Configuration for Haskell
 
+(require 'config-common)
 (require 'haskell-mode)
 (require 'ghci-completion)
 
-(defun haskell-newline-binding ()
-  (local-set-key "\r" 'newline-and-indent))
+(defconfig configure-haskell-newline-indent)
 
 (defun haskell-complete-binding ()
   (local-set-key (kbd "C-<tab>") 'dabbrev-expand))
@@ -18,13 +18,13 @@
   (turn-on-haskell-doc-mode)
   (haskell-indent-mode)
   (yas/minor-mode)
-  (haskell-newline-binding)
+  (configure-haskell-newline-indent)
   (haskell-complete-binding)
   (local-set-key (kbd "C-<f10>") 'switch-to-haskell)
   (local-set-key (kbd "C-<f5>") 'load-file-in-inf-haskell))
 
 (defun configure-haskell-cabal ()
-  (haskell-newline-binding))
+  (configure-haskell-newline-indent))
 
 (defun configure-haskell-inf ()
   (ghci-completion-mode)

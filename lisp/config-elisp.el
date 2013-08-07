@@ -7,9 +7,8 @@
   (split-window-right)
   (ielm))
 
-(defun configure-elisp ()
+(defconfig configure-elisp
   (turn-on-eldoc-mode)
-  (local-set-key "\r" 'newline-and-indent)
   (local-set-key (kbd "C-<f10>") 'split-and-ielm)
   (local-set-key (kbd "C-<f5>") 'eval-buffer))
 

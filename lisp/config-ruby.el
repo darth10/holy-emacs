@@ -1,5 +1,6 @@
 ;;; Configuration for Ruby
 
+(require 'config-common)
 (require 'ruby-mode)
 
 (defun ruby-insert-end ()
@@ -18,14 +19,13 @@
   (ruby-load-file (buffer-file-name))
   (ruby-switch-to-inf (get-buffer "*ruby*")))
 
-(defun configure-ruby ()
+(defconfig configure-ruby
   (require 'rvm)
   (require 'ruby-electric)
   (require 'ido)
   (require 'rinari)
   (require 'yari)
   (rvm-use-default)
-  (local-set-key "\r" 'newline-and-indent)
   (local-set-key (kbd "C-?") 'yari)
   (local-set-key (kbd "C-<f10>") 'run-ruby)
   (local-set-key (kbd "C-<f5>") 'load-file-in-inf-ruby)

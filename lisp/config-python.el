@@ -1,8 +1,8 @@
 ;;; Configuration for Python
 
-(defun configure-py ()
-  (local-set-key "\r" 'newline-and-indent))
+(require 'config-common)
 
+(defconfig configure-py)
 (add-hook 'python-mode-hook 'configure-py)
 
 (provide 'config-python)

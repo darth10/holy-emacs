@@ -29,8 +29,7 @@
   (nrepl-load-current-buffer)
   (nrepl-switch-to-repl-buffer (nrepl-current-ns)))
 
-(defun clojure-bindings ()
-  (local-set-key "\r" 'newline-and-indent)
+(defconfig configure-clojure-keys ()
   (local-set-key (kbd "C-<f10>") 'split-and-nrepl-jack-in)
   (local-set-key (kbd "C-<f5>") 'load-file-in-nrepl)
   (local-set-key (kbd "C-<f8>") 'split-and-nrepl))
@@ -49,7 +48,7 @@
 
 (add-hook 'clojure-mode-hook 'configure-clojure)
 (add-hook 'clojure-mode-hook 'configure-lisp)
-(add-hook 'clojure-mode-hook 'clojure-bindings)
+(add-hook 'clojure-mode-hook 'configure-clojure-keys)
 (add-hook 'nrepl-mode-hook 'configure-clojure-nrepl)
 (add-hook 'nrepl-interaction-mode-hook 'configure-clojure-nrepl-inf)
 

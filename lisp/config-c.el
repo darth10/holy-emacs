@@ -1,5 +1,7 @@
 ;;; Configuration for C/C++
 
+(require 'config-common)
+
 (setq c-default-style '((java-mode . "java")
                         (awk-mode . "awk")
                         (other . "k&r")))
@@ -8,12 +10,11 @@
               tab-width 4
               indent-tabs-mode nil)
 
-(defun configure-c ()
+(defconfig configure-c
   (setq c-eldoc-includes "`pkg-config glib-2.0 gio-2.0 --cflags` `guile-config compile` -I/usr/include -I./ -I../ ")
   (load "c-eldoc")
   (c-turn-on-eldoc-mode)
   (setq gdb-many-windows t)
-  (local-set-key "\r" 'newline-and-indent)
   (local-set-key (kbd "C-<f10>") 'gdb)
   (local-set-key (kbd "C-<f5>") 'gud-run)
   (local-set-key (kbd "C-<f11>") 'gdb-display-gdb-buffer)

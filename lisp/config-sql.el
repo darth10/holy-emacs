@@ -1,8 +1,9 @@
 ;;; Configuration for SQL
 
-(defun configure-sql ()
-  (auto-complete-mode)
-  (local-set-key "\r" 'newline-and-indent))
+(require 'config-common)
+
+(defconfig configure-sql
+  (auto-complete-mode))
 
 (add-hook 'sql-mode-hook 'configure-sql)
 

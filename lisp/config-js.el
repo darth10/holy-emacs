@@ -1,7 +1,8 @@
 ;;; Configuration for JavaScript
 
-(defun configure-js ()
-  (local-set-key "\r" 'newline-and-indent)
+(require 'config-common)
+
+(defconfig configure-js
   (local-set-key (kbd "C-<f10>") 'run-js)
   (local-set-key (kbd "C-<f5>") 'js-send-buffer-and-go))
 

@@ -8,8 +8,7 @@
   (geiser-compile-current-buffer)
   (geiser-mode-switch-to-repl t))
 
-(defun configure-scheme ()
-  (local-set-key "\r" 'newline-and-indent)
+(defconfig configure-scheme
   (local-set-key (kbd "C-<f10>") 'run-geiser)
   (local-set-key (kbd "C-<f5>") 'scheme-load-and-repl))
 
