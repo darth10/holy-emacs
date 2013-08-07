@@ -105,6 +105,7 @@
 ;; language configurations
 (require 'config-js)
 (require 'config-clojure)
+(require 'config-csharp)
 (require 'config-elisp)
 (require 'config-scheme)
 (require 'config-scala)
