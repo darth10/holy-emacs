@@ -96,11 +96,13 @@
 (define-key ac-complete-mode-map "\r" nil)
 
 ;; mode configurations
+(require 'config-paredit)
 (require 'config-helm)
 (require 'config-ediff)
 (require 'config-dired)
 (require 'config-org)
 (require 'config-web)
+
 
 ;; language configurations
 (require 'config-js)
