@@ -3,12 +3,13 @@
 * Support for editing/debugging Clojure, Emacs Lisp, Scheme, JavaScript, Ruby, Haskell and C.
 * Emphasis on use of function keys.
 * Identical (almost) bindings across different major modes.
+* Installs all packages from Marmalade and MELPA repositories on startup.
 * Includes helm and autocomplete.
 * Includes code snippets via yasnippet. Apart from those in yasnippet-bundle, there are several custom snippets for Clojure, JavaScript, Haskell and Scheme.
 * Git integration via magit.
 * Quickly move regions using `M-<up>` and `M-<down>` like in Eclipse.
 * Quickly create and navigate across bookmarks via breadcrumb.
-* Automatically save backup files to `~/.emacs-saves/`.
+* Automatically saves backup files to `~/.emacs-saves/`.
 * Recomile entire `~/.emacs.d` using the `recompile-emacs-d` function.
 
 ## Scripts
