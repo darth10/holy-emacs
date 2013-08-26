@@ -187,7 +187,7 @@
 	  ((eq wind-key 'down)  (windmove-down))
 	  (t                    (message "Unknown window")))))
 
-(defun recompile-emacs-d ()
+(defun rebuild ()
   "Recompile everything in ~/.emacs.d"
   (interactive)
   (byte-recompile-directory (expand-file-name "~/.emacs.d") 0))
