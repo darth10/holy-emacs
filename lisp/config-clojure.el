@@ -38,6 +38,7 @@
   (subword-mode))
 
 (defun configure-clojure-nrepl ()
+  (paredit-mode)
   (configure-clojure)
   (clojure-test-mode))
 
