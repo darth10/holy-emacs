@@ -10,7 +10,7 @@
 * Quickly move regions using `M-<up>` and `M-<down>` like in Eclipse.
 * Quickly create and navigate across bookmarks via breadcrumb.
 * Automatically saves backup files to `~/.emacs-saves/`.
-* Recomile entire `~/.emacs.d` using the `recompile-emacs-d` function.
+* Recomile entire `~/.emacs.d` using the `rebuild` function.
 
 ## Scripts
 
