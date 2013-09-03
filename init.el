@@ -187,6 +187,13 @@
 	  ((eq wind-key 'down)  (windmove-down))
 	  (t                    (message "Unknown window")))))
 
+(defun match-paren (arg)
+  "Go to the matching paren if the cursor is on a paren"
+  (interactive "p")
+  (cond ((looking-at "\\s\(") (forward-list 1) (backward-char 1))
+        ((looking-at "\\s\)") (forward-char 1) (backward-list 1))
+        (t (message "%s" "No parenthesis under cursor!"))))
+
 (defun rebuild ()
   "Recompile everything in ~/.emacs.d"
   (interactive)
@@ -226,6 +233,7 @@
 (global-set-key (kbd "C-c b") 'org-iswitchb)
 (global-set-key (kbd "C-<XF86Back>") 'previous-buffer)
 (global-set-key (kbd "C-<XF86Forward>") 'next-buffer)
+(global-set-key (kbd "<f11>") 'match-paren)
 
 (global-set-key (kbd "M-g M-s") 'magit-status)
 (global-set-key (kbd "M-g <f10>") 'vc-ediff)
