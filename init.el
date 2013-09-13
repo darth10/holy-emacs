@@ -101,7 +101,7 @@
 (require 'config-dired)
 (require 'config-org)
 (require 'config-web)
-
+(require 'config-comment-annotations)
 
 ;; language configurations
 (require 'config-js)
