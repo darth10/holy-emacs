@@ -77,9 +77,9 @@ All scripts are in the `script/` folder.
 
 | Binding         | Description                                  |
 | --------------- | -------------------------------------------- |
-| `C-c M-b`       | Show bookmark list.                          |
-| `C-c C-b`       | Add bookmark.                                |
-| `C-c C-S-b`     | Delete all bookmarks.                        |
+| `C-c C-;`       | Show bookmark list.                          |
+| `C-c C-=`       | Add bookmark.                                |
+| `C-c C-#`       | Delete all bookmarks.                        |
 | `C-c C-<left>`  | Move to previous bookmark.                   |
 | `C-c C-<right>` | Move to next bookmark.                       |
 | `C-c C-<up>`    | Move to previous bookmark in current buffer. |

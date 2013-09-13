@@ -135,9 +135,9 @@
   (bc-clear)
   (message "All breadcrumbs deleted!"))
 
-(global-set-key (kbd "C-c C-b") 'bc-set)
-(global-set-key (kbd "C-c M-b") 'bc-list)
-(global-set-key (kbd "C-c C-S-b") 'bc-clear-and-msg)
+(global-set-key (kbd "C-c C-=") 'bc-set)
+(global-set-key (kbd "C-c C-;") 'bc-list)
+(global-set-key (kbd "C-c C-#") 'bc-clear-and-msg)
 (global-set-key (kbd "C-c C-<left>") 'bc-previous)
 (global-set-key (kbd "C-c C-<right>") 'bc-next)
 (global-set-key (kbd "C-c C-<up>") 'bc-local-previous)
