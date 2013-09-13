@@ -10,6 +10,8 @@
     csharp-mode
     find-file-in-project
     findr
+    fold-dwim
+    fold-dwim-org
     geiser
     ghci-completion
     gist

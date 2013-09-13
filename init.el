@@ -94,6 +94,10 @@
 (define-key ac-complete-mode-map "\t" 'ac-complete)
 (define-key ac-complete-mode-map "\r" nil)
 
+;; code folding
+(add-hook 'prog-mode-hook 'hs-minor-mode)
+(add-hook 'prog-mode-hook 'fold-dwim-org/minor-mode)
+
 ;; mode configurations
 (require 'config-paredit)
 (require 'config-helm)
