@@ -3,7 +3,8 @@
 (require 'package)
 
 (defvar pkg-packages
-  '(auto-complete
+  '(ac-nrepl
+    auto-complete
     clojure-mode
     clojurescript-mode
     clojure-test-mode

@@ -1,6 +1,7 @@
 ;;; Configuration for Clojure
 
 (require 'config-common)
+(require 'ac-nrepl)
 
 (add-hook 'nrepl-interaction-mode-hook 'nrepl-turn-on-eldoc-mode)
 (add-to-list 'same-window-buffer-names "*nrepl*")
@@ -39,10 +40,15 @@
 
 (defun configure-clojure-nrepl ()
   (paredit-mode)
+  (ac-nrepl-setup)
   (configure-clojure)
   (clojure-test-mode))
 
+(eval-after-load "auto-complete"
+  '(add-to-list 'ac-modes 'nrepl-mode))
+
 (defun configure-clojure-nrepl-inf ()
+  (ac-nrepl-setup)
   (local-set-key (kbd "C-?") 'nrepl-doc)
   (local-set-key (kbd "C-x T") 'clojure-test-run-tests)
   (local-set-key (kbd "C-x t") 'clojure-test-run-test))
