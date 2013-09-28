@@ -1,14 +1,17 @@
 ;;; Packages
 
+(require 'cl)
 (require 'package)
 
 (defvar pkg-packages
   '(ac-nrepl
     auto-complete
+    c-eldoc
     clojure-mode
     clojurescript-mode
     clojure-test-mode
     csharp-mode
+    edit-server
     find-file-in-project
     findr
     fold-dwim
@@ -18,6 +21,8 @@
     gist
     haskell-mode
     helm
+    helm-git
+    helm-ls-git
     highlight
     idle-highlight-mode
     ido-ubiquitous
@@ -32,14 +37,17 @@
     nrepl
     paredit
     popup
+    rainbow-delimiters
     rainbow-mode
     rinari
     ruby-compilation
+    ruby-electric
     ruby-mode
     rvm
     scala-mode2
     smex
-    yaml-mode))
+    yaml-mode
+    yari))
 
 (defun defpkgsource (name-uri)
   (add-to-list 'package-archives name-uri t))
