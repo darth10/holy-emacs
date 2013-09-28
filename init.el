@@ -85,12 +85,12 @@
 
 ;; yasnippet
 (require 'yasnippet-bundle)
-(setq yas/root-directory "~/.emacs.d/snippets")
+(setq yas/root-directory "~/.emacs.d/data/snippets")
 (yas/load-directory yas/root-directory)
 
 ;; auto-complete
 (require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/data/ac-dict")
 (ac-config-default)
 (setq ac-delay 0.5) ;; eclipse uses 500ms
 (define-key ac-complete-mode-map "\t" 'ac-complete)
