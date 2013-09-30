@@ -2,7 +2,9 @@
 (add-to-list 'load-path "~/.emacs.d/lisp/lib/")
 (add-to-list 'load-path "~/.emacs.d/lisp/config/")
 
+;; check for packages to install
 (require 'config-pkg)
+(pkg-update-packages)
 
 ;; highlight current line
 (global-hl-line-mode t)
@@ -71,9 +73,6 @@
 
 (push "/home/darth10/pymatter/bin/" exec-path)
 (push "/usr/bin/" exec-path)
-
-;; check for packages to install
-(pkg-update-packages)
 
 ;; move regions
 (require 'regions)
