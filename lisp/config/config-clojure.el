@@ -56,7 +56,7 @@
 (add-hook 'clojure-mode-hook 'configure-clojure)
 (add-hook 'clojure-mode-hook 'configure-lisp)
 (add-hook 'clojure-mode-hook 'configure-clojure-keys)
-(add-hook 'nrepl-mode-hook 'configure-clojure-nrepl)
+(add-hook 'nrepl-repl-mode-hook 'configure-clojure-nrepl)
 (add-hook 'nrepl-interaction-mode-hook 'configure-clojure-nrepl-inf)
 
 (provide 'config-clojure)
