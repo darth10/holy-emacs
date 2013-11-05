@@ -2,6 +2,7 @@
 
 (defun configure-org ()
   (auto-complete-mode)
+  (require 'org-agenda)
   (local-set-key (kbd "C-x t") 'org-timeline)
   (local-set-key (kbd "C-c l") 'org-store-link)
   (local-set-key (kbd "C-c c") 'org-capture)
