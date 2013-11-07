@@ -182,6 +182,9 @@
 (global-set-key (kbd "M-g M-r") 'vc-git-grep)
 (global-set-key (kbd "M-g M-l") 'magit-log)
 
+(global-set-key (kbd "C-x <f5>") 'compile)
+(global-set-key (kbd "M-<f5>") 'recompile)
+
 (require 'highlight-token)
 (global-set-key (kbd "C-<f3>") 'hlt-highlight-current-word)
 (global-set-key (kbd "C-S-<f3>") 'hlt-unhighlight-all-prop)

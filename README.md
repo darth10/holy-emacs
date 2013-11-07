@@ -27,6 +27,7 @@ All scripts are in the `script/` folder.
 | Binding           | Description                                                                                                                  |
 | ----------------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | `C-x <f3>`        | Show process list.                                                                                                           |
+| `C-x <f5>`        | Compile using `compile` function.                                                                                            |
 | `C-x <f7>`        | Open terminal. Available only on GNU/Linux.                                                                                  |
 | `C-x <f10>`       | Start Ediff between buffers.     											                                                   |
 | `C-x S-<f10>`     | Start Ediff between files. 	     											                                               |
@@ -51,6 +52,7 @@ All scripts are in the `script/` folder.
 | `C-<XF86Forward>` | Next buffer. Available only on ThinkPad keyboards.                                                                           |
 | `M-<up>`          | Move line or region up.                                                                                                      |
 | `M-<down>`        | Move line or region down.                                                                                                    |
+| `M-<f5>`          | Recompile using `recompile` function.                                                                                        |
 
 ### Git integration
 
