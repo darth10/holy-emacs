@@ -155,7 +155,7 @@ Requires Racket or Guile Scheme.
 | `C-<f10>`       | Start Scheme REPL server and connect.|
 
 
-### C#
+<h3> C# </h3>
 
 Requires Omnisharp.
 
