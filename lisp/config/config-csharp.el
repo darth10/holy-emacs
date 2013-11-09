@@ -36,8 +36,6 @@
   (start-omnisharp-server-process)
   (configure-omnisharp-bindings))
 
-;;; TODO README; add C#
-
 (defconfig configure-csharp
   (auto-complete-mode)
   (c-set-style "c#")

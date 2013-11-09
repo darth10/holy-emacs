@@ -1,6 +1,6 @@
 ## Overview
 
-* Support for editing/debugging Clojure, Emacs Lisp, Scheme, JavaScript, Ruby, Haskell and C.
+* Support for editing/debugging Clojure, Emacs Lisp, Scheme, C#, JavaScript, Ruby, Haskell and C.
 * Emphasis on use of function keys.
 * Identical (almost) bindings across different major modes.
 * Installs all packages from Marmalade and MELPA repositories on startup.
@@ -137,6 +137,14 @@ Requires Leiningen with nREPL middleware.
 | `C-x T`         | Run all tests for current namespace.           |
 | `C-x t`         | Run current test.                              |
 
+### Emacs Lisp
+
+| Binding         | Description                                                                           |
+| --------------- | ------------------------------------------------------------------------------------- |
+| `C-<f5>`        | Evaluate current buffer. When used in the scratch buffer, it evaluates the last sexp. |
+| `C-<f10>`       | Start iELM REPL.                                                                      |
+
+
 ### Scheme
 
 Requires Racket or Guile Scheme.
@@ -146,12 +154,21 @@ Requires Racket or Guile Scheme.
 | `C-<f5>`        | Evaluate current buffer in REPL.     |
 | `C-<f10>`       | Start Scheme REPL server and connect.|
 
-### Emacs Lisp
 
-| Binding         | Description                                                                           |
-| --------------- | ------------------------------------------------------------------------------------- |
-| `C-<f5>`        | Evaluate current buffer. When used in the scratch buffer, it evaluates the last sexp. |
-| `C-<f10>`       | Start iELM REPL.                                                                      |
+### C#
+
+Requires Omnisharp.
+
+| Binding         | Description                                           |
+| --------------- | ----------------------------------------------------- |
+| `C-<f10>`       | Start Omnisharp server.                               |
+| `C-x <f5>`      | Build current solution.                               |
+| `C-x SPC`       | Autocomplete symbol. A `.` invokes this function too. |
+| `C-?`           | Show overloads of symbol at point.                    |
+| `<f12>`         | Go to definition.                                     |
+| `S-<f12>`       | Find all references.                                  |
+
+
 
 ### JavaScript
 
