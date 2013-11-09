@@ -35,6 +35,7 @@
     multiple-cursors
     multi-web-mode
     nrepl
+    omnisharp
     paredit
     popup
     rainbow-delimiters
