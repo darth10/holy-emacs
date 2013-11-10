@@ -11,6 +11,7 @@
     clojurescript-mode
     clojure-test-mode
     csharp-mode
+    diff-hl
     edit-server
     find-file-in-project
     findr
@@ -30,6 +31,7 @@
     inf-ruby
     js-comint
     jump
+    lacarte
     magit
     markdown-mode
     multiple-cursors
@@ -48,7 +50,8 @@
     scala-mode2
     smex
     yaml-mode
-    yari))
+    yari
+    yascroll))
 
 (defun defpkgsource (name-uri)
   (add-to-list 'package-archives name-uri t))

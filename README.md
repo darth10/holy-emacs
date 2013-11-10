@@ -50,6 +50,7 @@ All scripts are in the `script/` folder.
 | `C-?`             | Look up any documentation. Changes behaviour depending on major mode, and defaults to available info documentation.          |
 | `C-<XF86Back>`    | Previous buffer. Available only on ThinkPad keyboards.                                                                       |
 | `C-<XF86Forward>` | Next buffer. Available only on ThinkPad keyboards.                                                                           |
+| `ESC M-x`         | Execute menu command.                                                                                                        |
 | `M-<up>`          | Move line or region up.                                                                                                      |
 | `M-<down>`        | Move line or region down.                                                                                                    |
 | `M-<f5>`          | Recompile using `recompile` function.                                                                                        |

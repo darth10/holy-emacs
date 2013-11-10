@@ -69,7 +69,8 @@
   '(rainbow-delimiters-depth-8-face ((t (:foreground "royal blue"))))
   '(rainbow-delimiters-depth-9-face ((t (:foreground "royal blue"))))
   '(rainbow-delimiters-unmatched-face ((t (:foreground "medium orchid"))))
-  '(region ((t (:background "white" :foreground "black"))))))
+  '(region ((t (:background "white" :foreground "black"))))
+  '(yascroll:thumb-fringe ((t (:background "lawn green" :foreground "lawn green"))))))
 
 (push "/home/darth10/pymatter/bin/" exec-path)
 (push "/usr/bin/" exec-path)
@@ -147,6 +148,20 @@
 ;; dynamic cursor color
 (require 'hcz-cursor)
 (add-hook 'post-command-hook 'hcz-set-cursor-color-according-to-mode)
+
+;; lacarte menu
+(require 'lacarte)
+(menu-bar-mode -1)
+(global-set-key (kbd "ESC M-x") 'lacarte-execute-menu-command)
+
+;; yascroll
+(require 'yascroll)
+(toggle-scroll-bar -1)
+(global-yascroll-bar-mode t)
+
+;; diff-hl
+(require 'diff-hl)
+(global-diff-hl-mode t)
 
 (require 'util)
 
