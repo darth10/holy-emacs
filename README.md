@@ -55,6 +55,8 @@ All scripts are in the `script/` folder.
 | `M-<up>`          | Move line or region up.                                                                                                      |
 | `M-<down>`        | Move line or region down.                                                                                                    |
 | `M-<f5>`          | Recompile using `recompile` function.                                                                                        |
+| `C-x C-j`         | Show directory.                                                                                                              |
+| `C-c C-j`         | Show directory explorer.                                                                                                     |
 
 ### Git integration
 

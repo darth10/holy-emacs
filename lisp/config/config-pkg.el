@@ -13,6 +13,7 @@
     clojure-test-mode
     csharp-mode
     diff-hl
+    direx
     edit-server
     find-file-in-project
     findr
