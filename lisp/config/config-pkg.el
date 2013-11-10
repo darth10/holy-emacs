@@ -15,6 +15,7 @@
     diff-hl
     direx
     edit-server
+    expand-region
     find-file-in-project
     findr
     fold-dwim

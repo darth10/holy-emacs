@@ -49,6 +49,7 @@ All scripts are in the `script/` folder.
 | `C-S-\`	        | Move to window.                                                                                                              |
 | `C-+`             | Interactively resize current window.                                                                                         |
 | `C-?`             | Look up any documentation. Changes behaviour depending on major mode, and defaults to available info documentation.          |
+| `C-=`             | Expand region.                                                                                                               |
 | `C-<XF86Back>`    | Previous buffer. Available only on ThinkPad keyboards.                                                                       |
 | `C-<XF86Forward>` | Next buffer. Available only on ThinkPad keyboards.                                                                           |
 | `ESC M-x`         | Execute menu command.                                                                                                        |

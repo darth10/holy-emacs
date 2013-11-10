@@ -166,6 +166,10 @@
 (require 'diff-hl)
 (global-diff-hl-mode t)
 
+;; expand region
+(require 'expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
+
 (require 'util)
 
 (global-set-key (kbd "C-x ?") 'woman)
