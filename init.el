@@ -81,7 +81,10 @@
 (global-set-key (kbd "M-<down>") 'move-line-region-down)
 
 ;; backup settings
-(setq backup-directory-alist `(("." . "~/.emacs-saves")))
+(defconst backup-dir "~/.emacs-saves/")
+(setq backup-directory-alist `((".*" . ,backup-dir)))
+(setq auto-save-file-name-transforms `((".*" ,backup-dir t)))
+(setq auto-save-list-file-prefix backup-dir)
 
 ;; yasnippet
 (require 'yasnippet-bundle)
