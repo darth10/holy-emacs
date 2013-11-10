@@ -190,19 +190,26 @@
 (global-set-key (kbd "<f11>") 'match-paren)
 
 (global-set-key (kbd "M-g M-s") 'magit-status)
+(global-set-key (kbd "M-g <f3>") 'vc-git-grep)
 (global-set-key (kbd "M-g <f10>") 'vc-ediff)
 (global-set-key (kbd "M-g d") 'vc-diff)
 (global-set-key (kbd "M-g M-d") 'git-diff-tree)
 (global-set-key (kbd "M-g M-f") 'helm-ls-git-ls)
-(global-set-key (kbd "M-g M-r") 'vc-git-grep)
 (global-set-key (kbd "M-g M-l") 'magit-log)
 
 (global-set-key (kbd "C-x <f5>") 'compile)
 (global-set-key (kbd "M-<f5>") 'recompile)
 
 (require 'highlight-token)
-(global-set-key (kbd "C-<f3>") 'hlt-highlight-current-word)
-(global-set-key (kbd "C-S-<f3>") 'hlt-unhighlight-all-prop)
+(global-set-key (kbd "M-]") 'hlt-highlight-current-word)
+(global-set-key (kbd "ESC M-]") 'hlt-unhighlight-all-prop)
+
+;; search
+(require 'ag)
+(global-set-key (kbd "C-<f3>") 'ag)
+(global-set-key (kbd "C-S-<f3>") 'ag-regexp)
+(global-set-key (kbd "C-c <f3>") 'ag-project)
+(global-set-key (kbd "C-c S-<f3>") 'ag-project-regexp)
 
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)

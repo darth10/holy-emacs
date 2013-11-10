@@ -5,6 +5,7 @@
 
 (defvar pkg-packages
   '(ac-nrepl
+    ag
     auto-complete
     c-eldoc
     clojure-mode
