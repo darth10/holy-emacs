@@ -7,6 +7,7 @@
 * Includes helm and autocomplete.
 * Includes code snippets via yasnippet. Apart from those in yasnippet-bundle, there are several custom snippets for Clojure, JavaScript, Haskell and Scheme.
 * Git integration via magit.
+* File and project search via ag.
 * Quickly move regions using `M-<up>` and `M-<down>` like in Eclipse.
 * Quickly create and navigate across bookmarks via breadcrumb.
 * Automatically saves backup files to `~/.emacs-saves/`.
@@ -39,8 +40,8 @@ All scripts are in the `script/` folder.
 | `C-x G`           | Run grep.                                                                                                                    |
 | `C-x g`           | Run recursive grep. Useful for searching in files.                                                                           |
 | `C-<f2>`          | Helm i-menu. Useful for code navigation.                                                                                     |
-| `C-<f3>`          | Highlight token under cursor. Use `[` or `]` to navigate to previous or next hit, or `ESC` to remove all highlighted tokens. |
-| `C-S-<f3>`        | Remove all highlighted tokens.                                                                                               |
+| `M-]`             | Highlight token under cursor. Use `[` or `]` to navigate to previous or next hit, or `ESC` to remove all highlighted tokens. |
+| `ESC M-]`         | Remove all highlighted tokens.                                                                                               |
 | `C-<f4>`          | Toggle highlight current line.                                                                                               |
 | `C-<f6>`          | Toggle line numbers.                                                                                                         |
 | `C-<f9>`          | Toggle truncate lines (word wrapping).                                                                                       |
@@ -48,29 +49,44 @@ All scripts are in the `script/` folder.
 | `C-S-\`	        | Move to window.                                                                                                              |
 | `C-+`             | Interactively resize current window.                                                                                         |
 | `C-?`             | Look up any documentation. Changes behaviour depending on major mode, and defaults to available info documentation.          |
+| `C-=`             | Expand region.                                                                                                               |
 | `C-<XF86Back>`    | Previous buffer. Available only on ThinkPad keyboards.                                                                       |
 | `C-<XF86Forward>` | Next buffer. Available only on ThinkPad keyboards.                                                                           |
+| `ESC M-x`         | Execute menu command.                                                                                                        |
 | `M-<up>`          | Move line or region up.                                                                                                      |
 | `M-<down>`        | Move line or region down.                                                                                                    |
 | `M-<f5>`          | Recompile using `recompile` function.                                                                                        |
+| `C-x C-j`         | Show directory.                                                                                                              |
+| `C-c C-j`         | Show directory explorer.                                                                                                     |
 
 ### Git integration
 
 | Binding         | Description                            |
 | --------------- | -------------------------------------- |
-| `M-g <f10>`     | Start `vc-ediff` for current file.     |
 | `M-g d`         | `git diff` for current file.           |
 | `M-g M-d`       | `git diff` for current git repository. |
 | `M-g M-s`       | Show current git repository status.    |
 | `M-g M-l`       | Show current git repository log.       |
 | `M-g M-f`       | Find file in current git repository.   |
-| `M-g M-r`       | `git grep` in current git repository.  |
+| `M-g <f3>`      | `git grep` in current git repository.  |
+| `M-g <f10>`     | Start `vc-ediff` for current file.     |
+
+### Search
+
+Requires ag.
+
+| Binding       | Description                |
+| ------------- | -------------------------- |
+| `C-<f3>`      | Search in files.           |
+| `C-S-<f3>`    | Search regexp in files.    |
+| `C-c <f3>`    | Search in project.         |
+| `C-c S-<f3>`  | Search regexp in project.  |
 
 ### Multiple cursors
 
 | Binding         | Description                            |
 | --------------- | -------------------------------------- |
-| `C-x <C-RET>`| Edit lines with multiple cursors.      |
+| `C-x <C-RET>`   | Edit lines with multiple cursors.      |
 | `C->`           | Mark next line or word.                |
 | `C-<`           | Mark preivous line or word.            |
 | `C-c C-<f3>`    | Mark all words like selected word.     |

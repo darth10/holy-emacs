@@ -5,13 +5,17 @@
 
 (defvar pkg-packages
   '(ac-nrepl
+    ag
     auto-complete
     c-eldoc
     clojure-mode
     clojurescript-mode
     clojure-test-mode
     csharp-mode
+    diff-hl
+    direx
     edit-server
+    expand-region
     find-file-in-project
     findr
     fold-dwim
@@ -30,6 +34,7 @@
     inf-ruby
     js-comint
     jump
+    lacarte
     magit
     markdown-mode
     multiple-cursors
@@ -48,7 +53,8 @@
     scala-mode2
     smex
     yaml-mode
-    yari))
+    yari
+    yascroll))
 
 (defun defpkgsource (name-uri)
   (add-to-list 'package-archives name-uri t))

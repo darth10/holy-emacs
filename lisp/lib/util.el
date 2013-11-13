@@ -56,12 +56,12 @@
   (interactive)
   (byte-recompile-directory (expand-file-name "~/.emacs.d") 0))
 
-(defun split-and-term ()
+(defun split-and-eshell ()
   "Split window and start terminal"
   (interactive)
   (split-window-below -10)
   (other-window 1)
-  (term "/bin/bash"))
+  (eshell))
 
 (defun git-diff-tree ()
   (interactive)

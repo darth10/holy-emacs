@@ -2,6 +2,8 @@
 (add-to-list 'load-path "~/.emacs.d/lisp/lib/")
 (add-to-list 'load-path "~/.emacs.d/lisp/config/")
 
+(require 'config-common)
+
 ;; check for packages to install
 (require 'config-pkg)
 (pkg-update-packages)
@@ -69,10 +71,12 @@
   '(rainbow-delimiters-depth-8-face ((t (:foreground "royal blue"))))
   '(rainbow-delimiters-depth-9-face ((t (:foreground "royal blue"))))
   '(rainbow-delimiters-unmatched-face ((t (:foreground "medium orchid"))))
-  '(region ((t (:background "white" :foreground "black"))))))
+  '(region ((t (:background "white" :foreground "black"))))
+  '(yascroll:thumb-fringe ((t (:background "lawn green" :foreground "lawn green"))))))
 
-(push "/home/darth10/pymatter/bin/" exec-path)
-(push "/usr/bin/" exec-path)
+(unless (is-windows?)
+  (push "~/pymatter/bin/" exec-path)
+  (push "/usr/bin/" exec-path))
 
 ;; move regions
 (require 'regions)
@@ -80,7 +84,10 @@
 (global-set-key (kbd "M-<down>") 'move-line-region-down)
 
 ;; backup settings
-(setq backup-directory-alist `(("." . "~/.emacs-saves")))
+(defconst backup-dir "~/.emacs-saves/")
+(setq backup-directory-alist `((".*" . ,backup-dir)))
+(setq auto-save-file-name-transforms `((".*" ,backup-dir t)))
+(setq auto-save-list-file-prefix backup-dir)
 
 ;; yasnippet
 (require 'yasnippet-bundle)
@@ -120,14 +127,16 @@
 (require 'config-ruby)
 (require 'config-sql)
 
-;; linux only
-(require 'config-c)
+;; linux-only languages
+(unless (is-windows?)
+  (require 'config-c))
 
 ;; info docs
-(eval-after-load 'info
-  '(progn
-     (push "/opt/local/share/info" Info-default-directory-list)
-     (push "~/.emacs.d/info" Info-default-directory-list)))
+(unless (is-windows?)
+  (eval-after-load 'info
+    '(progn
+       (push "/opt/local/share/info" Info-default-directory-list)
+       (push "~/.emacs.d/info" Info-default-directory-list))))
 
 (global-set-key (kbd "C-c C-=") 'bc-set)
 (global-set-key (kbd "C-c C-;") 'bc-list)
@@ -148,10 +157,31 @@
 (require 'hcz-cursor)
 (add-hook 'post-command-hook 'hcz-set-cursor-color-according-to-mode)
 
+;; lacarte menu
+(require 'lacarte)
+(menu-bar-mode -1)
+(global-set-key (kbd "ESC M-x") 'lacarte-execute-menu-command)
+
+;; yascroll
+(require 'yascroll)
+(toggle-scroll-bar -1)
+(global-yascroll-bar-mode t)
+
+;; diff-hl
+(require 'diff-hl)
+(global-diff-hl-mode t)
+
+;; expand region
+(require 'expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
+
 (require 'util)
 
-(global-set-key (kbd "C-x ?") 'woman)
-(global-set-key (kbd "C-x <f7>") 'split-and-term)
+;; linux-only key bindings
+(unless (is-windows?)
+  (global-set-key (kbd "C-x ?") 'woman))
+
+(global-set-key (kbd "C-x <f7>") 'split-and-eshell)
 (global-set-key (kbd "C-x <f3>") 'list-processes-and-switch)
 (global-set-key (kbd "C-x <f10>") 'ediff-buffers)
 (global-set-key (kbd "C-x S-<f10>") 'ediff)
@@ -175,23 +205,37 @@
 (global-set-key (kbd "<f11>") 'match-paren)
 
 (global-set-key (kbd "M-g M-s") 'magit-status)
+(global-set-key (kbd "M-g <f3>") 'vc-git-grep)
 (global-set-key (kbd "M-g <f10>") 'vc-ediff)
 (global-set-key (kbd "M-g d") 'vc-diff)
 (global-set-key (kbd "M-g M-d") 'git-diff-tree)
 (global-set-key (kbd "M-g M-f") 'helm-ls-git-ls)
-(global-set-key (kbd "M-g M-r") 'vc-git-grep)
 (global-set-key (kbd "M-g M-l") 'magit-log)
 
 (global-set-key (kbd "C-x <f5>") 'compile)
 (global-set-key (kbd "M-<f5>") 'recompile)
 
 (require 'highlight-token)
-(global-set-key (kbd "C-<f3>") 'hlt-highlight-current-word)
-(global-set-key (kbd "C-S-<f3>") 'hlt-unhighlight-all-prop)
+(global-set-key (kbd "M-]") 'hlt-highlight-current-word)
+(global-set-key (kbd "ESC M-]") 'hlt-unhighlight-all-prop)
+
+;; search
+(require 'ag)
+(global-set-key (kbd "C-<f3>") 'ag)
+(global-set-key (kbd "C-S-<f3>") 'ag-regexp)
+(global-set-key (kbd "C-c <f3>") 'ag-project)
+(global-set-key (kbd "C-c S-<f3>") 'ag-project-regexp)
 
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+
+;; Windows configuration
+(when (is-windows?)
+  (setq w32-get-true-file-attributes nil)
+  (w32-send-sys-command 61488))
+
 
 (server-start)
 
