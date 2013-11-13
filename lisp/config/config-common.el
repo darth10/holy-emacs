@@ -7,6 +7,9 @@
      (local-set-key "\r" 'newline-and-indent)
      ,@body))
 
+(defun is-windows? ()
+  (equal system-type 'windows-nt))
+
 (defun configure-lisp ()
   (paredit-mode)
   ;; uncomment for sexp highlighting by default

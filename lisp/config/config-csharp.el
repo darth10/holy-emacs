@@ -1,6 +1,7 @@
 ;;; Configuration for C#
 
 (require 'csharp-mode)
+(require 'omnisharp)
 (require 'config-common)
 
 (defconst omnisharp-process-name

@@ -2,6 +2,8 @@
 (add-to-list 'load-path "~/.emacs.d/lisp/lib/")
 (add-to-list 'load-path "~/.emacs.d/lisp/config/")
 
+(require 'config-common)
+
 ;; check for packages to install
 (require 'config-pkg)
 (pkg-update-packages)
@@ -72,8 +74,9 @@
   '(region ((t (:background "white" :foreground "black"))))
   '(yascroll:thumb-fringe ((t (:background "lawn green" :foreground "lawn green"))))))
 
-(push "/home/darth10/pymatter/bin/" exec-path)
-(push "/usr/bin/" exec-path)
+(unless (is-windows?)
+  (push "~/pymatter/bin/" exec-path)
+  (push "/usr/bin/" exec-path))
 
 ;; move regions
 (require 'regions)
@@ -124,14 +127,16 @@
 (require 'config-ruby)
 (require 'config-sql)
 
-;; linux only
-(require 'config-c)
+;; linux-only languages
+(unless (is-windows?)
+  (require 'config-c))
 
 ;; info docs
-(eval-after-load 'info
-  '(progn
-     (push "/opt/local/share/info" Info-default-directory-list)
-     (push "~/.emacs.d/info" Info-default-directory-list)))
+(unless (is-windows?)
+  (eval-after-load 'info
+    '(progn
+       (push "/opt/local/share/info" Info-default-directory-list)
+       (push "~/.emacs.d/info" Info-default-directory-list))))
 
 (global-set-key (kbd "C-c C-=") 'bc-set)
 (global-set-key (kbd "C-c C-;") 'bc-list)
@@ -172,8 +177,11 @@
 
 (require 'util)
 
-(global-set-key (kbd "C-x ?") 'woman)
-(global-set-key (kbd "C-x <f7>") 'split-and-term)
+;; linux-only key bindings
+(unless (is-windows?)
+  (global-set-key (kbd "C-x ?") 'woman))
+
+(global-set-key (kbd "C-x <f7>") 'split-and-eshell)
 (global-set-key (kbd "C-x <f3>") 'list-processes-and-switch)
 (global-set-key (kbd "C-x <f10>") 'ediff-buffers)
 (global-set-key (kbd "C-x S-<f10>") 'ediff)
@@ -221,6 +229,13 @@
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+
+;; Windows configuration
+(when (is-windows?)
+  (setq w32-get-true-file-attributes nil)
+  (w32-send-sys-command 61488))
+
 
 (server-start)
 
