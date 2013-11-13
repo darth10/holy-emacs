@@ -16,15 +16,23 @@
 (global-rainbow-delimiters-mode)
 
 (custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ansi-color-names-vector ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
+ '(ansi-color-names-vector ["#242424" "#e5786d" "#95e454" "#cae682"
+                            "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
  '(blink-cursor-mode nil)
  '(column-number-mode t)
  '(custom-enabled-themes (quote (manoj-dark)))
- '(custom-safe-themes (quote ("3d84717766913e2deb8cadf7ddee8d64db1a6bcc4de7e4e36fc1bcca8727ded5" "915cfe1e618f69b4eecd8decc182cd97e5b88b675a6d8c54b18fdcc84c4b14a7" "d360b815962bdfb45c4f77dfb9a60d2c9efc72eeb52f96b781201bb271a665b6" "c6174d0904327dc80cf2615340d4ff773e7cb28d295d51b41b0aa78385a5c54a" "cef9254a1332af631898cf793fe3b3081685088db57001899c6ab3148f4cdc85" "79757ce4abcf1d7bbc7698215a7c4a73f0c4a35118a8f9106ebb1bbcf6d5a693" "af07043eef48c8b9868add839d195e78dc21ba7d63a9fd1be3db47ec3cecb860" "446ea630982d51dd3ee7bbb813151a72f2246b2646a2198564b9b8106de8f155" "7641335320fa8e6a311491f58f0e5c3733b44a7936148d4349381d119f6cca83" "946efabf968fa25ced521351c5901a378cad402669cbce92b72983cd852cd750" default)))
+ '(custom-safe-themes
+   (quote ("3d84717766913e2deb8cadf7ddee8d64db1a6bcc4de7e4e36fc1bcca8727ded5"
+           "915cfe1e618f69b4eecd8decc182cd97e5b88b675a6d8c54b18fdcc84c4b14a7"
+           "d360b815962bdfb45c4f77dfb9a60d2c9efc72eeb52f96b781201bb271a665b6"
+           "c6174d0904327dc80cf2615340d4ff773e7cb28d295d51b41b0aa78385a5c54a"
+           "cef9254a1332af631898cf793fe3b3081685088db57001899c6ab3148f4cdc85"
+           "79757ce4abcf1d7bbc7698215a7c4a73f0c4a35118a8f9106ebb1bbcf6d5a693"
+           "af07043eef48c8b9868add839d195e78dc21ba7d63a9fd1be3db47ec3cecb860"
+           "446ea630982d51dd3ee7bbb813151a72f2246b2646a2198564b9b8106de8f155"
+           "7641335320fa8e6a311491f58f0e5c3733b44a7936148d4349381d119f6cca83"
+           "946efabf968fa25ced521351c5901a378cad402669cbce92b72983cd852cd750"
+           default)))
  '(ebnf-non-terminal-font (quote (11 Matrix "Black" "White")))
  '(ebnf-terminal-font (quote (11 Matrix "Black" "White")))
  '(fancy-splash-image nil)
@@ -40,26 +48,29 @@
  '(tool-bar-mode nil)
 
  (custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
   '(cursor ((t (:background "green"))))
-  '(default ((t (:background "black" :foreground "green" :family "Matrix" :foundry "monotype" :slant normal :weight normal :height 113 :width normal))))
+  '(default ((t (:background "black" :foreground "green" :family "Matrix"
+                             :foundry "monotype" :slant normal :weight normal
+                             :height 113 :width normal))))
   '(button ((t (:background "green" :foreground "black"))))
   '(escape-glyph ((t (:foreground "#ddaa6f" :weight bold))))
-  '(header-line ((((class color) (min-colors 89)) (:background "#303030" :foreground "#e7f6da"))))
+  '(header-line ((((class color) (min-colors 89))
+                  (:background "#303030" :foreground "#e7f6da"))))
   '(helm-ff-directory ((t (:background "LightGray" :foreground "black"))))
   '(helm-header ((t (:background "black" :foreground "dim gray"))))
   '(helm-separator ((t (:foreground "gray"))))
-  '(helm-source-header ((t (:background "green" :foreground "black" :weight bold :height 1.0 :family "Courier New"))))
+  '(helm-source-header
+    ((t (:background "green" :foreground "black"
+                     :weight bold :height 1.0 :family "Courier New"))))
   '(highlight ((t (:background "#454545" :foreground "#ffffff"))))
   '(hl-line ((t (:background "gray27" :foreground "green"))))
   '(isearch ((t (:background "green" :foreground "black"))))
-  '(lazy-highlight ((((class color) (min-colors 89)) (:background "#384048" :foreground "#a0a8b0"))))
+  '(lazy-highlight ((((class color) (min-colors 89))
+                     (:background "#384048" :foreground "#a0a8b0"))))
   '(minibuffer-prompt ((t (:foreground "green"))))
   '(mode-line ((t (:background "green1" :foreground "black"))))
-  '(mode-line-buffer-id ((t (:background "green" :foreground "black" :weight bold :height 0.9))))
+  '(mode-line-buffer-id ((t (:background "green" :foreground "black"
+                                         :weight bold :height 0.9))))
   '(mode-line-inactive ((t (:background "black" :foreground "chartreuse"))))
   '(rainbow-delimiters-depth-1-face ((t (:foreground "light sky blue"))))
   '(rainbow-delimiters-depth-2-face ((t (:foreground "royal blue"))))
@@ -72,7 +83,8 @@
   '(rainbow-delimiters-depth-9-face ((t (:foreground "royal blue"))))
   '(rainbow-delimiters-unmatched-face ((t (:foreground "medium orchid"))))
   '(region ((t (:background "white" :foreground "black"))))
-  '(yascroll:thumb-fringe ((t (:background "lawn green" :foreground "lawn green"))))))
+  '(yascroll:thumb-fringe
+    ((t (:background "lawn green" :foreground "lawn green"))))))
 
 (unless (is-windows?)
   (push "~/pymatter/bin/" exec-path)
