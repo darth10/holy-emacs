@@ -116,7 +116,6 @@
 
 ;; code folding
 (add-hook 'prog-mode-hook 'hs-minor-mode)
-(add-hook 'prog-mode-hook 'fold-dwim-org/minor-mode)
 
 ;; mode configurations
 (require 'config-paredit)
