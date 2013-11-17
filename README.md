@@ -104,7 +104,7 @@ Requires ag.
 | `C-c S-<f3>` or `C-c C-c C-/` | `cc?`            | Search regexp in project.  |
 
 
-### Code folding TODO
+### Code folding
 
 | Keys                      | God Mode Keys     | Description                            |
 | ------------------------- | ----------------- | -------------------------------------- |
@@ -194,7 +194,7 @@ Requires Leiningen with nREPL middleware.
 
 ### Scheme
 
-Requires Racket or Guile Scheme.
+Requires Racket and/or Guile Scheme.
 
 | Keys            | Description                          |
 | --------------- | ------------------------------------ |
@@ -217,10 +217,9 @@ Requires Omnisharp.
 | `S-<f12>`       | Find all references.                                  |
 
 
-
 ### JavaScript
 
-Requires Node.js.
+Requires Node.js, [swank-js](https://github.com/swank-js/swank-js) and [tern](https://github.com/marijnh/tern).
 
 | Keys            | Description                                 |
 | --------------- | ------------------------------------------- |

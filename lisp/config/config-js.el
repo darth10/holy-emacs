@@ -1,21 +1,44 @@
 ;;; Configuration for JavaScript
 
 (require 'config-common)
+(require 'slime)
+
+(defun slime-connect-to-repl ()
+  (interactive)
+  (slime-connect "127.0.0.1" 4005))
 
 (defconfig configure-js
-  (local-set-key (kbd "C-<f10>") 'run-js)
-  (local-set-key (kbd "C-<f5>") 'js-send-buffer-and-go))
+  (require 'tern)
+  (require 'slime-js)
+  (js2-minor-mode t)
+  (tern-mode t)
+  (tern-ac-setup)
+  (slime-js-minor-mode 1)
+  (local-set-key (kbd "C-x SPC") 'tern-ac-complete)
+  (local-unset-key (kbd "C-x C-e"))
+  (local-set-key (kbd "C-x C-e") 'slime-js-send-defun)
+  (local-set-key (kbd "C-<f10>") 'slime-connect-to-repl)
+  (local-set-key (kbd "C-<f8>") 'slime-connect)
+  ;; FIXME should be slime-js-reload
+  (local-set-key (kbd "C-<f5>") 'slime-eval-buffer))
 
-(defun configure-js-inf ()
-  (ansi-color-for-comint-mode-on)
-  (local-set-key (kbd "TAB") 'dabbrev-expand)
-  (add-to-list 'comint-preoutput-filter-functions   ;; Deal with some prompt nonsense
-	       (lambda (output)
-		 (replace-regexp-in-string "\033\\[[0-9]+[GK]" "" output))))
+(defun slime-ac-key ()
+  (interactive)
+  (insert ".")
+  (ac-complete-slime))
 
-(setq inferior-js-program-command "node")
-(setq inferior-js-mode-hook 'configure-js-inf)
+(defun configure-slime ()
+  (interactive)
+  (require 'ac-slime)
+  (set-up-slime-ac 1)
+  (local-set-key (kbd ".") 'slime-ac-key)
+  (local-set-key (kbd "C-x SPC") 'ac-complete-slime))
 
 (add-hook 'js-mode-hook 'configure-js)
+(add-hook 'slime-repl-mode-hook 'configure-slime)
+
+(setq js2-basic-offset 2)
+
+;; FIXME update README.md -> Requires swank-js + tern
 
 (provide 'config-js)

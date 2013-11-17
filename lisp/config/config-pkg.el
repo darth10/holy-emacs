@@ -5,6 +5,7 @@
 
 (defvar pkg-packages
   '(ac-nrepl
+    ac-slime
     ag
     auto-complete
     c-eldoc
@@ -34,7 +35,6 @@
     ido-ubiquitous
     inflections
     inf-ruby
-    js-comint
     jump
     lacarte
     magit
@@ -53,6 +53,8 @@
     ruby-mode
     rvm
     scala-mode2
+    slime
+    slime-js
     smex
     yaml-mode
     yari
