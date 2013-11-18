@@ -333,7 +333,9 @@ normally be called. `wide-column-mode-reset' turns it back on again. "
 ;; fill-column. So it would be nice to be able to get from one colour
 ;; to the next automatically, without just specifying a list.
 (defvar wide-column-colour-list
-  '("orange" "orange" "orange"))
+  '("tan"
+    "tan"
+    "tan"))
 
 (setq wide-column-warning-colour-quotient 5)
 

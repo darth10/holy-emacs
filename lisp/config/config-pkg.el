@@ -18,10 +18,10 @@
     expand-region
     find-file-in-project
     findr
-    fold-dwim
     geiser
     ghci-completion
     gist
+    god-mode
     haskell-mode
     helm
     helm-git
