@@ -237,6 +237,11 @@
 (global-set-key (kbd "C-c <f3>") 'ag-project)
 (global-set-key (kbd "C-c S-<f3>") 'ag-project-regexp)
 
+;; auto-fill and wide-column
+(require 'wide-column)
+(global-wide-column-mode t)
+(global-set-key (kbd "C-c C-q") 'auto-fill-mode)
+
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
