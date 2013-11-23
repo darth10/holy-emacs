@@ -37,12 +37,17 @@
 
 (defun move-to-window ()
   (interactive)
-  (let ((wind-key (read-key "Select next window")))
-    (cond ((eq wind-key 'left)  (windmove-left))
-	  ((eq wind-key 'right) (windmove-right))
-	  ((eq wind-key 'up)    (windmove-up))
-	  ((eq wind-key 'down)  (windmove-down))
-	  (t                    (message "Unknown window")))))
+  (let ((wind-key (read-key "Use f/b/n/p or cursor keys to move to next ")))
+    (cond
+     ((or (eq wind-key 'left)
+          (eq wind-key ?b))    (windmove-left))
+     ((or (eq wind-key 'right)
+          (eq wind-key ?f))    (windmove-right))
+     ((or (eq wind-key 'up)
+          (eq wind-key ?p))    (windmove-up))
+     ((or (eq wind-key 'down)
+          (eq wind-key ?n))    (windmove-down))
+     (t nil))))
 
 (defun match-paren (arg)
   "Go to the matching paren if the cursor is on a paren"

@@ -7,7 +7,7 @@
   "change cursor color according to some minor modes."
   ;; set-cursor-color is somewhat costly, so we only call it when needed:
   (let ((color
-	 (if buffer-read-only "gray"
+	 (if buffer-read-only "dark sea green"
 	   (if overwrite-mode
 	       "yellow"
 	     "green"))))

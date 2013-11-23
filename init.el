@@ -8,6 +8,28 @@
 (require 'config-pkg)
 (pkg-update-packages)
 
+;; god-mode
+(require 'god-mode)
+
+(defun gm-cursor ()
+  (setq cursor-type
+        (if (or god-local-mode buffer-read-only)
+            'box
+          'bar)))
+
+(defun set-god-mode ()
+  (progn
+    (global-unset-key (kbd "M-SPC"))
+    (global-set-key (kbd "M-SPC") 'god-local-mode)
+    (add-to-list 'god-exempt-major-modes 'dired-mode)
+    (god-mode)
+    (add-hook 'prog-mode-hook 'gm-cursor)
+    (add-hook 'god-mode-enabled-hook 'gm-cursor)
+    (add-hook 'god-mode-disabled-hook 'gm-cursor)))
+
+;; comment out this line to disable global god-mode
+(set-god-mode)
+
 ;; highlight current line
 (global-hl-line-mode t)
 
@@ -20,7 +42,7 @@
                             "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
  '(blink-cursor-mode nil)
  '(column-number-mode t)
- '(custom-enabled-themes (quote (manoj-dark)))
+ '(custom-enabled-themes (quote (wombat)))
  '(custom-safe-themes
    (quote ("3d84717766913e2deb8cadf7ddee8d64db1a6bcc4de7e4e36fc1bcca8727ded5"
            "915cfe1e618f69b4eecd8decc182cd97e5b88b675a6d8c54b18fdcc84c4b14a7"
@@ -45,46 +67,46 @@
  '(show-paren-mode t)
  '(term-default-bg-color "#000000")
  '(term-default-fg-color "#00ff00")
- '(tool-bar-mode nil)
+ '(tool-bar-mode nil))
 
- (custom-set-faces
-  '(cursor ((t (:background "green"))))
-  '(default ((t (:background "black" :foreground "green" :family "Matrix"
-                             :foundry "monotype" :slant normal :weight normal
-                             :height 113 :width normal))))
-  '(button ((t (:background "green" :foreground "black"))))
-  '(escape-glyph ((t (:foreground "#ddaa6f" :weight bold))))
-  '(header-line ((((class color) (min-colors 89))
-                  (:background "#303030" :foreground "#e7f6da"))))
-  '(helm-ff-directory ((t (:background "LightGray" :foreground "black"))))
-  '(helm-header ((t (:background "black" :foreground "dim gray"))))
-  '(helm-separator ((t (:foreground "gray"))))
-  '(helm-source-header
-    ((t (:background "green" :foreground "black"
-                     :weight bold :height 1.0 :family "Courier New"))))
-  '(highlight ((t (:background "#454545" :foreground "#ffffff"))))
-  '(hl-line ((t (:background "gray27" :foreground "green"))))
-  '(isearch ((t (:background "green" :foreground "black"))))
-  '(lazy-highlight ((((class color) (min-colors 89))
-                     (:background "#384048" :foreground "#a0a8b0"))))
-  '(minibuffer-prompt ((t (:foreground "green"))))
-  '(mode-line ((t (:background "green1" :foreground "black"))))
-  '(mode-line-buffer-id ((t (:background "green" :foreground "black"
-                                         :weight bold :height 0.9))))
-  '(mode-line-inactive ((t (:background "black" :foreground "chartreuse"))))
-  '(rainbow-delimiters-depth-1-face ((t (:foreground "light sky blue"))))
-  '(rainbow-delimiters-depth-2-face ((t (:foreground "royal blue"))))
-  '(rainbow-delimiters-depth-3-face ((t (:foreground "medium orchid"))))
-  '(rainbow-delimiters-depth-4-face ((t (:foreground "dark orange"))))
-  '(rainbow-delimiters-depth-5-face ((t (:foreground "yellow"))))
-  '(rainbow-delimiters-depth-6-face ((t (:foreground "lawn green"))))
-  '(rainbow-delimiters-depth-7-face ((t (:foreground "light sky blue"))))
-  '(rainbow-delimiters-depth-8-face ((t (:foreground "royal blue"))))
-  '(rainbow-delimiters-depth-9-face ((t (:foreground "royal blue"))))
-  '(rainbow-delimiters-unmatched-face ((t (:foreground "medium orchid"))))
-  '(region ((t (:background "white" :foreground "black"))))
-  '(yascroll:thumb-fringe
-    ((t (:background "lawn green" :foreground "lawn green"))))))
+(custom-set-faces
+ '(cursor ((t (:background "green"))))
+ '(default ((t (:background "black" :foreground "green" :family "Matrix"
+                            :foundry "monotype" :slant normal :weight normal
+                            :height 113 :width normal))))
+ '(button ((t (:background "green" :foreground "black"))))
+ '(escape-glyph ((t (:foreground "#ddaa6f" :weight bold))))
+ '(header-line ((((class color) (min-colors 89))
+                 (:background "#303030" :foreground "#e7f6da"))))
+ '(helm-ff-directory ((t (:background "LightGray" :foreground "black"))))
+ '(helm-header ((t (:background "black" :foreground "dim gray"))))
+ '(helm-separator ((t (:foreground "gray"))))
+ '(helm-source-header
+   ((t (:background "green" :foreground "black"
+                    :weight bold :height 1.0 :family "Courier New"))))
+ '(highlight ((t (:background "#454545" :foreground "#ffffff"))))
+ '(hl-line ((t (:background "gray27" :foreground "green"))))
+ '(isearch ((t (:background "green" :foreground "black"))))
+ '(lazy-highlight ((((class color) (min-colors 89))
+                    (:background "#384048" :foreground "#a0a8b0"))))
+ '(minibuffer-prompt ((t (:foreground "green"))))
+ '(mode-line ((t (:background "green1" :foreground "black"))))
+ '(mode-line-buffer-id ((t (:background "green" :foreground "black"
+                                        :weight bold :height 0.9))))
+ '(mode-line-inactive ((t (:background "black" :foreground "chartreuse"))))
+ '(rainbow-delimiters-depth-1-face ((t (:foreground "light sky blue"))))
+ '(rainbow-delimiters-depth-2-face ((t (:foreground "royal blue"))))
+ '(rainbow-delimiters-depth-3-face ((t (:foreground "medium orchid"))))
+ '(rainbow-delimiters-depth-4-face ((t (:foreground "dark orange"))))
+ '(rainbow-delimiters-depth-5-face ((t (:foreground "yellow"))))
+ '(rainbow-delimiters-depth-6-face ((t (:foreground "lawn green"))))
+ '(rainbow-delimiters-depth-7-face ((t (:foreground "light sky blue"))))
+ '(rainbow-delimiters-depth-8-face ((t (:foreground "royal blue"))))
+ '(rainbow-delimiters-depth-9-face ((t (:foreground "royal blue"))))
+ '(rainbow-delimiters-unmatched-face ((t (:foreground "medium orchid"))))
+ '(region ((t (:background "white" :foreground "black"))))
+ '(yascroll:thumb-fringe
+   ((t (:background "lawn green" :foreground "lawn green")))))
 
 (unless (is-windows?)
   (push "~/pymatter/bin/" exec-path)
@@ -93,7 +115,9 @@
 ;; move regions
 (require 'regions)
 (global-set-key (kbd "M-<up>") 'move-line-region-up)
+(global-set-key (kbd "M-p") 'move-line-region-up)
 (global-set-key (kbd "M-<down>") 'move-line-region-down)
+(global-set-key (kbd "M-n") 'move-line-region-down)
 
 ;; backup settings
 (defconst backup-dir "~/.emacs-saves/")
@@ -113,9 +137,15 @@
 (setq ac-delay 0.5) ;; eclipse uses 500ms
 (define-key ac-complete-mode-map "\t" 'ac-complete)
 (define-key ac-complete-mode-map "\r" nil)
+(global-set-key (kbd "C-c C-c C-a") 'auto-complete-mode)
 
 ;; code folding
+(require 'hideshow)
 (add-hook 'prog-mode-hook 'hs-minor-mode)
+(global-set-key (kbd "C-c C-h") 'hs-hide-block)
+(global-set-key (kbd "C-c C-g C-h") 'hs-hide-all)
+(global-set-key (kbd "C-c C-s") 'hs-show-block)
+(global-set-key (kbd "C-c C-g C-s") 'hs-show-all)
 
 ;; mode configurations
 (require 'config-paredit)
@@ -153,9 +183,13 @@
 (global-set-key (kbd "C-c C-;") 'bc-list)
 (global-set-key (kbd "C-c C-#") 'bc-clear-and-msg)
 (global-set-key (kbd "C-c C-<left>") 'bc-previous)
+(global-set-key (kbd "C-c C-b") 'bc-previous)
 (global-set-key (kbd "C-c C-<right>") 'bc-next)
+(global-set-key (kbd "C-c C-f") 'bc-next)
 (global-set-key (kbd "C-c C-<up>") 'bc-local-previous)
+(global-set-key (kbd "C-c C-p") 'bc-local-previous)
 (global-set-key (kbd "C-c C-<down>") 'bc-local-next)
+(global-set-key (kbd "C-c C-n") 'bc-local-next)
 
 ;; multiple cursors
 (require 'multiple-cursors)
@@ -163,6 +197,7 @@
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<f3>") 'mc/mark-all-like-this)
+(global-set-key (kbd "C-c C->") 'mc/mark-all-like-this)
 
 ;; dynamic cursor color
 (require 'hcz-cursor)
@@ -193,9 +228,13 @@
   (global-set-key (kbd "C-x ?") 'woman))
 
 (global-set-key (kbd "C-x <f7>") 'split-and-eshell)
+(global-set-key (kbd "C-c E") 'split-and-eshell)
 (global-set-key (kbd "C-x <f3>") 'list-processes-and-switch)
 (global-set-key (kbd "C-x <f10>") 'ediff-buffers)
+(global-set-key (kbd "C-c C-c =") 'ediff-buffers)
 (global-set-key (kbd "C-x S-<f10>") 'ediff)
+(global-set-key (kbd "C-c C-c +") 'ediff)
+
 (global-set-key (kbd "C-x <f11>") 'calendar)
 (global-set-key (kbd "C-x <f12>") 'calculator)
 (global-set-key (kbd "C-x <C-M-return>") 'find-user-init-file)
@@ -214,14 +253,17 @@
 (global-set-key (kbd "C-<XF86Back>") 'previous-buffer)
 (global-set-key (kbd "C-<XF86Forward>") 'next-buffer)
 (global-set-key (kbd "<f11>") 'match-paren)
+(global-set-key (kbd "C-%") 'match-paren)
 
-(global-set-key (kbd "M-g M-s") 'magit-status)
-(global-set-key (kbd "M-g <f3>") 'vc-git-grep)
-(global-set-key (kbd "M-g <f10>") 'vc-ediff)
-(global-set-key (kbd "M-g d") 'vc-diff)
-(global-set-key (kbd "M-g M-d") 'git-diff-tree)
-(global-set-key (kbd "M-g M-f") 'helm-ls-git-ls)
-(global-set-key (kbd "M-g M-l") 'magit-log)
+(global-set-key (kbd "C-` C-s") 'magit-status)
+(global-set-key (kbd "C-` <f3>") 'vc-git-grep)
+(global-set-key (kbd "C-` C-/") 'vc-git-grep)
+(global-set-key (kbd "C-` <f10>") 'vc-ediff)
+(global-set-key (kbd "C-` C-=") 'vc-ediff)
+(global-set-key (kbd "C-` C-d") 'vc-diff)
+(global-set-key (kbd "C-` C-c C-d") 'git-diff-tree)
+(global-set-key (kbd "C-` C-f") 'helm-ls-git-ls)
+(global-set-key (kbd "C-` C-l") 'magit-log)
 
 (global-set-key (kbd "C-x <f5>") 'compile)
 (global-set-key (kbd "M-<f5>") 'recompile)
@@ -233,9 +275,13 @@
 ;; search
 (require 'ag)
 (global-set-key (kbd "C-<f3>") 'ag)
+(global-set-key (kbd "C-c C-/") 'ag)
 (global-set-key (kbd "C-S-<f3>") 'ag-regexp)
+(global-set-key (kbd "C-c C-?") 'ag-regexp)
 (global-set-key (kbd "C-c <f3>") 'ag-project)
+(global-set-key (kbd "C-c C-c C-/") 'ag-project)
 (global-set-key (kbd "C-c S-<f3>") 'ag-project-regexp)
+(global-set-key (kbd "C-c C-c C-?") 'ag-project-regexp)
 
 ;; auto-fill and wide-column
 (require 'wide-column)
@@ -246,6 +292,9 @@
 (put 'downcase-region 'disabled nil)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+;; camelCase mode
+(autoload 'camelCase-mode "camelCase-mode" nil t)
+(global-set-key (kbd "C-' C-C") 'camelCase-mode)
 
 ;; Windows configuration
 (when (is-windows?)
