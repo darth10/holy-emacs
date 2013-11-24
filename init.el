@@ -73,7 +73,7 @@
  '(cursor ((t (:background "green"))))
  '(default ((t (:background "black" :foreground "green" :family "Matrix"
                             :foundry "monotype" :slant normal :weight normal
-                            :height 113 :width normal))))
+                            :height 130 :width normal))))
  '(button ((t (:background "green" :foreground "black"))))
  '(escape-glyph ((t (:foreground "#ddaa6f" :weight bold))))
  '(header-line ((((class color) (min-colors 89))
