@@ -11,21 +11,12 @@
 ;; god-mode
 (require 'god-mode)
 
-(defun gm-cursor ()
-  (setq cursor-type
-        (if (or god-local-mode buffer-read-only)
-            'box
-          'bar)))
-
 (defun set-god-mode ()
   (progn
     (global-unset-key (kbd "M-SPC"))
     (global-set-key (kbd "M-SPC") 'god-local-mode)
     (add-to-list 'god-exempt-major-modes 'dired-mode)
-    (god-mode)
-    (add-hook 'prog-mode-hook 'gm-cursor)
-    (add-hook 'god-mode-enabled-hook 'gm-cursor)
-    (add-hook 'god-mode-disabled-hook 'gm-cursor)))
+    (god-mode)))
 
 ;; comment out this line to disable global god-mode
 (set-god-mode)
@@ -155,6 +146,7 @@
 (require 'config-org)
 (require 'config-web)
 (require 'config-comment-annotations)
+(require 'config-cursor)
 
 ;; language configurations
 (require 'config-js)
@@ -198,10 +190,6 @@
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<f3>") 'mc/mark-all-like-this)
 (global-set-key (kbd "C-c C->") 'mc/mark-all-like-this)
-
-;; dynamic cursor color
-(require 'hcz-cursor)
-(add-hook 'post-command-hook 'hcz-set-cursor-color-according-to-mode)
 
 ;; lacarte menu
 (require 'lacarte)
@@ -283,9 +271,7 @@
 (global-set-key (kbd "C-c S-<f3>") 'ag-project-regexp)
 (global-set-key (kbd "C-c C-c C-?") 'ag-project-regexp)
 
-;; auto-fill and wide-column
-(require 'wide-column)
-(global-wide-column-mode t)
+;; auto-fill
 (global-set-key (kbd "C-c C-q") 'auto-fill-mode)
 
 (put 'upcase-region 'disabled nil)
@@ -300,7 +286,6 @@
 (when (is-windows?)
   (setq w32-get-true-file-attributes nil)
   (w32-send-sys-command 61488))
-
 
 (server-start)
 
