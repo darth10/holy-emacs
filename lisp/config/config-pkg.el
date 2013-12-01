@@ -21,6 +21,8 @@
     geiser
     ghci-completion
     gist
+    gnuplot
+    gnuplot-mode
     god-mode
     haskell-mode
     helm

@@ -159,6 +159,7 @@
 (require 'config-python)
 (require 'config-ruby)
 (require 'config-sql)
+(require 'config-gnuplot)
 
 ;; linux-only languages
 (unless (is-windows?)
