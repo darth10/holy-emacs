@@ -228,6 +228,7 @@
 (global-set-key (kbd "C-x <f12>") 'calculator)
 (global-set-key (kbd "C-x <C-M-return>") 'find-user-init-file)
 (global-set-key (kbd "C-x RET RET") 'set-rectangular-region-anchor)
+(global-set-key (kbd "C-x C-y") 'helm-show-kill-ring)
 (global-set-key (kbd "C-x G") 'grep)
 (global-set-key (kbd "C-x g") 'rgrep)
 (global-set-key (kbd "C-<f2>") 'helm-imenu)
@@ -251,6 +252,7 @@
 (global-set-key (kbd "C-` C-=") 'vc-ediff)
 (global-set-key (kbd "C-` C-d") 'vc-diff)
 (global-set-key (kbd "C-` C-c C-d") 'git-diff-tree)
+(global-set-key (kbd "C-` C-k") 'git-show-gitk)
 (global-set-key (kbd "C-` C-f") 'helm-ls-git-ls)
 (global-set-key (kbd "C-` C-l") 'magit-log)
 

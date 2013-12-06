@@ -50,6 +50,7 @@ Use `M-SPC` or `ESC SPC` to toggle God Mode.
 | `C-x RET RET`                |                 | Set rectangular region mark.  	     	     											                                    |
 | `C-x <f12>`                  |                 | Show calculator.                                                                                                             |
 | `C-x ?`                      | `x ?`           | Open man page. Available only on GNU/Linux.                                                                                  |
+| `C-x C-y`                    | `xy`            | Show kill ring.                                                                                                              |
 | `C-x G`                      | `x G`           | Run grep.                                                                                                                    |
 | `C-x g`                      | `x g`           | Run recursive grep. Useful for searching in files.                                                                           |
 | `C-<f2>`                     |                 | Helm i-menu. Useful for code navigation.                                                                                     |
@@ -79,6 +80,7 @@ Use `M-SPC` or `ESC SPC` to toggle God Mode.
 
 | Keys                         | God Mode Keys    | Description                             |
 | ---------------------------- | ---------------- | --------------------------------------- |
+| ``C-` C-k``                  | `` `k``          | Run `gitk`.                             |
 | ``C-` C-d``                  | `` `d``          | `git diff` for current file.            |
 | ``C-` C-c C-d``              | `` `cd``         | `git diff` for current git repository.  |
 | ``C-` C-s``                  | `` `s``          | Show current git repository status.     |
