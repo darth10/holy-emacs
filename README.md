@@ -65,6 +65,7 @@ Use `M-SPC` or `ESC SPC` to toggle God Mode. In God Mode, `i` will also disable 
 | `C-+`                        | `+`             | Interactively resize current window.                                                                                         |
 | `C-?`                        | `?`             | Look up any documentation. Changes behaviour depending on major mode, and defaults to available info documentation.          |
 | `C-=`                        | `=`             | Expand region.                                                                                                               |
+| `C-~`                        | `~`             | Show mark ring.                                                                                                              |
 | `<f11>` or `C-%`             | `%`             | Move to matching parentheses.                                                                                                |
 | `C-<XF86Back>`               | `<XF86Back>`    | Previous buffer. Available only on ThinkPad keyboards.                                                                       |
 | `C-<XF86Forward>`            | `<XF86Forward>` | Next buffer. Available only on ThinkPad keyboards.                                                                           |

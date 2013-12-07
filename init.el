@@ -246,6 +246,7 @@
 (global-set-key (kbd "C-<XF86Forward>") 'next-buffer)
 (global-set-key (kbd "<f11>") 'match-paren)
 (global-set-key (kbd "C-%") 'match-paren)
+(global-set-key (kbd "C-~") 'helm-mark-ring)
 
 (global-set-key (kbd "C-: C-s") 'magit-status)
 (global-set-key (kbd "C-: <f3>") 'vc-git-grep)
