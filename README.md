@@ -262,3 +262,9 @@ Available only on GNU/Linux.
 | `<f6>`          | Next in debug.                |
 | `<f7>`          | Step out in debug.            |
 | `<f8>`          | Continue in debug.            |
+
+### HTML
+
+| Keys            | Description                   |
+| --------------- | ----------------------------- |
+| `M-RET`         | Zencoding expand line.        |

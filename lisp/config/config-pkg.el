@@ -55,7 +55,8 @@
     smex
     yaml-mode
     yari
-    yascroll))
+    yascroll
+    zencoding-mode))
 
 (defun defpkgsource (name-uri)
   (add-to-list 'package-archives name-uri t))
