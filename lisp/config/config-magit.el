@@ -5,12 +5,6 @@
   (magit-diff-working-tree "HEAD")
   (other-window 1))
 
-(defun git-show-gitk ()
-  (interactive)
-  (message "Waiting for gitk ...")
-  (shell-command "gitk")
-  (message "Exited gitk"))
-
 (defun configure-magit-status-mode ()
   (local-unset-key (kbd "x")))
 

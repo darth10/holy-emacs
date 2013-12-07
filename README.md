@@ -87,7 +87,8 @@ Use `M-SPC` or `ESC SPC` to toggle God Mode. In God Mode, `i` will also disable 
 | ``C-: C-l``                  | `:l`             | Show current git repository log.        |
 | ``C-: C-f``                  | `:f`             | Find file in current git repository.    |
 | ``C-: <f3>`` or ``C-` C-/``  | `:/`             | `git grep` in current git repository.   |
-| ``C-: <f10>`` or ``C-` C-=`` | `:=`             | Start `vc-ediff` for current file.  `   |
+| ``C-: <f10>`` or ``C-` C-=`` | `:=`             | Start `vc-ediff` for current file.      |
+| ``C-: C-g``                  | `:g`             | Run git command.                        |
 
 ### Search
 
