@@ -80,14 +80,14 @@ Use `M-SPC` or `ESC SPC` to toggle God Mode. In God Mode, `i` will also disable 
 
 | Keys                         | God Mode Keys    | Description                             |
 | ---------------------------- | ---------------- | --------------------------------------- |
-| ``C-` C-k``                  | `` `k``          | Run `gitk`.                             |
-| ``C-` C-d``                  | `` `d``          | `git diff` for current file.            |
-| ``C-` C-c C-d``              | `` `cd``         | `git diff` for current git repository.  |
-| ``C-` C-s``                  | `` `s``          | Show current git repository status.     |
-| ``C-` C-l``                  | `` `l``          | Show current git repository log.        |
-| ``C-` C-f``                  | `` `f``          | Find file in current git repository.    |
-| ``C-` <f3>`` or ``C-` C-/``  | `` `/``          | `git grep` in current git repository.   |
-| ``C-` <f10>`` or ``C-` C-=`` | `` `=``          | Start `vc-ediff` for current file.  `   |
+| ``C-: C-k``                  | `:k`             | Run `gitk`.                             |
+| ``C-: C-d``                  | `:d`             | `git diff` for current file.            |
+| ``C-: C-c C-d``              | `:cd`            | `git diff` for current git repository.  |
+| ``C-: C-s``                  | `:s`             | Show current git repository status.     |
+| ``C-: C-l``                  | `:l`             | Show current git repository log.        |
+| ``C-: C-f``                  | `:f`             | Find file in current git repository.    |
+| ``C-: <f3>`` or ``C-` C-/``  | `:/`             | `git grep` in current git repository.   |
+| ``C-: <f10>`` or ``C-` C-=`` | `:=`             | Start `vc-ediff` for current file.  `   |
 
 ### Search
 
