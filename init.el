@@ -141,6 +141,7 @@
 ;; mode configurations
 (require 'config-paredit)
 (require 'config-helm)
+(require 'config-magit)
 (require 'config-ediff)
 (require 'config-dired)
 (require 'config-org)

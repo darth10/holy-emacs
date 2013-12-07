@@ -68,13 +68,4 @@
   (other-window 1)
   (eshell))
 
-(defun git-diff-tree ()
-  (interactive)
-  (magit-diff-working-tree "HEAD")
-  (other-window 1))
-
-(defun git-show-gitk ()
-  (interactive)
-  (shell-command "gitk" nil nil))
-
 (provide 'util)
