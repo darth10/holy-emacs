@@ -27,7 +27,7 @@ All scripts are in the `script/` folder.
 
 ## God Mode
 
-Use `M-SPC` or `ESC SPC` to toggle God Mode.
+Use `M-SPC` or `ESC SPC` to toggle God Mode. In God Mode, `i` will also disable God Mode.
 
 * `C-x C-c` becomes `xc`.
 * `C-x (` becomes `x (`. Note the use of the space key.
