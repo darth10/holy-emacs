@@ -36,7 +36,8 @@
   (local-set-key (kbd "C-<f8>") 'split-and-nrepl))
 
 (defun configure-clojure ()
-  (subword-mode))
+  (subword-mode)
+  (local-unset-key (kbd "C-:")))
 
 (defun configure-clojure-nrepl ()
   (paredit-mode)
