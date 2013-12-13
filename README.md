@@ -47,7 +47,7 @@ Use `M-SPC` or `ESC SPC` to toggle God Mode. In God Mode, `i` will also disable 
 | `C-x <f10>` or `C-c C-c =`   | `cc =`          | Start Ediff between buffers.     											                                                |
 | `C-x S-<f10>` or `C-c C-c +` | `cc +`          | Start Ediff between files. 	     											                                                |
 | `C-x <f11>`                  |                 | Show calendar. 	   	     	     											                                                |
-| `C-x <C-M-RET>`              |                 | Show init.el file.  	     	     											                                                |
+| `C-x <C-M-RET>` or `C-x |`   | `x |`           | Show init.el file.  	     	     											                                                |
 | `C-x RET RET`                |                 | Set rectangular region mark.  	     	     											                                    |
 | `C-x <f12>`                  |                 | Show calculator.                                                                                                             |
 | `C-x ?`                      | `x ?`           | Open man page. Available only on GNU/Linux.                                                                                  |
