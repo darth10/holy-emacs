@@ -186,10 +186,10 @@ Requires Leiningen with nREPL middleware.
 
 ### Emacs Lisp
 
-| Keys         | Description                                                                           |
+| Keys            | Description                                                                           |
 | --------------- | ------------------------------------------------------------------------------------- |
 | `C-<f5>`        | Evaluate current buffer. When used in the scratch buffer, it evaluates the last sexp. |
-| `C-<f10>`       | Start iELM REPL.                                                                      |
+| `C-<f10>`       | Open Eshell.                                                                          |
 
 
 ### Scheme

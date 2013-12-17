@@ -1,15 +1,11 @@
 ;;; Configuration for Emacs Lisp
 
 (require 'config-common)
-
-(defun split-and-ielm ()
-  (interactive)
-  (split-window-right)
-  (ielm))
+(require 'util)
 
 (defconfig configure-elisp
   (turn-on-eldoc-mode)
-  (local-set-key (kbd "C-<f10>") 'split-and-ielm)
+  (local-set-key (kbd "C-<f10>") 'split-and-eshell)
   (local-set-key (kbd "C-<f5>") 'eval-buffer))
 
 (defun configure-elisp-inf ()
