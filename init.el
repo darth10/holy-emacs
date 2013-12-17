@@ -3,6 +3,7 @@
 (add-to-list 'load-path "~/.emacs.d/lisp/config/")
 
 (require 'config-common)
+(toggle-uniquify-buffer-names)
 
 ;; check for packages to install
 (require 'config-pkg)
