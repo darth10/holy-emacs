@@ -13,20 +13,19 @@
 (defun split-and-cider-jack-in ()
   "Split window and start nREPL"
   (interactive)
-  (split-window-right)
+  (split-window-below)
   (cider-jack-in nil))
 
 (defun split-and-nrepl ()
-  "Split window and start nREPL client"
   (interactive)
-  (split-window-right)
+  (split-window-below)
   (cider "localhost"
 	 (string-to-number (read-from-minibuffer "Port: "))))
 
 (defun load-file-in-nrepl ()
   (interactive)
   (keyboard-escape-quit)
-  (split-window-right)
+  (split-window-below)
   (cider-load-current-buffer)
   (cider-switch-to-repl-buffer (cider-current-ns)))
 
