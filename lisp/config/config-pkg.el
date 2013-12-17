@@ -8,6 +8,7 @@
     ag
     auto-complete
     c-eldoc
+    clj-refactor
     clojure-mode
     clojurescript-mode
     clojure-test-mode

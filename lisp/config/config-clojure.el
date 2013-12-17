@@ -1,11 +1,11 @@
 ;;; Configuration for Clojure
 
 (require 'config-common)
+(require 'clj-refactor)
 (require 'ac-nrepl)
 
-(add-hook 'nrepl-interaction-mode-hook 'nrepl-turn-on-eldoc-mode)
 (add-to-list 'same-window-buffer-names "*nrepl*")
-
+(setq clj-add-ns-to-blank-clj-files nil)
 (setq clojure-swank-command
       (if (or (locate-file "lein" exec-path) (locate-file "lein.bat" exec-path))
 	  "lein ritz-in %s" "echo \"lein ritz-in %s\" | $SHELL -l"))
@@ -36,7 +36,9 @@
 
 (defun configure-clojure ()
   (subword-mode)
-  (local-unset-key (kbd "C-:")))
+  (clj-refactor-mode t)
+  (local-unset-key (kbd "C-:"))
+  (cljr-add-keybindings-with-prefix "C-c ESC"))
 
 (defun configure-clojure-nrepl ()
   (paredit-mode)
@@ -58,5 +60,6 @@
 (add-hook 'clojure-mode-hook 'configure-clojure-keys)
 (add-hook 'cider-repl-mode-hook 'configure-clojure-nrepl)
 (add-hook 'cider-mode-hook 'configure-clojure-nrepl-inf)
+(add-hook 'nrepl-interaction-mode-hook 'nrepl-turn-on-eldoc-mode)
 
 (provide 'config-clojure)
