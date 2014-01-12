@@ -166,6 +166,13 @@
        (push "/opt/local/share/info" Info-default-directory-list)
        (push "~/.emacs.d/info" Info-default-directory-list))))
 
+;; recent files
+(require 'recentf)
+(recentf-mode 1)
+(setq recentf-max-menu-items 20)
+(global-set-key (kbd " C-c C-:") 'recentf-open-files)
+
+;; bookmarks
 (global-set-key (kbd "C-c C-=") 'bc-set)
 (global-set-key (kbd "C-c C-;") 'bc-list)
 (global-set-key (kbd "C-c C-#") 'bc-clear-and-msg)

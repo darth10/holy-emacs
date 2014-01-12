@@ -76,6 +76,7 @@ Use `M-SPC` or `ESC SPC` to toggle God Mode. In God Mode, `i` will also disable 
 | `M-<f5>`                     |                 | Recompile using `recompile` function.                                                                                        |
 | `C-x C-j`                    | `xj`            | Show directory.                                                                                                              |
 | `C-c C-j`                    | `cj`            | Show directory explorer.                                                                                                     |
+| `C-c C-:`                    | `c:`            | Show recently opened files.                                                                                                  |
 | `C-c C-c C-a`                | `cca`           | Toggle auto-completion.                                                                                                      |
 
 ### Git integration

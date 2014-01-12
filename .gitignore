@@ -11,3 +11,5 @@ places
 *.elc
 *.el~
 /url/cookies
+url/*
+recentf
