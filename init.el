@@ -169,7 +169,7 @@
 ;; recent files
 (require 'recentf)
 (recentf-mode 1)
-(setq recentf-max-menu-items 20)
+(setq recentf-max-menu-items 40)
 (global-set-key (kbd " C-c C-:") 'recentf-open-files)
 
 ;; bookmarks
