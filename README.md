@@ -235,7 +235,6 @@ Requires Haskell platform and `haskell-doc`.
 | --------------- | ------------------------------------------- |
 | `C-<f5>`        | Evaluate current buffer and switch to REPL. |
 | `C-<f10>`       | Start GHCi REPL.                            |
-| `C-TAB`         | Complete current word.                      |
 
 ### Ruby
 

@@ -6,9 +6,6 @@
 
 (defconfig configure-haskell-newline-indent)
 
-(defun haskell-complete-binding ()
-  (local-set-key (kbd "C-<tab>") 'dabbrev-expand))
-
 (defun load-file-in-inf-haskell ()
   (interactive)
   (inferior-haskell-load-file)
@@ -19,7 +16,6 @@
   (haskell-indent-mode)
   (yas/minor-mode)
   (configure-haskell-newline-indent)
-  (haskell-complete-binding)
   (local-set-key (kbd "C-<f10>") 'switch-to-haskell)
   (local-set-key (kbd "C-<f5>") 'load-file-in-inf-haskell))
 
@@ -27,8 +23,7 @@
   (configure-haskell-newline-indent))
 
 (defun configure-haskell-inf ()
-  (ghci-completion-mode)
-  (haskell-complete-binding))
+  (ghci-completion-mode))
 
 (add-hook 'haskell-mode-hook 'configure-haskell)
 (add-hook 'inferior-haskell-mode-hook 'configure-haskell-inf)
