@@ -55,8 +55,8 @@ Use `M-SPC` or `ESC SPC` to toggle God Mode. In God Mode, `i` will also disable 
 | `C-x G`                      | `x G`           | Run grep.                                                                                                                    |
 | `C-x g`                      | `x g`           | Run recursive grep. Useful for searching in files.                                                                           |
 | `C-<f2>`                     |                 | Helm i-menu. Useful for code navigation.                                                                                     |
-| `M-]` or `C-[ ]`             | `g]`            | Highlight token under cursor. Use `[` or `]` to navigate to previous or next hit, or `ESC` to remove all highlighted tokens. |
-| `ESC M-]` or `C-[ C-[ ]`     |                 | Remove all highlighted tokens.                                                                                               |
+| `M-]` or `C-[ ]`             | `[ ]` or `g]`   | Highlight token under cursor. Use `[` or `]` to navigate to previous or next hit, or `ESC` to remove all highlighted tokens. |
+| `ESC M-]` or `C-[ C-[ ]`     |  `[[ ]`         | Remove all highlighted tokens.                                                                                               |
 | `C-<f4>`                     |                 | Toggle highlight current line.                                                                                               |
 | `C-<f6>`                     |                 | Toggle line numbers.                                                                                                         |
 | `C-<f9>`                     |                 | Toggle truncate lines (word wrapping).                                                                                       |
@@ -89,13 +89,13 @@ Use `M-SPC` or `ESC SPC` to toggle God Mode. In God Mode, `i` will also disable 
 | ``C-: C-s``                  | `:s`             | Show current git repository status.     |
 | ``C-: C-l``                  | `:l`             | Show current git repository log.        |
 | ``C-: C-f``                  | `:f`             | Find file in current git repository.    |
-| ``C-: <f3>`` or ``C-` C-/``  | `:/`             | `git grep` in current git repository.   |
-| ``C-: <f10>`` or ``C-` C-=`` | `:=`             | Start `vc-ediff` for current file.      |
+| ``C-: <f3>`` or `C-: C-=`    | `:/`             | `git grep` in current git repository.   |
+| ``C-: <f10>`` or `C-: C-=`   | `:=`             | Start `vc-ediff` for current file.      |
 | ``C-: C-g``                  | `:g`             | Run git command.                        |
 
 ### Search
 
-Requires ag.
+Requires [ag](https://github.com/ggreer/the_silver_searcher).
 
 | Keys                          | God Mode Keys    | Description                |
 | ----------------------------- | ---------------- | -------------------------- |
@@ -174,7 +174,7 @@ Available in Clojure, Scheme and Emacs Lisp modes.
 
 ### Clojure
 
-Requires Leiningen with nREPL middleware.
+Requires [Leiningen](https://github.com/technomancy/leiningen).
 
 | Keys            | Description                                    |
 | --------------- | ---------------------------------------------- |
@@ -205,7 +205,7 @@ Requires Racket and/or Guile Scheme.
 
 <h3> C# </h3>
 
-Requires Omnisharp.
+Requires [Omnisharp](https://github.com/nosami/Omnisharp).
 
 | Keys            | Description                                           |
 | --------------- | ----------------------------------------------------- |
@@ -229,7 +229,7 @@ Requires Node.js, [swank-js](https://github.com/swank-js/swank-js) and [tern](ht
 
 ### Haskell
 
-Requires Haskell platform.
+Requires Haskell platform and `haskell-doc`.
 
 | Keys            | Description                                 |
 | --------------- | ------------------------------------------- |
@@ -239,7 +239,7 @@ Requires Haskell platform.
 
 ### Ruby
 
-Requires Ruby and Rake.
+Requires Ruby and `rake`.
 
 | Keys            | Description                             |
 | --------------- | --------------------------------------- |
