@@ -43,7 +43,7 @@
   (local-set-key (kbd "C-x SPC") 'omnisharp-auto-complete)
   (local-set-key (kbd "C-?") 'omnisharp-show-overloads-at-point)
   (local-set-key (kbd "<f12>") 'omnisharp-go-to-definition)
-  (local-set-key (kbd "M-p") 'omnisharp-code-format)
+  (local-set-key (kbd "C-c F") 'omnisharp-code-format)
   (local-set-key (kbd "S-<f12>") 'omnisharp-find-usages)
   (local-set-key (kbd "C-x <f5>") 'omnisharp-build-in-emacs))
 

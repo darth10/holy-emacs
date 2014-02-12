@@ -215,7 +215,7 @@ Requires [Omnisharp](https://github.com/nosami/Omnisharp).
 | `C-x SPC`       | Autocomplete symbol. A `.` invokes this function too. |
 | `C-?`           | Show overloads of symbol at point.                    |
 | `<f12>`         | Go to definition.                                     |
-| `M-p`           | Format document.                                      |
+| `C-c F`         | Format document.                                      |
 | `S-<f12>`       | Find all references.                                  |
 
 
