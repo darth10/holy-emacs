@@ -12,6 +12,10 @@
 ;; god-mode
 ;; comment out this section to disable global god-mode
 (require 'config-god)
+(global-set-key (kbd "C-x C-1") 'delete-other-windows)
+(global-set-key (kbd "C-x C-2") 'split-window-below)
+(global-set-key (kbd "C-x C-3") 'split-window-right)
+(global-set-key (kbd "C-x C-0") 'delete-window)
 (set-god-mode "M-SPC")
 
 ;; highlight current line
