@@ -77,7 +77,8 @@ Use `M-SPC` or `ESC SPC` to toggle God Mode. In God Mode, `i` will also disable 
 | `C-x C-j`                    | `xj`            | Show directory.                                                                                                              |
 | `C-c C-j`                    | `cj`            | Show directory explorer.                                                                                                     |
 | `C-c C-:`                    | `c:`            | Show recently opened files.                                                                                                  |
-| `C-c C-c C-a`                | `cca`           | Toggle auto-completion.                                                                                                      |
+| `C-c C-c a`                  | `cc a`          | Toggle auto-completion.                                                                                                      |
+| `C-c C-c q`                  | `cc q`          | Toggle auto fill mode.                                                                                                       |
 
 ### Git integration
 
