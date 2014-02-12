@@ -1,7 +1,9 @@
 ;;; Configuration for Ruby
 
+
 (require 'config-common)
 (require 'ruby-mode)
+(require 'rvm)
 
 (defun ruby-insert-end ()
   "Insert \"end\" at point and reindent current line."
@@ -20,12 +22,10 @@
   (ruby-switch-to-inf (get-buffer "*ruby*")))
 
 (defconfig configure-ruby
-  (require 'rvm)
   (require 'ruby-electric)
   (require 'ido)
   (require 'rinari)
   (require 'yari)
-  (rvm-use-default)
   (local-set-key (kbd "C-?") 'yari)
   (local-set-key (kbd "C-<f10>") 'run-ruby)
   (local-set-key (kbd "C-<f5>") 'load-file-in-inf-ruby)
@@ -36,5 +36,7 @@
 (add-to-list 'auto-mode-alist '("\\.rb\\'" . ruby-mode))
 (autoload 'ruby-mode "ruby-mode" "Major mode for editing Ruby code" t)
 (add-hook 'ruby-mode-hook 'configure-ruby)
+
+(rvm-use-default)
 
 (provide 'config-ruby)
