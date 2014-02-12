@@ -249,6 +249,19 @@
 (global-set-key (kbd "C-%") 'match-paren)
 (global-set-key (kbd "C-~") 'helm-mark-ring)
 
+;;; *scratch* buffer
+
+(defconst scratch-buffer-name "*scratch*")
+
+(global-for-key (kbd "C-x \"")
+                (switch-to-buffer-other-frame scratch-buffer-name))
+(global-for-key (kbd "C-x '")
+                (switch-to-buffer scratch-buffer-name))
+(global-for-key (kbd "C-x C-'")
+                (switch-to-buffer-other-window scratch-buffer-name))
+
+;;; Magit and vc
+
 (global-set-key (kbd "C-: C-s") 'magit-status)
 (global-set-key (kbd "C-: <f3>") 'vc-git-grep)
 (global-set-key (kbd "C-: C-/") 'vc-git-grep)

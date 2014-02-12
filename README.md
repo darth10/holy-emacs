@@ -41,6 +41,9 @@ Use `M-SPC` or `ESC SPC` to toggle God Mode. In God Mode, `i` will also disable 
 
 | Keys                         | God Mode Keys   | Description                                                                                                                  |
 | ---------------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `C-x "'`                     | `x "`           | Switch to `*scratch*` buffer in new frame.                                                                                   |
+| `C-x '`                      | `x '`           | Switch to `*scratch*` buffer.                                                                                                |
+| `C-x C-'`                    | `x'`            | Switch to `*scratch*` buffer in other window.                                                                                |
 | `C-x <f3>`                   |                 | Show process list.                                                                                                           |
 | `C-x <f5>`                   |                 | Compile using `compile` function.                                                                                            |
 | `C-x <f7>` or `C-c E`        | `c E`           | Open Eshell.                                                                                                                 |
