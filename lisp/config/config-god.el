@@ -11,4 +11,11 @@
     (define-key god-local-mode-map (kbd "i") 'god-local-mode)
     (god-mode)))
 
+(defun god-toggle-on-overwrite ()
+  (if (bound-and-true-p overwrite-mode)
+      (god-local-mode-pause)
+    (god-local-mode-resume)))
+
+(add-hook 'overwrite-mode-hook 'god-toggle-on-overwrite)
+
 (provide 'config-god)
