@@ -2,7 +2,6 @@
 
 
 (require 'config-common)
-(require 'ruby-mode)
 (require 'rvm)
 
 (defun ruby-insert-end ()
@@ -22,6 +21,7 @@
   (ruby-switch-to-inf (get-buffer "*ruby*")))
 
 (defconfig configure-ruby
+  (require 'ruby-mode)
   (require 'ruby-electric)
   (require 'ido)
   (require 'rinari)

@@ -1,8 +1,6 @@
 ;;; Configuration for Haskell
 
 (require 'config-common)
-(require 'haskell-mode)
-(require 'ghci-completion)
 
 (defconfig configure-haskell-newline-indent)
 
@@ -12,6 +10,8 @@
   (switch-to-haskell))
 
 (defun configure-haskell ()
+  (require 'haskell-mode)
+  (require 'ghci-completion)
   (turn-on-haskell-doc-mode)
   (haskell-indent-mode)
   (yas/minor-mode)

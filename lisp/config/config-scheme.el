@@ -1,6 +1,5 @@
 ;;; Configuration for Guile
 
-(require 'geiser)
 (require 'config-common)
 
 (defun scheme-load-and-repl ()
@@ -9,6 +8,7 @@
   (geiser-mode-switch-to-repl t))
 
 (defconfig configure-scheme
+  (require 'geiser)
   (local-set-key (kbd "C-<f10>") 'run-geiser)
   (local-set-key (kbd "C-<f5>") 'scheme-load-and-repl))
 

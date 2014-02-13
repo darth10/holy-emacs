@@ -1,8 +1,6 @@
 ;;; Configuration for Clojure
 
 (require 'config-common)
-(require 'clj-refactor)
-(require 'ac-nrepl)
 
 (add-to-list 'same-window-buffer-names "*nrepl*")
 (setq clj-add-ns-to-blank-clj-files nil)
@@ -35,6 +33,8 @@
   (local-set-key (kbd "C-<f8>") 'split-and-nrepl))
 
 (defun configure-clojure ()
+  (require 'ac-nrepl)
+  (require 'clj-refactor)
   (subword-mode)
   (clj-refactor-mode t)
   (local-unset-key (kbd "C-:"))

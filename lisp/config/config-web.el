@@ -2,8 +2,6 @@
 
 (require 'config-common)
 (require 'multi-web-mode)
-(require 'rainbow-mode)
-(require 'zencoding-mode)
 
 (add-hook 'css-mode-hook 'rainbow-mode)
 (add-hook 'php-mode-hook 'rainbow-mode)
@@ -15,9 +13,12 @@
                   (css-mode "<style +type=\"text/css\"[^>]*>" "</style>")))
 
 (setq mweb-filename-extensions '("php" "htm" "html" "ctp" "phtml" "php4" "php5"))
+
 (multi-web-global-mode 1)
 
 (defconfig configure-html
+  (require 'rainbow-mode)
+  (require 'zencoding-mode)
   (local-set-key (kbd "M-RET") 'zencoding-expand-line))
 
 (add-hook 'html-mode-hook 'configure-html)

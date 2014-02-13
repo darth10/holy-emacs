@@ -1,9 +1,9 @@
 ;;; Configuration for gnuplot
 
 (require 'gnuplot)
-(require 'gnuplot-mode)
 
 (defconfig configure-gnuplot
+  (require 'gnuplot-mode)
   (auto-complete-mode)
   (god-local-mode t)
   (local-unset-key (kbd "C-c C-k"))

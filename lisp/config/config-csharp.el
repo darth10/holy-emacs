@@ -1,6 +1,5 @@
 ;;; Configuration for C#
 
-(require 'csharp-mode)
 (require 'omnisharp)
 (require 'config-common)
 
@@ -48,6 +47,7 @@
   (local-set-key (kbd "C-x <f5>") 'omnisharp-build-in-emacs))
 
 (defconfig configure-csharp
+  (require 'csharp-mode)
   (auto-complete-mode)
   (c-set-style "c#")
   (omnisharp-mode)

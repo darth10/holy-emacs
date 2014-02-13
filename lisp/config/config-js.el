@@ -1,13 +1,13 @@
 ;;; Configuration for JavaScript
 
 (require 'config-common)
-(require 'slime)
 
 (defun slime-connect-to-repl ()
   (interactive)
   (slime-connect "127.0.0.1" 4005))
 
 (defconfig configure-js
+  (require 'slime)
   (require 'tern)
   (require 'slime-js)
   (js2-minor-mode t)
@@ -29,6 +29,7 @@
 
 (defun configure-slime ()
   (interactive)
+  (require 'slime)
   (require 'ac-slime)
   (set-up-slime-ac 1)
   (local-set-key (kbd ".") 'slime-ac-key)
