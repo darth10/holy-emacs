@@ -269,6 +269,7 @@
 ;;; Magit and vc
 
 (global-set-key (kbd "C-: C-s") 'magit-status)
+(global-set-key (kbd "C-: C-:") 'magit-status)
 (global-set-key (kbd "C-: <f3>") 'vc-git-grep)
 (global-set-key (kbd "C-: C-/") 'vc-git-grep)
 (global-set-key (kbd "C-: <f10>") 'vc-ediff)
