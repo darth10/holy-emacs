@@ -53,6 +53,8 @@
  '(rainbow-delimiters-highlight-braces-p nil)
  '(rainbow-delimiters-highlight-brackets-p nil)
  '(show-paren-mode t)
+ '(ediff-split-window-function (quote split-window-horizontally))
+ '(ediff-window-setup-function (quote ediff-setup-windows-plain))
  '(term-default-bg-color "#000000")
  '(term-default-fg-color "#00ff00")
  '(tool-bar-mode nil))
@@ -81,7 +83,7 @@
  '(mode-line ((t (:background "green1" :foreground "black"))))
  '(mode-line-buffer-id ((t (:background "green" :foreground "black"
                                         :weight bold :height 0.9))))
- '(mode-line-inactive ((t (:background "black" :foreground "chartreuse"))))
+ '(mode-line-inactive ((t (:background "dimgray" :foreground "black"))))
  '(rainbow-delimiters-depth-1-face ((t (:foreground "light sky blue"))))
  '(rainbow-delimiters-depth-2-face ((t (:foreground "royal blue"))))
  '(rainbow-delimiters-depth-3-face ((t (:foreground "medium orchid"))))
