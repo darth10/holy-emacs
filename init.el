@@ -9,6 +9,8 @@
 (require 'config-pkg)
 (pkg-update-packages)
 
+(global-unset-key (kbd "<f10>"))
+
 ;; god-mode
 ;; comment out this section to disable global god-mode
 (require 'config-god)
@@ -160,6 +162,7 @@
 (require 'config-ruby)
 (require 'config-sql)
 (require 'config-gnuplot)
+(require 'config-gud)
 
 ;; linux-only languages
 (unless (is-windows?)
@@ -251,7 +254,7 @@
 (global-set-key (kbd "C-c b") 'org-iswitchb)
 (global-set-key (kbd "C-<XF86Back>") 'previous-buffer)
 (global-set-key (kbd "C-<XF86Forward>") 'next-buffer)
-(global-set-key (kbd "<f11>") 'match-paren)
+(global-set-key (kbd "<f6>") 'match-paren)
 (global-set-key (kbd "C-%") 'match-paren)
 (global-set-key (kbd "C-~") 'helm-mark-ring)
 

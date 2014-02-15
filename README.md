@@ -70,7 +70,7 @@ Use `M-SPC` or `ESC SPC` to toggle God Mode. In God Mode, `i` will also disable 
 | `C-?`                        | `?`             | Look up any documentation. Changes behaviour depending on major mode, and defaults to available info documentation.          |
 | `C-=`                        | `=`             | Expand region.                                                                                                               |
 | `C-~`                        | `~`             | Show mark ring.                                                                                                              |
-| `<f11>` or `C-%`             | `%`             | Move to matching parentheses.                                                                                                |
+| `<f6>` or `C-%`              | `%`             | Move to matching parentheses.                                                                                                |
 | `C-<XF86Back>`               | `<XF86Back>`    | Previous buffer. Available only on ThinkPad keyboards.                                                                       |
 | `C-<XF86Forward>`            | `<XF86Forward>` | Next buffer. Available only on ThinkPad keyboards.                                                                           |
 | `ESC M-x` or `ESC ESC x`     |                 | Execute menu command.                                                                                                        |
@@ -176,6 +176,21 @@ Available in Clojure, Scheme and Emacs Lisp modes.
 | --------------- | ---------------------------------------- |
 | `C-<f12>`       | Toggle highlight s-expresion.            |
 
+### GUD mode
+
+Requires GUD debugger to be active.
+Supports `gdb` for C, `pdb` for Python, and `ruby -r debug` for Ruby.
+
+| Keys                                      | God Mode Keys | Description                              |
+| ----------------------------------------- | ------------- | ---------------------------------------- |
+| `<f5>` or `C-x C-a C-r`                   | `xar`         | Continue execution.                      |
+| `<f8>` or `C-x C-a r`                     | `xa r`        | Debug program/script.                    |
+| `<f9>` or `C-x C-a C-b`                   | `xab`         | Set breakpoint.                          |
+| `S-<f9>` or `C-x SPC` or `C-x C-a C-d`    | `xad`         | Remove breakpoint.                       |
+| `<f10>` or `C-x C-a C-n`                  | `xan`         | Next statement.                          |
+| `<f11>` or `C-x C-a C-s`                  | `xas`         | Step into statement.                     |
+| `S-<f11>` or `C-x C-a C-f`                | `xaf`         | Finish execution of current function.    |
+
 ### Clojure
 
 Requires [Leiningen](https://github.com/technomancy/leiningen).
@@ -249,6 +264,7 @@ Requires Ruby and `rake`.
 | `C-<f5>`        | Evaluate current buffer in REPL.        |
 | `C-<f8>`        | Run Rake task.                          |
 | `C-<f10>`       | Start irb REPL.                         |
+| `C-<f11>`       | Start Ruby debugger.                    |
 | `C-?`           | Show ri documentation for current word. |
 | `C-x T`         | Run all tests via `rake test`.          |
 
@@ -258,14 +274,9 @@ Available only on GNU/Linux.
 
 | Keys            | Description                   |
 | --------------- | ----------------------------- |
-| `C-<f5>`        | Run in gdb.                   |
-| `C-<f10>`       | Start gdb.                    |
-| `C-<f11>`       | Switch to gdb console buffer. |
+| `C-<f11>`       | Start gdb.                    |
+| `C-<f10>`       | Switch to gdb console buffer. |
 | `C-<f12>`       | Display disassembly.          |
-| `<f5>`          | Step into in debug.           |
-| `<f6>`          | Next in debug.                |
-| `<f7>`          | Step out in debug.            |
-| `<f8>`          | Continue in debug.            |
 
 ### HTML
 

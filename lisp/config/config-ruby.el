@@ -20,6 +20,13 @@
   (ruby-load-file (buffer-file-name))
   (ruby-switch-to-inf (get-buffer "*ruby*")))
 
+(defun run-ruby-debugger ()
+  (interactive)
+  (let* ((debug-command (concat  "ruby -r debug " buffer-file-name))
+         (user-debug-command (read-string "Run ruby -r debug (like this): "
+                                          debug-command)))
+    (gud-gdb user-debug-command)))
+
 (defconfig configure-ruby
   (require 'ruby-mode)
   (require 'ruby-electric)
@@ -31,6 +38,7 @@
   (local-set-key (kbd "C-<f5>") 'load-file-in-inf-ruby)
   (local-set-key (kbd "C-<f8>") 'rinari-rake)
   (local-set-key (kbd "C-x T") 'rinari-run-all-test)
+  (local-set-key (kbd "C-<f11>") 'run-ruby-debugger)
   (ruby-electric-mode t))
 
 (add-to-list 'auto-mode-alist '("\\.rb\\'" . ruby-mode))
