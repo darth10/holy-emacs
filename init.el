@@ -118,9 +118,9 @@
 (setq auto-save-list-file-prefix backup-dir)
 
 ;; yasnippet
-(require 'yasnippet-bundle)
-(setq yas/root-directory "~/.emacs.d/data/snippets")
-(yas/load-directory yas/root-directory)
+(require 'yasnippet)
+(add-to-list 'yas-snippet-dirs "~/.emacs.d/data/snippets/")
+(yas-global-mode 1)
 
 ;; auto-complete
 (require 'auto-complete-config)

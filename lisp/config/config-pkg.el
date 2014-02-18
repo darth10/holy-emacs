@@ -59,6 +59,7 @@
     yaml-mode
     yari
     yascroll
+    yasnippet
     zencoding-mode))
 
 (defun defpkgsource (name-uri)
