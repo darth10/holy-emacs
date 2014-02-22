@@ -45,8 +45,6 @@
            "7641335320fa8e6a311491f58f0e5c3733b44a7936148d4349381d119f6cca83"
            "946efabf968fa25ced521351c5901a378cad402669cbce92b72983cd852cd750"
            default)))
- '(ebnf-non-terminal-font (quote (11 Matrix "Black" "White")))
- '(ebnf-terminal-font (quote (11 Matrix "Black" "White")))
  '(fancy-splash-image nil)
  '(inhibit-default-init t)
  '(inhibit-startup-screen t)
@@ -63,7 +61,7 @@
 
 (custom-set-faces
  '(cursor ((t (:background "green"))))
- '(default ((t (:background "black" :foreground "green" :family "Matrix"
+ '(default ((t (:background "black" :foreground "green"
                             :foundry "monotype" :slant normal :weight normal
                             :height 130 :width normal))))
  '(button ((t (:background "green" :foreground "black"))))
@@ -99,6 +97,13 @@
  '(region ((t (:background "white" :foreground "black"))))
  '(yascroll:thumb-fringe
    ((t (:background "lawn green" :foreground "lawn green")))))
+
+;; custom font
+(require 'font-utils)
+(defconst config-custom-font "Matrix")
+(progn
+  (when (font-utils-exists-p config-custom-font)
+    (set-default-font config-custom-font nil t)))
 
 (unless (is-windows?)
   (push "~/pymatter/bin/" exec-path)
