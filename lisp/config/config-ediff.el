@@ -6,7 +6,11 @@
 (defun configure-ediff-bindings ()
   (ediff-toggle-skip-similar)
   (local-set-key (kbd "<f7>") 'ediff-next-difference)
-  (local-set-key (kbd "S-<f7>") 'ediff-previous-difference))
+  (local-set-key (kbd "M-<down>") 'ediff-next-difference)
+  (local-set-key (kbd "S-<f7>") 'ediff-previous-difference)
+  (local-set-key (kbd "M-<up>") 'ediff-previous-difference)
+  (local-set-key (kbd "M-<right>") 'ediff-copy-A-to-B)
+  (local-set-key (kbd "M-<left>") 'ediff-copy-B-to-A))
 
 (add-hook 'ediff-mode-hook 'configure-ediff)
 (add-hook 'ediff-startup-hook 'configure-ediff-bindings)
