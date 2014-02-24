@@ -103,7 +103,7 @@
 (defconst config-custom-font "Matrix")
 (progn
   (when (font-utils-exists-p config-custom-font)
-    (set-default-font config-custom-font nil t)))
+    (set-frame-font config-custom-font nil t)))
 
 (unless (is-windows?)
   (push "~/pymatter/bin/" exec-path)
