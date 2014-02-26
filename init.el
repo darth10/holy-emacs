@@ -21,7 +21,7 @@
 (set-god-mode "M-SPC")
 
 ;; highlight current line
-(global-hl-line-mode t)
+(add-hook 'prog-mode-hook 'hl-line-mode)
 
 ;; rainbow parens
 (require 'rainbow-delimiters)
@@ -46,6 +46,7 @@
            "946efabf968fa25ced521351c5901a378cad402669cbce92b72983cd852cd750"
            default)))
  '(fancy-splash-image nil)
+ '(hl-sexp-background-colors (quote ("gray27" "midnight blue")))
  '(inhibit-default-init t)
  '(inhibit-startup-screen t)
  '(js-auto-indent-flag t)
@@ -249,7 +250,7 @@
 (global-set-key (kbd "C-x G") 'grep)
 (global-set-key (kbd "C-x g") 'rgrep)
 (global-set-key (kbd "C-<f2>") 'helm-imenu)
-(global-set-key (kbd "C-<f4>") 'global-hl-line-mode)
+(global-set-key (kbd "C-<f4>") 'hl-line-mode)
 (global-set-key (kbd "C-<f6>") 'linum-mode)
 (global-set-key (kbd "C-<f9>") 'toggle-truncate-lines)
 (global-set-key (kbd "C-+") 'w-resize)
