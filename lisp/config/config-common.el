@@ -31,6 +31,7 @@
 (defun configure-lisp ()
   (paredit-mode)
   (config-set-hl-sexp t)
-  (local-set-key (kbd "C-<f12>") 'config-toggle-hl-sexp))
+  (local-set-key (kbd "C-<f12>") 'config-toggle-hl-sexp)
+  (local-set-key (kbd "C-' C-s") 'config-toggle-hl-sexp))
 
 (provide 'config-common)

@@ -10,7 +10,8 @@
 (defconfig configure-scheme
   (require 'geiser)
   (local-set-key (kbd "C-<f10>") 'run-geiser)
-  (local-set-key (kbd "C-<f5>") 'scheme-load-and-repl))
+  (local-set-key (kbd "C-<f5>") 'scheme-load-and-repl)
+  (local-set-key (kbd "C-c C-l") 'geiser-load-file))
 
 (defun configure-scheme-inf ()
   (when (eq major-mode 'geiser-repl-mode)

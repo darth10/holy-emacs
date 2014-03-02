@@ -180,9 +180,12 @@ Requires [ag](https://github.com/ggreer/the_silver_searcher).
 
 Available in Clojure, Scheme and Emacs Lisp modes.
 
-| Keys            | Description                              |
-| --------------- | ---------------------------------------- |
-| `C-<f12>`       | Toggle highlight s-expresion.            |
+| Keys                   | God Mode Keys | Description                              |
+| ---------------------- | ------------- | ---------------------------------------- |
+| `C-x C-e`              | `xe`          | Evaluate last sexp.                      |
+| `C-c C-k`              | `ck`          | Evaluate current buffer.                 |
+| `C-c C-l`              | `cl`          | Load file.                               |
+| `C-<f12>` or `C-' C-s` | `'s`          | Toggle highlight s-expresion.            |
 
 ### GUD mode
 
