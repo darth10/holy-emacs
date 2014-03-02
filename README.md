@@ -108,7 +108,6 @@ Requires [ag](https://github.com/ggreer/the_silver_searcher).
 | `C-c <f3>` or `C-c C-c C-/`   | `cc/`            | Search in project.         |
 | `C-c S-<f3>` or `C-c C-c C-/` | `cc?`            | Search regexp in project.  |
 
-
 ### Code folding
 
 | Keys                      | God Mode Keys     | Description                            |
@@ -138,6 +137,15 @@ Requires [ag](https://github.com/ggreer/the_silver_searcher).
 | `C-c C-<right>` or `C-c C-f` | `cf`          | Move to next bookmark.                       |
 | `C-c C-<up>` or `C-c C-p`    | `cp`          | Move to previous bookmark in current buffer. |
 | `C-c C-<down>` or `C-c C-n`  | `cn`          | Move to next bookmark in current buffer.     |
+
+### Ediff
+
+| Keys               | Description                          |
+| ------------------ | ------------------------------------ |
+| `M-<down>` or `n`  | Next diff.                           |
+| `M-<up>` or `p`    | Previous diff.                       |
+| `M-<right>` or `a` | Move diff from left to right buffer. |
+| `M-<left>` or `b`  | Move diff from right to left buffer. |
 
 ### dired-mode
 
