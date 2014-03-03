@@ -221,6 +221,8 @@
 ;; diff-hl
 (require 'diff-hl)
 (global-diff-hl-mode t)
+(global-for-key (kbd "C-x r =")
+                (diff-hl-update))
 
 ;; expand region
 (require 'expand-region)

@@ -57,6 +57,7 @@ Use `M-SPC` or `ESC SPC` to toggle God Mode. In God Mode, `i` will also disable 
 | `C-x C-y`                    | `xy`            | Show kill ring.                                                                                                              |
 | `C-x G`                      | `x G`           | Run grep.                                                                                                                    |
 | `C-x g`                      | `x g`           | Run recursive grep. Useful for searching in files.                                                                           |
+| `C-x r =`                    | `x r =`         | Reset highlighted diff (`diff-hl`) in current buffer.                                                                        |
 | `C-<f2>`                     |                 | Helm i-menu. Useful for code navigation.                                                                                     |
 | `M-]` or `C-[ ]`             | `[ ]` or `g]`   | Highlight token under cursor. Use `[` or `]` to navigate to previous or next hit, or `ESC` to remove all highlighted tokens. |
 | `ESC M-]` or `C-[ C-[ ]`     |  `[[ ]`         | Remove all highlighted tokens.                                                                                               |
