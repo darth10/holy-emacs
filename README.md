@@ -65,7 +65,7 @@ Use `M-SPC` or `ESC SPC` to toggle God Mode. In God Mode, `i` will also disable 
 | `C-<f6>`                     |                 | Toggle line numbers.                                                                                                         |
 | `C-<f9>`                     |                 | Toggle truncate lines (word wrapping).                                                                                       |
 | `C-c (`                      | `c (`           | Toggle paredit-mode. Useful for editing Lisp code.                                                                           |
-| `C-' C-C`                    | `'C`            | Toggle paredit-mode. Useful for editing Lisp code.                                                                           |
+| `C-' C-c`                    | `'c`            | Toggle camel-case mode.                                                                                                      |
 | `C-S-\`                      | `S-\`           | Move to window.                                                                                                              |
 | `C-+`                        | `+`             | Interactively resize current window.                                                                                         |
 | `C-?`                        | `?`             | Look up any documentation. Changes behaviour depending on major mode, and defaults to available info documentation.          |
