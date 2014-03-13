@@ -56,6 +56,7 @@
     slime
     slime-js
     smex
+    workgroups2
     yaml-mode
     yari
     yascroll

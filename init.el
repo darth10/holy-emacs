@@ -332,3 +332,11 @@
 
 (require 'edit-server)
 (edit-server-start)
+
+;; workgroups
+;; make sure this is started last for performance
+(require 'workgroups2)
+(setq wg-prefix-key (kbd "C-x C-:"))
+(setq wg-default-session-file "~/.emacs_workgroups")
+(setq wg-first-wg-name "default")
+(workgroups-mode 1)

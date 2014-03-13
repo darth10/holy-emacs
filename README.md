@@ -9,6 +9,7 @@
 * Includes code snippets via yasnippet. Apart from those in yasnippet-bundle, there are several custom snippets for Clojure, JavaScript, Haskell and Scheme.
 * Git integration via magit.
 * File and project search via ag.
+* Manage sessions via workgroups.
 * Quickly move regions using `M-<up>` and `M-<down>` like in Eclipse.
 * Quickly create and navigate across bookmarks via breadcrumb.
 * Automatically saves backup files to `~/.emacs-saves/`.
@@ -110,6 +111,18 @@ Requires [ag](https://github.com/ggreer/the_silver_searcher).
 | `C-S-<f3>` or `C-c C-?`       | `c?`             | Search regexp in files.    |
 | `C-c <f3>` or `C-c C-c C-/`   | `cc/`            | Search in project.         |
 | `C-c S-<f3>` or `C-c C-c C-/` | `cc?`            | Search regexp in project.  |
+
+### Workgroups
+
+Prefix is `C-x C-:`, or `x:` in God mode.
+
+| Keys                          | God mode Keys    | Description                |
+| ----------------------------- | ---------------- | -------------------------- |
+| `C-x C-: C-v`                 | `x:v`            | Switch to workgroup.       |
+| `C-x C-: C-a`                 | `x:a`            | Switch to next workgroup.  |
+| `C-x C-: C-c`                 | `x:c`            | Create a new workgroup.    |
+| `C-x C-: C-k`                 | `x:k`            | Kill workgroup.            |
+| `C-x C-: ?`                   | `x: ?`           | Show help for workgroups.xs|
 
 ### Code folding
 
