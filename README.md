@@ -37,7 +37,7 @@ Use `M-SPC` or `ESC SPC` to toggle God Mode. In God Mode, `i` will also disable 
 * Use `.` to repeat the last God Mode command.
 * Use `q` followed by a single character to insert the character in God Mode.
 
-## Global key kindings
+## Global key bindings
 
 | Keys                         | God Mode Keys   | Description                                                                                                                  |
 | ---------------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------- |
