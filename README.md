@@ -188,14 +188,14 @@ Prefix is `C-x C-:`, or `x:` in God mode.
 
 ### Paredit mode
 
-| Keys                      | God mode Keys | Description                              |
-| ------------------------- | ------------- | ---------------------------------------- |
-| `M-<left>` or `M-g b`     | `ggb`         | Barf from current sexp from right.       |
-| `M-<right>` or `M-g f`    | `ggf`         | Slurp into current sexp from right.	   |
-| `ESC M-<left>` or `M-g B` | `ggB`         | Slurp into current sexp from left.	   |
-| `ESC M-<right>` or `M-g F`| `ggF`         | Barf from current sexp from left.	       |
-| `ESC M-<up>` or `M-g K`   | `ggK`         | Splice current sexp by killing backward. |
-| `ESC M-<down>` or `M-g k` | `ggk`         | Splice current sexp by killing forward.  |
+| Keys                                               | God mode Keys | Description                               |
+| -------------------------------------------------- | ------------- | ----------------------------------------- |
+| `C-[ <left>` or `M-<right>` or `C-, b`             | `,f`          | Slurp into current sexp from right.	     |
+| `C-[ C-[ <right>` or `C-, C-, f`                   | `,,f`         | Barf from current sexp from left.	     |
+| `C-[ <left>` or `M-<left>` or `C-, b`              | `,b`          | Barf from current sexp from right.        |
+| `C-[ C-[ <left>` or `C-, C-, b`                    | `,,b`         | Slurp into current sexp from left.	     |
+| `C-[ C-[ <down>` or `C-, k`                        | `,k`          | Splice current sexp by killing forward.   |
+| `C-[ C-[ <up>` or `C-, C-, C-k`                    | `,,k`         | Splice current sexp by killing backward.  |
 
 ### All Lisp modes
 
