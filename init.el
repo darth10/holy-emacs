@@ -18,7 +18,7 @@
 (global-set-key (kbd "C-x C-2") 'split-window-below)
 (global-set-key (kbd "C-x C-3") 'split-window-right)
 (global-set-key (kbd "C-x C-0") 'delete-window)
-(set-god-mode "M-SPC")
+(set-god-mode "<escape>" "S-<escape>")
 
 ;; highlight current line
 (add-hook 'prog-mode-hook 'hl-line-mode)

@@ -2,7 +2,7 @@
 
 * Support for editing/debugging Clojure, Emacs Lisp, Scheme, C#, JavaScript, Ruby, Haskell and C.
 * Emphasis on use of function keys.
-* Uses God Mode to reduce keystrokes. All normal key bindings work in God Mode too; God Mode is only used to minimize the number of keys pressed.
+* Uses God mode to reduce keystrokes. All normal key bindings work in God mode too; God mode is only used to minimize the number of keys pressed.
 * Identical (almost) bindings across different major modes.
 * Installs all packages from Marmalade and MELPA repositories on startup.
 * Includes helm and autocomplete.
@@ -25,21 +25,23 @@ All scripts are in the `script/` folder.
 | fetch-info-docs.sh | Fetch info documentation. Available only on GNU/Linux.                                      |
 | build-ri-doc.sh    | Fetch and build Ruby ri documentation on Linux. Available only on GNU/Linux. Requires rvm.  |
 
-## God Mode
+## God mode
 
-Use `M-SPC` or `ESC SPC` to toggle God Mode. In God Mode, `i` will also disable God Mode.
+Use `<escape>` to toggle God mode. In God mode, `i` will also disable God mode.
+Note that you can still use `C-[` as a substitute for the escape key.
+In God mode, you can simply use `[` for the escape key.
 
 * `C-x C-c` becomes `xc`.
 * `C-x (` becomes `x (`. Note the use of the space key.
 * `M-x` becomes `gx`.
 * `C-M-c` becomes `Gc`.
 * `M-10 C-n` becomes `10n`.
-* Use `.` to repeat the last God Mode command.
-* Use `q` followed by a single character to insert the character in God Mode.
+* Use `.` to repeat the last God mode command.
+* Use `q` followed by a single character to insert the character in God mode.
 
 ## Global key bindings
 
-| Keys                         | God Mode Keys   | Description                                                                                                                  |
+| Keys                         | God mode Keys   | Description                                                                                                                  |
 | ---------------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | `C-x "'`                     | `x "`           | Switch to `*scratch*` buffer in new frame.                                                                                   |
 | `C-x '`                      | `x '`           | Switch to `*scratch*` buffer.                                                                                                |
@@ -86,7 +88,7 @@ Use `M-SPC` or `ESC SPC` to toggle God Mode. In God Mode, `i` will also disable 
 
 ### Git integration
 
-| Keys                         | God Mode Keys    | Description                             |
+| Keys                         | God mode Keys    | Description                             |
 | ---------------------------- | ---------------- | --------------------------------------- |
 | ``C-: C-s`` or `C-: C-:`     | `:s` or `::`     | Show current git repository status.     |
 | ``C-: C-k``                  | `:k`             | Run `gitk`.                             |
@@ -102,7 +104,7 @@ Use `M-SPC` or `ESC SPC` to toggle God Mode. In God Mode, `i` will also disable 
 
 Requires [ag](https://github.com/ggreer/the_silver_searcher).
 
-| Keys                          | God Mode Keys    | Description                |
+| Keys                          | God mode Keys    | Description                |
 | ----------------------------- | ---------------- | -------------------------- |
 | `C-<f3>` or `C-c C-/`         | `c/`             | Search in files.           |
 | `C-S-<f3>` or `C-c C-?`       | `c?`             | Search regexp in files.    |
@@ -111,7 +113,7 @@ Requires [ag](https://github.com/ggreer/the_silver_searcher).
 
 ### Code folding
 
-| Keys                      | God Mode Keys     | Description                            |
+| Keys                      | God mode Keys     | Description                            |
 | ------------------------- | ----------------- | -------------------------------------- |
 | `C-c C-h`                 | `ch`              | Hide block.                            |
 | `C-c C-g C-h`             | `cgh`             | Hide all blocks.                       |
@@ -120,7 +122,7 @@ Requires [ag](https://github.com/ggreer/the_silver_searcher).
 
 ### Multiple cursors
 
-| Keys                      | God Mode Keys     | Description                            |
+| Keys                      | God mode Keys     | Description                            |
 | ------------------------- | ----------------- | -------------------------------------- |
 | `C-x <C-RET>`             |                   | Edit lines with multiple cursors.      |
 | `C->`                     | `>`               | Mark next line or word.                |
@@ -129,7 +131,7 @@ Requires [ag](https://github.com/ggreer/the_silver_searcher).
 
 ### Bookmarks
 
-| Keys                         | God Mode Keys | Description                                  |
+| Keys                         | God mode Keys | Description                                  |
 | ---------------------------- | ------------- | -------------------------------------------- |
 | `C-c C-;`                    | `c;`          | Show bookmark list.                          |
 | `C-c C-=`                    | `c=`          | Add bookmark.                                |
@@ -141,7 +143,7 @@ Requires [ag](https://github.com/ggreer/the_silver_searcher).
 
 ### org-mode
 
-| Keys            | God Mode Keys | Description              |
+| Keys            | God mode Keys | Description              |
 | --------------- | ------------- | ------------------------ |
 | `C-c b`         | `c b`         | List org-mode buffers.   |
 
@@ -164,7 +166,7 @@ Requires [ag](https://github.com/ggreer/the_silver_searcher).
 
 ### org-mode
 
-| Keys            | God Mode Keys | Description                                     |
+| Keys            | God mode Keys | Description                                     |
 | --------------- | ------------- | ----------------------------------------------- |
 | `C-x t`         | `x t`         | Show org-mode timeline.                         |
 | `C-c a`         | `c a`         | Show org-mode agenda.                           |
@@ -173,7 +175,7 @@ Requires [ag](https://github.com/ggreer/the_silver_searcher).
 
 ### Paredit mode
 
-| Keys                      | God Mode Keys | Description                              |
+| Keys                      | God mode Keys | Description                              |
 | ------------------------- | ------------- | ---------------------------------------- |
 | `M-<left>` or `M-g b`     | `ggb`         | Barf from current sexp from right.       |
 | `M-<right>` or `M-g f`    | `ggf`         | Slurp into current sexp from right.	   |
@@ -186,7 +188,7 @@ Requires [ag](https://github.com/ggreer/the_silver_searcher).
 
 Available in Clojure, Scheme and Emacs Lisp modes.
 
-| Keys                   | God Mode Keys | Description                              |
+| Keys                   | God mode Keys | Description                              |
 | ---------------------- | ------------- | ---------------------------------------- |
 | `C-x C-e`              | `xe`          | Evaluate last sexp.                      |
 | `C-c C-k`              | `ck`          | Evaluate current buffer.                 |
@@ -198,7 +200,7 @@ Available in Clojure, Scheme and Emacs Lisp modes.
 Requires GUD debugger to be active.
 Supports `gdb` for C, `pdb` for Python, and `ruby -r debug` for Ruby.
 
-| Keys                                      | God Mode Keys | Description                              |
+| Keys                                      | God mode Keys | Description                              |
 | ----------------------------------------- | ------------- | ---------------------------------------- |
 | `<f5>` or `C-x C-a C-r`                   | `xar`         | Continue execution.                      |
 | `<f8>` or `C-x C-a r`                     | `xa r`        | Debug program/script.                    |
