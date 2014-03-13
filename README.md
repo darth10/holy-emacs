@@ -4,9 +4,8 @@
 * Emphasis on use of function keys.
 * Uses God mode to reduce keystrokes. All normal key bindings work in God mode too; God mode is only used to minimize the number of keys pressed.
 * Identical (almost) bindings across different major modes.
-* Installs all packages from Marmalade and MELPA repositories on startup.
-* Includes helm and autocomplete.
-* Includes code snippets via yasnippet. Apart from those in yasnippet-bundle, there are several custom snippets for Clojure, JavaScript, Haskell and Scheme.
+* Installs all required packages from GNU, Marmalade and MELPA repositories on startup.
+* Includes helm, yasnippet and autocomplete.
 * Git integration via magit.
 * File and project search via ag.
 * Manage sessions via workgroups.
@@ -14,7 +13,7 @@
 * Quickly create and navigate across bookmarks via breadcrumb.
 * Automatically saves backup files to `~/.emacs-saves/`.
 * Recomile entire `~/.emacs.d` using the `rebuild` function.
-* Remember that the `M` modifier is the same as prefixing the `ESC` or `C-[` key(s).
+* Remember that the meta (`M-`) modifier is the same as prefixing the `C-[` key.
 
 ## Scripts
 
@@ -28,8 +27,8 @@ All scripts are in the `script/` folder.
 
 ## God mode
 
-Use `<escape>` to toggle God mode. In God mode, `i` will also disable God mode.
-Note that you can still use `C-[` as a substitute for the escape key.
+Use the escape key (`<escape>`) to toggle God mode. In God mode, `i` will also disable God mode.
+Note that you can still use `C-[` instead of the escape key.
 In God mode, you can simply use `[` for the escape key.
 
 * `C-x C-c` becomes `xc`.
@@ -53,7 +52,7 @@ In God mode, you can simply use `[` for the escape key.
 | `C-x <f10>` or `C-c C-c =`   | `cc =`          | Start Ediff between buffers.     											                                                |
 | `C-x S-<f10>` or `C-c C-c +` | `cc +`          | Start Ediff between files. 	     											                                                |
 | `C-x <f11>`                  |                 | Show calendar. 	   	     	     											                                                |
-| `C-x <C-M-RET>` or ``C-x S-\``| ``x S-\``      | Show init.el file.  	     	     											                                                |
+| `C-x <C-M-RET>` or `C-x S-\` | `x S-\`         | Show init.el file.  	     	     											                                                |
 | `C-x RET RET`                |                 | Set rectangular region mark.  	     	     											                                    |
 | `C-x <f12>`                  |                 | Show calculator.                                                                                                             |
 | `C-x ?`                      | `x ?`           | Open man page. Available only on GNU/Linux.                                                                                  |
@@ -63,7 +62,7 @@ In God mode, you can simply use `[` for the escape key.
 | `C-x r =`                    | `x r =`         | Reset highlighted diff (`diff-hl`) in current buffer.                                                                        |
 | `C-<f2>`                     |                 | Helm i-menu. Useful for code navigation.                                                                                     |
 | `M-]` or `C-[ ]`             | `[ ]` or `g]`   | Highlight token under cursor. Use `[` or `]` to navigate to previous or next hit, or `ESC` to remove all highlighted tokens. |
-| `ESC M-]` or `C-[ C-[ ]`     |  `[[ ]`         | Remove all highlighted tokens.                                                                                               |
+| `C-[ C-[ ]`                  |  `[[ ]`         | Remove all highlighted tokens.                                                                                               |
 | `C-<f4>`                     |                 | Toggle highlight current line.                                                                                               |
 | `C-<f6>`                     |                 | Toggle line numbers.                                                                                                         |
 | `C-<f9>`                     |                 | Toggle truncate lines (word wrapping).                                                                                       |
@@ -77,7 +76,7 @@ In God mode, you can simply use `[` for the escape key.
 | `<f6>` or `C-%`              | `%`             | Move to matching parentheses.                                                                                                |
 | `C-<XF86Back>`               | `<XF86Back>`    | Previous buffer. Available only on ThinkPad keyboards.                                                                       |
 | `C-<XF86Forward>`            | `<XF86Forward>` | Next buffer. Available only on ThinkPad keyboards.                                                                           |
-| `ESC M-x` or `ESC ESC x`     |                 | Execute menu command.                                                                                                        |
+| `C-[ M-x` or `C-[ C-[ x`     | `[[ x`          | Execute menu command.                                                                                                        |
 | `M-<up>` or `M-p`            | `gp`            | Move line or region up.                                                                                                      |
 | `M-<down>` or `M-n`          | `gn`            | Move line or region down.                                                                                                    |
 | `M-<f5>`                     |                 | Recompile using `recompile` function.                                                                                        |
