@@ -139,6 +139,14 @@ Requires [ag](https://github.com/ggreer/the_silver_searcher).
 | `C-c C-<up>` or `C-c C-p`    | `cp`          | Move to previous bookmark in current buffer. |
 | `C-c C-<down>` or `C-c C-n`  | `cn`          | Move to next bookmark in current buffer.     |
 
+### org-mode
+
+| Keys            | God Mode Keys | Description              |
+| --------------- | ------------- | ------------------------ |
+| `C-c b`         | `c b`         | List org-mode buffers.   |
+
+## Mode-specific key bindings
+
 ### Ediff
 
 | Keys               | Description                          |
@@ -160,11 +168,8 @@ Requires [ag](https://github.com/ggreer/the_silver_searcher).
 | --------------- | ------------- | ----------------------------------------------- |
 | `C-x t`         | `x t`         | Show org-mode timeline.                         |
 | `C-c a`         | `c a`         | Show org-mode agenda.                           |
-| `C-c b`         | `c b`         | List org-mode buffers. Can be used in any mode. |
 | `C-c c`         | `c c`         | Capture org-mode template.                      |
 | `C-c l`         | `c l`         | Store org-mode link.                            |
-
-## Mode-specific key bindings
 
 ### Paredit mode
 
