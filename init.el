@@ -20,6 +20,10 @@
 (global-set-key (kbd "C-x C-0") 'delete-window)
 (set-god-mode "<escape>" "S-<escape>")
 
+;; comment out this section to sticky control key
+(require 'config-sticky)
+(set-sticky-mode ?:)
+
 ;; highlight current line
 (add-hook 'prog-mode-hook 'hl-line-mode)
 

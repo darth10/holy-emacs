@@ -1,8 +1,8 @@
 ## Overview
 
 * Support for editing/debugging Clojure, Emacs Lisp, Scheme, C#, JavaScript, Ruby, Haskell and C.
-* Emphasis on use of function keys.
 * Uses God mode to reduce keystrokes. All normal key bindings work in God mode too; God mode is only used to minimize the number of keys pressed.
+* Uses `:` as a sticky control key.
 * Identical (almost) bindings across different major modes.
 * Installs all required packages from GNU, Marmalade and MELPA repositories on startup.
 * Includes helm, yasnippet and autocomplete.
@@ -38,6 +38,24 @@ In God mode, you can simply use `[` for the escape key.
 * `M-10 C-n` becomes `10n`.
 * Use `.` to repeat the last God mode command.
 * Use `q` followed by a single character to insert the character in God mode.
+
+## Sticky control key
+
+Press the `:` key twice in quick succession to emulate the control (`C-`) modifier.
+If the `:` key is pressed while editing text, there will be a slight delay before it is shown in the buffer.
+There are a few additional bindings that use a single quick `:` prefix.
+Some of them are inspired by vi, the other editor.
+All of these functions still have their original key bindings bound to them.
+
+* `:x` emulates the `C-x` prefix.
+* `:c` emulates the `C-c` prefix.
+* `:w` saves the buffer (`C-x C-s`).
+* `:o` opens a file (`C-x C-f`).
+* `:g` quitq the current command (`C-g`).
+* `:s` performs a forward search (`C-s`).
+* `:r` performs a reverse search (`C-r`).
+* `:k` kills the current line (`C-k`).
+* `:d` deletes a character (`C-d`).
 
 ## Global key bindings
 
