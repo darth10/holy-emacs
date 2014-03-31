@@ -61,11 +61,29 @@
   (interactive)
   (byte-recompile-directory (expand-file-name "~/.emacs.d") 0))
 
-(defun split-and-eshell ()
-  "Split window and start terminal"
+(defun delete-single-window (&optional window)
   (interactive)
-  (split-window-below -10)
-  (other-window 1)
-  (eshell))
+  (save-current-buffer
+    (setq window (or window (selected-window)))
+    (select-window window)
+    (kill-buffer)
+    (if (one-window-p t)
+        (delete-frame)
+      (delete-window (selected-window)))))
+
+(defun split-and-eshell ()
+  "Split window and opens up a new shell in the directory associated with the current buffer's file."
+  (interactive)
+  (let* ((parent (file-name-directory (buffer-file-name)))
+         (name   (car
+                  (last
+                   (split-string parent "/" t)))))
+    (split-window-below -10)
+    (other-window 1)
+    (eshell "new")
+    (rename-buffer (concat "*eshell: " name "*"))
+    ;; (when god-local-mode (god-local-mode -1)) ;; not sure about this bit
+    (insert (concat "ls"))
+    (eshell-send-input)))
 
 (provide 'util)

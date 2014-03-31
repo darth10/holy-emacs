@@ -18,6 +18,9 @@
 (global-set-key (kbd "C-x C-2") 'split-window-below)
 (global-set-key (kbd "C-x C-3") 'split-window-right)
 (global-set-key (kbd "C-x C-0") 'delete-window)
+(global-set-key (kbd "C-x C-9") 'delete-single-window)
+(global-set-key (kbd "C-x 9") 'delete-single-window)
+
 (set-god-mode "<escape>" "S-<escape>")
 
 ;; comment out this section to sticky control key
@@ -240,7 +243,7 @@
   (global-set-key (kbd "C-x ?") 'woman))
 
 (global-set-key (kbd "C-x <f7>") 'split-and-eshell)
-(global-set-key (kbd "C-c E") 'split-and-eshell)
+(global-set-key (kbd "C-! C-e") 'split-and-eshell)
 (global-set-key (kbd "C-x <f3>") 'list-processes-and-switch)
 (global-set-key (kbd "C-x <f10>") 'ediff-buffers)
 (global-set-key (kbd "C-c C-c =") 'ediff-buffers)
