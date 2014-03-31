@@ -22,7 +22,8 @@
 
 ;; comment out this section to sticky control key
 (require 'config-sticky)
-(set-sticky-mode ?:)
+(global-set-key (kbd "C-`") 'sticky-control-mode)
+(set-sticky-mode ?j)
 
 ;; highlight current line
 (add-hook 'prog-mode-hook 'hl-line-mode)
