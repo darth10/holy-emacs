@@ -2,7 +2,7 @@
 
 * Support for editing/debugging Clojure, Emacs Lisp, Scheme, C#, JavaScript, Ruby, Haskell and C.
 * Uses God mode to reduce keystrokes. All normal key bindings work in God mode too; God mode is only used to minimize the number of keys pressed.
-* Uses `:` as a sticky control key.
+* Uses `j` as a sticky control key.
 * Identical (almost) bindings across different major modes.
 * Installs all required packages from GNU, Marmalade and MELPA repositories on startup.
 * Includes helm, yasnippet and autocomplete.
@@ -41,21 +41,19 @@ In God mode, you can simply use `[` for the escape key.
 
 ## Sticky control key
 
-Press the `:` key twice in quick succession to emulate the control (`C-`) modifier.
-If the `:` key is pressed while editing text, there will be a slight delay before it is shown in the buffer.
-There are a few additional bindings that use a single quick `:` prefix.
-Some of them are inspired by vi, the other editor.
+Press the `j` key twice in quick succession to emulate the control (`C-`) modifier.
+If the `j` key is pressed while editing text, there will be a slight delay before it is shown in the buffer.
+There are a few additional bindings that use a single quick `j` prefix.
 All of these functions still have their original key bindings bound to them.
+You can always toggle this feature using ``C-` ``.
 
-* `:x` emulates the `C-x` prefix.
-* `:c` emulates the `C-c` prefix.
-* `:w` saves the buffer (`C-x C-s`).
-* `:o` opens a file (`C-x C-f`).
-* `:g` quitq the current command (`C-g`).
-* `:s` performs a forward search (`C-s`).
-* `:r` performs a reverse search (`C-r`).
-* `:k` kills the current line (`C-k`).
-* `:d` deletes a character (`C-d`).
+* `jx` emulates the `C-x` prefix.
+* `jc` emulates the `C-c` prefix.
+* `jw` saves the buffer (`C-x C-s`).
+* `jo` opens a file (`C-x C-f`).
+* `jg` quitq the current command (`C-g`).
+* `js` performs a forward search (`C-s`).
+* `jr` performs a reverse search (`C-r`).
 
 ## Global key bindings
 
@@ -64,9 +62,14 @@ All of these functions still have their original key bindings bound to them.
 | `C-x "'`                     | `x "`           | Switch to `*scratch*` buffer in new frame.                                                                                   |
 | `C-x '`                      | `x '`           | Switch to `*scratch*` buffer.                                                                                                |
 | `C-x C-'`                    | `x'`            | Switch to `*scratch*` buffer in other window.                                                                                |
+| `C-x C-0`                    | `x0`            | Delete window.                                                                                                               |
+| `C-x C-1`                    | `x1`            | Delete all windows except the current one.                                                                                   |
+| `C-x C-2`                    | `x2`            | Split window below.                                                                                                          |
+| `C-x C-3`                    | `x3`            | Split window right.                                                                                                          |
+| `C-x C-9`                    | `x9`            | Delete window and current frame.                                                                                             |
 | `C-x <f3>`                   |                 | Show process list.                                                                                                           |
 | `C-x <f5>`                   |                 | Compile using `compile` function.                                                                                            |
-| `C-x <f7>` or `C-c E`        | `c E`           | Open Eshell.                                                                                                                 |
+| `C-x <f7>` or `C-! C-e`      | `!e`            | Open Eshell.                                                                                                                 |
 | `C-x <f10>` or `C-c C-c =`   | `cc =`          | Start Ediff between buffers.     											                                                |
 | `C-x S-<f10>` or `C-c C-c +` | `cc +`          | Start Ediff between files. 	     											                                                |
 | `C-x <f11>`                  |                 | Show calendar. 	   	     	     											                                                |
@@ -91,6 +94,7 @@ All of these functions still have their original key bindings bound to them.
 | `C-?`                        | `?`             | Look up any documentation. Changes behaviour depending on major mode, and defaults to available info documentation.          |
 | `C-=`                        | `=`             | Expand region.                                                                                                               |
 | `C-~`                        | `~`             | Show mark ring.                                                                                                              |
+| ``C-` ``                     | `` ` ``         | Toggle sticky control key (`j`).                                                                                             |
 | `<f6>` or `C-%`              | `%`             | Move to matching parentheses.                                                                                                |
 | `C-<XF86Back>`               | `<XF86Back>`    | Previous buffer. Available only on ThinkPad keyboards.                                                                       |
 | `C-<XF86Forward>`            | `<XF86Forward>` | Next buffer. Available only on ThinkPad keyboards.                                                                           |
@@ -106,17 +110,17 @@ All of these functions still have their original key bindings bound to them.
 
 ### Git integration
 
-| Keys                         | God mode Keys    | Description                             |
-| ---------------------------- | ---------------- | --------------------------------------- |
-| ``C-: C-s`` or `C-: C-:`     | `:s` or `::`     | Show current git repository status.     |
-| ``C-: C-k``                  | `:k`             | Run `gitk`.                             |
-| ``C-: C-d``                  | `:d`             | `git diff` for current file.            |
-| ``C-: C-c C-d``              | `:cd`            | `git diff` for current git repository.  |
-| ``C-: C-l``                  | `:l`             | Show current git repository log.        |
-| ``C-: C-f``                  | `:f`             | Find file in current git repository.    |
-| ``C-: <f3>`` or `C-: C-=`    | `:/`             | `git grep` in current git repository.   |
-| ``C-: <f10>`` or `C-: C-=`   | `:=`             | Start `vc-ediff` for current file.      |
-| ``C-: C-g``                  | `:g`             | Run git command.                        |
+| Keys                       | God mode Keys    | Description                             |
+| -------------------------- | ---------------- | --------------------------------------- |
+| `C-: C-s` or `C-: C-:`     | `:s` or `::`     | Show current git repository status.     |
+| `C-: C-k`                  | `:k`             | Run `gitk`.                             |
+| `C-: C-d`                  | `:d`             | `git diff` for current file.            |
+| `C-: C-c C-d`              | `:cd`            | `git diff` for current git repository.  |
+| `C-: C-l`                  | `:l`             | Show current git repository log.        |
+| `C-: C-f`                  | `:f`             | Find file in current git repository.    |
+| `C-: <f3>` or `C-: C-=`    | `:/`             | `git grep` in current git repository.   |
+| `C-: <f10>` or `C-: C-=`   | `:=`             | Start `vc-ediff` for current file.      |
+| `C-: C-g`                  | `:g`             | Run git command.                        |
 
 ### Search
 
