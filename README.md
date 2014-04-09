@@ -59,7 +59,7 @@ You can always toggle this feature using ``C-` ``.
 
 | Keys                         | God mode Keys   | Description                                                                                                                  |
 | ---------------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `C-x "'`                     | `x "`           | Switch to `*scratch*` buffer in new frame.                                                                                   |
+| `C-x "`                      | `x "`           | Switch to `*scratch*` buffer in new frame.                                                                                   |
 | `C-x '`                      | `x '`           | Switch to `*scratch*` buffer.                                                                                                |
 | `C-x C-'`                    | `x'`            | Switch to `*scratch*` buffer in other window.                                                                                |
 | `C-x C-0`                    | `x0`            | Delete window.                                                                                                               |
