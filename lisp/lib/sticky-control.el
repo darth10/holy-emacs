@@ -169,7 +169,7 @@ through if typed slowly enough (see `sticky-control-timeout')."
   :group 'sticky-control
   :require 'sticky-control
   (sticky-control-setup sticky-control-mode)
-  (message "sticky-control-mode %s" (if sticky-control-mode "ON" "OFF"))
+  (message "sticky-control-mode %s" (if sticky-control-mode "enabled" "disabled"))
   )
 
 (provide 'sticky-control)
