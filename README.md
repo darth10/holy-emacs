@@ -96,8 +96,6 @@ You can always toggle this feature using ``C-` ``.
 | `C-~`                        | `~`             | Show mark ring.                                                                                                              |
 | ``C-` ``                     | `` ` ``         | Toggle sticky control key (`j`).                                                                                             |
 | `<f6>` or `C-%`              | `%`             | Move to matching parentheses.                                                                                                |
-| `C-<XF86Back>`               | `<XF86Back>`    | Previous buffer. Available only on ThinkPad keyboards.                                                                       |
-| `C-<XF86Forward>`            | `<XF86Forward>` | Next buffer. Available only on ThinkPad keyboards.                                                                           |
 | `C-[ M-x` or `C-[ C-[ x`     | `[[ x`          | Execute menu command.                                                                                                        |
 | `M-<up>` or `M-p`            | `gp`            | Move line or region up.                                                                                                      |
 | `M-<down>` or `M-n`          | `gn`            | Move line or region down.                                                                                                    |
