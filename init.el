@@ -242,6 +242,7 @@
 (unless (is-windows?)
   (global-set-key (kbd "C-x ?") 'woman))
 
+(global-set-key (kbd "<apps>") 'execute-extended-command)
 (global-set-key (kbd "C-x <f7>") 'split-and-eshell)
 (global-set-key (kbd "C-! C-e") 'split-and-eshell)
 (global-set-key (kbd "C-x <f3>") 'list-processes-and-switch)
