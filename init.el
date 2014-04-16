@@ -298,7 +298,6 @@
 (global-set-key (kbd "C-: C-k") 'magit-run-gitk)
 (global-set-key (kbd "C-: C-f") 'helm-ls-git-ls)
 (global-set-key (kbd "C-: C-l") 'magit-log)
-(global-set-key (kbd "C-: C-g") 'magit-git-command)
 
 (global-set-key (kbd "C-x <f5>") 'compile)
 (global-set-key (kbd "M-<f5>") 'recompile)

@@ -6,7 +6,8 @@
   (other-window 1))
 
 (defun configure-magit-status-mode ()
-  (local-unset-key (kbd "x")))
+  (local-unset-key (kbd "x"))
+  (local-unset-key (kbd ":")))
 
 (add-hook 'magit-status-mode-hook 'configure-magit-status-mode)
 
