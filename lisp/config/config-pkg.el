@@ -56,6 +56,7 @@
     slime
     slime-js
     smex
+    tern
     workgroups2
     yaml-mode
     yari
