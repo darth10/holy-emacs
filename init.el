@@ -10,6 +10,7 @@
 (pkg-update-packages)
 
 (global-unset-key (kbd "<f10>"))
+(global-unset-key (kbd "C-x C-c"))
 
 ;; god-mode
 ;; comment out this section to disable global god-mode
@@ -241,6 +242,11 @@
 ;; linux-only key bindings
 (unless (is-windows?)
   (global-set-key (kbd "C-x ?") 'woman))
+
+(global-for-key
+ (kbd "C-x C-c")
+ (when (yes-or-no-p "Quit Emacs? ")
+   (save-buffers-kill-terminal)))
 
 (global-set-key (kbd "<apps>") 'execute-extended-command)
 (global-set-key (kbd "C-x <f7>") 'split-and-eshell)
