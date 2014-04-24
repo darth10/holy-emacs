@@ -144,7 +144,7 @@
 (setq ac-delay 0.5) ;; eclipse uses 500ms
 (define-key ac-complete-mode-map "\t" 'ac-complete)
 (define-key ac-complete-mode-map "\r" nil)
-(global-set-key (kbd "C-c C-c a") 'auto-complete-mode)
+(global-set-key (kbd "C-' C-' a") 'auto-complete-mode)
 
 ;; code folding
 (require 'hideshow)
@@ -253,10 +253,10 @@
 (global-set-key (kbd "C-! C-e") 'split-and-eshell)
 (global-set-key (kbd "C-x <f3>") 'list-processes-and-switch)
 (global-set-key (kbd "C-x <f10>") 'ediff-buffers)
-(global-set-key (kbd "C-c C-c =") 'ediff-buffers)
+(global-set-key (kbd "C-' C-' =") 'ediff-buffers)
 (global-set-key (kbd "C-x S-<f10>") 'ediff)
-(global-set-key (kbd "C-c C-c +") 'ediff)
-(global-set-key (kbd "C-c C-c q") 'auto-fill-mode)
+(global-set-key (kbd "C-' C-' +") 'ediff)
+(global-set-key (kbd "C-' C-' q") 'auto-fill-mode)
 
 (global-set-key (kbd "C-x <f11>") 'calendar)
 (global-set-key (kbd "C-x <f12>") 'calculator)
@@ -314,16 +314,13 @@
 ;; search
 (require 'ag)
 (global-set-key (kbd "C-<f3>") 'ag)
-(global-set-key (kbd "C-c C-/") 'ag)
+(global-set-key (kbd "C-' C-/") 'ag)
 (global-set-key (kbd "C-S-<f3>") 'ag-regexp)
-(global-set-key (kbd "C-c C-?") 'ag-regexp)
-(global-set-key (kbd "C-c <f3>") 'ag-project)
-(global-set-key (kbd "C-c C-c C-/") 'ag-project)
-(global-set-key (kbd "C-c S-<f3>") 'ag-project-regexp)
-(global-set-key (kbd "C-c C-c C-?") 'ag-project-regexp)
-
-;; auto-fill
-(global-set-key (kbd "C-c C-q") 'auto-fill-mode)
+(global-set-key (kbd "C-' C-?") 'ag-regexp)
+(global-set-key (kbd "C-' <f3>") 'ag-project)
+(global-set-key (kbd "C-' C-' C-/") 'ag-project)
+(global-set-key (kbd "C-' S-<f3>") 'ag-project-regexp)
+(global-set-key (kbd "C-' C-' C-?") 'ag-project-regexp)
 
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)

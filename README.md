@@ -70,8 +70,8 @@ You can always toggle this feature using ``C-` ``.
 | `C-x <f3>`                   |                 | Show process list.                                                                                                           |
 | `C-x <f5>`                   |                 | Compile using `compile` function.                                                                                            |
 | `C-x <f7>` or `C-! C-e`      | `!e`            | Open Eshell.                                                                                                                 |
-| `C-x <f10>` or `C-c C-c =`   | `cc =`          | Start Ediff between buffers.     											                                                |
-| `C-x S-<f10>` or `C-c C-c +` | `cc +`          | Start Ediff between files. 	     											                                                |
+| `C-x <f10>` or `C-' C-' =`   | `'' =`          | Start Ediff between buffers.     											                                                |
+| `C-x S-<f10>` or `C-' C-' +` | `'' +`          | Start Ediff between files. 	     											                                                |
 | `C-x <f11>`                  |                 | Show calendar. 	   	     	     											                                                |
 | `C-x <C-M-RET>` or `C-x S-\` | `x S-\`         | Show init.el file.  	     	     											                                                |
 | `C-x RET RET`                |                 | Set rectangular region mark.  	     	     											                                    |
@@ -103,8 +103,8 @@ You can always toggle this feature using ``C-` ``.
 | `C-x C-j`                    | `xj`            | Show directory.                                                                                                              |
 | `C-c C-j`                    | `cj`            | Show directory explorer.                                                                                                     |
 | `C-c C-:`                    | `c:`            | Show recently opened files.                                                                                                  |
-| `C-c C-c a`                  | `cc a`          | Toggle auto-completion.                                                                                                      |
-| `C-c C-c q`                  | `cc q`          | Toggle auto fill mode.                                                                                                       |
+| `C-' C-' a`                  | `'' a`          | Toggle auto-completion.                                                                                                      |
+| `C-' C-' q`                  | `'' q`          | Toggle auto fill mode.                                                                                                       |
 
 ### Git integration
 
@@ -125,10 +125,10 @@ Requires [ag](https://github.com/ggreer/the_silver_searcher).
 
 | Keys                          | God mode Keys    | Description                |
 | ----------------------------- | ---------------- | -------------------------- |
-| `C-<f3>` or `C-c C-/`         | `c/`             | Search in files.           |
-| `C-S-<f3>` or `C-c C-?`       | `c?`             | Search regexp in files.    |
-| `C-c <f3>` or `C-c C-c C-/`   | `cc/`            | Search in project.         |
-| `C-c S-<f3>` or `C-c C-c C-/` | `cc?`            | Search regexp in project.  |
+| `C-<f3>` or `C-' C-/`         | `'/`             | Search in files.           |
+| `C-S-<f3>` or `C-' C-?`       | `'?`             | Search regexp in files.    |
+| `C-' <f3>` or `C-' C-' C-/`   | `''/`            | Search in project.         |
+| `C-' S-<f3>` or `C-' C-' C-/` | `''?`            | Search regexp in project.  |
 
 ### Workgroups
 
