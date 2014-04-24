@@ -99,11 +99,11 @@
   :group 'convenience)
 
 (defcustom sticky-control-shortcuts
-  '((?c . "\C-c")
-    (?g . "\C-g")
-    (?x . "\C-x")
-    (?r . "\C-r")
-    (?s . "\C-s"))
+  '((?x . "\C-x")
+    (?c . "\C-c")
+    (?w . "\C-x\C-s")
+    (?f . "\C-x\C-f"))
+
   "Shortcuts available under `sticky-control-mode' which can reduce
 the number of keystrokes needed to get things done.
 

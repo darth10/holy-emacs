@@ -45,15 +45,13 @@ Press the `j` key twice in quick succession to emulate the control (`C-`) modifi
 If the `j` key is pressed while editing text, there will be a slight delay before it is shown in the buffer.
 There are a few additional bindings that use a single quick `j` prefix.
 All of these functions still have their original key bindings bound to them.
+God mode does not affect the `j` sticky control key.
 You can always toggle this feature using ``C-` ``.
 
 * `jx` emulates the `C-x` prefix.
 * `jc` emulates the `C-c` prefix.
 * `jw` saves the buffer (`C-x C-s`).
-* `jo` opens a file (`C-x C-f`).
-* `jg` quitq the current command (`C-g`).
-* `js` performs a forward search (`C-s`).
-* `jr` performs a reverse search (`C-r`).
+* `jf` opens a file (`C-x C-f`).
 
 ## Global key bindings
 
