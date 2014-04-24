@@ -146,7 +146,7 @@
 (setq ac-delay 0.5) ;; eclipse uses 500ms
 (define-key ac-complete-mode-map "\t" 'ac-complete)
 (define-key ac-complete-mode-map "\r" nil)
-(global-set-key (kbd "C-' C-' a") 'auto-complete-mode)
+(global-set-key (kbd "C-' C-' C-a") 'auto-complete-mode)
 
 ;; code folding
 (require 'hideshow)
@@ -259,7 +259,7 @@
 (global-set-key (kbd "C-' C-' =") 'ediff-buffers)
 (global-set-key (kbd "C-x S-<f10>") 'ediff)
 (global-set-key (kbd "C-' C-' +") 'ediff)
-(global-set-key (kbd "C-' C-' q") 'auto-fill-mode)
+(global-set-key (kbd "C-' C-' C-q") 'auto-fill-mode)
 
 (global-set-key (kbd "C-x <f11>") 'calendar)
 (global-set-key (kbd "C-x <f12>") 'calculator)

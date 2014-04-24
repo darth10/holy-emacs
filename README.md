@@ -102,8 +102,8 @@ You can always toggle this feature using ``C-` ``.
 | `C-x C-j`                    | `xj`            | Show directory.                                                                                                              |
 | `C-c C-j`                    | `cj`            | Show directory explorer.                                                                                                     |
 | `C-c C-:`                    | `c:`            | Show recently opened files.                                                                                                  |
-| `C-' C-' a`                  | `'' a`          | Toggle auto-completion.                                                                                                      |
-| `C-' C-' q`                  | `'' q`          | Toggle auto fill mode.                                                                                                       |
+| `C-' C-' C-a`                | `''a`           | Toggle auto-completion.                                                                                                      |
+| `C-' C-' C-q`                | `''q`           | Toggle auto fill mode.                                                                                                       |
 
 ### Git integration
 
