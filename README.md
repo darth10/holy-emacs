@@ -57,6 +57,7 @@ You can always toggle this feature using ``C-` ``.
 
 | Keys                         | God mode Keys   | Description                                                                                                                  |
 | ---------------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `C-x w`                      | `x w`           | Save current buffer.                                                                                                         |
 | `C-x "`                      | `x "`           | Switch to `*scratch*` buffer in new frame.                                                                                   |
 | `C-x '`                      | `x '`           | Switch to `*scratch*` buffer.                                                                                                |
 | `C-x C-'`                    | `x'`            | Switch to `*scratch*` buffer in other window.                                                                                |

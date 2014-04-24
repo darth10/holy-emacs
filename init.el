@@ -15,6 +15,9 @@
 ;; god-mode
 ;; comment out this section to disable global god-mode
 (require 'config-god)
+(set-god-mode "<escape>" "S-<escape>")
+
+(global-set-key (kbd "C-x w") 'save-buffer)
 (global-set-key (kbd "C-x C-1") 'delete-other-windows)
 (global-set-key (kbd "C-x C-2") 'split-window-below)
 (global-set-key (kbd "C-x C-3") 'split-window-right)
@@ -22,7 +25,6 @@
 (global-set-key (kbd "C-x C-9") 'delete-single-window)
 (global-set-key (kbd "C-x 9") 'delete-single-window)
 
-(set-god-mode "<escape>" "S-<escape>")
 
 ;; comment out this section to sticky control key
 (require 'config-sticky)
