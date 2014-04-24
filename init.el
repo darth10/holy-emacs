@@ -164,6 +164,7 @@
 (require 'config-web)
 (require 'config-comment-annotations)
 (require 'config-cursor)
+(require 'config-modeline)
 
 ;; language configurations
 (require 'config-js)

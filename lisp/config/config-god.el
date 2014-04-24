@@ -20,9 +20,4 @@
 
 (add-hook 'overwrite-mode-hook 'god-toggle-on-overwrite)
 
-(add-to-list 'mode-line-format
-             (quote (:eval (propertize (if god-local-mode "G" " ")
-                        			   'face 'mode-line
-                                       'help-echo (concat "God mode " (if god-local-mode "enabled" "disabled"))))))
-
 (provide 'config-god)
