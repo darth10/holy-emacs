@@ -20,11 +20,11 @@
 ;; Author: C.R.Manning caroma@ai.mit.edu
 ;;         at http://www.ai.mit.edu/people/caroma/tools/
 ;; Created: 19 May 2001
-;; last update: 20 May 2001 
+;; last update: 20 May 2001
 ;; Keywords: camelCase camel case word mode
 ;; Tested on: Gnu Emacs 20.7, XEmacs 21.4
 
-;;; Installation 
+;;; Installation
 
 ;; Suggested GNU Emacs .emacs (or XEmacs .xemacs/init.el) initialization:
 ;;   (autoload 'camelCase-mode "camelCase-mode" nil t)
@@ -41,7 +41,7 @@
 ;; lost, since the forward s-expression, backward s-expression,
 ;; delete s-expression, etc. commands are still available to navigate
 ;; over entire camelCase names.
-;; 
+;;
 ;; Word boundaries in a camelCase name are marked only by letter case.
 ;; For example lowerCapitalUPPERCase has four words.  A word may be
 ;; lowercase, Capitalized, UPPERCASE, or a sequence of digits.  Besides
@@ -85,7 +85,7 @@
 
 (defvar camelCase-modeline-indicator " camelCase"
   "call (camelCase-install-mode) again if this is changed")
-(defvar camelCase-mode nil) 
+(defvar camelCase-mode nil)
 (make-variable-buffer-local 'camelCase-mode)
 (put 'camelCase-mode 'permanent-local t)
 
@@ -117,7 +117,8 @@
   (setq camelCase-mode
 	(if (null arg) (not camelCase-mode)
 	  (> (prefix-numeric-value arg) 0)))
-  (force-mode-line-update))
+  (force-mode-line-update)
+  (message (format "camelCase-mode %s" (if camelCase-mode "enabled" "disabled"))))
 
 (defconst camelCase-keybindings-list
   (cond ((memq 'xemacs features) ;; xemacs uses different key syntax
@@ -183,13 +184,13 @@
 		(delq old-map-entry minor-mode-map-alist)))))
 
 
-(defun camelCase-install-mode () 
+(defun camelCase-install-mode ()
   ;; call function without causing byte-compiler warning if other not defined
   (let ((add-minor-mode-fn (if (and (memq 'xemacs features)
 				    (fboundp 'add-minor-mode))
 			       'add-minor-mode
 			     'camelCase-add-minor-mode)))
-    (funcall add-minor-mode-fn 
+    (funcall add-minor-mode-fn
 	     'camelCase-mode
 	     camelCase-modeline-indicator
 	     camelCase-mode-map)))
@@ -206,7 +207,7 @@ or sequence of digits.")
 
 (defun camelCase-forward-word (count)
   "move point foward COUNT camelCase words"
-  (interactive "p") 
+  (interactive "p")
   ;; search forward increments point until some match occurs;
   ;; extent of match is as large as possible at that point.
   ;; point is left at END of match.
@@ -214,14 +215,14 @@ or sequence of digits.")
       (camelCase-backward-word (- count))
     (let ((old-case-fold-search case-fold-search)
 	  (case-fold-search nil)) ;; search case sensitively
-      (unwind-protect 
+      (unwind-protect
 	  (when (re-search-forward camelCase-regexp nil t count)
 	    ;; something matched, just check for special case.
 	    ;; If uppercase acronym is in camelCase word as in "URLNext",
 	    ;; search will leave point after N rather than after L.
 	    ;; So if match starting back one char doesn't end same place,
 	    ;; then back-up one char.
-	    (when (save-excursion     
+	    (when (save-excursion
 		    (let ((search-end (point)))
 		      (forward-char -1)
 		      (and (looking-at camelCase-regexp)
@@ -230,9 +231,9 @@ or sequence of digits.")
 	    (point))
 	(setq case-fold-search old-case-fold-search)))))
 
-(defun camelCase-backward-word (count) 
+(defun camelCase-backward-word (count)
   "move point backward COUNT camelCase words"
-  (interactive "p") 
+  (interactive "p")
   ;; search backward decrements point until some match occurs;
   ;; extent of match is as large as possible at that point.
   ;; So once point is found, have to keep decrementing point until we cross
@@ -243,8 +244,8 @@ or sequence of digits.")
     (let ((start-position (point))
 	  (old-case-fold-search case-fold-search)
 	  (case-fold-search nil)) ;; search case-sensitively
-      (unwind-protect 
-	  (while (< 0 count) 
+      (unwind-protect
+	  (while (< 0 count)
 	    (setq count (1- count))
 	    (let ((start (point)))
 	      (when (re-search-backward camelCase-regexp nil t)
@@ -261,36 +262,36 @@ or sequence of digits.")
 	(setq case-fold-search old-case-fold-search))
       (if (= start-position (point)) nil (point)))))
 
-(defun camelCase-forward-kill-word (count) 
+(defun camelCase-forward-kill-word (count)
   "kill text between current point and end of next camelCase word"
   (interactive "*p")
   (kill-region (point) (progn (camelCase-forward-word count) (point))))
-(defun camelCase-backward-kill-word (count) 
+(defun camelCase-backward-kill-word (count)
   "kill text between current point and end of previous camelCase word"
   (interactive "*p")
   (kill-region (point) (progn (camelCase-backward-word count) (point))))
 (defun camelCase-transpose-words (count)
   "transpose camelCase words around point, leaving point afterward.
 With prefix arg COUNT, moves word before point past COUNT words
-forward or backward.  If COUNT is 0, exchanges word around pont 
+forward or backward.  If COUNT is 0, exchanges word around pont
 with word around mark."
-  (interactive "*p")  
+  (interactive "*p")
   (transpose-subr 'camelCase-forward-word count))
 (defun camelCase-capitalize-word (count)
   "Capitalize word starting at point, leaving point after word."
-  (interactive "*p")  
+  (interactive "*p")
   (let ((start (point)))
     (camelCase-forward-word count)
     (capitalize-region start (point))))
 (defun camelCase-upcase-word (count)
   "Make word starting at point UPPERCASE, leaving point after word."
-  (interactive "*p")  
+  (interactive "*p")
   (let ((start (point)))
     (camelCase-forward-word count)
     (upcase-region start (point))))
 (defun camelCase-downcase-word (count)
   "Make word starting at point lowercase, leaving point after word."
-  (interactive "*p")  
+  (interactive "*p")
   (let ((start (point)))
     (camelCase-forward-word count)
     (downcase-region start (point))))

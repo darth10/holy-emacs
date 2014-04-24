@@ -328,7 +328,7 @@
 
 ;; camelCase mode
 (autoload 'camelCase-mode "camelCase-mode" nil t)
-(global-set-key (kbd "C-' C-C") 'camelCase-mode)
+(global-set-key (kbd "C-' C-' C-c") 'camelCase-mode)
 
 ;; Windows configuration
 (when (is-windows?)
