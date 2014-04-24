@@ -206,11 +206,11 @@ Prefix is `C-x C-:`, or `x:` in God mode.
 
 | Keys                                               | God mode Keys | Description                               |
 | -------------------------------------------------- | ------------- | ----------------------------------------- |
-| `C-[ <left>` or `M-<right>` or `C-, b`             | `,f`          | Slurp into current sexp from right.	     |
-| `C-[ C-[ <right>` or `C-, C-, f`                   | `,,f`         | Barf from current sexp from left.	     |
-| `C-[ <left>` or `M-<left>` or `C-, b`              | `,b`          | Barf from current sexp from right.        |
-| `C-[ C-[ <left>` or `C-, C-, b`                    | `,,b`         | Slurp into current sexp from left.	     |
-| `C-[ C-[ <down>` or `C-, k`                        | `,k`          | Splice current sexp by killing forward.   |
+| `C-[ <right>` or `M-<right>` or `C-, C-f`          | `,f`          | Slurp into current sexp from right.	     |
+| `C-[ <left>` or `M-<left>` or `C-, C-b`            | `,b`          | Barf from current sexp from right.        |
+| `C-[ C-[ <right>` or `C-, C-, C-f`                 | `,,f`         | Barf from current sexp from left.	     |
+| `C-[ C-[ <left>` or `C-, C-, C-b`                  | `,,b`         | Slurp into current sexp from left.	     |
+| `C-[ C-[ <down>` or `C-, C-k`                      | `,k`          | Splice current sexp by killing forward.   |
 | `C-[ C-[ <up>` or `C-, C-, C-k`                    | `,,k`         | Splice current sexp by killing backward.  |
 
 ### All Lisp modes
