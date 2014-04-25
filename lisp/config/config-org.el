@@ -5,6 +5,7 @@
   (require 'org-agenda)
   (hl-line-mode t)
   (local-unset-key (kbd "C-'"))
+  (local-unset-key (kbd "C-c C-j"))
   (local-set-key (kbd "C-x t") 'org-timeline)
   (local-set-key (kbd "C-c l") 'org-store-link)
   (local-set-key (kbd "C-c c") 'org-capture)

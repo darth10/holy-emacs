@@ -15,6 +15,9 @@
     clojure-test-mode
     csharp-mode
     diff-hl
+    dired+
+    dired-details
+    dired-details+
     direx
     edit-server
     expand-region
