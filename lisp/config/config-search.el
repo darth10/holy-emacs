@@ -2,6 +2,9 @@
 
 (require 'ag)
 
+;;; occur
+(global-set-key (kbd "M-s i") 'helm-occur)
+
 ;;; grep
 (global-set-key (kbd "M-s G") 'grep)
 (global-set-key (kbd "M-s g") 'rgrep)

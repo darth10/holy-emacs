@@ -77,8 +77,6 @@ You can always toggle this feature using ``C-` ``.
 | `C-x <f12>`                  |                 | Show calculator.                                                                                                             |
 | `C-x ?`                      | `x ?`           | Open man page. Available only on GNU/Linux.                                                                                  |
 | `C-x C-y`                    | `xy`            | Show kill ring.                                                                                                              |
-| `M-s G`                      | `gs G`          | Run grep.                                                                                                                    |
-| `M-s g`                      | `gs g`          | Run recursive grep. Useful for searching in files.                                                                           |
 | `C-x r =`                    | `x r =`         | Reset highlighted diff (`diff-hl`) in current buffer.                                                                        |
 | `C-<f2>`                     |                 | Helm i-menu. Useful for code navigation.                                                                                     |
 | `M-]` or `C-[ ]`             | `[ ]` or `g]`   | Highlight token under cursor. Use `[` or `]` to navigate to previous or next hit, or `ESC` to remove all highlighted tokens. |
@@ -122,12 +120,16 @@ You can always toggle this feature using ``C-` ``.
 
 Requires [ag](https://github.com/ggreer/the_silver_searcher).
 
-| Keys                          | God mode Keys    | Description                |
-| ----------------------------- | ---------------- | -------------------------- |
-| `M-s a a` or `C-<f3>`         | `gs a a`         | Search in files.           |
-| `M-s a r` or `C-S-<f3>`       | `gs a r`         | Search regexp in files.    |
-| `M-s e a`                     | `gs e a`         | Search in project.         |
-| `M-s e r`                     | `gs e r`         | Search regexp in project.  |
+| Keys                          | God mode Keys    | Description                     |
+| ----------------------------- | ---------------- | ------------------------------- |
+| `M-s a a` or `C-<f3>`         | `gs a a`         | Search in files.                |
+| `M-s a r` or `C-S-<f3>`       | `gs a r`         | Search regexp in files.         |
+| `M-s e a`                     | `gs e a`         | Search in project.              |
+| `M-s e r`                     | `gs e r`         | Search regexp in project.       |
+| `M-s o`                       | `gs o`           | Find occurences in buffer.      |
+| `M-s i`                       | `gs i`           | Jump to occurences in buffer.   |
+| `M-s G`                       | `gs G`           | Run grep.                       |
+| `M-s g`                       | `gs g`           | Search using grep.              |
 
 ### Workgroups
 
