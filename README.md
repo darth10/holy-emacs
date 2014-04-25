@@ -124,8 +124,8 @@ Requires [ag](https://github.com/ggreer/the_silver_searcher).
 
 | Keys                          | God mode Keys    | Description                |
 | ----------------------------- | ---------------- | -------------------------- |
-| `C-<f3>` or `M-s a a`         | `gs a a`         | Search in files.           |
-| `C-S-<f3>` or `M-s a r`       | `gs a r`         | Search regexp in files.    |
+| `M-s a a` or `C-<f3>`         | `gs a a`         | Search in files.           |
+| `M-s a r` or `C-S-<f3>`       | `gs a r`         | Search regexp in files.    |
 | `M-s e a`                     | `gs e a`         | Search in project.         |
 | `M-s e r`                     | `gs e r`         | Search regexp in project.  |
 
