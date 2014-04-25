@@ -145,10 +145,10 @@ Prefix is `C-x C-:`, or `x:` in God mode.
 
 | Keys                      | God mode Keys     | Description                            |
 | ------------------------- | ----------------- | -------------------------------------- |
-| `C-c C-h`                 | `ch`              | Hide block.                            |
-| `C-c C-g C-h`             | `cgh`             | Hide all blocks.                       |
-| `C-c C-s`                 | `cs`              | Show block.                            |
-| `C-c C-g C-s`             | `cgs`             | Show all blocks.                       |
+| `C-c h`                   | `c h`             | Hide block.                            |
+| `C-c g h`                 | `c g h`           | Hide all blocks.                       |
+| `C-c s`                   | `c s`             | Show block.                            |
+| `C-c g s`                 | `c g s`           | Show all blocks.                       |
 
 ### Multiple cursors
 

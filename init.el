@@ -151,10 +151,10 @@
 ;; code folding
 (require 'hideshow)
 (add-hook 'prog-mode-hook 'hs-minor-mode)
-(global-set-key (kbd "C-c C-h") 'hs-hide-block)
-(global-set-key (kbd "C-c C-g C-h") 'hs-hide-all)
-(global-set-key (kbd "C-c C-s") 'hs-show-block)
-(global-set-key (kbd "C-c C-g C-s") 'hs-show-all)
+(global-set-key (kbd "C-c h") 'hs-hide-block)
+(global-set-key (kbd "C-c g h") 'hs-hide-all)
+(global-set-key (kbd "C-c s") 'hs-show-block)
+(global-set-key (kbd "C-c g s") 'hs-show-all)
 
 ;; mode configurations
 (require 'config-paredit)
