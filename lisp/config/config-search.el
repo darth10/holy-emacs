@@ -7,7 +7,9 @@
 (global-set-key (kbd "M-s g") 'rgrep)
 
 ;;; git grep
+(global-set-key (kbd "C-: <f3>") 'vc-git-grep)
 (global-set-key (kbd "M-s :") 'vc-git-grep)
+(global-set-key (kbd "C-: M-s") 'vc-git-grep)
 
 ;;; ag
 (global-set-key (kbd "C-<f3>") 'ag)

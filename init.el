@@ -296,7 +296,6 @@
 
 (global-set-key (kbd "C-: C-s") 'magit-status)
 (global-set-key (kbd "C-: C-:") 'magit-status)
-(global-set-key (kbd "C-: <f3>") 'vc-git-grep)
 (global-set-key (kbd "C-: <f10>") 'vc-ediff)
 (global-set-key (kbd "C-: C-=") 'vc-ediff)
 (global-set-key (kbd "C-: C-d") 'vc-diff)

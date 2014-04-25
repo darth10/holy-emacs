@@ -107,16 +107,16 @@ You can always toggle this feature using ``C-` ``.
 
 ### Git integration
 
-| Keys                       | God mode Keys    | Description                             |
-| -------------------------- | ---------------- | --------------------------------------- |
-| `C-: C-s` or `C-: C-:`     | `:s` or `::`     | Show current git repository status.     |
-| `C-: C-k`                  | `:k`             | Run `gitk`.                             |
-| `C-: C-d`                  | `:d`             | `git diff` for current file.            |
-| `C-: C-c C-d`              | `:cd`            | `git diff` for current git repository.  |
-| `C-: C-l`                  | `:l`             | Show current git repository log.        |
-| `C-: C-f`                  | `:f`             | Find file in current git repository.    |
-| `C-: <f10>` or `C-: C-=`   | `:=`             | Start `vc-ediff` for current file.      |
-| `C-: <f3>` or `M-s :`      | `gs :`           | `git grep` in current git repository.   |
+| Keys                                  | God mode Keys    | Description                             |
+| ------------------------------------- | ---------------- | --------------------------------------- |
+| `C-: C-s` or `C-: C-:`                | `:s` or `::`     | Show current git repository status.     |
+| `C-: C-k`                             | `:k`             | Run `gitk`.                             |
+| `C-: C-d`                             | `:d`             | `git diff` for current file.            |
+| `C-: C-c C-d`                         | `:cd`            | `git diff` for current git repository.  |
+| `C-: C-l`                             | `:l`             | Show current git repository log.        |
+| `C-: C-f`                             | `:f`             | Find file in current git repository.    |
+| `C-: <f10>` or `C-: C-=`              | `:=`             | Start `vc-ediff` for current file.      |
+| `C-: <f3>` or `C-: M-s` or `M-s :`    | `:gs` or `gs :`  | `git grep` in current git repository.   |
 
 ### Search
 
