@@ -77,8 +77,8 @@ You can always toggle this feature using ``C-` ``.
 | `C-x <f12>`                  |                 | Show calculator.                                                                                                             |
 | `C-x ?`                      | `x ?`           | Open man page. Available only on GNU/Linux.                                                                                  |
 | `C-x C-y`                    | `xy`            | Show kill ring.                                                                                                              |
-| `C-x G`                      | `x G`           | Run grep.                                                                                                                    |
-| `C-x g`                      | `x g`           | Run recursive grep. Useful for searching in files.                                                                           |
+| `M-s G`                      | `gs G`          | Run grep.                                                                                                                    |
+| `M-s g`                      | `gs g`          | Run recursive grep. Useful for searching in files.                                                                           |
 | `C-x r =`                    | `x r =`         | Reset highlighted diff (`diff-hl`) in current buffer.                                                                        |
 | `C-<f2>`                     |                 | Helm i-menu. Useful for code navigation.                                                                                     |
 | `M-]` or `C-[ ]`             | `[ ]` or `g]`   | Highlight token under cursor. Use `[` or `]` to navigate to previous or next hit, or `ESC` to remove all highlighted tokens. |
@@ -115,8 +115,8 @@ You can always toggle this feature using ``C-` ``.
 | `C-: C-c C-d`              | `:cd`            | `git diff` for current git repository.  |
 | `C-: C-l`                  | `:l`             | Show current git repository log.        |
 | `C-: C-f`                  | `:f`             | Find file in current git repository.    |
-| `C-: <f3>` or `C-: C-=`    | `:/`             | `git grep` in current git repository.   |
 | `C-: <f10>` or `C-: C-=`   | `:=`             | Start `vc-ediff` for current file.      |
+| `C-: <f3>` or `M-s :`      | `gs :`           | `git grep` in current git repository.   |
 
 ### Search
 
@@ -124,10 +124,10 @@ Requires [ag](https://github.com/ggreer/the_silver_searcher).
 
 | Keys                          | God mode Keys    | Description                |
 | ----------------------------- | ---------------- | -------------------------- |
-| `C-<f3>` or `C-' C-/`         | `'/`             | Search in files.           |
-| `C-S-<f3>` or `C-' C-?`       | `'?`             | Search regexp in files.    |
-| `C-' <f3>` or `C-' C-' C-/`   | `''/`            | Search in project.         |
-| `C-' S-<f3>` or `C-' C-' C-/` | `''?`            | Search regexp in project.  |
+| `C-<f3>` or `M-s a a`         | `gs a a`         | Search in files.           |
+| `C-S-<f3>` or `M-s a r`       | `gs a r`         | Search regexp in files.    |
+| `M-s e a`                     | `gs e a`         | Search in project.         |
+| `M-s e r`                     | `gs e r`         | Search regexp in project.  |
 
 ### Workgroups
 

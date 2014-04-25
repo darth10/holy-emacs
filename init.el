@@ -181,6 +181,7 @@
 (require 'config-sql)
 (require 'config-gnuplot)
 (require 'config-gud)
+(require 'config-search)
 
 ;; linux-only languages
 (unless (is-windows?)
@@ -267,8 +268,6 @@
 (global-set-key (kbd "C-x |") 'find-user-init-file)
 (global-set-key (kbd "C-x RET RET") 'set-rectangular-region-anchor)
 (global-set-key (kbd "C-x C-y") 'helm-show-kill-ring)
-(global-set-key (kbd "C-x G") 'grep)
-(global-set-key (kbd "C-x g") 'rgrep)
 (global-set-key (kbd "C-<f2>") 'helm-imenu)
 (global-set-key (kbd "C-<f4>") 'hl-line-mode)
 (global-set-key (kbd "C-<f6>") 'linum-mode)
@@ -298,7 +297,6 @@
 (global-set-key (kbd "C-: C-s") 'magit-status)
 (global-set-key (kbd "C-: C-:") 'magit-status)
 (global-set-key (kbd "C-: <f3>") 'vc-git-grep)
-(global-set-key (kbd "C-: C-/") 'vc-git-grep)
 (global-set-key (kbd "C-: <f10>") 'vc-ediff)
 (global-set-key (kbd "C-: C-=") 'vc-ediff)
 (global-set-key (kbd "C-: C-d") 'vc-diff)
@@ -313,17 +311,6 @@
 (require 'highlight-token)
 (global-set-key (kbd "M-]") 'hlt-highlight-current-word)
 (global-set-key (kbd "ESC M-]") 'hlt-unhighlight-all-prop)
-
-;; search
-(require 'ag)
-(global-set-key (kbd "C-<f3>") 'ag)
-(global-set-key (kbd "C-' C-/") 'ag)
-(global-set-key (kbd "C-S-<f3>") 'ag-regexp)
-(global-set-key (kbd "C-' C-?") 'ag-regexp)
-(global-set-key (kbd "C-' <f3>") 'ag-project)
-(global-set-key (kbd "C-' C-' C-/") 'ag-project)
-(global-set-key (kbd "C-' S-<f3>") 'ag-project-regexp)
-(global-set-key (kbd "C-' C-' C-?") 'ag-project-regexp)
 
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
