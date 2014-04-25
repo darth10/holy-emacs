@@ -10,6 +10,8 @@
 
 (eval-after-load "paredit"
   '(progn
+     (unset-paredit-key "M-s")
+
      (unset-paredit-key "ESC <up>")
      (unset-paredit-key "M-<up>")
      (set-paredit-key "ESC M-<up>" paredit-splice-sexp-killing-backward)
