@@ -24,7 +24,9 @@
 (global-set-key (kbd "C-x C-0") 'delete-window)
 (global-set-key (kbd "C-x C-9") 'delete-single-window)
 (global-set-key (kbd "C-x 9") 'delete-single-window)
-
+(global-set-key (kbd "C-x C-5 C-0") 'delete-frame)
+(global-set-key (kbd "C-x C-5 C-1") 'delete-other-frames)
+(global-set-key (kbd "C-x C-5 C-2") 'make-frame-command)
 
 ;; comment out this section to sticky control key
 (require 'config-sticky)

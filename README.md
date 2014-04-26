@@ -66,6 +66,9 @@ You can always toggle this feature using ``C-` ``.
 | `C-x C-2`                    | `x2`            | Split window below.                                                                                                          |
 | `C-x C-3`                    | `x3`            | Split window right.                                                                                                          |
 | `C-x C-9`                    | `x9`            | Delete window and current frame.                                                                                             |
+| `C-x C-5 C-0`                | `x50`           | Delete frame.                                                                                                                |
+| `C-x C-5 C-1`                | `x51`           | Delete all frames except the current one.                                                                                    |
+| `C-x C-5 C-2`                | `x52`           | Create new frame.                                                                                                            |
 | `C-x <f3>`                   |                 | Show process list.                                                                                                           |
 | `C-x <f5>`                   |                 | Compile using `compile` function.                                                                                            |
 | `C-x <f7>` or `C-! C-e`      | `!e`            | Open Eshell.                                                                                                                 |
