@@ -1,6 +1,35 @@
 ;;; Some utility functions
 
 (require 'breadcrumb)
+(require 'diff-hl)
+
+(defconst scratch-buffer-name "*scratch*")
+
+(defun switch-to-scratch-other-frame ()
+  "Switch to *scratch* buffer in a new frame.\nCalls `switch-to-buffer-other-frame'."
+  (interactive)
+  (switch-to-buffer-other-frame scratch-buffer-name))
+
+(defun switch-to-scratch ()
+  "Switch to *scratch* buffer.\nCalls `switch-to-buffer'."
+  (interactive)
+  (switch-to-buffer scratch-buffer-name))
+
+(defun switch-to-scratch-other-window ()
+  "Switch to *scratch* buffer in a new window.\nCalls `switch-to-buffer-other-window'."
+  (interactive)
+  (switch-to-buffer-other-window scratch-buffer-name))
+
+(defun interactive-diff-hl-update ()
+  "Call (diff-hl-update) interactively."
+  (interactive)
+  (diff-hl-update))
+
+(defun confirm-and-kill-terminal ()
+  "Quit Emacs with a confirmation."
+  (interactive)
+  (when (yes-or-no-p "Quit Emacs? ")
+    (save-buffers-kill-terminal)))
 
 (defun bc-clear-and-msg ()
   (interactive)

@@ -236,8 +236,7 @@
 ;; diff-hl
 (require 'diff-hl)
 (global-diff-hl-mode t)
-(global-for-key (kbd "C-x r =")
-                (diff-hl-update))
+(global-set-key (kbd "C-x r =") 'interactive-diff-hl-update)
 
 ;; expand region
 (require 'expand-region)
@@ -249,10 +248,7 @@
 (unless (is-windows?)
   (global-set-key (kbd "C-x ?") 'woman))
 
-(global-for-key
- (kbd "C-x C-c")
- (when (yes-or-no-p "Quit Emacs? ")
-   (save-buffers-kill-terminal)))
+(global-set-key (kbd "C-x C-c") 'confirm-and-kill-terminal)
 
 (global-set-key (kbd "<apps>") 'execute-extended-command)
 (global-set-key (kbd "C-x <f7>") 'split-and-eshell)
@@ -283,16 +279,9 @@
 (global-set-key (kbd "C-%") 'match-paren)
 (global-set-key (kbd "C-~") 'helm-mark-ring)
 
-;;; *scratch* buffer
-
-(defconst scratch-buffer-name "*scratch*")
-
-(global-for-key (kbd "C-x \"")
-                (switch-to-buffer-other-frame scratch-buffer-name))
-(global-for-key (kbd "C-x '")
-                (switch-to-buffer scratch-buffer-name))
-(global-for-key (kbd "C-x C-'")
-                (switch-to-buffer-other-window scratch-buffer-name))
+(global-set-key (kbd "C-x \"") 'switch-to-scratch-other-frame)
+(global-set-key (kbd "C-x '") 'switch-to-buffer)
+(global-set-key (kbd "C-x C-'") 'switch-to-scratch-other-window)
 
 ;;; Magit and vc
 

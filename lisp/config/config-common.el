@@ -7,13 +7,6 @@
      (local-set-key "\r" 'newline-and-indent)
      ,@body))
 
-(defmacro global-for-key (key &rest body)
-  `(global-set-key
-    ,key
-    (lambda ()
-      (interactive)
-      ,@body)))
-
 (defun is-windows? ()
   (equal system-type 'windows-nt))
 
