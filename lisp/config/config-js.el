@@ -40,6 +40,4 @@
 
 (setq js2-basic-offset 2)
 
-;; FIXME update README.md -> Requires swank-js + tern
-
 (provide 'config-js)
