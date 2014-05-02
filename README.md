@@ -55,62 +55,62 @@ You can always toggle this feature using ``C-` ``.
 
 ## Global key bindings
 
-| Keys                         | God mode Keys   | Description                                                                                                                  |
-| ---------------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `C-x w`                      | `x w`           | Save current buffer.                                                                                                         |
-| `C-x "`                      | `x "`           | Switch to `*scratch*` buffer in new frame.                                                                                   |
-| `C-x '`                      | `x '`           | Switch to `*scratch*` buffer.                                                                                                |
-| `C-x C-'`                    | `x'`            | Switch to `*scratch*` buffer in other window.                                                                                |
-| `C-x C-0`                    | `x0`            | Delete window.                                                                                                               |
-| `C-x C-1`                    | `x1`            | Delete all windows except the current one.                                                                                   |
-| `C-x C-2`                    | `x2`            | Split window below.                                                                                                          |
-| `C-x C-3`                    | `x3`            | Split window right.                                                                                                          |
-| `C-x C-9`                    | `x9`            | Delete window and current frame.                                                                                             |
-| `C-x C-5 C-0`                | `x50`           | Delete frame.                                                                                                                |
-| `C-x C-5 C-1`                | `x51`           | Delete all frames except the current one.                                                                                    |
-| `C-x C-5 C-2`                | `x52`           | Create new frame.                                                                                                            |
-| `C-x <f3>`                   |                 | Show process list.                                                                                                           |
-| `C-x <f5>`                   |                 | Compile using `compile` function.                                                                                            |
-| `C-x <f7>` or `C-! C-e`      | `!e`            | Open Eshell.                                                                                                                 |
-| `C-x <f10>` or `C-' C-' =`   | `'' =`          | Start Ediff between buffers.     											                                                |
-| `C-x S-<f10>` or `C-' C-' +` | `'' +`          | Start Ediff between files. 	     											                                                |
-| `C-x <f11>`                  |                 | Show calendar. 	   	     	     											                                                |
-| `C-x <C-M-RET>` or `C-x S-\` | `x S-\`         | Show init.el file.  	     	     											                                                |
-| `C-x RET RET`                |                 | Set rectangular region mark.  	     	     											                                    |
-| `C-x <f12>`                  |                 | Show calculator.                                                                                                             |
-| `C-x ?`                      | `x ?`           | Open man page. Available only on GNU/Linux.                                                                                  |
-| `C-x C-y`                    | `xy`            | Show kill ring.                                                                                                              |
-| `C-x r =`                    | `x r =`         | Reset highlighted diff (`diff-hl`) in current buffer.                                                                        |
-| `C-<f2>`                     |                 | Helm i-menu. Useful for code navigation.                                                                                     |
-| `M-]` or `C-[ ]`             | `[ ]` or `g]`   | Highlight token under cursor. Use `[` or `]` to navigate to previous or next hit, or `ESC` to remove all highlighted tokens. |
-| `C-[ C-[ ]`                  |  `[[ ]`         | Remove all highlighted tokens.                                                                                               |
-| `C-<f4>`                     |                 | Toggle highlight current line.                                                                                               |
-| `C-<f6>`                     |                 | Toggle line numbers.                                                                                                         |
-| `C-<f9>`                     |                 | Toggle truncate lines (word wrapping).                                                                                       |
-| `C-c (`                      | `c (`           | Toggle paredit-mode. Useful for editing Lisp code.                                                                           |
-| `C-' C-' C-c`                | `''c`           | Toggle camel-case mode.                                                                                                      |
-| `C-S-\`                      | `S-\`           | Move to window.                                                                                                              |
-| `C-+`                        | `+`             | Interactively resize current window.                                                                                         |
-| `C-?`                        | `?`             | Look up any documentation. Changes behaviour depending on major mode, and defaults to available info documentation.          |
-| `C-=`                        | `=`             | Expand region.                                                                                                               |
-| `C-~`                        | `~`             | Show mark ring.                                                                                                              |
-| ``C-` ``                     | `` ` ``         | Toggle sticky control key (`j`).                                                                                             |
-| `<f6>` or `C-%`              | `%`             | Move to matching parentheses.                                                                                                |
-| `C-[ M-x` or `C-[ C-[ x`     | `[[ x`          | Execute menu command.                                                                                                        |
-| `M-<up>` or `M-p`            | `gp`            | Move line or region up.                                                                                                      |
-| `M-<down>` or `M-n`          | `gn`            | Move line or region down.                                                                                                    |
-| `M-<f5>`                     |                 | Recompile using `recompile` function.                                                                                        |
-| `C-x C-j`                    | `xj`            | Show directory.                                                                                                              |
-| `C-c C-j`                    | `cj`            | Show directory explorer.                                                                                                     |
-| `C-c C-:`                    | `c:`            | Show recently opened files.                                                                                                  |
-| `C-' C-' C-a`                | `''a`           | Toggle auto-completion.                                                                                                      |
-| `C-' C-' C-q`                | `''q`           | Toggle auto fill mode.                                                                                                       |
+| Keys                                            | God mode Keys   | Description                                                                                                                  |
+| ----------------------------------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `C-x w`                                         | `x w`           | Save current buffer.                                                                                                         |
+| `C-x "`                                         | `x "`           | Switch to `*scratch*` buffer in new frame.                                                                                   |
+| `C-x '`                                         | `x '`           | Switch to `*scratch*` buffer.                                                                                                |
+| `C-x C-'`                                       | `x'`            | Switch to `*scratch*` buffer in other window.                                                                                |
+| `C-x C-0`                                       | `x0`            | Delete window.                                                                                                               |
+| `C-x C-1`                                       | `x1`            | Delete all windows except the current one.                                                                                   |
+| `C-x C-2`                                       | `x2`            | Split window below.                                                                                                          |
+| `C-x C-3`                                       | `x3`            | Split window right.                                                                                                          |
+| `C-x C-9`                                       | `x9`            | Delete window and current frame.                                                                                             |
+| `C-x C-5 C-0`                                   | `x50`           | Delete frame.                                                                                                                |
+| `C-x C-5 C-1`                                   | `x51`           | Delete all frames except the current one.                                                                                    |
+| `C-x C-5 C-2`                                   | `x52`           | Create new frame.                                                                                                            |
+| `C-x <f3>` or `C-! C-p`                         | `!p`            | Show process list.                                                                                                           |
+| `C-x <f5>`                                      |                 | Compile using `compile` function.                                                                                            |
+| `C-x <f7>` or `C-! C-e`                         | `!e`            | Open Eshell.                                                                                                                 |
+| `C-x <f10>` or `C-' C-' C-=` or `C-' ' =`       | `''=` or `' ' =`| Start Ediff between buffers.     											                                                |
+| `C-x S-<f10>` or `C-' C-' C-+` or `C-' ' +`     | `''+` or `' ' +`| Start Ediff between files. 	     											                                                |
+| `C-x <f11>` or `C-! C-c`                        | `!c`            | Show calendar. 	   	     	     											                                                |
+| `C-x <C-M-RET>` or `C-x S-\`                    | `x S-\`         | Show init.el file.  	     	     											                                                |
+| `C-x RET RET`                                   |                 | Set rectangular region mark.  	     	     											                                    |
+| `C-x <f12>` or `C-! C-n`                        | `!n`            | Show calculator.                                                                                                             |
+| `C-x ?`                                         | `x ?`           | Open man page. Available only on GNU/Linux.                                                                                  |
+| `C-x C-y`                                       | `xy`            | Show kill ring.                                                                                                              |
+| `C-x r =`                                       | `x r =`         | Reset highlighted diff (`diff-hl`) in current buffer.                                                                        |
+| `C-<f2>` or `C-x :`                             | `x :`           | Helm i-menu. Useful for code navigation.                                                                                     |
+| `M-]` or `C-[ ]`                                | `[ ]` or `g]`   | Highlight token under cursor. Use `[` or `]` to navigate to previous or next hit, or `ESC` to remove all highlighted tokens. |
+| `C-[ C-[ ]`                                     |  `[[ ]`         | Remove all highlighted tokens.                                                                                               |
+| `C-<f4>` or `C-' C-l` or `C-c l`                | `'l` or `' l`   | Toggle highlight current line.                                                                                               |
+| `C-<f6>` or `C-' C-n` or `C-c n`                | `'n` or `' n`   | Toggle line numbers.                                                                                                         |
+| `C-<f9>` or `C-' C-w` or `C-c w`                | `'w` or `' w`   | Toggle truncate lines (word wrapping).                                                                                       |
+| `C-c (`                                         | `c (`           | Toggle paredit-mode. Useful for editing Lisp code.                                                                           |
+| `C-' C-' C-c` or `C-' ' c`                      | `''c` or `' ' c`| Toggle camel-case mode.                                                                                                      |
+| `C-S-\`                                         | `S-\`           | Move to window.                                                                                                              |
+| `C-+`                                           | `+`             | Interactively resize current window.                                                                                         |
+| `C-?`                                           | `?`             | Look up any documentation. Changes behaviour depending on major mode, and defaults to available info documentation.          |
+| `C-=`                                           | `=`             | Expand region.                                                                                                               |
+| `C-~`                                           | `~`             | Show mark ring.                                                                                                              |
+| ``C-` ``                                        | `` ` ``         | Toggle sticky control key (`j`).                                                                                             |
+| `<f6>` or `C-%`                                 | `%`             | Move to matching parentheses.                                                                                                |
+| `C-[ M-x` or `C-[ C-[ x`                        | `[[ x`          | Execute menu command.                                                                                                        |
+| `M-<up>` or `M-p`                               | `gp`            | Move line or region up.                                                                                                      |
+| `M-<down>` or `M-n`                             | `gn`            | Move line or region down.                                                                                                    |
+| `M-<f5>`                                        |                 | Recompile using `recompile` function.                                                                                        |
+| `C-x C-j`                                       | `xj`            | Show directory.                                                                                                              |
+| `C-c C-j`                                       | `cj`            | Show directory explorer.                                                                                                     |
+| `C-c C-:`                                       | `c:`            | Show recently opened files.                                                                                                  |
+| `C-' C-' C-a` or `C-' ' a`                      | `''a` or `' ' a`| Toggle auto-completion.                                                                                                      |
+| `C-' C-' C-q` or `C-' ' q`                      | `''q` or `' ' q`| Toggle auto fill mode.                                                                                                       |
 
 ### Git integration
 
 | Keys                                  | God mode Keys    | Description                             |
 | ------------------------------------- | ---------------- | --------------------------------------- |
-| `C-: C-s` or `C-: C-:`                | `:s` or `::`     | Show current git repository status.     |
+| `C-: C-s` or `C-: C-:` or `C-: :`     | `:s` or `::`     | Show current git repository status.     |
 | `C-: C-k`                             | `:k`             | Run `gitk`.                             |
 | `C-: C-d`                             | `:d`             | `git diff` for current file.            |
 | `C-: C-c C-d`                         | `:cd`            | `git diff` for current git repository.  |
