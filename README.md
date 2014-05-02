@@ -210,14 +210,14 @@ Prefix is `C-x C-:`, or `x:` in God mode.
 
 ### Paredit mode
 
-| Keys                                               | God mode Keys | Description                               |
-| -------------------------------------------------- | ------------- | ----------------------------------------- |
-| `C-[ <right>` or `M-<right>` or `C-, C-f`          | `,f`          | Slurp into current sexp from right.	     |
-| `C-[ <left>` or `M-<left>` or `C-, C-b`            | `,b`          | Barf from current sexp from right.        |
-| `C-[ C-[ <right>` or `C-, C-, C-f`                 | `,,f`         | Barf from current sexp from left.	     |
-| `C-[ C-[ <left>` or `C-, C-, C-b`                  | `,,b`         | Slurp into current sexp from left.	     |
-| `C-[ C-[ <down>` or `C-, C-k`                      | `,k`          | Splice current sexp by killing forward.   |
-| `C-[ C-[ <up>` or `C-, C-, C-k`                    | `,,k`         | Splice current sexp by killing backward.  |
+| Keys                                                      | God mode Keys     | Description                               |
+| --------------------------------------------------------- | ------------------| ----------------------------------------- |
+| `C-[ <right>` or `M-<right>` or `C-, C-f` or `C-, f`      | `,f` or `, f`     | Slurp into current sexp from right.	    |
+| `C-[ <left>` or `M-<left>` or `C-, C-b` or `C-, b`        | `,b` or `, b`     | Barf from current sexp from right.        |
+| `C-[ C-[ <right>` or `C-, C-, C-f` or `C-, , f`           | `,,f` or `, , f`  | Barf from current sexp from left.	        |
+| `C-[ C-[ <left>` or `C-, C-, C-b` or `C-, , b`            | `,,b` or `, , b`  | Slurp into current sexp from left.	    |
+| `C-[ C-[ <down>` or `C-, C-k` or `C-, k`                  | `,k`  or `, k`    | Splice current sexp by killing forward.   |
+| `C-[ C-[ <up>` or `C-, C-, C-k` or `C-, , k`              | `,,k` or `, , k`  | Splice current sexp by killing backward.  |
 
 ### All Lisp modes
 
