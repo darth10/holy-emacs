@@ -311,7 +311,10 @@
 (global-set-key (kbd "C-: C-l") 'magit-log)
 
 (global-set-key (kbd "C-x <f5>") 'compile)
+(global-set-key (kbd "C-! C-k") 'compile)
 (global-set-key (kbd "M-<f5>") 'recompile)
+(global-set-key (kbd "C-x C-a C-k") 'recompile)
+(global-set-key (kbd "C-x a k") 'recompile)
 
 (require 'highlight-token)
 (global-set-key (kbd "M-]") 'hlt-highlight-current-word)

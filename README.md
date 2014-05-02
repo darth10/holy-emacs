@@ -70,7 +70,7 @@ You can always toggle this feature using ``C-` ``.
 | `C-x C-5 C-1`                                   | `x51`           | Delete all frames except the current one.                                                                                    |
 | `C-x C-5 C-2`                                   | `x52`           | Create new frame.                                                                                                            |
 | `C-x <f3>` or `C-! C-p`                         | `!p`            | Show process list.                                                                                                           |
-| `C-x <f5>`                                      |                 | Compile using `compile` function.                                                                                            |
+| `C-x <f5>` or `C-! C-k`                         | `!k`            | Compile using `compile` function.                                                                                            |
 | `C-x <f7>` or `C-! C-e`                         | `!e`            | Open Eshell.                                                                                                                 |
 | `C-x <f10>` or `C-' C-' C-=` or `C-' ' =`       | `''=` or `' ' =`| Start Ediff between buffers.     											                                                |
 | `C-x S-<f10>` or `C-' C-' C-+` or `C-' ' +`     | `''+` or `' ' +`| Start Ediff between files. 	     											                                                |
@@ -99,7 +99,7 @@ You can always toggle this feature using ``C-` ``.
 | `C-[ M-x` or `C-[ C-[ x`                        | `[[ x`          | Execute menu command.                                                                                                        |
 | `M-<up>` or `M-p`                               | `gp`            | Move line or region up.                                                                                                      |
 | `M-<down>` or `M-n`                             | `gn`            | Move line or region down.                                                                                                    |
-| `M-<f5>`                                        |                 | Recompile using `recompile` function.                                                                                        |
+| `M-<f5>` or `C-x C-a C-k` or `C-x a k`          | `xak` or `x a k`| Recompile using `recompile` function.                                                                                        |
 | `C-x C-j`                                       | `xj`            | Show directory.                                                                                                              |
 | `C-c C-j`                                       | `cj`            | Show directory explorer.                                                                                                     |
 | `C-c C-:`                                       | `c:`            | Show recently opened files.                                                                                                  |
