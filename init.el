@@ -10,7 +10,9 @@
 (pkg-update-packages)
 
 (global-unset-key (kbd "<f10>"))
+(global-unset-key (kbd "C-z"))
 (global-unset-key (kbd "C-x C-c"))
+(global-unset-key (kbd "C-x a n"))
 
 ;; god-mode
 ;; comment out this section to disable global god-mode
