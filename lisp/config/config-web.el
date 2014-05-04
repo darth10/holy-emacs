@@ -19,7 +19,7 @@
 (defconfig configure-html
   (require 'rainbow-mode)
   (require 'zencoding-mode)
-  (local-set-key (kbd "M-RET") 'zencoding-expand-line))
+  (local-set-key (kbd "M-SPC") 'zencoding-expand-line))
 
 (add-hook 'html-mode-hook 'configure-html)
 

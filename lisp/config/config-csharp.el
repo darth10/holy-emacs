@@ -39,7 +39,7 @@
 (defun configure-omnisharp-bindings ()
   (local-set-key (kbd "C-<f10>") 'start-omnisharp-server)
   (local-set-key (kbd ".") 'omnisharp-intellisense)
-  (local-set-key (kbd "C-x SPC") 'omnisharp-auto-complete)
+  (local-set-key (kbd "M-SPC") 'omnisharp-auto-complete)
   (local-set-key (kbd "C-?") 'omnisharp-show-overloads-at-point)
   (local-set-key (kbd "<f12>") 'omnisharp-go-to-definition)
   (local-set-key (kbd "C-c F") 'omnisharp-code-format)

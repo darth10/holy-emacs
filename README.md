@@ -103,6 +103,7 @@ You can always toggle this feature using ``C-` ``.
 | `C-x C-j`                                       | `xj`            | Show directory.                                                                                                              |
 | `C-c C-j`                                       | `cj`            | Show directory explorer.                                                                                                     |
 | `C-c C-:`                                       | `c:`            | Show recently opened files.                                                                                                  |
+| `C-c C-\` or `M-SPC`                            | `c\`            | Delete all spaces leaving one space.                                                                                         |
 | `C-' C-' C-a` or `C-' ' a`                      | `''a`           | Toggle auto-completion.                                                                                                      |
 | `C-' C-' C-q` or `C-' ' q`                      | `''q`           | Toggle auto fill mode.                                                                                                       |
 
@@ -284,7 +285,7 @@ Requires [Omnisharp](https://github.com/nosami/Omnisharp).
 | --------------- | ----------------------------------------------------- |
 | `C-<f10>`       | Start Omnisharp server.                               |
 | `C-x <f5>`      | Build current solution.                               |
-| `C-x SPC`       | Autocomplete symbol. A `.` invokes this function too. |
+| `M-SPC`         | Autocomplete symbol. A `.` invokes this function too. |
 | `C-?`           | Show overloads of symbol at point.                    |
 | `<f12>`         | Go to definition.                                     |
 | `C-c F`         | Format document.                                      |
@@ -336,4 +337,4 @@ Available only on GNU/Linux.
 
 | Keys            | Description                   |
 | --------------- | ----------------------------- |
-| `M-RET`         | Zencoding expand line.        |
+| `M-SPC`         | Zencoding expand line.        |

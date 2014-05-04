@@ -291,6 +291,7 @@
 (global-set-key (kbd "C-?") 'info-lookup-symbol)
 (global-set-key (kbd "C-c (") 'paredit-mode)
 (global-set-key (kbd "C-c b") 'org-iswitchb)
+(global-set-key (kbd "C-c C-\\") 'just-one-space)
 (global-set-key (kbd "<f6>") 'match-paren)
 (global-set-key (kbd "C-%") 'match-paren)
 (global-set-key (kbd "C-~") 'helm-mark-ring)

@@ -14,7 +14,7 @@
   (tern-mode t)
   (tern-ac-setup)
   (slime-js-minor-mode 1)
-  (local-set-key (kbd "C-x SPC") 'tern-ac-complete)
+  (local-set-key (kbd "M-SPC") 'tern-ac-complete)
   (local-unset-key (kbd "C-x C-e"))
   (local-set-key (kbd "C-x C-e") 'slime-js-send-defun)
   (local-set-key (kbd "C-<f10>") 'slime-connect-to-repl)
@@ -33,7 +33,7 @@
   (require 'ac-slime)
   (set-up-slime-ac 1)
   (local-set-key (kbd ".") 'slime-ac-key)
-  (local-set-key (kbd "C-x SPC") 'ac-complete-slime))
+  (local-set-key (kbd "M-SPC") 'ac-complete-slime))
 
 (add-hook 'js-mode-hook 'configure-js)
 (add-hook 'slime-repl-mode-hook 'configure-slime)
