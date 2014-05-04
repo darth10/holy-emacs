@@ -235,15 +235,15 @@ Available in Clojure, Scheme and Emacs Lisp modes.
 Requires GUD debugger to be active.
 Supports `gdb` for C, `pdb` for Python, and `ruby -r debug` for Ruby.
 
-| Keys                                      | God mode Keys | Description                              |
-| ----------------------------------------- | ------------- | ---------------------------------------- |
-| `<f5>` or `C-x C-a C-r`                   | `xar`         | Continue execution.                      |
-| `<f8>` or `C-x C-a r`                     | `xa r`        | Debug program/script.                    |
-| `<f9>` or `C-x C-a C-b`                   | `xab`         | Set breakpoint.                          |
-| `S-<f9>` or `C-x SPC` or `C-x C-a C-d`    | `xad`         | Remove breakpoint.                       |
-| `<f10>` or `C-x C-a C-n`                  | `xan`         | Next statement.                          |
-| `<f11>` or `C-x C-a C-s`                  | `xas`         | Step into statement.                     |
-| `S-<f11>` or `C-x C-a C-f`                | `xaf`         | Finish execution of current function.    |
+| Keys                                        | God mode Keys        | Description                              |
+| ------------------------------------------- | -------------------- | ---------------------------------------- |
+| `<f8>` or `C-x C-a C-x C-r` or `C-x a x r`  | `xaxr` or `x a x r`  | Debug program/script.                    |
+| `<f5>` or `C-x C-a C-r` or `C-x a r`        | `xar` or `x a r`     | Resume or continue execution.            |
+| `<f9>` or `C-x C-a C-b` or `C-x a b`        | `xab` or `x a b`     | Set breakpoint.                          |
+| `S-<f9>`or `C-x C-a C-d` or `C-x a d`       | `xad` or `x a d`     | Delete breakpoint.                       |
+| `<f10>` or `C-x C-a C-n` or `C-x a n`       | `xan` or `x a n`     | Next statement.                          |
+| `<f11>` or `C-x C-a C-s` or `C-x a s`       | `xas` or `x a s`     | Step into statement.                     |
+| `S-<f11>` or `C-x C-a C-f` or `C-x a f`     | `xaf` or `x a f`     | Finish execution of current function.    |
 
 ### Clojure
 
