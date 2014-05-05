@@ -296,7 +296,7 @@
 (global-set-key (kbd "C-~") 'helm-mark-ring)
 
 (global-set-key (kbd "C-x \"") 'switch-to-scratch-other-frame)
-(global-set-key (kbd "C-x '") 'switch-to-buffer)
+(global-set-key (kbd "C-x '") 'switch-to-scratch)
 (global-set-key (kbd "C-x C-'") 'switch-to-scratch-other-window)
 
 ;;; Magit and vc
