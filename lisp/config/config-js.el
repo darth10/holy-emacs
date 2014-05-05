@@ -18,9 +18,12 @@
   (local-unset-key (kbd "C-x C-e"))
   (local-set-key (kbd "C-x C-e") 'slime-js-send-defun)
   (local-set-key (kbd "C-<f10>") 'slime-connect-to-repl)
+  (local-set-key (kbd "C-! C-r") 'slime-connect-to-repl)
   (local-set-key (kbd "C-<f8>") 'slime-connect)
+  (local-set-key (kbd "C-! C-o") 'slime-connect)
   ;; FIXME should be slime-js-reload
-  (local-set-key (kbd "C-<f5>") 'slime-eval-buffer))
+  (local-set-key (kbd "C-<f5>") 'slime-eval-buffer)
+  (local-set-key (kbd "C-x a a") 'slime-eval-buffer))
 
 (defun slime-ac-key ()
   (interactive)

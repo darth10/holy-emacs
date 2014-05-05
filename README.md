@@ -296,10 +296,13 @@ Requires [Omnisharp](https://github.com/nosami/Omnisharp).
 
 Requires Node.js, [swank-js](https://github.com/swank-js/swank-js) and [tern](https://github.com/marijnh/tern).
 
-| Keys            | Description                                 |
-| --------------- | ------------------------------------------- |
-| `C-<f5>`        | Evaluate current buffer and switch to REPL. |
-| `C-<f10>`       | Start Node.js REPL.                         |
+| Keys                                 | God mode Keys | Description                                 |
+| ------------------------------------ | ------------- | ------------------------------------------- |
+| `M-SPC`                              |               | Autocomplete symbol.                        |
+| `C-x C-e`                            | `xe`          | Evaluate current statement.                 |
+| `C-<f5>`, `C-x C-a C-a` or `C-x a a` | `xaa`         | Evaluate current buffer and switch to REPL. |
+| `C-<f8>` or `C-! C-o`                | `!o`          | Connect to SwankJS sever.                   |
+| `C-<f10>` or `C-! C-r`               | `!r`          | Start SwankJS REPL.                         |
 
 ### Haskell
 
