@@ -250,14 +250,14 @@ Supports `gdb` for C, `pdb` for Python, and `ruby -r debug` for Ruby.
 
 Requires [Leiningen](https://github.com/technomancy/leiningen).
 
-| Keys            | Description                                    |
-| --------------- | ---------------------------------------------- |
-| `C-<f5>`        | Load and switch to current namespace in nREPL. |
-| `C-<f8>`        | Connect to nREPL server.                       |
-| `C-<f10>`       | Start nREPL server and connect.                |
-| `C-?`           | Show nREPL documentation for current word.     |
-| `C-x T`         | Run all tests for current namespace.           |
-| `C-x t`         | Run current test.                              |
+| Keys                                 | God mode Keys        | Description                                    |
+| ------------------------------------ | -------------------- | ---------------------------------------------- |
+| `C-<f5>`, `C-x C-a C-a` or `C-x a a` | `xaa`                | Load and switch to current namespace in nREPL. |
+| `C-<f8>` or `C-! C-o`                | `!o`                 | Connect to nREPL server.                       |
+| `C-<f10>` or `C-! C-r`               | `!r`                 | Start nREPL server and connect.                |
+| `C-?`                                | `?`                  | Show nREPL documentation for current word.     |
+| `C-x T`                              | `x T`                | Run all tests for current namespace.           |
+| `C-x t`                              | `x t`                | Run current test.                              |
 
 ### Emacs Lisp
 

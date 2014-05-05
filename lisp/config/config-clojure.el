@@ -4,9 +4,6 @@
 
 (add-to-list 'same-window-buffer-names "*nrepl*")
 (setq clj-add-ns-to-blank-clj-files nil)
-(setq clojure-swank-command
-      (if (or (locate-file "lein" exec-path) (locate-file "lein.bat" exec-path))
-	  "lein ritz-in %s" "echo \"lein ritz-in %s\" | $SHELL -l"))
 
 (defun split-and-cider-jack-in ()
   "Split window and start nREPL"
@@ -18,7 +15,7 @@
   (interactive)
   (split-window-below)
   (cider "localhost"
-	 (string-to-number (read-from-minibuffer "Port: "))))
+         (string-to-number (read-from-minibuffer "Port: "))))
 
 (defun load-file-in-nrepl ()
   (interactive)
@@ -29,10 +26,15 @@
 
 (defconfig configure-clojure-keys ()
   (local-set-key (kbd "C-<f10>") 'split-and-cider-jack-in)
+  (local-set-key (kbd "C-! C-r") 'split-and-cider-jack-in)
   (local-set-key (kbd "C-<f5>") 'load-file-in-nrepl)
-  (local-set-key (kbd "C-<f8>") 'split-and-nrepl))
+  (local-set-key (kbd "C-x C-a C-a") 'load-file-in-nrepl)
+  (local-set-key (kbd "C-x a a") 'load-file-in-nrepl)
+  (local-set-key (kbd "C-<f8>") 'split-and-nrepl)
+  (local-set-key (kbd "C-! C-o") 'split-and-nrepl))
 
 (defun configure-clojure ()
+  (require 'clojure-mode)
   (require 'ac-nrepl)
   (require 'clj-refactor)
   (subword-mode)
