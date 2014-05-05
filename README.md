@@ -72,8 +72,8 @@ You can always toggle this feature using ``C-` ``.
 | `C-x <f3>` or `C-! C-p`                         | `!p`            | Show process list.                                                                                                           |
 | `C-x <f5>` or `C-! C-k`                         | `!k`            | Compile using `compile` function.                                                                                            |
 | `C-x <f7>` or `C-! C-e`                         | `!e`            | Open Eshell.                                                                                                                 |
-| `C-x <f10>` or `C-' C-' C-=` or `C-' ' =`       | `''=` or `' ' =`| Start Ediff between buffers.     											                                                |
-| `C-x S-<f10>` or `C-' C-' C-+` or `C-' ' +`     | `''+` or `' ' +`| Start Ediff between files. 	     											                                                |
+| `C-x <f10>` or `C-' C-' C-=` or `C-' ' =`       | `''=`           | Start Ediff between buffers.     											                                                |
+| `C-x S-<f10>` or `C-' C-' C-+` or `C-' ' +`     | `''+`           | Start Ediff between files. 	     											                                                |
 | `C-x <f11>` or `C-! C-c`                        | `!c`            | Show calendar. 	   	     	     											                                                |
 | `C-x <C-M-RET>` or `C-x S-\`                    | `x S-\`         | Show init.el file.  	     	     											                                                |
 | `C-x RET RET`                                   |                 | Set rectangular region mark.  	     	     											                                    |
@@ -84,11 +84,11 @@ You can always toggle this feature using ``C-` ``.
 | `C-<f2>` or `C-x :`                             | `x :`           | Helm i-menu. Useful for code navigation.                                                                                     |
 | `M-]` or `C-[ ]`                                | `[ ]` or `g]`   | Highlight token under cursor. Use `[` or `]` to navigate to previous or next hit, or `ESC` to remove all highlighted tokens. |
 | `C-[ C-[ ]`                                     |  `[[ ]`         | Remove all highlighted tokens.                                                                                               |
-| `C-<f4>` or `C-' C-l` or `C-c l`                | `'l` or `' l`   | Toggle highlight current line.                                                                                               |
-| `C-<f6>` or `C-' C-n` or `C-c n`                | `'n` or `' n`   | Toggle line numbers.                                                                                                         |
-| `C-<f9>` or `C-' C-w` or `C-c w`                | `'w` or `' w`   | Toggle truncate lines (word wrapping).                                                                                       |
+| `C-<f4>` or `C-' C-l` or `C-' l`                | `'l`            | Toggle highlight current line.                                                                                               |
+| `C-<f6>` or `C-' C-n` or `C-' n`                | `'n`            | Toggle line numbers.                                                                                                         |
+| `C-<f9>` or `C-' C-w` or `C-' w`                | `'w`            | Toggle truncate lines (word wrapping).                                                                                       |
 | `C-c (`                                         | `c (`           | Toggle paredit-mode. Useful for editing Lisp code.                                                                           |
-| `C-' C-' C-c` or `C-' ' c`                      | `''c` or `' ' c`| Toggle camel-case mode.                                                                                                      |
+| `C-' C-' C-c` or `C-' ' c`                      | `''c`           | Toggle camel-case mode.                                                                                                      |
 | `C-S-\`                                         | `S-\`           | Move to window.                                                                                                              |
 | `C-+`                                           | `+`             | Interactively resize current window.                                                                                         |
 | `C-?`                                           | `?`             | Look up any documentation. Changes behaviour depending on major mode, and defaults to available info documentation.          |
@@ -99,12 +99,12 @@ You can always toggle this feature using ``C-` ``.
 | `C-[ M-x` or `C-[ C-[ x`                        | `[[ x`          | Execute menu command.                                                                                                        |
 | `M-<up>` or `M-p`                               | `gp`            | Move line or region up.                                                                                                      |
 | `M-<down>` or `M-n`                             | `gn`            | Move line or region down.                                                                                                    |
-| `M-<f5>` or `C-x C-a C-k` or `C-x a k`          | `xak` or `x a k`| Recompile using `recompile` function.                                                                                        |
+| `M-<f5>` or `C-x C-a C-k` or `C-x a k`          | `xak`           | Recompile using `recompile` function.                                                                                        |
 | `C-x C-j`                                       | `xj`            | Show directory.                                                                                                              |
 | `C-c C-j`                                       | `cj`            | Show directory explorer.                                                                                                     |
 | `C-c C-:`                                       | `c:`            | Show recently opened files.                                                                                                  |
-| `C-' C-' C-a` or `C-' ' a`                      | `''a` or `' ' a`| Toggle auto-completion.                                                                                                      |
-| `C-' C-' C-q` or `C-' ' q`                      | `''q` or `' ' q`| Toggle auto fill mode.                                                                                                       |
+| `C-' C-' C-a` or `C-' ' a`                      | `''a`           | Toggle auto-completion.                                                                                                      |
+| `C-' C-' C-q` or `C-' ' q`                      | `''q`           | Toggle auto fill mode.                                                                                                       |
 
 ### Git integration
 
@@ -117,7 +117,7 @@ You can always toggle this feature using ``C-` ``.
 | `C-: C-l`                             | `:l`             | Show current git repository log.        |
 | `C-: C-f`                             | `:f`             | Find file in current git repository.    |
 | `C-: <f10>` or `C-: C-=`              | `:=`             | Start `vc-ediff` for current file.      |
-| `C-: <f3>` or `C-: M-s` or `M-s :`    | `:gs` or `gs :`  | `git grep` in current git repository.   |
+| `C-: <f3>` or `C-: M-s` or `M-s :`    | `:gs`            | `git grep` in current git repository.   |
 
 ### Search
 
@@ -211,13 +211,13 @@ Prefix is `C-x C-:`, or `x:` in God mode.
 ### Paredit mode
 
 | Keys                                                      | God mode Keys     | Description                               |
-| --------------------------------------------------------- | ------------------| ----------------------------------------- |
-| `C-[ <right>` or `M-<right>` or `C-, C-f` or `C-, f`      | `,f` or `, f`     | Slurp into current sexp from right.	    |
-| `C-[ <left>` or `M-<left>` or `C-, C-b` or `C-, b`        | `,b` or `, b`     | Barf from current sexp from right.        |
-| `C-[ C-[ <right>` or `C-, C-, C-f` or `C-, , f`           | `,,f` or `, , f`  | Barf from current sexp from left.	        |
-| `C-[ C-[ <left>` or `C-, C-, C-b` or `C-, , b`            | `,,b` or `, , b`  | Slurp into current sexp from left.	    |
-| `C-[ C-[ <down>` or `C-, C-k` or `C-, k`                  | `,k`  or `, k`    | Splice current sexp by killing forward.   |
-| `C-[ C-[ <up>` or `C-, C-, C-k` or `C-, , k`              | `,,k` or `, , k`  | Splice current sexp by killing backward.  |
+| --------------------------------------------------------- | ----------------- | ----------------------------------------- |
+| `C-[ <right>` or `C-, C-f` or `C-, f`                     | `,f`              | Slurp into current sexp from right.	    |
+| `C-[ <left>` or `C-, C-b` or `C-, b`                      | `,b`              | Barf from current sexp from right.        |
+| `C-[ C-[ <right>` or `C-, C-, C-f` or `C-, , f`           | `,,f`             | Barf from current sexp from left.	        |
+| `C-[ C-[ <left>` or `C-, C-, C-b` or `C-, , b`            | `,,b`             | Slurp into current sexp from left.	    |
+| `C-[ C-[ <down>` or `C-, C-k` or `C-, k`                  | `,k`              | Splice current sexp by killing forward.   |
+| `C-[ C-[ <up>` or `C-, C-, C-k` or `C-, , k`              | `,,k`             | Splice current sexp by killing backward.  |
 
 ### All Lisp modes
 
@@ -237,13 +237,13 @@ Supports `gdb` for C, `pdb` for Python, and `ruby -r debug` for Ruby.
 
 | Keys                                        | God mode Keys        | Description                              |
 | ------------------------------------------- | -------------------- | ---------------------------------------- |
-| `<f8>` or `C-x C-a C-x C-r` or `C-x a x r`  | `xaxr` or `x a x r`  | Debug program/script.                    |
-| `<f5>` or `C-x C-a C-r` or `C-x a r`        | `xar` or `x a r`     | Resume or continue execution.            |
-| `<f9>` or `C-x C-a C-b` or `C-x a b`        | `xab` or `x a b`     | Set breakpoint.                          |
-| `S-<f9>`or `C-x C-a C-d` or `C-x a d`       | `xad` or `x a d`     | Delete breakpoint.                       |
-| `<f10>` or `C-x C-a C-n` or `C-x a n`       | `xan` or `x a n`     | Next statement.                          |
-| `<f11>` or `C-x C-a C-s` or `C-x a s`       | `xas` or `x a s`     | Step into statement.                     |
-| `S-<f11>` or `C-x C-a C-f` or `C-x a f`     | `xaf` or `x a f`     | Finish execution of current function.    |
+| `<f8>` or `C-x C-a C-x C-r` or `C-x a x r`  | `xaxr`               | Debug program/script.                    |
+| `<f5>` or `C-x C-a C-r` or `C-x a r`        | `xar`                | Resume or continue execution.            |
+| `<f9>` or `C-x C-a C-b` or `C-x a b`        | `xab`                | Set breakpoint.                          |
+| `S-<f9>`or `C-x C-a C-d` or `C-x a d`       | `xad`                | Delete breakpoint.                       |
+| `<f10>` or `C-x C-a C-n` or `C-x a n`       | `xan`                | Next statement.                          |
+| `<f11>` or `C-x C-a C-s` or `C-x a s`       | `xas`                | Step into statement.                     |
+| `S-<f11>` or `C-x C-a C-f` or `C-x a f`     | `xaf`                | Finish execution of current function.    |
 
 ### Clojure
 
