@@ -5,6 +5,7 @@
 
 (defconfig configure-elisp
   (turn-on-eldoc-mode)
+  (local-set-key (kbd "C-c C-l") 'load-file)
   (local-set-key (kbd "C-<f10>") 'split-and-eshell)
   (local-set-key (kbd "C-<f5>") 'eval-buffer)
   (local-set-key (kbd "C-c C-k") 'eval-buffer))
