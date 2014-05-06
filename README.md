@@ -261,10 +261,10 @@ Requires [Leiningen](https://github.com/technomancy/leiningen).
 
 ### Emacs Lisp
 
-| Keys            | Description                                                                           |
-| --------------- | ------------------------------------------------------------------------------------- |
-| `C-<f5>`        | Evaluate current buffer. When used in the scratch buffer, it evaluates the last sexp. |
-| `C-<f10>`       | Open Eshell.                                                                          |
+| Keys                                 | God mode Keys        | Description                                                                                          |
+| ------------------------------------ | -------------------- | ---------------------------------------------------------------------------------------------------- |
+| `C-<f5>`, `C-x C-a C-a` or `C-x a a` | `xaa`                | Evaluate current buffer. When used in the `*scratch*` buffer, it evaluates and prints the last sexp. |
+| `C-<f10>` or `C-! C-r`               | `!r`                 | Open Eshell.                                                                                         |
 
 
 ### Scheme
