@@ -308,10 +308,10 @@ Requires Node.js, [swank-js](https://github.com/swank-js/swank-js) and [tern](ht
 
 Requires Haskell platform and `haskell-doc`.
 
-| Keys            | Description                                 |
-| --------------- | ------------------------------------------- |
-| `C-<f5>`        | Evaluate current buffer and switch to REPL. |
-| `C-<f10>`       | Start GHCi REPL.                            |
+| Keys                                  | God mode Keys | Description                                 |
+| ------------------------------------- | ------------- | ------------------------------------------- |
+| `C-<f5>`, `C-x C-a C-a` or `C-x a a`  | `xaa`         | Evaluate current buffer and switch to REPL. |
+| `C-<f10>` or `C-! C-r`                | `!r`          | Start GHCi REPL.                            |
 
 ### Ruby
 
