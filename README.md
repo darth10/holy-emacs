@@ -238,8 +238,8 @@ Supports `gdb` for C, `pdb` for Python, and `ruby -r debug` for Ruby.
 
 | Keys                                        | God mode Keys        | Description                              |
 | ------------------------------------------- | -------------------- | ---------------------------------------- |
-| `<f8>` or `C-x C-a C-x C-r` or `C-x a x r`  | `xaxr`               | Debug program/script.                    |
 | `<f5>` or `C-x C-a C-r` or `C-x a r`        | `xar`                | Resume or continue execution.            |
+| `<f8>` or `C-x C-a C-x C-r` or `C-x a x r`  | `xaxr`               | Debug program/script.                    |
 | `<f9>` or `C-x C-a C-b` or `C-x a b`        | `xab`                | Set breakpoint.                          |
 | `S-<f9>`or `C-x C-a C-d` or `C-x a d`       | `xad`                | Delete breakpoint.                       |
 | `<f10>` or `C-x C-a C-n` or `C-x a n`       | `xan`                | Next statement.                          |
@@ -330,11 +330,12 @@ Requires Ruby and `rake`.
 
 Available only on GNU/Linux.
 
-| Keys            | Description                   |
-| --------------- | ----------------------------- |
-| `C-<f11>`       | Start gdb.                    |
-| `C-<f10>`       | Switch to gdb console buffer. |
-| `C-<f12>`       | Display disassembly.          |
+| Keys                                  | God mode Keys | Description                     |
+| ------------------------------------- |-------------- | ------------------------------- |
+| `C-<f5>`, `C-x C-a C-a` or `C-x a a`  | `xaa`         | Run program in `gdb`.           |
+| `C-<f10>`, `C-! C-r` or `C-c C-z`     | `!r` or `cz`  | Switch to `gdb` console buffer. |
+| `C-<f11>` or `C-! C-d`                | `!d`          | Start `gdb`.                    |
+| `C-<f12>`, `C-x C-a C-q` or `C-x a q` | `xaq`         | Display disassembly.            |
 
 ### HTML
 
