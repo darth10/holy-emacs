@@ -275,6 +275,8 @@
 (global-set-key (kbd "C-x |") 'find-user-init-file)
 (global-set-key (kbd "C-x RET RET") 'set-rectangular-region-anchor)
 (global-set-key (kbd "C-x C-y") 'helm-show-kill-ring)
+(global-set-key (kbd "C-x M-[") 'previous-buffer)
+(global-set-key (kbd "C-x M-]") 'next-buffer)
 (global-set-key (kbd "C-<f2>") 'helm-imenu)
 (global-set-key (kbd "C-x :") 'helm-imenu)
 (global-set-key (kbd "C-<f4>") 'hl-line-mode)

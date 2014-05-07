@@ -59,8 +59,10 @@ You can always toggle this feature using ``C-` ``.
 | ----------------------------------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | `C-x w`                                         | `x w`           | Save current buffer.                                                                                                         |
 | `C-x "`                                         | `x "`           | Switch to `*scratch*` buffer in new frame.                                                                                   |
-| `C-x '`                                         | `x '`           | Switch to `*scratch*` buffer.                                                                                                |
 | `C-x C-'`                                       | `x'`            | Switch to `*scratch*` buffer in other window.                                                                                |
+| `C-x '`                                         | `x '`           | Switch to `*scratch*` buffer.                                                                                                |
+| `C-x M-[`                                       | `xg[`           | Switch to previous buffer.                                                                                                   |
+| `C-x M-]`                                       | `xg]`           | Switch to next buffer.                                                                                                       |
 | `C-x C-0`                                       | `x0`            | Delete window.                                                                                                               |
 | `C-x C-1`                                       | `x1`            | Delete all windows except the current one.                                                                                   |
 | `C-x C-2`                                       | `x2`            | Split window below.                                                                                                          |
@@ -72,11 +74,11 @@ You can always toggle this feature using ``C-` ``.
 | `C-x <f3>` or `C-! C-p`                         | `!p`            | Show process list.                                                                                                           |
 | `C-x <f5>` or `C-! C-k`                         | `!k`            | Compile using `compile` function.                                                                                            |
 | `C-x <f7>` or `C-! C-e`                         | `!e`            | Open Eshell.                                                                                                                 |
-| `C-x <f10>` or `C-' C-' C-=` or `C-' ' =`       | `''=`           | Start Ediff between buffers.     											                                                |
-| `C-x S-<f10>` or `C-' C-' C-+` or `C-' ' +`     | `''+`           | Start Ediff between files. 	     											                                                |
-| `C-x <f11>` or `C-! C-c`                        | `!c`            | Show calendar. 	   	     	     											                                                |
-| `C-x <C-M-RET>` or `C-x S-\`                    | `x S-\`         | Show init.el file.  	     	     											                                                |
-| `C-x RET RET`                                   |                 | Set rectangular region mark.  	     	     											                                    |
+| `C-x <f10>` or `C-' C-' C-=` or `C-' ' =`       | `''=`           | Start Ediff between buffers.     											                                                   |
+| `C-x S-<f10>` or `C-' C-' C-+` or `C-' ' +`     | `''+`           | Start Ediff between files. 	     											                                               |
+| `C-x <f11>` or `C-! C-c`                        | `!c`            | Show calendar. 	   	     	     											                                               |
+| `C-x <C-M-RET>` or `C-x S-\`                    | `x S-\`         | Show init.el file.  	     	     											                                               |
+| `C-x RET RET`                                   |                 | Set rectangular region mark.  	     	     											                                   |
 | `C-x <f12>` or `C-! C-n`                        | `!n`            | Show calculator.                                                                                                             |
 | `C-x ?`                                         | `x ?`           | Open man page. Available only on GNU/Linux.                                                                                  |
 | `C-x C-y`                                       | `xy`            | Show kill ring.                                                                                                              |
