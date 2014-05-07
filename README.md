@@ -271,10 +271,10 @@ Requires [Leiningen](https://github.com/technomancy/leiningen).
 
 Requires Racket and/or Guile Scheme.
 
-| Keys            | Description                          |
-| --------------- | ------------------------------------ |
-| `C-<f5>`        | Evaluate current buffer in REPL.     |
-| `C-<f10>`       | Start Scheme REPL server and connect.|
+| Keys                                   | God mode Keys        | Description                           |
+| -------------------------------------- | -------------------- | ------------------------------------- |
+| `C-<f5>`, `C-x C-a C-a` or `C-x a a`   | `xaa`                | Evaluate current buffer in REPL.      |
+| `C-<f10>` or `C-! C-r`                 | `!r`                 | Start Scheme REPL server and connect. |
 
 
 <h3> C# </h3>
