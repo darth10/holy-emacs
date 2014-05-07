@@ -136,9 +136,20 @@ Requires [ag](https://github.com/ggreer/the_silver_searcher).
 | `M-s G`                       | `gs G`           | Run grep.                       |
 | `M-s g`                       | `gs g`           | Search using grep.              |
 
-### Workgroups
+### Bookmarks
 
-Prefix is `C-x C-:`, or `x:` in God mode.
+| Keys                                                               | God mode Keys | Description                                  |
+| ------------------------------------------------------------------ | ------------- | -------------------------------------------- |
+| `C-c C-: C-;` or `C-c : ;`                                         | `c:;`         | Show recently opened files.                  |
+| `C-c C-: C-:` or `C-c : :`                                         | `c::`         | Show bookmark list.                          |
+| `C-c C-: C-=` or `C-c : =`                                         | `c:=`         | Add bookmark.                                |
+| `C-c C-: C-#` or `C-c : #`                                         | `c:#`         | Delete all bookmarks.                        |
+| `C-c C-: C-<left>`, `C-c C-: C-b`, `C-c : <left>` or `C-c : b`     | `c:b`         | Move to previous bookmark.                   |
+| `C-c C-: C-<right>`, `C-c C-: C-f`, `C-c : <right>` or `C-c : f`   | `c:f`         | Move to next bookmark.                       |
+| `C-c C-: C-<up>`, `C-c C-: C-p`, `C-c : <up>` or `C-c : p`         | `c:p`         | Move to previous bookmark in current buffer. |
+| `C-c C-: C-<down>`, `C-c C-: C-n`, `C-c : <down>` or `C-c : n`     | `c:n`         | Move to next bookmark in current buffer.     |
+
+### Workgroups
 
 | Keys                          | God mode Keys    | Description                |
 | ----------------------------- | ---------------- | -------------------------- |
@@ -165,19 +176,6 @@ Prefix is `C-x C-:`, or `x:` in God mode.
 | `C->`                     | `>`               | Mark next line or word.                |
 | `C-<`                     | `<`               | Mark preivous line or word.            |
 | `C-c C-<f3>` or `C-c C->` | `c>`              | Mark all words like selected word.     |
-
-### Bookmarks
-
-| Keys                                                               | God mode Keys | Description                                  |
-| ------------------------------------------------------------------ | ------------- | -------------------------------------------- |
-| `C-c C-: C-;` or `C-c : ;`                                         | `c:;`         | Show recently opened files.                  |
-| `C-c C-: C-:` or `C-c : :`                                         | `c::`         | Show bookmark list.                          |
-| `C-c C-: C-=` or `C-c : =`                                         | `c:=`         | Add bookmark.                                |
-| `C-c C-: C-#` or `C-c : #`                                         | `c:#`         | Delete all bookmarks.                        |
-| `C-c C-: C-<left>`, `C-c C-: C-b`, `C-c : <left>` or `C-c : b`     | `c:b`         | Move to previous bookmark.                   |
-| `C-c C-: C-<right>`, `C-c C-: C-f`, `C-c : <right>` or `C-c : f`   | `c:f`         | Move to next bookmark.                       |
-| `C-c C-: C-<up>`, `C-c C-: C-p`, `C-c : <up>` or `C-c : p`         | `c:p`         | Move to previous bookmark in current buffer. |
-| `C-c C-: C-<down>`, `C-c C-: C-n`, `C-c : <down>` or `C-c : n`     | `c:n`         | Move to next bookmark in current buffer.     |
 
 ### org-mode
 
