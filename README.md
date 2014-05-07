@@ -316,14 +316,14 @@ Requires Haskell platform and `haskell-doc`.
 
 Requires Ruby and `rake`.
 
-| Keys            | Description                             |
-| --------------- | --------------------------------------- |
-| `C-<f5>`        | Evaluate current buffer in REPL.        |
-| `C-<f8>`        | Run Rake task.                          |
-| `C-<f10>`       | Start irb REPL.                         |
-| `C-<f11>`       | Start Ruby debugger.                    |
-| `C-?`           | Show ri documentation for current word. |
-| `C-x T`         | Run all tests via `rake test`.          |
+| Keys                                  | God mode Keys | Description                             |
+| ------------------------------------- | ------------- | --------------------------------------- |
+| `C-<f5>`, `C-x C-a C-a` or `C-x a a`  | `xaa`         | Evaluate current buffer in REPL.        |
+| `C-<f8>` or `C-! C-a`                 | `!a`          | Run Rake task.                          |
+| `C-<f10>` or `C-! C-r`                | `!r`          | Start irb REPL.                         |
+| `C-<f11>` or `C-! C-d`                | `!d`          | Start Ruby debugger.                    |
+| `C-?`                                 | `?`           | Show ri documentation for current word. |
+| `C-x T`                               | `x T`         | Run all tests via `rake test`.          |
 
 ### C
 

@@ -1,6 +1,5 @@
 ;;; Configuration for Ruby
 
-
 (require 'config-common)
 (require 'rvm)
 
@@ -34,11 +33,16 @@
   (require 'rinari)
   (require 'yari)
   (local-set-key (kbd "C-?") 'yari)
-  (local-set-key (kbd "C-<f10>") 'run-ruby)
   (local-set-key (kbd "C-<f5>") 'load-file-in-inf-ruby)
-  (local-set-key (kbd "C-<f8>") 'rinari-rake)
+  (local-set-key (kbd "C-x C-a C-a") 'load-file-in-inf-ruby)
+  (local-set-key (kbd "C-x a a") 'load-file-in-inf-ruby)
+  (local-set-key (kbd "C-<f10>") 'run-ruby)
+  (local-set-key (kbd "C-! C-r") 'run-ruby)
+  (local-set-key (kbd "C-<f7>") 'rinari-rake)
+  (local-set-key (kbd "C-! C-a") 'rinari-rake)
   (local-set-key (kbd "C-x T") 'rinari-run-all-test)
   (local-set-key (kbd "C-<f11>") 'run-ruby-debugger)
+  (local-set-key (kbd "C-! C-d") 'run-ruby-debugger)
   (ruby-electric-mode t))
 
 (add-to-list 'auto-mode-alist '("\\.rb\\'" . ruby-mode))
