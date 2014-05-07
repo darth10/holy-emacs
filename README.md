@@ -102,9 +102,10 @@ You can always toggle this feature using ``C-` ``.
 | `M-<up>` or `M-p`                               | `gp`            | Move line or region up.                                                                                                      |
 | `M-<down>` or `M-n`                             | `gn`            | Move line or region down.                                                                                                    |
 | `M-<f5>` or `C-x C-a C-k` or `C-x a k`          | `xak`           | Recompile using `recompile` function.                                                                                        |
+| `M-SPC`                                         |                 | Auto-complete symbol at point.                                                                                               |
 | `C-x C-j`                                       | `xj`            | Show directory.                                                                                                              |
 | `C-c C-j`                                       | `cj`            | Show directory explorer.                                                                                                     |
-| `C-c C-\` or `M-SPC`                            | `c\`            | Delete all spaces leaving one space.                                                                                         |
+| `C-c C-\` or `C-c \`                            | `c\`            | Delete all spaces leaving one space.                                                                                         |
 | `C-' C-' C-a` or `C-' ' a`                      | `''a`           | Toggle auto-completion.                                                                                                      |
 | `C-' C-' C-q` or `C-' ' q`                      | `''q`           | Toggle auto fill mode.                                                                                                       |
 
@@ -285,7 +286,6 @@ Requires [Omnisharp](https://github.com/nosami/Omnisharp).
 | -------------------------------------- | -------------------- |------------------------------------------------------- |
 | `C-<f10>` or `C-! C-r`                 | `!r`                 | Start Omnisharp server.                                |
 | `C-x <f5>` or `C-! C-k`                | `!k`                 | Build current solution.                                |
-| `M-SPC`                                |                      | Autocomplete symbol. A `.` invokes this function too.  |
 | `C-?`                                  | `?`                  | Show overloads of symbol at point.                     |
 | `<f12>`, `M-.`                         | `g.`                 | Go to definition.                                      |
 | `S-<f12>` or `C-[ M-.`                 | `[g.`                | Find all references.                                   |
@@ -298,7 +298,6 @@ Requires Node.js, [swank-js](https://github.com/swank-js/swank-js) and [tern](ht
 
 | Keys                                 | God mode Keys | Description                                 |
 | ------------------------------------ | ------------- | ------------------------------------------- |
-| `M-SPC`                              |               | Autocomplete symbol.                        |
 | `C-x C-e`                            | `xe`          | Evaluate current statement.                 |
 | `C-<f5>`, `C-x C-a C-a` or `C-x a a` | `xaa`         | Evaluate current buffer and switch to REPL. |
 | `C-<f8>` or `C-! C-o`                | `!o`          | Connect to SwankJS sever.                   |

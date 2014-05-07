@@ -143,16 +143,6 @@
 (add-to-list 'yas-snippet-dirs "~/.emacs.d/data/snippets/")
 (yas-global-mode 1)
 
-;; auto-complete
-(require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/data/ac-dict")
-(ac-config-default)
-(setq ac-delay 0.5) ;; eclipse uses 500ms
-(define-key ac-complete-mode-map "\t" 'ac-complete)
-(define-key ac-complete-mode-map "\r" nil)
-(global-set-key (kbd "C-' C-' C-a") 'auto-complete-mode)
-(global-set-key (kbd "C-' ' a") 'auto-complete-mode)
-
 ;; code folding
 (require 'hideshow)
 (add-hook 'prog-mode-hook 'hs-minor-mode)
@@ -170,6 +160,7 @@
 (require 'config-org)
 (require 'config-web)
 (require 'config-bookmarks)
+(require 'config-ac)
 (require 'config-comment-annotations)
 (require 'config-cursor)
 (require 'config-modeline)
@@ -277,6 +268,7 @@
 (global-set-key (kbd "C-c (") 'paredit-mode)
 (global-set-key (kbd "C-c b") 'org-iswitchb)
 (global-set-key (kbd "C-c C-\\") 'just-one-space)
+(global-set-key (kbd "C-c \\") 'just-one-space)
 (global-set-key (kbd "<f6>") 'match-paren)
 (global-set-key (kbd "C-%") 'match-paren)
 (global-set-key (kbd "C-~") 'helm-mark-ring)
