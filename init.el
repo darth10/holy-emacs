@@ -300,6 +300,7 @@
 (global-set-key (kbd "C-x M-]") 'next-buffer)
 (global-set-key (kbd "C-<f2>") 'helm-imenu)
 (global-set-key (kbd "C-c C-;") 'helm-imenu)
+(global-set-key (kbd "C-c ;") 'helm-imenu)
 (global-set-key (kbd "C-<f4>") 'hl-line-mode)
 (global-set-key (kbd "C-' C-l") 'hl-line-mode)
 (global-set-key (kbd "C-' l") 'hl-line-mode)
