@@ -281,15 +281,15 @@ Requires Racket and/or Guile Scheme.
 
 Requires [Omnisharp](https://github.com/nosami/Omnisharp).
 
-| Keys            | Description                                           |
-| --------------- | ----------------------------------------------------- |
-| `C-<f10>`       | Start Omnisharp server.                               |
-| `C-x <f5>`      | Build current solution.                               |
-| `M-SPC`         | Autocomplete symbol. A `.` invokes this function too. |
-| `C-?`           | Show overloads of symbol at point.                    |
-| `<f12>`         | Go to definition.                                     |
-| `C-c F`         | Format document.                                      |
-| `S-<f12>`       | Find all references.                                  |
+| Keys                                   | God mode Keys        |Description                                             |
+| -------------------------------------- | -------------------- |------------------------------------------------------- |
+| `C-<f10>` or `C-! C-r`                 | `!r`                 | Start Omnisharp server.                                |
+| `C-x <f5>` or `C-! C-k`                | `!k`                 | Build current solution.                                |
+| `M-SPC`                                |                      | Autocomplete symbol. A `.` invokes this function too.  |
+| `C-?`                                  | `?`                  | Show overloads of symbol at point.                     |
+| `<f12>`, `M-.`                         | `g.`                 | Go to definition.                                      |
+| `S-<f12>` or `C-[ M-.`                 | `[g.`                | Find all references.                                   |
+| `C-c F`                                | `c F`                | Format document.                                       |
 
 
 ### JavaScript
