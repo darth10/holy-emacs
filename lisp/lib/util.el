@@ -1,6 +1,5 @@
 ;;; Some utility functions
 
-(require 'breadcrumb)
 (require 'diff-hl)
 
 (defconst scratch-buffer-name "*scratch*")
@@ -30,11 +29,6 @@
   (interactive)
   (when (yes-or-no-p "Quit Emacs? ")
     (save-buffers-kill-terminal)))
-
-(defun bc-clear-and-msg ()
-  (interactive)
-  (bc-clear)
-  (message "All breadcrumbs deleted!"))
 
 (defun find-user-init-file ()
   "Edit the user-init-file, in another window."

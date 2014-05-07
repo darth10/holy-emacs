@@ -83,7 +83,7 @@ You can always toggle this feature using ``C-` ``.
 | `C-x ?`                                         | `x ?`           | Open man page. Available only on GNU/Linux.                                                                                  |
 | `C-x C-y`                                       | `xy`            | Show kill ring.                                                                                                              |
 | `C-x r =`                                       | `x r =`         | Reset highlighted diff (`diff-hl`) in current buffer.                                                                        |
-| `C-<f2>` or `C-x :`                             | `x :`           | Helm i-menu. Useful for code navigation.                                                                                     |
+| `C-<f2>` or `C-c C-;`                           | `c;`            | Helm i-menu. Useful for code navigation.                                                                                     |
 | `M-]` or `C-[ ]`                                | `[ ]` or `g]`   | Highlight token under cursor. Use `[` or `]` to navigate to previous or next hit, or `ESC` to remove all highlighted tokens. |
 | `C-[ C-[ ]`                                     |  `[[ ]`         | Remove all highlighted tokens.                                                                                               |
 | `C-<f4>` or `C-' C-l` or `C-' l`                | `'l`            | Toggle highlight current line.                                                                                               |
@@ -104,7 +104,6 @@ You can always toggle this feature using ``C-` ``.
 | `M-<f5>` or `C-x C-a C-k` or `C-x a k`          | `xak`           | Recompile using `recompile` function.                                                                                        |
 | `C-x C-j`                                       | `xj`            | Show directory.                                                                                                              |
 | `C-c C-j`                                       | `cj`            | Show directory explorer.                                                                                                     |
-| `C-c C-:`                                       | `c:`            | Show recently opened files.                                                                                                  |
 | `C-c C-\` or `M-SPC`                            | `c\`            | Delete all spaces leaving one space.                                                                                         |
 | `C-' C-' C-a` or `C-' ' a`                      | `''a`           | Toggle auto-completion.                                                                                                      |
 | `C-' C-' C-q` or `C-' ' q`                      | `''q`           | Toggle auto fill mode.                                                                                                       |
@@ -169,15 +168,16 @@ Prefix is `C-x C-:`, or `x:` in God mode.
 
 ### Bookmarks
 
-| Keys                         | God mode Keys | Description                                  |
-| ---------------------------- | ------------- | -------------------------------------------- |
-| `C-c C-;`                    | `c;`          | Show bookmark list.                          |
-| `C-c C-=`                    | `c=`          | Add bookmark.                                |
-| `C-c C-#`                    | `c#`          | Delete all bookmarks.                        |
-| `C-c C-<left>` or `C-c C-b`  | `cb`          | Move to previous bookmark.                   |
-| `C-c C-<right>` or `C-c C-f` | `cf`          | Move to next bookmark.                       |
-| `C-c C-<up>` or `C-c C-p`    | `cp`          | Move to previous bookmark in current buffer. |
-| `C-c C-<down>` or `C-c C-n`  | `cn`          | Move to next bookmark in current buffer.     |
+| Keys                                                               | God mode Keys | Description                                  |
+| ------------------------------------------------------------------ | ------------- | -------------------------------------------- |
+| `C-c C-: C-;` or `C-c : ;`                                         | `c:;`         | Show recently opened files.                  |
+| `C-c C-: C-:` or `C-c : :`                                         | `c::`         | Show bookmark list.                          |
+| `C-c C-: C-=` or `C-c : =`                                         | `c:=`         | Add bookmark.                                |
+| `C-c C-: C-#` or `C-c : #`                                         | `c:#`         | Delete all bookmarks.                        |
+| `C-c C-: C-<left>`, `C-c C-: C-b`, `C-c : <left>` or `C-c : b`     | `c:b`         | Move to previous bookmark.                   |
+| `C-c C-: C-<right>`, `C-c C-: C-f`, `C-c : <right>` or `C-c : f`   | `c:f`         | Move to next bookmark.                       |
+| `C-c C-: C-<up>`, `C-c C-: C-p`, `C-c : <up>` or `C-c : p`         | `c:p`         | Move to previous bookmark in current buffer. |
+| `C-c C-: C-<down>`, `C-c C-: C-n`, `C-c : <down>` or `C-c : n`     | `c:n`         | Move to next bookmark in current buffer.     |
 
 ### org-mode
 
