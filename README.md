@@ -242,7 +242,7 @@ Supports `gdb` for C, `pdb` for Python, and `ruby -r debug` for Ruby.
 | `<f5>`, `C-x C-a C-r` or `C-x a r`          | `xar`                | Resume or continue execution.            |
 | `<f8>`, `C-x C-a C-x C-r` or `C-x a x r`    | `xaxr`               | Debug program/script.                    |
 | `<f9>`, `C-x C-a C-b` or `C-x a b`          | `xab`                | Set breakpoint.                          |
-| `S-<f9>, `C-x C-a C-d` or `C-x a d`         | `xad`                | Delete breakpoint.                       |
+| `S-<f9>`, `C-x C-a C-d` or `C-x a d`        | `xad`                | Delete breakpoint.                       |
 | `<f10>`, `C-x C-a C-n` or `C-x a n`         | `xan`                | Next statement.                          |
 | `<f11>`, `C-x C-a C-s` or `C-x a s`         | `xas`                | Step into statement.                     |
 | `S-<f11>`, `C-x C-a C-f` or `C-x a f`       | `xaf`                | Finish execution of current function.    |
