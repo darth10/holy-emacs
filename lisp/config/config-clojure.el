@@ -54,6 +54,8 @@
 (defun configure-clojure-nrepl-inf ()
   (ac-nrepl-setup)
   (local-set-key (kbd "C-?") 'cider-doc)
+  (setq cider-auto-select-error-buffer t)
+  (setq cider-repl-popup-stacktraces t)
   (local-set-key (kbd "C-x T") 'clojure-test-run-tests)
   (local-set-key (kbd "C-x t") 'clojure-test-run-test))
 
@@ -62,6 +64,6 @@
 (add-hook 'clojure-mode-hook 'configure-clojure-keys)
 (add-hook 'cider-repl-mode-hook 'configure-clojure-nrepl)
 (add-hook 'cider-mode-hook 'configure-clojure-nrepl-inf)
-(add-hook 'nrepl-interaction-mode-hook 'nrepl-turn-on-eldoc-mode)
+(add-hook 'nrepl-interaction-mode-hook 'cider-turn-on-eldoc-mode)
 
 (provide 'config-clojure)
