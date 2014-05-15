@@ -53,6 +53,16 @@ You can always toggle this feature using ``C-` ``.
 * `jw` saves the buffer (`C-x C-s`).
 * `jf` opens a file (`C-x C-f`).
 
+## Overridden default key bindings 
+
+Some of the default Emacs key bindings are changed, as follows.
+
+* `C-x C-c` will exit Emacs with a confirmation.
+* `C-x a n` and `<f10>` don't have their usual behaviour, as they are used by GUD key bindings.
+* `M-SPC` doesn't call `just-one-space`, and is used for auto-completion. Use `C-c \` or `C-c C-\` instead.
+* `C-z` doesn't minimize Emacs.
+
+
 ## Global key bindings
 
 | Keys                                            | God mode Keys   | Description                                                                                                                  |
