@@ -53,6 +53,10 @@
   (define-key
     key-translation-map
     (vector sticky-control-key)
+    (if installing 'sticky-control-do-it nil))
+  (define-key
+    key-translation-map
+    (vector (upcase sticky-control-key))
     (if installing 'sticky-control-do-it nil)))
 
 (defun sticky-control-do-it (prompt)
@@ -102,7 +106,11 @@
   '((?x . "\C-x")
     (?c . "\C-c")
     (?w . "\C-x\C-s")
-    (?f . "\C-x\C-f"))
+    (?f . "\C-x\C-f")
+    (?X . "\C-x")
+    (?C . "\C-c")
+    (?W . "\C-x\C-s")
+    (?F . "\C-x\C-f"))
 
   "Shortcuts available under `sticky-control-mode' which can reduce
 the number of keystrokes needed to get things done.
