@@ -176,6 +176,7 @@
 (require 'config-python)
 (require 'config-ruby)
 (require 'config-sql)
+(require 'config-java)
 (require 'config-gnuplot)
 (require 'config-gud)
 (require 'config-search)
