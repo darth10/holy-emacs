@@ -7,6 +7,7 @@
   (local-unset-key (kbd "C-'"))
   (local-unset-key (kbd "C-c :"))
   (local-unset-key (kbd "C-c ;"))
+  (local-unset-key (kbd "C-c \\"))
   (local-unset-key (kbd "C-c C-j"))
   (local-set-key (kbd "C-x t") 'org-timeline)
   (local-set-key (kbd "C-c l") 'org-store-link)
