@@ -53,7 +53,7 @@ You can always toggle this feature using ``C-` ``.
 * `jw` saves the buffer (`C-x C-s`).
 * `jf` opens a file (`C-x C-f`).
 
-## Overridden default key bindings 
+## Overridden default key bindings
 
 Some of the default Emacs key bindings are changed, as follows.
 
@@ -84,8 +84,8 @@ Some of the default Emacs key bindings are changed, as follows.
 | `C-x <f3>` or `C-! C-p`                         | `!p`            | Show process list.                                                                                                           |
 | `C-x <f5>` or `C-! C-k`                         | `!k`            | Compile using `compile` function.                                                                                            |
 | `C-x <f7>` or `C-! C-e`                         | `!e`            | Open Eshell.                                                                                                                 |
-| `C-x <f10>`, `C-' C-' C-=` or `C-' ' =`         | `''=`           | Start Ediff between buffers.     											                                                   |
-| `C-x S-<f10>`, `C-' C-' C-+` or `C-' ' +`       | `''+`           | Start Ediff between files. 	     											                                               |
+| `C-x <f10>`, `C-! C-=` or `C-! =`               | `''=`           | Start Ediff between buffers.     											                                                   |
+| `C-x S-<f10>`, `C-! C-+` or `C-! +`             | `''+`           | Start Ediff between files. 	     											                                               |
 | `C-x <f11>` or `C-! C-c`                        | `!c`            | Show calendar. 	   	     	     											                                               |
 | `C-x <C-M-RET>` or `C-x S-\`                    | `x S-\`         | Show init.el file.  	     	     											                                               |
 | `C-x RET RET`                                   |                 | Set rectangular region mark.  	     	     											                                   |
