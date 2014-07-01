@@ -91,7 +91,6 @@ Some of the default Emacs key bindings are changed, as follows.
 | `C-x RET RET`                                   |                 | Set rectangular region mark.  	     	     											                                   |
 | `C-x <f12>` or `C-! C-n`                        | `!n`            | Show calculator.                                                                                                             |
 | `C-x ?`                                         | `x ?`           | Open man page. Available only on GNU/Linux.                                                                                  |
-| `C-x C-y`                                       | `xy`            | Show kill ring.                                                                                                              |
 | `C-x r =`                                       | `x r =`         | Reset highlighted diff (`diff-hl`) in current buffer.                                                                        |
 | `C-<f2>`, `C-c C-;` or `C-c ;`                  | `c;`            | Show `imenu`. Useful for code navigation.                                                                                    |
 | `M-]` or `C-[ ]`                                | `[ ]` or `g]`   | Highlight token under cursor. Use `[` or `]` to navigate to previous or next hit, or `ESC` to remove all highlighted tokens. |
