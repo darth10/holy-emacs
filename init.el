@@ -64,6 +64,8 @@
  '(hl-sexp-background-colors (quote ("gray27" "midnight blue")))
  '(inhibit-default-init t)
  '(inhibit-startup-screen t)
+ '(initial-scratch-message nil)
+ '(echo-keystrokes 0.05)
  '(js-auto-indent-flag t)
  '(js-indent-level 2)
  '(rainbow-delimiters-highlight-braces-p nil)
