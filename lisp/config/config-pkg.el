@@ -4,7 +4,7 @@
 (require 'package)
 
 (defvar pkg-packages
-  '(ac-nrepl
+  '(ac-cider
     ac-slime
     ag
     auto-complete
@@ -12,7 +12,6 @@
     clj-refactor
     clojure-mode
     clojurescript-mode
-    clojure-test-mode
     csharp-mode
     diff-hl
     dired+
@@ -44,7 +43,6 @@
     markdown-mode
     multiple-cursors
     multi-web-mode
-    nrepl
     omnisharp
     paredit
     popup
