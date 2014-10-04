@@ -10,6 +10,7 @@
       (global-set-key god-mode-all-key-kbd 'god-mode-all))
     (add-to-list 'god-exempt-major-modes 'dired-mode)
     (define-key god-local-mode-map (kbd ".") 'repeat)
+    (define-key god-local-mode-map (kbd "z") 'repeat)
     (define-key god-local-mode-map (kbd "i") 'god-local-mode)
     (god-mode)))
 
