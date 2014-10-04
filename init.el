@@ -40,7 +40,8 @@
 
 ;; rainbow parens
 (require 'rainbow-delimiters)
-(global-rainbow-delimiters-mode)
+(add-hook 'text-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 (custom-set-variables
  '(ansi-color-names-vector ["#242424" "#e5786d" "#95e454" "#cae682"
