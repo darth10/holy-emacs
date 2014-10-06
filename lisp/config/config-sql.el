@@ -6,7 +6,7 @@
   (auto-complete-mode)
   (sql-set-product 'ms))
 
-(defconfig configure-sql-interactive
+(defun configure-sql-interactive ()
   (auto-complete-mode)
   (setq yas-extra-modes '(sql-mode)))
 
