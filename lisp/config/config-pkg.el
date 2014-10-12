@@ -34,7 +34,6 @@
     helm-ls-git
     highlight
     idle-highlight-mode
-    ido-ubiquitous
     inflections
     inf-ruby
     jump
