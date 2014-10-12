@@ -16,10 +16,10 @@
 
 ;;; ag
 (global-set-key (kbd "C-<f3>") 'ag)
-(global-set-key (kbd "M-s a a") 'ag)
+(global-set-key (kbd "M-s s") 'ag)
 (global-set-key (kbd "C-S-<f3>") 'ag-regexp)
-(global-set-key (kbd "M-s a r") 'ag-regexp)
-(global-set-key (kbd "M-s e a") 'ag-project)
-(global-set-key (kbd "M-s e r") 'ag-project-regexp)
+(global-set-key (kbd "M-s r") 'ag-regexp)
+(global-set-key (kbd "M-s a s") 'ag-project)
+(global-set-key (kbd "M-s a r") 'ag-project-regexp)
 
 (provide 'config-search)

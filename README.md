@@ -137,10 +137,10 @@ Requires [ag](https://github.com/ggreer/the_silver_searcher).
 
 | Keys                          | God mode Keys    | Description                     |
 | ----------------------------- | ---------------- | ------------------------------- |
-| `M-s a a` or `C-<f3>`         | `gs a a`         | Search in files.                |
-| `M-s a r` or `C-S-<f3>`       | `gs a r`         | Search regexp in files.         |
-| `M-s e a`                     | `gs e a`         | Search in project.              |
-| `M-s e r`                     | `gs e r`         | Search regexp in project.       |
+| `M-s s` or `C-<f3>`           | `gs s`           | Search in files.                |
+| `M-s r` or `C-S-<f3>`         | `gs r`           | Search regexp in files.         |
+| `M-s a s`                     | `gs a s`         | Search in project.              |
+| `M-s a r`                     | `gs a r`         | Search regexp in project.       |
 | `M-s o`                       | `gs o`           | Find occurences in buffer.      |
 | `M-s i`                       | `gs i`           | Jump to occurences in buffer.   |
 | `M-s G`                       | `gs G`           | Run grep.                       |
