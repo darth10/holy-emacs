@@ -228,6 +228,7 @@
 (unless (is-windows?)
   (global-set-key (kbd "C-x ?") 'woman))
 
+(global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-x C-c") 'confirm-and-kill-terminal)
 
 (global-set-key (kbd "<apps>") 'execute-extended-command)
