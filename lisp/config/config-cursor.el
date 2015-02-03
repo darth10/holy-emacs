@@ -3,6 +3,9 @@
 (defun configure-cursor ()
   (let* ((is-line-overflow
           (> (current-column) 70))
+         (is-god-mode
+          (and (boundp 'god-local-mode)
+               god-local-mode))
          (cur-color
           (cond (buffer-read-only "dark sea green")
                 (is-line-overflow "tan")
@@ -11,9 +14,9 @@
          (cur-type
           (cond (buffer-read-only 'box)
                 ((and overwrite-mode
-                      god-local-mode)
+                      is-god-mode)
                  'hollow)
-                ((or god-local-mode
+                ((or is-god-mode
                      overwrite-mode)
                  'box)
                 (t 'bar))))
