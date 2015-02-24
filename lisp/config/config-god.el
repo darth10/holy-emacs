@@ -19,6 +19,11 @@
       (god-local-mode-pause)
     (god-local-mode-resume)))
 
+(add-to-list 'god-exempt-major-modes 'compilation-mode)
+(add-to-list 'god-exempt-major-modes 'ibuffer-mode)
+(add-to-list 'god-exempt-major-modes 'org-agenda-mode)
+(add-to-list 'god-exempt-major-modes 'recentf-dialog-mode)
+
 (add-hook 'overwrite-mode-hook 'god-toggle-on-overwrite)
 
 (provide 'config-god)
