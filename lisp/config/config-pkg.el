@@ -30,7 +30,6 @@
     god-mode
     haskell-mode
     helm
-    helm-git
     helm-git-files
     highlight
     idle-highlight-mode
