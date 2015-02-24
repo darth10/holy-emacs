@@ -31,7 +31,7 @@
     haskell-mode
     helm
     helm-git
-    helm-ls-git
+    helm-git-files
     highlight
     idle-highlight-mode
     inflections
