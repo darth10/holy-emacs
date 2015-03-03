@@ -18,27 +18,62 @@
            (config-show-no-gud)))
        (global-set-key (kbd ,key) ',global-gud-fn))))
 
-(global-gud-set-key "<f8>" "gud-run")
-(global-gud-set-key "C-x C-a C-x C-r" "gud-run")
-(global-gud-set-key "C-x a x r" "gud-run")
+(defconst config-key-gud-run1 "<f8>")
+(defconst config-key-gud-run2 "C-x C-a C-x C-r")
+(defconst config-key-gud-run3 "C-x a x r")
 
-(global-gud-set-key "<f9>" "gud-break")
-(global-gud-set-key "C-x a b" "gud-break")
+(defconst config-key-gud-break1 "<f9>")
+(defconst config-key-gud-break2 "C-x a b")
+(defconst config-key-gud-break3 "C-x C-a C-b")
 
-(global-gud-set-key "S-<f9>" "gud-remove")
-(global-gud-set-key "C-x a d" "gud-remove")
+(defconst config-key-gud-remove1 "S-<f9>")
+(defconst config-key-gud-remove2 "C-x a d")
+(defconst config-key-gud-remove3 "C-x C-a C-d")
 
-(global-gud-set-key "<f10>" "gud-next")
-(global-gud-set-key "C-x a n" "gud-next")
+(defconst config-key-gud-next1 "<f10>")
+(defconst config-key-gud-next2 "C-x a n")
+(defconst config-key-gud-next3 "C-x C-a C-n")
 
-(global-gud-set-key "<f11>" "gud-step")
-(global-gud-set-key "C-x a s" "gud-step")
+(defconst config-key-gud-step1 "<f11>")
+(defconst config-key-gud-step2 "C-x a s")
+(defconst config-key-gud-step3 "C-x C-a C-s")
 
-(global-gud-set-key "S-<f11>" "gud-finish")
-(global-gud-set-key "C-x a f" "gud-finish")
+(defconst config-key-gud-finish1 "S-<f11>")
+(defconst config-key-gud-finish2 "C-x a f")
+(defconst config-key-gud-finish3 "C-x C-a C-f")
 
-(global-gud-set-key "<f5>" "gud-cont")
-(global-gud-set-key "C-x a r" "gud-cont")
+(defconst config-key-gud-cont1 "<f5>")
+(defconst config-key-gud-cont2 "C-x a r")
+(defconst config-key-gud-cont3 "C-x C-a C-r")
+
+(progn
+  (global-gud-set-key config-key-gud-run1 "gud-run")
+  (global-gud-set-key config-key-gud-run2 "gud-run")
+  (global-gud-set-key config-key-gud-run3 "gud-run")
+
+  (global-gud-set-key config-key-gud-break1 "gud-break")
+  (global-gud-set-key config-key-gud-break2 "gud-break")
+  ;; config-key-gud-break3 is set by default
+
+  (global-gud-set-key config-key-gud-remove1 "gud-remove")
+  (global-gud-set-key config-key-gud-remove2 "gud-remove")
+  ;; config-key-gud-remove3 is set by default
+
+  (global-gud-set-key config-key-gud-next1 "gud-next")
+  (global-gud-set-key config-key-gud-next2 "gud-next")
+  ;; config-key-gud-next3 is set by default
+
+  (global-gud-set-key config-key-gud-step1 "gud-step")
+  (global-gud-set-key config-key-gud-step2 "gud-step")
+  ;; config-key-gud-step3 is set by default
+
+  (global-gud-set-key config-key-gud-finish1 "gud-finish")
+  (global-gud-set-key config-key-gud-finish2 "gud-finish")
+  ;; config-key-gud-finish3 is set by default
+
+  (global-gud-set-key config-key-gud-cont1 "gud-cont")
+  (global-gud-set-key config-key-gud-cont2 "gud-cont"))
+;; config-key-gud-cont3 is set by default
 
 (setq gdb-many-windows t)
 
