@@ -19,7 +19,11 @@
       (god-local-mode-pause)
     (god-local-mode-resume)))
 
+(add-to-list 'god-exempt-major-modes 'ag-mode)
 (add-to-list 'god-exempt-major-modes 'compilation-mode)
+(add-to-list 'god-exempt-major-modes 'debugger-mode)
+(add-to-list 'god-exempt-major-modes 'ediff-mode)
+(add-to-list 'god-exempt-major-modes 'geben-breakpoint-list-mode)
 (add-to-list 'god-exempt-major-modes 'ibuffer-mode)
 (add-to-list 'god-exempt-major-modes 'org-agenda-mode)
 (add-to-list 'god-exempt-major-modes 'recentf-dialog-mode)
