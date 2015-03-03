@@ -169,6 +169,7 @@
 (require 'config-scheme)
 (require 'config-scala)
 (require 'config-haskell)
+(require 'config-php)
 (require 'config-python)
 (require 'config-ruby)
 (require 'config-sql)

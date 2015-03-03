@@ -22,6 +22,7 @@
     expand-region
     find-file-in-project
     findr
+    geben
     geiser
     ghci-completion
     gist
@@ -40,9 +41,9 @@
     magit
     markdown-mode
     multiple-cursors
-    multi-web-mode
     omnisharp
     paredit
+    php-mode
     popup
     rainbow-delimiters
     rainbow-mode
@@ -56,6 +57,7 @@
     slime-js
     smex
     tern
+    web-mode
     workgroups2
     yaml-mode
     yari
