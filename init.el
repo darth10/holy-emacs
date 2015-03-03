@@ -146,14 +146,6 @@
 (add-to-list 'yas-snippet-dirs "~/.emacs.d/data/snippets/")
 (yas-global-mode 1)
 
-;; code folding
-(require 'hideshow)
-(add-hook 'prog-mode-hook 'hs-minor-mode)
-(global-set-key (kbd "C-c h") 'hs-hide-block)
-(global-set-key (kbd "C-c g h") 'hs-hide-all)
-(global-set-key (kbd "C-c s") 'hs-show-block)
-(global-set-key (kbd "C-c g s") 'hs-show-all)
-
 ;; mode configurations
 (require 'config-paredit)
 (require 'config-helm)
@@ -167,6 +159,7 @@
 (require 'config-comment-annotations)
 (require 'config-cursor)
 (require 'config-modeline)
+(require 'config-hideshow)
 
 ;; language configurations
 (require 'config-js)
