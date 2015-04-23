@@ -290,10 +290,6 @@
 (global-set-key (kbd "C-x C-a C-k") 'recompile)
 (global-set-key (kbd "C-x a k") 'recompile)
 
-(require 'highlight-token)
-(global-set-key (kbd "M-]") 'hlt-highlight-current-word)
-(global-set-key (kbd "ESC M-]") 'hlt-unhighlight-all-prop)
-
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)

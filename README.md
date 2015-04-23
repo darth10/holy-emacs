@@ -93,7 +93,7 @@ Some of the default Emacs key bindings are changed, as follows.
 | `C-x ?`                                         | `x ?`           | Open man page. Available only on GNU/Linux.                                                                                  |
 | `C-x r =`                                       | `x r =`         | Reset highlighted diff (`diff-hl`) in current buffer.                                                                        |
 | `C-<f2>`, `C-c C-;` or `C-c ;`                  | `c;`            | Show `imenu`. Useful for code navigation.                                                                                    |
-| `M-]` or `C-[ ]`                                | `[ ]` or `g]`   | Highlight token under cursor. Use `[` or `]` to navigate to previous or next hit, or `ESC` to remove all highlighted tokens. |
+| `M-]` or `C-[ ]`                                | `[ ]` or `g]`   | Seach token under cursor (`helm-swoop`).			                                                                           |
 | `C-[ C-[ ]`                                     |  `[[ ]`         | Remove all highlighted tokens.                                                                                               |
 | `C-<f4>`, `C-' C-l` or `C-' l`                  | `'l`            | Toggle highlight current line.                                                                                               |
 | `C-<f6>`, `C-' C-n` or `C-' n`                  | `'n`            | Toggle line numbers.                                                                                                         |

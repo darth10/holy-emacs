@@ -32,6 +32,7 @@
     haskell-mode
     helm
     helm-git-files
+    helm-swoop
     highlight
     idle-highlight-mode
     inflections
