@@ -19,6 +19,7 @@
       (god-local-mode-pause)
     (god-local-mode-resume)))
 
+(add-to-list 'god-exempt-major-modes 'Custom-mode)
 (add-to-list 'god-exempt-major-modes 'ag-mode)
 (add-to-list 'god-exempt-major-modes 'compilation-mode)
 (add-to-list 'god-exempt-major-modes 'debugger-mode)
