@@ -1,6 +1,6 @@
 ## Overview
 
-* Support for editing/debugging Clojure, Emacs Lisp, Scheme, C#, JavaScript, Ruby, Haskell and C.
+* Support for editing/debugging Clojure, Emacs Lisp, Scheme, C#, JavaScript, PHP, Ruby, Haskell and C.
 * Uses God mode to reduce keystrokes. All normal key bindings work in God mode too; God mode is only used to minimize the number of keys pressed.
 * Uses <kbd>j</kbd> as a sticky control key.
 * Identical (almost) bindings across different major modes.
@@ -244,7 +244,7 @@ Available in Clojure, Scheme and Emacs Lisp modes.
 ### GUD mode
 
 Requires GUD debugger to be active.
-Supports `gdb` for C, `pdb` for Python, and `ruby -r debug` for Ruby.
+Supports `gdb` for C, `pdb` for Python, `ruby -r debug` for Ruby and XDebug for PHP.
 
 | Keys                                                                | God mode Keys        | Description                              |
 | ------------------------------------------------------------------- | -------------------- | ---------------------------------------- |
@@ -320,6 +320,14 @@ Requires Haskell platform and `haskell-doc`.
 | --------------------------------------------------------------- | -------------  | ------------------------------------------- |
 | <kbd>C-<f5></kbd>, <kbd>C-x C-a C-a</kbd> or <kbd>C-x a a</kbd> | <kbd>xaa</kbd> | Evaluate current buffer and switch to REPL. |
 | <kbd>C-<f10></kbd> or <kbd>C-! C-r</kbd>                        | <kbd>!r</kbd>  | Start GHCi REPL.                            |
+
+### PHP
+
+Requires XDebug PHP extension.
+
+| Keys                                                            | God mode Keys  | Description                             |
+| --------------------------------------------------------------- | -------------- | --------------------------------------- |
+| <kbd>C-<f11></kbd> or <kbd>C-! C-d</kbd>                        | <kbd>!d</kbd>  | Start PHP debugger.                     |
 
 ### Ruby
 
