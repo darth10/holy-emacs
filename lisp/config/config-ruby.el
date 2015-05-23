@@ -32,6 +32,7 @@
   (require 'ido)
   (require 'rinari)
   (require 'yari)
+  (smartparens-mode)
   (local-set-key (kbd "C-?") 'yari)
   (local-set-key (kbd "C-<f5>") 'load-file-in-inf-ruby)
   (local-set-key (kbd "C-x C-a C-a") 'load-file-in-inf-ruby)

@@ -4,6 +4,7 @@
 (require 'config-gud)
 
 (defconfig configure-php
+  (smartparens-mode)
   (local-set-key (kbd "C-! C-d") 'geben)
   (local-set-key (kbd "C-<f11>") 'geben))
 

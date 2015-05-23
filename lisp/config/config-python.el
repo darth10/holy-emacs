@@ -15,6 +15,7 @@
   (python-shell-send-file (buffer-file-name)))
 
 (defconfig configure-py
+  (smartparens-mode)
   (local-set-key (kbd "C-<f5>") 'load-file-in-inf-python)
   (local-set-key (kbd "C-x C-a C-a") 'load-file-in-inf-python)
   (local-set-key (kbd "C-x a a") 'load-file-in-inf-python)

@@ -10,6 +10,7 @@
   (js2-minor-mode t)
   (tern-mode t)
   (tern-ac-setup)
+  (smartparens-mode)
   ;; FIXME slime-js
   ;; (slime-js-minor-mode 1)
   (local-set-key (kbd "M-SPC") 'tern-ac-complete)

@@ -14,6 +14,7 @@
   (require 'ghci-completion)
   (turn-on-haskell-doc-mode)
   (haskell-indent-mode)
+  (smartparens-mode)
   (yas/minor-mode)
   (configure-haskell-newline-indent)
   (local-set-key (kbd "C-<f10>") 'switch-to-haskell)

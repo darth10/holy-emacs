@@ -58,6 +58,7 @@
     scala-mode2
     slime
     slime-js
+    smartparens
     smex
     tern
     tern-auto-complete
