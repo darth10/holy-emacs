@@ -37,6 +37,8 @@
     idle-highlight-mode
     inflections
     inf-ruby
+    js2-mode
+    js2-refactor
     jump
     lacarte
     magit
@@ -58,6 +60,7 @@
     slime-js
     smex
     tern
+    tern-auto-complete
     web-mode
     workgroups2
     yaml-mode

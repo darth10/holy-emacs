@@ -7,13 +7,11 @@
   (slime-connect "127.0.0.1" 4005))
 
 (defconfig configure-js
-  (require 'slime)
-  (require 'tern)
-  (require 'slime-js)
   (js2-minor-mode t)
   (tern-mode t)
   (tern-ac-setup)
-  (slime-js-minor-mode 1)
+  ;; FIXME slime-js
+  ;; (slime-js-minor-mode 1)
   (local-set-key (kbd "M-SPC") 'tern-ac-complete)
   (local-unset-key (kbd "C-x C-e"))
   (local-set-key (kbd "C-x C-e") 'slime-js-send-defun)
@@ -32,8 +30,6 @@
 
 (defun configure-slime ()
   (interactive)
-  (require 'slime)
-  (require 'ac-slime)
   (set-up-slime-ac 1)
   (local-set-key (kbd ".") 'slime-ac-key)
   (local-set-key (kbd "M-SPC") 'ac-complete-slime))
