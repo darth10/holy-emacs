@@ -50,6 +50,7 @@
     popup
     rainbow-delimiters
     rainbow-mode
+    restclient
     rinari
     ruby-compilation
     ruby-electric
