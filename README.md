@@ -325,9 +325,11 @@ Requires Haskell platform and `haskell-doc`.
 
 Requires XDebug PHP extension.
 
-| Keys                                                            | God mode Keys  | Description                             |
-| --------------------------------------------------------------- | -------------- | --------------------------------------- |
-| <kbd>C-<f11></kbd> or <kbd>C-! C-d</kbd>                        | <kbd>!d</kbd>  | Start PHP debugger.                     |
+| Keys                                                            | God mode Keys  | Description                                 |
+| --------------------------------------------------------------- | -------------- | ------------------------------------------- |
+| <kbd>C-<f11></kbd> or <kbd>C-! C-d</kbd>                        | <kbd>!d</kbd>  | Start PHP debugger.                         |
+| <kbd>C-<f5></kbd>, <kbd>C-x C-a C-a</kbd> or <kbd>C-x a a</kbd> | <kbd>xaa</kbd> | Debug the PHP script in the active buffer.  |
+
 
 ### Ruby
 

@@ -3,8 +3,18 @@
 (require 'config-common)
 (require 'config-gud)
 
+(defun php-debug ()
+  (interactive)
+  (call-interactively 'geben)
+  (shell-command
+   (concat "XDEBUG_CONFIG='idekey=php-54' php "
+           (buffer-file-name) " &")))
+
 (defconfig configure-php
   (smartparens-mode)
+  (local-set-key (kbd "C-<f5>") 'php-debug)
+  (local-set-key (kbd "C-x C-a C-a") 'php-debug)
+  (local-set-key (kbd "C-x a a") 'php-debug)
   (local-set-key (kbd "C-! C-d") 'geben)
   (local-set-key (kbd "C-<f11>") 'geben))
 
