@@ -11,8 +11,9 @@
 
 (defun load-file-in-nrepl ()
   (interactive)
-  (cider-load-current-buffer)
-  (cider-switch-to-repl-buffer (cider-current-ns)))
+  (cider-load-buffer)
+  (cider-repl-set-ns (cider-current-ns))
+  (cider-switch-to-repl-buffer))
 
 (defconfig configure-clojure-keys ()
   (local-set-key (kbd "C-<f10>") 'cider-jack-in)
