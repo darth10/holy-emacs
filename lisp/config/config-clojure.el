@@ -32,7 +32,7 @@
 
 (defun configure-clojure-nrepl ()
   (paredit-mode)
-  ;; (ac-nrepl-setup)
+  (helm-mode -1)
   (configure-clojure))
 
 (eval-after-load "auto-complete"
