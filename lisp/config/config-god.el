@@ -28,6 +28,7 @@
 (add-to-list 'god-exempt-major-modes 'ibuffer-mode)
 (add-to-list 'god-exempt-major-modes 'org-agenda-mode)
 (add-to-list 'god-exempt-major-modes 'recentf-dialog-mode)
+(add-to-list 'god-exempt-major-modes 'eww-mode)
 
 (add-hook 'overwrite-mode-hook 'god-toggle-on-overwrite)
 
