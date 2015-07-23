@@ -318,3 +318,6 @@
 (setq wg-default-session-file "~/.emacs_workgroups")
 (setq wg-first-wg-name "default")
 (workgroups-mode 1)
+
+(require 'load-var-dir)
+(lvd-load-dir "~/.emacs.d/lisp/var/")
