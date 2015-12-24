@@ -7,8 +7,8 @@
           (and (boundp 'god-local-mode)
                god-local-mode))
          (cur-color
-          (cond (buffer-read-only "dark sea green")
-                (is-line-overflow "tan")
+          (cond (buffer-read-only "Gray")
+                (is-line-overflow "IndianRed")
                 (overwrite-mode "yellow")
                 (t "green")))
          (cur-type
@@ -22,7 +22,9 @@
                 (t 'bar))))
     (progn
       (setq cursor-type cur-type)
-      (set-cursor-color cur-color))))
+      (set-cursor-color cur-color)
+      (set-face-background 'mode-line cur-color)
+      (set-face-attribute 'mode-line-buffer-id nil :background cur-color))))
 
 (setq cursor-in-non-selected-windows nil)
 (add-hook 'post-command-hook 'configure-cursor)
