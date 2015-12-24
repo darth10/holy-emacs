@@ -105,11 +105,11 @@
 (defcustom sticky-control-shortcuts
   '((?x . "\C-x")
     (?c . "\C-c")
-    (?w . "\C-x\C-s")
+    (?w . "\C-s")
     (?f . "\C-x\C-f")
     (?X . "\C-x")
     (?C . "\C-c")
-    (?W . "\C-x\C-s")
+    (?W . "\C-s")
     (?F . "\C-x\C-f"))
 
   "Shortcuts available under `sticky-control-mode' which can reduce

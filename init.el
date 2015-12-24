@@ -11,6 +11,8 @@
 
 (global-unset-key (kbd "<f10>"))
 (global-unset-key (kbd "C-z"))
+(global-unset-key (kbd "C-s"))
+(global-unset-key (kbd "C-x C-s"))
 (global-unset-key (kbd "C-x C-c"))
 (global-unset-key (kbd "C-x a n"))
 
@@ -20,6 +22,8 @@
 (set-god-mode "<escape>" "S-<escape>")
 
 (global-set-key (kbd "C-x w") 'save-buffer)
+(global-set-key (kbd "C-s") 'save-buffer)
+(global-set-key (kbd "C-x C-s") 'isearch-forward)
 (global-set-key (kbd "C-x C-1") 'delete-other-windows)
 (global-set-key (kbd "C-x C-2") 'split-window-below)
 (global-set-key (kbd "C-x C-3") 'split-window-right)
@@ -29,6 +33,9 @@
 (global-set-key (kbd "C-x C-5 C-0") 'delete-frame)
 (global-set-key (kbd "C-x C-5 C-1") 'delete-other-frames)
 (global-set-key (kbd "C-x C-5 C-2") 'make-frame-command)
+
+(define-key isearch-mode-map (kbd "<f3>") 'isearch-repeat-forward)
+(define-key isearch-mode-map (kbd "S-<f3>") 'isearch-repeat-backward)
 
 ;; comment out this section to sticky control key
 (require 'config-sticky)
