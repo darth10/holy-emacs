@@ -16,7 +16,6 @@
 (global-unset-key (kbd "C-x C-c"))
 (global-unset-key (kbd "C-x a n"))
 
-;; god-mode
 ;; comment out this section to disable global god-mode
 (require 'config-god)
 (set-god-mode "<escape>" "S-<escape>")
@@ -45,7 +44,6 @@
 ;; highlight current line
 (add-hook 'prog-mode-hook 'hl-line-mode)
 
-;; rainbow parens
 (require 'rainbow-delimiters)
 (add-hook 'text-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
@@ -135,7 +133,6 @@
   (push "~/pymatter/bin/" exec-path)
   (push "/usr/bin/" exec-path))
 
-;; move regions
 (require 'regions)
 (global-set-key (kbd "M-<up>") 'move-line-region-up)
 (global-set-key (kbd "M-p") 'move-line-region-up)
@@ -149,7 +146,6 @@
 (setq auto-save-list-file-prefix backup-dir)
 (setq create-lockfiles nil)
 
-;; yasnippet
 (require 'yasnippet)
 (add-to-list 'yas-snippet-dirs "~/.emacs.d/data/snippets/")
 (yas-global-mode 1)
@@ -166,8 +162,9 @@
 (require 'config-ac)
 (require 'config-comment-annotations)
 (require 'config-cursor)
-(require 'config-modeline)
 (require 'config-hideshow)
+(require 'config-modeline)
+(set-mode-line-format)
 
 ;; language configurations
 (require 'config-js)
@@ -197,7 +194,6 @@
        (push "/opt/local/share/info" Info-default-directory-list)
        (push "~/.emacs.d/info" Info-default-directory-list))))
 
-;; multiple cursors
 (require 'multiple-cursors)
 (global-set-key (kbd "C-x <C-return>") 'mc/edit-lines)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
@@ -205,30 +201,22 @@
 (global-set-key (kbd "C-c C-<f3>") 'mc/mark-all-like-this)
 (global-set-key (kbd "C-c C->") 'mc/mark-all-like-this)
 
-;; lacarte menu
 (require 'lacarte)
 (menu-bar-mode -1)
 (global-set-key (kbd "ESC M-x") 'lacarte-execute-menu-command)
 
-;; yascroll
 (require 'yascroll)
 (scroll-bar-mode -1)
 (global-yascroll-bar-mode t)
 
-;; diff-hl
 (require 'diff-hl)
 (global-diff-hl-mode t)
 (global-set-key (kbd "C-x r =") 'interactive-diff-hl-update)
 
-;; expand region
 (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
 
 (require 'util)
-
-;; linux-only key bindings
-(unless (is-windows?)
-  (global-set-key (kbd "C-x ?") 'woman))
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-x C-c") 'confirm-and-kill-terminal)
@@ -279,8 +267,6 @@
 (global-set-key (kbd "C-x '") 'switch-to-scratch)
 (global-set-key (kbd "C-x C-'") 'switch-to-scratch-other-window)
 
-;;; Magit and vc
-
 (global-set-key (kbd "C-: C-s") 'magit-status)
 (global-set-key (kbd "C-: C-:") 'magit-status)
 (global-set-key (kbd "C-: :") 'magit-status)
@@ -307,18 +293,20 @@
 (global-set-key (kbd "C-' C-' C-c") 'camelCase-mode)
 (global-set-key (kbd "C-' ' c") 'camelCase-mode)
 
-;; Windows configuration
+;; Windows-only config
 (when (is-windows?)
   (setq w32-get-true-file-attributes nil)
   (w32-send-sys-command 61488))
 
+;; Linux-only config
+(unless (is-windows?)
+  (global-set-key (kbd "C-x ?") 'woman))
+
 (server-start)
 
-;; edit server
 (require 'edit-server)
 (edit-server-start)
 
-;;; desktop mode
 (desktop-save-mode 1)
 
 (require 'load-var-dir)
