@@ -147,6 +147,7 @@
 (setq backup-directory-alist `((".*" . ,backup-dir)))
 (setq auto-save-file-name-transforms `((".*" ,backup-dir t)))
 (setq auto-save-list-file-prefix backup-dir)
+(setq create-lockfiles nil)
 
 ;; yasnippet
 (require 'yasnippet)
