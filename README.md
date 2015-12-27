@@ -1,6 +1,6 @@
 ## Overview
 
-* Support for editing/debugging Clojure, Emacs Lisp, Scheme, C#, JavaScript, PHP, Ruby, Haskell and C.
+* Support for editing/debugging Clojure, Emacs Lisp, Scheme, C#, JavaScript, Haskell, Python, Ruby, PHP and C.
 * Uses `god-mode` to reduce keystrokes. All normal key bindings work in `god-mode` too; `god-mode` is only used to minimize the number of keys pressed.
 * Uses <kbd>j</kbd> as a sticky control key.
 * Identical (almost) bindings across different major modes.
