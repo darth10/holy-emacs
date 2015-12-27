@@ -195,67 +195,6 @@ these additional bindings have been defined.
 
 ## Mode-specific key bindings
 
-### Ediff
-
-| Keys                                 | Description                          |
-| ------------------------------------ | ------------------------------------ |
-| <kbd>M-↓</kbd> or <kbd>n</kbd>      | Next diff.                           |
-| <kbd>M-↑</kbd> or <kbd>p</kbd>      | Previous diff.                       |
-| <kbd>M-→</kbd> or <kbd>a</kbd>      | Move diff from left to right buffer. |
-| <kbd>M-←</kbd> or <kbd>b</kbd>      | Move diff from right to left buffer. |
-
-### dired-mode
-
-| Keys               | Description                            |
-| ------------------ | -------------------------------------- |
-| <kbd>C-x C-/</kbd> | Switch to editable (wdired-mode).      |
-
-### org-mode
-
-| Keys             | God mode Keys  | Description                                     |
-| ---------------- | -------------- | ----------------------------------------------- |
-| <kbd>C-x t</kbd> | <kbd>x t</kbd> | Show org-mode timeline.                         |
-| <kbd>C-c a</kbd> | <kbd>c a</kbd> | Show org-mode agenda.                           |
-| <kbd>C-c c</kbd> | <kbd>c c</kbd> | Capture org-mode template.                      |
-| <kbd>C-c l</kbd> | <kbd>c l</kbd> | Store org-mode link.                            |
-
-### Paredit mode
-
-| Keys                                                                   | God mode Keys     | Description                               |
-| ---------------------------------------------------------------------- | ----------------- | ----------------------------------------- |
-| <kbd>C-[ →</kbd> or <kbd>C-, C-f</kbd> or <kbd>C-, f</kbd>            | <kbd>,f</kbd>     | Slurp into current sexp from right.       |
-| <kbd>C-[ ←</kbd> or <kbd>C-, C-b</kbd> or <kbd>C-, b</kbd>            | <kbd>,b</kbd>     | Barf from current sexp from right.        |
-| <kbd>C-[ C-[ →</kbd>, <kbd>C-, C-, C-f</kbd> or <kbd>C-, , f</kbd>    | <kbd>,,f</kbd>    | Barf from current sexp from left.         |
-| <kbd>C-[ C-[ ←</kbd>, <kbd>C-, C-, C-b</kbd> or <kbd>C-, , b</kbd>    | <kbd>,,b</kbd>    | Slurp into current sexp from left.        |
-| <kbd>C-[ C-[ ↓</kbd>, <kbd>C-, C-k</kbd> or <kbd>C-, k</kbd>          | <kbd>,k</kbd>     | Splice current sexp by killing forward.   |
-| <kbd>C-[ C-[ ↑</kbd>, <kbd>C-, C-, C-k</kbd> or <kbd>C-, , k</kbd>    | <kbd>,,k</kbd>    | Splice current sexp by killing backward.  |
-
-### All Lisp modes
-
-Available in Clojure, Scheme and Emacs Lisp modes.
-
-| Keys                                     | God mode Keys | Description                              |
-| ---------------------------------------- | ------------- | ---------------------------------------- |
-| <kbd>C-x C-e</kbd>                       | <kbd>xe</kbd> | Evaluate last sexp.                      |
-| <kbd>C-c C-k</kbd>                       | <kbd>ck</kbd> | Evaluate current buffer.                 |
-| <kbd>C-c C-l</kbd>                       | <kbd>cl</kbd> | Load file.                               |
-| <kbd>C-F12</kbd> or <kbd>C-' C-s</kbd>   | <kbd>'s</kbd> | Toggle highlight s-expresion.            |
-
-### GUD mode
-
-Requires GUD debugger to be active.
-Supports `gdb` for C, `pdb` for Python, `ruby -r debug` for Ruby and XDebug for PHP.
-
-| Keys                                                              | God mode Keys        | Description                              |
-| ----------------------------------------------------------------- | -------------------- | ---------------------------------------- |
-| <kbd>F5</kbd>, <kbd>C-x C-a C-r</kbd> or <kbd>C-x a r</kbd>       | <kbd>xar</kbd>       | Resume or continue execution.            |
-| <kbd>F8</kbd>, <kbd>C-x C-a C-x C-r</kbd> or <kbd>C-x a x r</kbd> | <kbd>xaxr</kbd>      | Debug program/script.                    |
-| <kbd>F9</kbd>, <kbd>C-x C-a C-b</kbd> or <kbd>C-x a b</kbd>       | <kbd>xab</kbd>       | Set breakpoint.                          |
-| <kbd>S-F9</kbd>, <kbd>C-x C-a C-d</kbd> or <kbd>C-x a d</kbd>     | <kbd>xad</kbd>       | Delete breakpoint.                       |
-| <kbd>F10</kbd>, <kbd>C-x C-a C-n</kbd> or <kbd>C-x a n</kbd>      | <kbd>xan</kbd>       | Next statement.                          |
-| <kbd>F11</kbd>, <kbd>C-x C-a C-s</kbd> or <kbd>C-x a s</kbd>      | <kbd>xas</kbd>       | Step into statement.                     |
-| <kbd>S-F11</kbd>, <kbd>C-x C-a C-f</kbd> or <kbd>C-x a f</kbd>    | <kbd>xaf</kbd>       | Finish execution of current function.    |
-
 ### Clojure
 
 Requires [Leiningen](https://github.com/technomancy/leiningen).
@@ -276,7 +215,6 @@ Requires [Leiningen](https://github.com/technomancy/leiningen).
 | <kbd>C-F5</kbd>, <kbd>C-x C-a C-a</kbd> or <kbd>C-x a a</kbd>   | <kbd>xaa</kbd>       | Evaluate current buffer. When used in the `*scratch*` buffer, it evaluates and prints the last sexp. |
 | <kbd>C-F10</kbd> or <kbd>C-! C-r</kbd>                          | <kbd>!r</kbd>        | Open Eshell.                                                                                         |
 
-
 ### Scheme
 
 Requires Racket and/or Guile Scheme.
@@ -285,7 +223,6 @@ Requires Racket and/or Guile Scheme.
 | --------------------------------------------------------------- | -------------------- | ------------------------------------- |
 | <kbd>C-F5</kbd>, <kbd>C-x C-a C-a</kbd> or <kbd>C-x a a</kbd>   | <kbd>xaa</kbd>       | Evaluate current buffer in REPL.      |
 | <kbd>C-F10</kbd> or <kbd>C-! C-r</kbd>                          | <kbd>!r</kbd>        | Start Scheme REPL server and connect. |
-
 
 <h3> C# </h3>
 
@@ -321,15 +258,15 @@ Requires Haskell platform and `haskell-doc`.
 | <kbd>C-F5</kbd>, <kbd>C-x C-a C-a</kbd> or <kbd>C-x a a</kbd>   | <kbd>xaa</kbd> | Evaluate current buffer and switch to REPL. |
 | <kbd>C-F10</kbd> or <kbd>C-! C-r</kbd>                          | <kbd>!r</kbd>  | Start GHCi REPL.                            |
 
-### PHP
+### Python
 
-Requires XDebug PHP extension.
-
-| Keys                                                            | God mode Keys  | Description                                 |
-| --------------------------------------------------------------- | -------------- | ------------------------------------------- |
-| <kbd>C-F11</kbd> or <kbd>C-! C-d</kbd>                          | <kbd>!d</kbd>  | Start PHP debugger.                         |
-| <kbd>C-F5</kbd>, <kbd>C-x C-a C-a</kbd> or <kbd>C-x a a</kbd>   | <kbd>xaa</kbd> | Debug the PHP script in the active buffer.  |
-
+| Keys                                                            | God mode Keys  | Description                             |
+| --------------------------------------------------------------- | -------------- | --------------------------------------- |
+| <kbd>C-F5</kbd>, <kbd>C-x C-a C-a</kbd> or <kbd>C-x a a</kbd>   | <kbd>xaa</kbd> | Evaluate current buffer in REPL.        |
+| <kbd>C-F10</kbd> or <kbd>C-! C-r</kbd>                          | <kbd>!r</kbd>  | Start Python REPL.                      |
+| <kbd>C-F11</kbd> or <kbd>C-! C-d</kbd>                          | <kbd>!d</kbd>  | Start PDB debugger.                     |
+| <kbd>C-?</kbd>                                                  | <kbd>?</kbd>   | Show ri documentation for current word. |
+| <kbd>C-x T</kbd>                                                | <kbd>x T</kbd> | Run all tests via `rake test`.          |
 
 ### Ruby
 
@@ -342,24 +279,14 @@ Requires Ruby and `rake`.
 | <kbd>C-F10</kbd> or <kbd>C-! C-r</kbd>                          | <kbd>!r</kbd>  | Start irb REPL.                         |
 | <kbd>C-F11</kbd> or <kbd>C-! C-d</kbd>                          | <kbd>!d</kbd>  | Start Ruby debugger.                    |
 
-### Python
+### PHP
 
-| Keys                                                            | God mode Keys  | Description                             |
-| --------------------------------------------------------------- | -------------- | --------------------------------------- |
-| <kbd>C-F5</kbd>, <kbd>C-x C-a C-a</kbd> or <kbd>C-x a a</kbd>   | <kbd>xaa</kbd> | Evaluate current buffer in REPL.        |
-| <kbd>C-F10</kbd> or <kbd>C-! C-r</kbd>                          | <kbd>!r</kbd>  | Start Python REPL.                      |
-| <kbd>C-F11</kbd> or <kbd>C-! C-d</kbd>                          | <kbd>!d</kbd>  | Start PDB debugger.                     |
-| <kbd>C-?</kbd>                                                  | <kbd>?</kbd>   | Show ri documentation for current word. |
-| <kbd>C-x T</kbd>                                                | <kbd>x T</kbd> | Run all tests via `rake test`.          |
+Requires XDebug PHP extension.
 
-### gnuplot
-
-Requires gnuplot.
-
-| Keys                                                                                | God mode Keys                   | Description                             |
-| ----------------------------------------------------------------------------------- | ------------------------------- | --------------------------------------- |
-| <kbd>C-F5</kbd>, <kbd>C-c C-k</kbd>, <kbd>C-x C-a C-a</kbd> or <kbd>C-x a a</kbd>   | <kbd>ck</kbd> or <kbd>xaa</kbd> | Evaluate current buffer in REPL.        |
-| <kbd>C-F10</kbd>, <kbd>C-c C-z</kbd> or <kbd>C-! C-r</kbd>                          | <kbd>cz</kbd> or <kbd>!r</kbd>  | Show/start gnuplot REPL.                |
+| Keys                                                            | God mode Keys  | Description                                 |
+| --------------------------------------------------------------- | -------------- | ------------------------------------------- |
+| <kbd>C-F11</kbd> or <kbd>C-! C-d</kbd>                          | <kbd>!d</kbd>  | Start PHP debugger.                         |
+| <kbd>C-F5</kbd>, <kbd>C-x C-a C-a</kbd> or <kbd>C-x a a</kbd>   | <kbd>xaa</kbd> | Debug the PHP script in the active buffer.  |
 
 ### C
 
@@ -371,6 +298,76 @@ Available only on GNU/Linux.
 | <kbd>C-F10</kbd>, <kbd>C-! C-r</kbd> or <kbd>C-c C-z</kbd>       | <kbd>!r</kbd> or <kbd>cz</kbd> | Switch to `gdb` console buffer. |
 | <kbd>C-F11</kbd> or <kbd>C-! C-d</kbd>                           | <kbd>!d</kbd>                  | Start `gdb`.                    |
 | <kbd>C-F12</kbd>, <kbd>C-x C-a C-q</kbd> or <kbd>C-x a q</kbd>   | <kbd>xaq</kbd>                 | Display disassembly.            |
+
+### All Lisp modes
+
+Available in Clojure, Scheme and Emacs Lisp modes.
+
+| Keys                                     | God mode Keys | Description                              |
+| ---------------------------------------- | ------------- | ---------------------------------------- |
+| <kbd>C-x C-e</kbd>                       | <kbd>xe</kbd> | Evaluate last sexp.                      |
+| <kbd>C-c C-k</kbd>                       | <kbd>ck</kbd> | Evaluate current buffer.                 |
+| <kbd>C-c C-l</kbd>                       | <kbd>cl</kbd> | Load file.                               |
+| <kbd>C-F12</kbd> or <kbd>C-' C-s</kbd>   | <kbd>'s</kbd> | Toggle highlight s-expresion.            |
+
+### Paredit mode
+
+| Keys                                                                   | God mode Keys     | Description                               |
+| ---------------------------------------------------------------------- | ----------------- | ----------------------------------------- |
+| <kbd>C-[ →</kbd> or <kbd>C-, C-f</kbd> or <kbd>C-, f</kbd>            | <kbd>,f</kbd>     | Slurp into current sexp from right.       |
+| <kbd>C-[ ←</kbd> or <kbd>C-, C-b</kbd> or <kbd>C-, b</kbd>            | <kbd>,b</kbd>     | Barf from current sexp from right.        |
+| <kbd>C-[ C-[ →</kbd>, <kbd>C-, C-, C-f</kbd> or <kbd>C-, , f</kbd>    | <kbd>,,f</kbd>    | Barf from current sexp from left.         |
+| <kbd>C-[ C-[ ←</kbd>, <kbd>C-, C-, C-b</kbd> or <kbd>C-, , b</kbd>    | <kbd>,,b</kbd>    | Slurp into current sexp from left.        |
+| <kbd>C-[ C-[ ↓</kbd>, <kbd>C-, C-k</kbd> or <kbd>C-, k</kbd>          | <kbd>,k</kbd>     | Splice current sexp by killing forward.   |
+| <kbd>C-[ C-[ ↑</kbd>, <kbd>C-, C-, C-k</kbd> or <kbd>C-, , k</kbd>    | <kbd>,,k</kbd>    | Splice current sexp by killing backward.  |
+
+### GUD mode
+
+Requires GUD debugger to be active.
+Supports `gdb` for C, `pdb` for Python, `ruby -r debug` for Ruby and XDebug for PHP.
+
+| Keys                                                              | God mode Keys        | Description                              |
+| ----------------------------------------------------------------- | -------------------- | ---------------------------------------- |
+| <kbd>F5</kbd>, <kbd>C-x C-a C-r</kbd> or <kbd>C-x a r</kbd>       | <kbd>xar</kbd>       | Resume or continue execution.            |
+| <kbd>F8</kbd>, <kbd>C-x C-a C-x C-r</kbd> or <kbd>C-x a x r</kbd> | <kbd>xaxr</kbd>      | Debug program/script.                    |
+| <kbd>F9</kbd>, <kbd>C-x C-a C-b</kbd> or <kbd>C-x a b</kbd>       | <kbd>xab</kbd>       | Set breakpoint.                          |
+| <kbd>S-F9</kbd>, <kbd>C-x C-a C-d</kbd> or <kbd>C-x a d</kbd>     | <kbd>xad</kbd>       | Delete breakpoint.                       |
+| <kbd>F10</kbd>, <kbd>C-x C-a C-n</kbd> or <kbd>C-x a n</kbd>      | <kbd>xan</kbd>       | Next statement.                          |
+| <kbd>F11</kbd>, <kbd>C-x C-a C-s</kbd> or <kbd>C-x a s</kbd>      | <kbd>xas</kbd>       | Step into statement.                     |
+| <kbd>S-F11</kbd>, <kbd>C-x C-a C-f</kbd> or <kbd>C-x a f</kbd>    | <kbd>xaf</kbd>       | Finish execution of current function.    |
+
+### dired-mode
+
+| Keys               | Description                            |
+| ------------------ | -------------------------------------- |
+| <kbd>C-x C-/</kbd> | Switch to editable (wdired-mode).      |
+
+### Ediff
+
+| Keys                                 | Description                          |
+| ------------------------------------ | ------------------------------------ |
+| <kbd>M-↓</kbd> or <kbd>n</kbd>      | Next diff.                           |
+| <kbd>M-↑</kbd> or <kbd>p</kbd>      | Previous diff.                       |
+| <kbd>M-→</kbd> or <kbd>a</kbd>      | Move diff from left to right buffer. |
+| <kbd>M-←</kbd> or <kbd>b</kbd>      | Move diff from right to left buffer. |
+
+### org-mode
+
+| Keys             | God mode Keys  | Description                                     |
+| ---------------- | -------------- | ----------------------------------------------- |
+| <kbd>C-x t</kbd> | <kbd>x t</kbd> | Show org-mode timeline.                         |
+| <kbd>C-c a</kbd> | <kbd>c a</kbd> | Show org-mode agenda.                           |
+| <kbd>C-c c</kbd> | <kbd>c c</kbd> | Capture org-mode template.                      |
+| <kbd>C-c l</kbd> | <kbd>c l</kbd> | Store org-mode link.                            |
+
+### gnuplot
+
+Requires gnuplot.
+
+| Keys                                                                                | God mode Keys                   | Description                             |
+| ----------------------------------------------------------------------------------- | ------------------------------- | --------------------------------------- |
+| <kbd>C-F5</kbd>, <kbd>C-c C-k</kbd>, <kbd>C-x C-a C-a</kbd> or <kbd>C-x a a</kbd>   | <kbd>ck</kbd> or <kbd>xaa</kbd> | Evaluate current buffer in REPL.        |
+| <kbd>C-F10</kbd>, <kbd>C-c C-z</kbd> or <kbd>C-! C-r</kbd>                          | <kbd>cz</kbd> or <kbd>!r</kbd>  | Show/start gnuplot REPL.                |
 
 ### HTML
 
