@@ -1,18 +1,18 @@
 ## Overview
 
 * Support for editing/debugging Clojure, Emacs Lisp, Scheme, C#, JavaScript, PHP, Ruby, Haskell and C.
-* Uses God mode to reduce keystrokes. All normal key bindings work in God mode too; God mode is only used to minimize the number of keys pressed.
+* Uses `god-mode` to reduce keystrokes. All normal key bindings work in `god-mode` too; `god-mode` is only used to minimize the number of keys pressed.
 * Uses <kbd>j</kbd> as a sticky control key.
 * Identical (almost) bindings across different major modes.
 * Installs all required packages from GNU, Marmalade and MELPA repositories on startup.
-* Includes helm, yasnippet and autocomplete.
-* Git integration via magit.
-* File and project search via ag.
+* Includes `helm`, `yasnippet` and `autocomplete`.
+* Git integration via `magit`.
+* File and project search via `ag`.
 * Manage sessions and buffers via `desktop-save-mode`.
 * Quickly move regions using <kbd>M-↑</kbd> and <kbd>M-↓</kbd> like in Eclipse.
-* Quickly create and navigate across bookmarks via breadcrumb.
+* Quickly create and navigate across bookmarks via `breadcrumb`.
 * Automatically saves backup files to `~/.emacs-saves/`.
-* Recomile entire `~/.emacs.d` using the `rebuild` function.
+* Recompile entire `~/.emacs.d` using the `rebuild` function.
 * Remember that the meta (<kbd>M-</kbd>) modifier is the same as prefixing the <kbd>C-[</kbd> key.
 
 ## Scripts
@@ -45,7 +45,7 @@ Press the <kbd>j</kbd> key twice in quick succession to emulate the control (<kb
 If the <kbd>j</kbd> key is pressed while editing text, there will be a slight delay before it is shown in the buffer.
 There are a few additional bindings that use a single quick <kbd>j</kbd> prefix.
 All of these functions still have their original key bindings bound to them.
-God mode does not affect the <kbd>j</kbd> sticky control key.
+`god-mode` does not affect the <kbd>j</kbd> sticky control key.
 You can always toggle this feature using <kbd>C-`</kbd>.
 
 * <kbd>jx</kbd> emulates the <kbd>C-x</kbd> prefix.
