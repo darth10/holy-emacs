@@ -15,3 +15,5 @@ url/*
 recentf
 .cask/
 /geben/
+/.emacs.desktop
+/.emacs.desktop.lock

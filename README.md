@@ -8,7 +8,7 @@
 * Includes helm, yasnippet and autocomplete.
 * Git integration via magit.
 * File and project search via ag.
-* Manage sessions via workgroups.
+* Manage sessions and buffers via `desktop-save-mode`.
 * Quickly move regions using <kbd>M-↑</kbd> and <kbd>M-↓</kbd> like in Eclipse.
 * Quickly create and navigate across bookmarks via breadcrumb.
 * Automatically saves backup files to `~/.emacs-saves/`.
@@ -167,16 +167,6 @@ these additional bindings have been defined.
 | <kbd>C-c C-: C-→</kbd>, <kbd>C-c C-: C-f</kbd>, <kbd>C-c : →</kbd> or <kbd>C-c : f</kbd>           | <kbd>c:f</kbd> | Move to next bookmark.                       |
 | <kbd>C-c C-: C-↑</kbd>, <kbd>C-c C-: C-p</kbd>, <kbd>C-c : ↑</kbd> or <kbd>C-c : p</kbd>           | <kbd>c:p</kbd> | Move to previous bookmark in current buffer. |
 | <kbd>C-c C-: C-↓</kbd>, <kbd>C-c C-: C-n</kbd>, <kbd>C-c : ↓</kbd> or <kbd>C-c : n</kbd>           | <kbd>c:n</kbd> | Move to next bookmark in current buffer.     |
-
-### Workgroups
-
-| Keys                          | God mode Keys    | Description                 |
-| ----------------------------- | ---------------- | --------------------------  |
-| <kbd>C-x C-: C-v</kbd>        | <kbd>x:v</kbd>   | Switch to workgroup.        |
-| <kbd>C-x C-: C-a</kbd>        | <kbd>x:a</kbd>   | Switch to next workgroup.   |
-| <kbd>C-x C-: C-c</kbd>        | <kbd>x:c</kbd>   | Create a new workgroup.     |
-| <kbd>C-x C-: C-k</kbd>        | <kbd>x:k</kbd>   | Kill workgroup.             |
-| <kbd>C-x C-: ?</kbd>          | <kbd>x: ?</kbd>  | Show help for workgroups.xs |
 
 ### Code folding
 

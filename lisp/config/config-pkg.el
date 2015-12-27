@@ -64,7 +64,6 @@
     tern
     tern-auto-complete
     web-mode
-    workgroups2
     yaml-mode
     yari
     yascroll

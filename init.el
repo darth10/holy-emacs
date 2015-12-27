@@ -314,17 +314,11 @@
 (server-start)
 
 ;; edit server
-
 (require 'edit-server)
 (edit-server-start)
 
-;; workgroups
-;; make sure this is started last for performance
-(require 'workgroups2)
-(setq wg-prefix-key (kbd "C-x C-:"))
-(setq wg-default-session-file "~/.emacs_workgroups")
-(setq wg-first-wg-name "default")
-(workgroups-mode 1)
+;;; desktop mode
+(desktop-save-mode 1)
 
 (require 'load-var-dir)
 (lvd-load-dir "~/.emacs.d/lisp/var/")
