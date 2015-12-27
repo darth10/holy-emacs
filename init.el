@@ -211,7 +211,7 @@
 
 ;; yascroll
 (require 'yascroll)
-(toggle-scroll-bar -1)
+(scroll-bar-mode -1)
 (global-yascroll-bar-mode t)
 
 ;; diff-hl
