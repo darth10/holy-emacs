@@ -74,6 +74,12 @@
  '(echo-keystrokes 0.05)
  '(js-auto-indent-flag t)
  '(js-indent-level 2)
+ '(org-agenda-files
+   (quote
+    ("~/Dropbox/org/TODO.org"
+     "~/Dropbox/org/birthdays.org"
+     "~/Dropbox/org/M-clj.org"
+     )))
  '(rainbow-delimiters-highlight-braces-p nil)
  '(rainbow-delimiters-highlight-brackets-p nil)
  '(show-paren-mode t)
@@ -257,7 +263,11 @@
 (global-set-key (kbd "C-|") 'move-to-window)
 (global-set-key (kbd "C-?") 'info-lookup-symbol)
 (global-set-key (kbd "C-c (") 'paredit-mode)
+(global-set-key (kbd "C-c C-(") 'paredit-mode)
 (global-set-key (kbd "C-c b") 'org-iswitchb)
+(global-set-key (kbd "C-c C-b") 'org-iswitchb)
+(global-set-key (kbd "C-c n") 'org-agenda)
+(global-set-key (kbd "C-c C-n") 'org-agenda)
 (global-set-key (kbd "C-c C-\\") 'just-one-space)
 (global-set-key (kbd "C-c \\") 'just-one-space)
 (global-set-key (kbd "<f6>") 'match-paren)
