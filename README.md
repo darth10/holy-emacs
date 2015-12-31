@@ -189,9 +189,10 @@ these additional bindings have been defined.
 
 ### org-mode
 
-| Keys             | God mode Keys  | Description              |
-| ---------------- | -------------  | ------------------------ |
-| <kbd>C-c b</kbd> | <kbd>c b</kbd> | List org-mode buffers.   |
+| Keys                                   | God mode Keys                   | Description              |
+| -------------------------------------- | ------------------------------- | ------------------------ |
+| <kbd>C-c C-n</kbd> or <kbd>C-c b</kbd> | <kbd>cn</kbd> or <kbd>c n</kbd> | Show agenda.             |
+| <kbd>C-c C-b</kbd> or <kbd>C-c b</kbd> | <kbd>cb</kbd> or <kbd>c b</kbd> | List org-mode buffers.   |
 
 ## Mode-specific key bindings
 
@@ -353,12 +354,11 @@ Supports `gdb` for C, `pdb` for Python, `ruby -r debug` for Ruby and XDebug for 
 
 ### org-mode
 
-| Keys             | God mode Keys  | Description                                     |
-| ---------------- | -------------- | ----------------------------------------------- |
-| <kbd>C-x t</kbd> | <kbd>x t</kbd> | Show org-mode timeline.                         |
-| <kbd>C-c a</kbd> | <kbd>c a</kbd> | Show org-mode agenda.                           |
-| <kbd>C-c c</kbd> | <kbd>c c</kbd> | Capture org-mode template.                      |
-| <kbd>C-c l</kbd> | <kbd>c l</kbd> | Store org-mode link.                            |
+| Keys                                   | God mode Keys                   | Description                                     |
+| -------------------------------------- | ------------------------------- | ----------------------------------------------- |
+| <kbd>C-c C-t</kbd> or <kbd>C-c t</kbd> | <kbd>ct</kbd> or <kbd>c t</kbd> | Show org-mode timeline.                         |
+| <kbd>C-c c</kbd>                       | <kbd>c c</kbd>                  | Capture org-mode template.                      |
+| <kbd>C-c l</kbd>                       | <kbd>c l</kbd>                  | Store org-mode link.                            |
 
 ### gnuplot
 
