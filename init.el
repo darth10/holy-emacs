@@ -3,7 +3,6 @@
 (add-to-list 'load-path "~/.emacs.d/lisp/config/")
 
 (require 'config-common)
-(toggle-uniquify-buffer-names)
 
 ;; check for packages to install
 (require 'config-pkg)
@@ -317,9 +316,8 @@
 (unless (is-windows?)
   (global-set-key (kbd "C-x ?") 'woman))
 
-(server-start)
-
 (require 'edit-server)
+(server-start)
 (edit-server-start)
 
 (desktop-save-mode 1)
