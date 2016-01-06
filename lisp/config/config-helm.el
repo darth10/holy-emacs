@@ -3,7 +3,6 @@
 (require 'helm)
 (require 'helm-config)
 (require 'helm-files)
-(require 'helm-git-files)
 (require 'helm-swoop)
 
 (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
