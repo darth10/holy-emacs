@@ -18,6 +18,7 @@
     dired-details
     dired-details+
     direx
+    dockerfile-mode
     edit-server
     expand-region
     find-file-in-project
@@ -29,6 +30,7 @@
     gnuplot
     gnuplot-mode
     god-mode
+    handlebars-mode
     haskell-mode
     helm
     helm-ls-git
