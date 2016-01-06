@@ -153,6 +153,10 @@
 (setq auto-save-list-file-prefix backup-dir)
 (setq create-lockfiles nil)
 
+;; always split vertically
+(setq split-height-threshold 0)
+(setq split-width-threshold nil)
+
 (require 'yasnippet)
 (add-to-list 'yas-snippet-dirs "~/.emacs.d/data/snippets/")
 (yas-global-mode 1)
