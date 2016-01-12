@@ -58,6 +58,7 @@
     ruby-electric
     ruby-mode
     rvm
+    solarized-theme
     scala-mode2
     slime
     slime-js

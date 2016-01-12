@@ -47,30 +47,27 @@
 (add-hook 'text-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
+(setq solarized-use-variable-pitch nil)
+(setq solarized-scale-org-headlines nil)
+(setq solarized-distinct-fringe-background t)
+
 (custom-set-variables
- '(ansi-color-names-vector ["#242424" "#e5786d" "#95e454" "#cae682"
-                            "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
+ '(ansi-color-names-vector
+   ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
  '(blink-cursor-mode t)
  '(column-number-mode t)
- '(custom-enabled-themes (quote (wombat)))
+ '(custom-enabled-themes (quote (solarized-dark)))
  '(custom-safe-themes
-   (quote ("3d84717766913e2deb8cadf7ddee8d64db1a6bcc4de7e4e36fc1bcca8727ded5"
-           "915cfe1e618f69b4eecd8decc182cd97e5b88b675a6d8c54b18fdcc84c4b14a7"
-           "d360b815962bdfb45c4f77dfb9a60d2c9efc72eeb52f96b781201bb271a665b6"
-           "c6174d0904327dc80cf2615340d4ff773e7cb28d295d51b41b0aa78385a5c54a"
-           "cef9254a1332af631898cf793fe3b3081685088db57001899c6ab3148f4cdc85"
-           "79757ce4abcf1d7bbc7698215a7c4a73f0c4a35118a8f9106ebb1bbcf6d5a693"
-           "af07043eef48c8b9868add839d195e78dc21ba7d63a9fd1be3db47ec3cecb860"
-           "446ea630982d51dd3ee7bbb813151a72f2246b2646a2198564b9b8106de8f155"
-           "7641335320fa8e6a311491f58f0e5c3733b44a7936148d4349381d119f6cca83"
-           "946efabf968fa25ced521351c5901a378cad402669cbce92b72983cd852cd750"
-           default)))
+   (quote
+    ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" "3d84717766913e2deb8cadf7ddee8d64db1a6bcc4de7e4e36fc1bcca8727ded5" "915cfe1e618f69b4eecd8decc182cd97e5b88b675a6d8c54b18fdcc84c4b14a7" "d360b815962bdfb45c4f77dfb9a60d2c9efc72eeb52f96b781201bb271a665b6" "c6174d0904327dc80cf2615340d4ff773e7cb28d295d51b41b0aa78385a5c54a" "cef9254a1332af631898cf793fe3b3081685088db57001899c6ab3148f4cdc85" "79757ce4abcf1d7bbc7698215a7c4a73f0c4a35118a8f9106ebb1bbcf6d5a693" "af07043eef48c8b9868add839d195e78dc21ba7d63a9fd1be3db47ec3cecb860" "446ea630982d51dd3ee7bbb813151a72f2246b2646a2198564b9b8106de8f155" "7641335320fa8e6a311491f58f0e5c3733b44a7936148d4349381d119f6cca83" "946efabf968fa25ced521351c5901a378cad402669cbce92b72983cd852cd750" default)))
+ '(echo-keystrokes 0.05)
+ '(ediff-split-window-function (quote split-window-horizontally))
+ '(ediff-window-setup-function (quote ediff-setup-windows-plain))
  '(fancy-splash-image nil)
  '(hl-sexp-background-colors (quote ("gray27" "midnight blue")))
  '(inhibit-default-init t)
  '(inhibit-startup-screen t)
  '(initial-scratch-message nil)
- '(echo-keystrokes 0.05)
  '(js-auto-indent-flag t)
  '(js-indent-level 2)
  '(org-agenda-files
@@ -83,18 +80,14 @@
  '(rainbow-delimiters-highlight-braces-p nil)
  '(rainbow-delimiters-highlight-brackets-p nil)
  '(show-paren-mode t)
- '(ediff-split-window-function (quote split-window-horizontally))
- '(ediff-window-setup-function (quote ediff-setup-windows-plain))
  '(term-default-bg-color "#000000")
  '(term-default-fg-color "#00ff00")
  '(tool-bar-mode nil))
 
 (custom-set-faces
- '(cursor ((t (:background "green"))))
- '(default ((t (:background "black" :foreground "green"
-                            :foundry "monotype" :slant normal :weight normal
-                            :height 130 :width normal))))
+ '(default ((t (:foundry "monotype" :slant normal :weight normal :height 130 :width normal))))
  '(button ((t (:background "green" :foreground "black"))))
+ '(cursor ((t (:background "green"))))
  '(escape-glyph ((t (:foreground "#ddaa6f" :weight bold))))
  '(header-line ((((class color) (min-colors 89))
                  (:background "#303030" :foreground "#e7f6da"))))
