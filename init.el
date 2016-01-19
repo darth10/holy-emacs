@@ -51,6 +51,10 @@
 (setq solarized-scale-org-headlines nil)
 (setq solarized-distinct-fringe-background t)
 
+(set-face-background 'show-paren-match "Dodgerblue1")
+(set-face-foreground 'show-paren-match "white")
+(set-face-attribute 'show-paren-match nil :weight 'extra-bold)
+
 (custom-set-variables
  '(ansi-color-names-vector
    ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
@@ -92,11 +96,6 @@
  '(header-line ((((class color) (min-colors 89))
                  (:background "#303030" :foreground "#e7f6da"))))
  '(helm-ff-directory ((t (:background "LightGray" :foreground "black"))))
- '(helm-header ((t (:background "black" :foreground "dim gray"))))
- '(helm-separator ((t (:foreground "gray"))))
- '(helm-source-header
-   ((t (:background "green" :foreground "black"
-                    :weight bold :height 1.0 :family "Courier New"))))
  '(highlight ((t (:background "#454545" :foreground "#ffffff"))))
  '(hl-line ((t (:background "gray27" :foreground "green"))))
  '(isearch ((t (:background "green" :foreground "black"))))
