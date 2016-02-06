@@ -36,6 +36,7 @@
     helm-ls-git
     helm-swoop
     highlight
+    highlight-symbol
     idle-highlight-mode
     inflections
     inf-ruby

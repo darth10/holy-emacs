@@ -50,10 +50,7 @@
 (setq solarized-use-variable-pitch nil)
 (setq solarized-scale-org-headlines nil)
 (setq solarized-distinct-fringe-background t)
-
-(set-face-background 'show-paren-match "Dodgerblue1")
-(set-face-foreground 'show-paren-match "white")
-(set-face-attribute 'show-paren-match nil :weight 'extra-bold)
+(setq x-underline-at-descent-line t)
 
 (custom-set-variables
  '(ansi-color-names-vector
@@ -96,7 +93,9 @@
  '(header-line ((((class color) (min-colors 89))
                  (:background "#303030" :foreground "#e7f6da"))))
  '(helm-ff-directory ((t (:background "LightGray" :foreground "black"))))
+ '(helm-swoop-target-word-face ((t (:foreground "green"))))
  '(highlight ((t (:background "#454545" :foreground "#ffffff"))))
+ '(highlight-symbol-face ((t (:foreground "green"))))
  '(hl-line ((t (:background "gray27" :foreground "green"))))
  '(isearch ((t (:background "green" :foreground "black"))))
  '(lazy-highlight ((((class color) (min-colors 89))
@@ -104,7 +103,7 @@
  '(minibuffer-prompt ((t (:foreground "green"))))
  '(mode-line ((t (:background "green1" :foreground "black"))))
  '(mode-line-buffer-id ((t (:background "green" :foreground "black"
-                                        :weight bold :height 0.9))))
+					:weight bold))))
  '(mode-line-inactive ((t (:background "dimgray" :foreground "black"))))
  '(rainbow-delimiters-depth-1-face ((t (:foreground "light sky blue"))))
  '(rainbow-delimiters-depth-2-face ((t (:foreground "royal blue"))))
@@ -120,9 +119,13 @@
  '(yascroll:thumb-fringe
    ((t (:background "lawn green" :foreground "lawn green")))))
 
+(set-face-background 'show-paren-match "Dodgerblue1")
+(set-face-foreground 'show-paren-match "white")
+(set-face-attribute 'show-paren-match nil :weight 'extra-bold)
+
 ;; custom font
 (require 'font-utils)
-(defconst config-custom-font "Matrix")
+(defconst config-custom-font "Courier Prime Code")
 (progn
   (when (font-utils-exists-p config-custom-font)
     (set-frame-font config-custom-font nil t)))
