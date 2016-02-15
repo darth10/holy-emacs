@@ -222,6 +222,7 @@
 (global-set-key (kbd "C-=") 'er/expand-region)
 
 (require 'util)
+(kill-line-utils-init)
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-x C-c") 'confirm-and-kill-terminal)

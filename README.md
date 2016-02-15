@@ -62,6 +62,7 @@ Some of the default Emacs key bindings are changed, as follows.
 * <kbd>C-x a n</kbd> and <kbd>F10</kbd> don't have their usual behaviour, as they are used by GUD key bindings.
 * <kbd>M-SPC</kbd> doesn't call `just-one-space`, and is used for auto-completion. Use <kbd>C-c \\</kbd> or <kbd>C-c C-\\</kbd> instead.
 * <kbd>C-z</kbd> doesn't minimize Emacs.
+* When no region is selected, <kbd>C-w</kbd> will kill the current line and <kbd>M-w</kbd> will copy the current line.
 
 
 ## Global key bindings
