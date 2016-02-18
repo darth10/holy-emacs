@@ -6,7 +6,6 @@
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/data/ac-dict")
 (ac-config-default)
 (setq ac-delay 0.3)
-(global-auto-complete-mode t)
 
 (define-key ac-complete-mode-map "\t" 'ac-complete)
 (define-key ac-complete-mode-map "\r" nil)

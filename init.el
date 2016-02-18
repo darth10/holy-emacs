@@ -317,7 +317,10 @@
 (column-number-mode 1)
 (show-paren-mode 1)
 (yas-global-mode 1)
+(recentf-mode 1)
 (global-yascroll-bar-mode 1)
+(global-auto-complete-mode 1)
 (global-diff-hl-mode 1)
 (global-hl-symbol-mode 1)
+
 (desktop-save-mode 1)

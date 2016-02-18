@@ -3,7 +3,6 @@
 (require 'recentf)
 (require 'breadcrumb)
 
-(recentf-mode 1)
 (setq recentf-max-menu-items 40)
 
 (defun bc-clear-and-msg ()
