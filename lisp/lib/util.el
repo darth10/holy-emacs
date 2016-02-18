@@ -1,6 +1,7 @@
 ;;; Some utility functions
 
 (require 'diff-hl)
+(require 'highlight-symbol)
 
 (defconst scratch-buffer-name "*scratch*")
 
@@ -130,5 +131,10 @@
 	 (if (use-region-p)
 	     (list (region-beginning) (region-end))
 	   (list (line-beginning-position) (line-beginning-position 2))))))
+
+(define-globalized-minor-mode
+  global-hl-symbol-mode
+  highlight-symbol-mode
+  (lambda () (highlight-symbol-mode 1)))
 
 (provide 'util)

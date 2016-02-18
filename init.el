@@ -55,8 +55,6 @@
 (custom-set-variables
  '(ansi-color-names-vector
    ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
- '(blink-cursor-mode t)
- '(column-number-mode t)
  '(custom-enabled-themes (quote (solarized-dark)))
  '(custom-safe-themes
    (quote
@@ -80,10 +78,8 @@
      )))
  '(rainbow-delimiters-highlight-braces-p nil)
  '(rainbow-delimiters-highlight-brackets-p nil)
- '(show-paren-mode t)
  '(term-default-bg-color "#000000")
- '(term-default-fg-color "#00ff00")
- '(tool-bar-mode nil))
+ '(term-default-fg-color "#00ff00"))
 
 (custom-set-faces
  '(default ((t (:foundry "monotype" :slant normal :weight normal :height 130 :width normal))))
@@ -153,7 +149,6 @@
 
 (require 'yasnippet)
 (add-to-list 'yas-snippet-dirs "~/.emacs.d/data/snippets/")
-(yas-global-mode 1)
 
 ;; mode configurations
 (require 'config-paredit)
@@ -207,15 +202,11 @@
 (global-set-key (kbd "C-c C->") 'mc/mark-all-like-this)
 
 (require 'lacarte)
-(menu-bar-mode -1)
 (global-set-key (kbd "ESC M-x") 'lacarte-execute-menu-command)
 
 (require 'yascroll)
-(scroll-bar-mode -1)
-(global-yascroll-bar-mode t)
 
 (require 'diff-hl)
-(global-diff-hl-mode t)
 (global-set-key (kbd "C-x r =") 'interactive-diff-hl-update)
 
 (require 'expand-region)
@@ -316,7 +307,17 @@
 (server-start)
 (edit-server-start)
 
-(desktop-save-mode 1)
-
 (require 'load-var-dir)
 (lvd-load-dir "~/.emacs.d/lisp/var/")
+
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+(scroll-bar-mode -1)
+(blink-cursor-mode 1)
+(column-number-mode 1)
+(show-paren-mode 1)
+(yas-global-mode 1)
+(global-yascroll-bar-mode 1)
+(global-diff-hl-mode 1)
+(global-hl-symbol-mode 1)
+(desktop-save-mode 1)
