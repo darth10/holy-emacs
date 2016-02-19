@@ -360,6 +360,7 @@ Supports `gdb` for C, `pdb` for Python, `ruby -r debug` for Ruby and XDebug for 
 | <kbd>C-c C-t</kbd> or <kbd>C-c t</kbd> | <kbd>ct</kbd> or <kbd>c t</kbd> | Show org-mode timeline.                         |
 | <kbd>C-c c</kbd>                       | <kbd>c c</kbd>                  | Capture org-mode template.                      |
 | <kbd>C-c l</kbd>                       | <kbd>c l</kbd>                  | Store org-mode link.                            |
+| <kbd>C-x C-e</kbd>                     | <kbd>x e</kbd>                  | Recalculate current table.                      |
 
 ### gnuplot
 

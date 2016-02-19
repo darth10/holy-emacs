@@ -18,6 +18,7 @@
   (local-set-key (kbd "C-c l") 'org-store-link)
   (local-set-key (kbd "C-c c") 'org-capture)
   (local-set-key (kbd "C-c a") 'org-agenda)
+  (local-set-key (kbd "C-x C-e") (kbd "C-u C-c *"))
   (local-set-key (kbd "M-p") 'org-metaup)
   (local-set-key (kbd "M-n") 'org-metadown))
 
