@@ -40,11 +40,7 @@
 (global-set-key (kbd "C-`") 'sticky-control-mode)
 (set-sticky-mode ?j)
 
-;; highlight current line
-(add-hook 'prog-mode-hook 'hl-line-mode)
-
 (require 'rainbow-delimiters)
-(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 (setq solarized-use-variable-pitch nil)
 (setq solarized-scale-org-headlines nil)
