@@ -44,7 +44,6 @@
 (add-hook 'prog-mode-hook 'hl-line-mode)
 
 (require 'rainbow-delimiters)
-(add-hook 'text-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 (setq solarized-use-variable-pitch nil)
@@ -310,6 +309,10 @@
 (require 'load-var-dir)
 (lvd-load-dir "~/.emacs.d/lisp/var/")
 
+(add-hook 'prog-mode-hook 'hl-line-mode)
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'prog-mode-hook 'highlight-symbol-mode)
+
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
@@ -321,6 +324,5 @@
 (global-yascroll-bar-mode 1)
 (global-auto-complete-mode 1)
 (global-diff-hl-mode 1)
-(global-hl-symbol-mode 1)
 
 (desktop-save-mode 1)
