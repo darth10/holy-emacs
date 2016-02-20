@@ -90,6 +90,8 @@
 (global-set-key (kbd "C-' ' q") 'auto-fill-mode)
 (global-set-key (kbd "C-' C-' C-c") 'camelCase-mode)
 (global-set-key (kbd "C-' C-' C-q") 'auto-fill-mode)
+(global-set-key (kbd "C-' .") 'highlight-symbol-mode)
+(global-set-key (kbd "C-' C-.") 'highlight-symbol-mode)
 (global-set-key (kbd "C-' C-l") 'hl-line-mode)
 (global-set-key (kbd "C-' C-n") 'linum-mode)
 (global-set-key (kbd "C-' C-w") 'toggle-truncate-lines)

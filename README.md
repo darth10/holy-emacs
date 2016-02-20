@@ -99,8 +99,12 @@ Some of the default Emacs key bindings are changed, as follows.
 | <kbd>C-F4</kbd>, <kbd>C-' C-l</kbd> or <kbd>C-' l</kbd>         | <kbd>'l</kbd>                   | Toggle highlight current line.                                                                                               |
 | <kbd>C-F6</kbd>, <kbd>C-' C-n</kbd> or <kbd>C-' n</kbd>         | <kbd>'n</kbd>                   | Toggle line numbers.                                                                                                         |
 | <kbd>C-F9</kbd>, <kbd>C-' C-w</kbd> or <kbd>C-' w</kbd>         | <kbd>'w</kbd>                   | Toggle truncate lines (word wrapping).                                                                                       |
-| <kbd>C-c (</kbd>                                                | <kbd>c (</kbd>                  | Toggle paredit-mode. Useful for editing Lisp code.                                                                           |
+| <kbd>C-F9</kbd>, <kbd>C-' C-w</kbd> or <kbd>C-' w</kbd>         | <kbd>'w</kbd>                   | Toggle truncate lines (word wrapping).                                                                                       |
+| <kbd>C-' C-' C-a</kbd> or <kbd>C-' ' a</kbd>                    | <kbd>''a</kbd>                  | Toggle auto-completion.                                                                                                      |
+| <kbd>C-' C-' C-q</kbd> or <kbd>C-' ' q</kbd>                    | <kbd>''q</kbd>                  | Toggle auto fill mode.                                                                                                       |
 | <kbd>C-' C-' C-c</kbd> or <kbd>C-' ' c</kbd>                    | <kbd>''c</kbd>                  | Toggle camel-case mode.                                                                                                      |
+| <kbd>C-' C-.</kbd> or <kbd>C-' .</kbd>                          | <kbd>'.</kbd>                   | Toggle highlighting current symbol.                                                                                          |
+| <kbd>C-c (</kbd>                                                | <kbd>c (</kbd>                  | Toggle paredit-mode. Useful for editing Lisp code.                                                                           |
 | <kbd>C-S-\\</kbd>                                               | <kbd>S-\\</kbd>                 | Move to window.                                                                                                              |
 | <kbd>C-+</kbd>                                                  | <kbd>+</kbd>                    | Interactively resize current window.                                                                                         |
 | <kbd>C-?</kbd>                                                  | <kbd>?</kbd>                    | Look up any documentation. Changes behaviour depending on major mode, and defaults to available info documentation.          |
@@ -116,8 +120,6 @@ Some of the default Emacs key bindings are changed, as follows.
 | <kbd>C-x C-j</kbd>                                              | <kbd>xj</kbd>                   | Show directory.                                                                                                              |
 | <kbd>C-c C-j</kbd>                                              | <kbd>cj</kbd>                   | Show directory explorer.                                                                                                     |
 | <kbd>C-c C-\\</kbd> or <kbd>C-c \\</kbd>                        | <kbd>c\\</kbd>                  | Delete all spaces leaving one space.                                                                                         |
-| <kbd>C-' C-' C-a</kbd> or <kbd>C-' ' a</kbd>                    | <kbd>''a</kbd>                  | Toggle auto-completion.                                                                                                      |
-| <kbd>C-' C-' C-q</kbd> or <kbd>C-' ' q</kbd>                    | <kbd>''q</kbd>                  | Toggle auto fill mode.                                                                                                       |
 
 ### Git integration
 
