@@ -1,25 +1,29 @@
 ;;; Configuration for search
 
-(require 'ag)
-
 ;;; occur
-(global-set-key (kbd "M-s i") 'helm-occur)
+(use-package helm
+  :bind ("M-s i" . helm-occur))
 
 ;;; grep
-(global-set-key (kbd "M-s G") 'grep)
-(global-set-key (kbd "M-s g") 'rgrep)
+(use-package emacs/grep
+  :ensure package
+  :bind (("M-s G" . grep)
+         ("M-s g" . rgrep)))
 
-;;; git grep
-(global-set-key (kbd "C-: <f3>") 'vc-git-grep)
-(global-set-key (kbd "M-s :") 'vc-git-grep)
-(global-set-key (kbd "C-: M-s") 'vc-git-grep)
+;;; vc-git-grep
+(use-package emacs/vc-git
+  :ensure package
+  :bind (("C-: <f3>" . vc-git-grep)
+         ("M-s :" . vc-git-grep)
+         ("C-: M-s" . vc-git-grep)))
 
 ;;; ag
-(global-set-key (kbd "C-<f3>") 'ag)
-(global-set-key (kbd "M-s s") 'ag)
-(global-set-key (kbd "C-S-<f3>") 'ag-regexp)
-(global-set-key (kbd "M-s r") 'ag-regexp)
-(global-set-key (kbd "M-s a s") 'ag-project)
-(global-set-key (kbd "M-s a r") 'ag-project-regexp)
+(use-package ag
+  :bind (("C-<f3>" . ag)
+         ("M-s s" . ag)
+         ("C-S-<f3>" . ag-regexp)
+         ("M-s r" . ag-regexp)
+         ("M-s a s" . ag-project)
+         ("M-s a r" . ag-project-regexp)))
 
 (provide 'config-search)
