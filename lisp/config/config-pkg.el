@@ -19,7 +19,7 @@
 (defvar pkg-packages
   '(ac-cider
     ac-slime
-    ag
+    ;; ag
     auto-complete
     c-eldoc
     clj-refactor
@@ -45,9 +45,9 @@
     god-mode
     handlebars-mode
     haskell-mode
-    helm
-    helm-ls-git
-    helm-swoop
+    ;; helm
+    ;; helm-ls-git
+    ;; helm-swoop
     highlight
     highlight-symbol
     idle-highlight-mode
