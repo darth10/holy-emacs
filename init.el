@@ -124,7 +124,7 @@
 (global-set-key (kbd "C-: C-=") 'vc-ediff)
 (global-set-key (kbd "C-: C-c C-d") 'git-diff-tree)
 (global-set-key (kbd "C-: C-d") 'vc-diff)
-(global-set-key (kbd "C-: C-f") 'helm-ls-git-ls)
+
 (global-set-key (kbd "C-: C-k") 'magit-run-gitk)
 (global-set-key (kbd "C-: C-l") 'magit-log-current)
 (global-set-key (kbd "C-: C-s") 'magit-status)

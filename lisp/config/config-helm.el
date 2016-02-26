@@ -14,4 +14,7 @@
 (use-package helm-swoop
   :bind ("M-]" . helm-swoop))
 
+(use-package helm-ls-git
+  :bind ("C-: C-f" . helm-ls-git-ls))
+
 (provide 'config-helm)
