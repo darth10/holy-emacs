@@ -9,7 +9,11 @@
          ("M-x" . helm-M-x)
          ("M-y" . helm-show-kill-ring)
          ("C-<f2>" . helm-imenu)
-         ("M-s i" . helm-occur)))
+         ("M-s i" . helm-occur)
+         :map helm-map
+         ("<tab>" . helm-execute-persistent-action)
+         ("C-i" . helm-execute-persistent-action)
+         ("C-z" . helm-select-action)))
 
 (use-package helm-swoop
   :bind ("M-]" . helm-swoop))
