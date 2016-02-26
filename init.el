@@ -90,8 +90,6 @@
 
 (global-unset-key (kbd "<f10>"))
 (global-unset-key (kbd "C-z"))
-(global-unset-key (kbd "C-s"))
-(global-unset-key (kbd "C-x C-s"))
 (global-unset-key (kbd "C-x C-c"))
 (global-unset-key (kbd "C-x a n"))
 
@@ -148,7 +146,7 @@
 (global-set-key (kbd "C-c \\") 'just-one-space)
 (global-set-key (kbd "C-c b") 'org-iswitchb)
 (global-set-key (kbd "C-c n") 'org-agenda)
-(global-set-key (kbd "C-s") 'save-buffer)
+
 (global-set-key (kbd "C-x '") 'switch-to-scratch)
 (global-set-key (kbd "C-x 9") 'delete-single-window)
 (global-set-key (kbd "C-x <C-M-return>") 'find-user-init-file)
@@ -172,7 +170,7 @@
 (global-set-key (kbd "C-x C-a C-k") 'recompile)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-x C-c") 'confirm-and-kill-terminal)
-(global-set-key (kbd "C-x C-s") 'isearch-forward)
+
 (global-set-key (kbd "C-x M-[") 'previous-buffer)
 (global-set-key (kbd "C-x M-]") 'next-buffer)
 (global-set-key (kbd "C-x RET RET") 'set-rectangular-region-anchor)
@@ -189,9 +187,6 @@
 (global-set-key (kbd "M-<up>") 'move-line-region-up)
 (global-set-key (kbd "M-n") 'move-line-region-down)
 (global-set-key (kbd "M-p") 'move-line-region-up)
-
-(define-key isearch-mode-map (kbd "<f3>") 'isearch-repeat-forward)
-(define-key isearch-mode-map (kbd "S-<f3>") 'isearch-repeat-backward)
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (add-hook 'prog-mode-hook 'hl-line-mode)
@@ -283,6 +278,18 @@
   (set-face-foreground 'show-paren-match "white")
   (set-face-attribute 'show-paren-match nil :weight 'extra-bold)
   (show-paren-mode 1))
+
+(use-package darth10/files
+  :ensure package
+  :bind (("C-s" . save-buffer)
+         ("C-x C-s" . isearch-forward))
+  :init
+  (global-unset-key (kbd "C-s"))
+  (global-unset-key (kbd "C-x C-s")))
+
+;;; TODO
+(define-key isearch-mode-map (kbd "<f3>") 'isearch-repeat-forward)
+(define-key isearch-mode-map (kbd "S-<f3>") 'isearch-repeat-backward)
 
 ;; (add-to-list 'yas-snippet-dirs "~/.emacs.d/data/snippets/")
 (autoload 'camelCase-mode "camelCase-mode" nil t)
