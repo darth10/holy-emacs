@@ -1,7 +1,19 @@
 ;;; Packages
 
-(require 'cl)
 (require 'package)
+
+(defun defpkgsource (name-uri)
+  (add-to-list 'package-archives name-uri t))
+
+;; Package sources
+(defpkgsource '("marmalade" . "https://marmalade-repo.org/packages/"))
+(defpkgsource '("melpa" . "http://melpa.milkbox.net/packages/"))
+
+(package-initialize)
+(when (not (package-installed-p 'use-package))
+  (package-install 'use-package))
+
+;;; TODO remove these later
 
 (defvar pkg-packages
   '(ac-cider
@@ -74,9 +86,7 @@
     yasnippet
     zencoding-mode))
 
-(defun defpkgsource (name-uri)
-  (add-to-list 'package-archives name-uri t))
-
+(require 'cl)
 (defun pkg-packages-installed-p ()
   (loop for p in pkg-packages
         when (not (package-installed-p p)) do (return nil)
@@ -90,12 +100,13 @@
     (message "%s" " done.")
     (dolist (p pkg-packages)
       (when (not (package-installed-p p))
-	(package-install p)))))
+        (package-install p)))))
 
-;; Package sources
-(defpkgsource '("marmalade" . "http://marmalade-repo.org/packages/"))
-(defpkgsource '("melpa" . "http://melpa.milkbox.net/packages/"))
+(pkg-update-packages)
 
-(package-initialize)
+;;; end remove
+
+(eval-when-compile
+  (require 'use-package))
 
 (provide 'config-pkg)

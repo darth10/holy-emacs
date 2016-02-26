@@ -2,10 +2,41 @@
 (add-to-list 'load-path "~/.emacs.d/lisp/lib/")
 (add-to-list 'load-path "~/.emacs.d/lisp/config/")
 
-(require 'config-common)
 (require 'config-pkg)
 
-(pkg-update-packages)
+(setq use-package-always-ensure t)
+
+(use-package diminish)
+(require 'config-common)
+
+(use-package match-paren
+  :ensure package
+  :bind (("<f6>" . match-paren)
+         ("C-%" . match-paren))
+  :config
+  (defun match-paren (arg)
+    "Go to the matching paren if the cursor is on a paren"
+    (interactive "p")
+    (cond ((looking-at "\\s\(") (forward-list 1) (backward-char 1))
+          ((looking-at "\\s\)") (forward-char 1) (backward-list 1))
+          (t (message "%s" "No parenthesis under cursor!")))))
+
+(use-package paren
+  :init
+  (set-face-background 'show-paren-match "Dodgerblue1")
+  (set-face-foreground 'show-paren-match "white")
+  (set-face-attribute 'show-paren-match nil :weight 'extra-bold)
+  :config
+  (show-paren-mode 1))
+
+(use-package yasnippet
+  :diminish yas-minor-mode
+  :defer
+  :bind (("C-' C-' C-y" . yas-global-mode)
+         ("C-' ' y" . yas-global-mode))
+  :config
+  (add-to-list 'yas-snippet-dirs "~/.emacs.d/data/snippets/")
+  (yas-global-mode 1))
 
 (require 'diff-hl)
 (require 'edit-server)
@@ -16,9 +47,9 @@
 (require 'multiple-cursors)
 (require 'rainbow-delimiters)
 (require 'regions)
-(require 'util)
+;; (require 'util)
 (require 'yascroll)
-(require 'yasnippet)
+;; (require 'yasnippet)
 
 (require 'config-ac)
 (require 'config-bookmarks)
@@ -75,7 +106,7 @@
 (global-unset-key (kbd "C-x a n"))
 
 (global-set-key (kbd "<apps>") 'execute-extended-command)
-(global-set-key (kbd "<f6>") 'match-paren)
+;; (global-set-key (kbd "<f6>") 'match-paren)
 (global-set-key (kbd "C-! +") 'ediff)
 (global-set-key (kbd "C-! =") 'ediff-buffers)
 (global-set-key (kbd "C-! C-+") 'ediff)
@@ -85,7 +116,7 @@
 (global-set-key (kbd "C-! C-k") 'compile)
 (global-set-key (kbd "C-! C-n") 'calculator)
 (global-set-key (kbd "C-! C-p") 'list-processes-and-switch)
-(global-set-key (kbd "C-%") 'match-paren)
+;; (global-set-key (kbd "C-%") 'match-paren)
 (global-set-key (kbd "C-' ' c") 'camelCase-mode)
 (global-set-key (kbd "C-' ' q") 'auto-fill-mode)
 (global-set-key (kbd "C-' .") 'highlight-symbol-mode)
@@ -251,16 +282,12 @@
  '(region ((t (:background "white" :foreground "black"))))
  '(yascroll:thumb-fringe ((t (:background "lawn green" :foreground "lawn green")))))
 
-(set-face-background 'show-paren-match "Dodgerblue1")
-(set-face-foreground 'show-paren-match "white")
-(set-face-attribute 'show-paren-match nil :weight 'extra-bold)
-
 ;; custom font
 (progn
   (when (font-utils-exists-p config-custom-font)
     (set-frame-font config-custom-font nil t)))
 
-(add-to-list 'yas-snippet-dirs "~/.emacs.d/data/snippets/")
+;; (add-to-list 'yas-snippet-dirs "~/.emacs.d/data/snippets/")
 (autoload 'camelCase-mode "camelCase-mode" nil t)
 (lvd-load-dir "~/.emacs.d/lisp/var/")
 (set-mode-line-format)
@@ -279,14 +306,14 @@
 ;;; enable these modes before loading saved desktop
 (blink-cursor-mode 1)
 (column-number-mode 1)
-(show-paren-mode 1)
+;; (show-paren-mode 1)
 (recentf-mode 1)
 (global-yascroll-bar-mode 1)
 (global-auto-complete-mode 1)
 (global-diff-hl-mode 1)
 (desktop-save-mode 1)
 ;;; enable these modes after loading saved desktop
-(yas-global-mode 1)
+;; (yas-global-mode 1)
 
 ;; comment out this section to disable global god-mode
 (set-god-mode "<escape>" "S-<escape>")
