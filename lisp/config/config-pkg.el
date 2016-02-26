@@ -2,15 +2,16 @@
 
 (require 'package)
 
-(defun defpkgsource (name-uri)
-  (add-to-list 'package-archives name-uri t))
+(defun defpkgsource (name-uri-cons)
+  (add-to-list 'package-archives name-uri-cons t))
 
 ;; Package sources
 (defpkgsource '("marmalade" . "https://marmalade-repo.org/packages/"))
-(defpkgsource '("melpa" . "http://melpa.milkbox.net/packages/"))
+(defpkgsource '("melpa" . "https://melpa.milkbox.net/packages/"))
 
 (package-initialize)
 (when (not (package-installed-p 'use-package))
+  (package-refresh-contents)
   (package-install 'use-package))
 
 ;;; TODO remove these later
@@ -106,7 +107,6 @@
 
 ;;; end remove
 
-(eval-when-compile
-  (require 'use-package))
+(require 'use-package)
 
 (provide 'config-pkg)

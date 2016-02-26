@@ -9,34 +9,24 @@
 (use-package diminish)
 (require 'config-common)
 
-(use-package match-paren
+(use-package common/match-paren
   :ensure package
   :bind (("<f6>" . match-paren)
          ("C-%" . match-paren))
   :config
-  (defun match-paren (arg)
+  (defun common/match-paren (arg)
     "Go to the matching paren if the cursor is on a paren"
     (interactive "p")
     (cond ((looking-at "\\s\(") (forward-list 1) (backward-char 1))
           ((looking-at "\\s\)") (forward-char 1) (backward-list 1))
           (t (message "%s" "No parenthesis under cursor!")))))
 
-(use-package paren
-  :init
-  (set-face-background 'show-paren-match "Dodgerblue1")
-  (set-face-foreground 'show-paren-match "white")
-  (set-face-attribute 'show-paren-match nil :weight 'extra-bold)
-  :config
-  (show-paren-mode 1))
-
 (use-package yasnippet
   :diminish yas-minor-mode
-  :defer
   :bind (("C-' C-' C-y" . yas-global-mode)
          ("C-' ' y" . yas-global-mode))
   :config
-  (add-to-list 'yas-snippet-dirs "~/.emacs.d/data/snippets/")
-  (yas-global-mode 1))
+  (add-to-list 'yas-snippet-dirs "~/.emacs.d/data/snippets/"))
 
 (require 'diff-hl)
 (require 'edit-server)
@@ -286,6 +276,13 @@
 (progn
   (when (font-utils-exists-p config-custom-font)
     (set-frame-font config-custom-font nil t)))
+
+(use-package paren
+  :config
+  (set-face-background 'show-paren-match "Dodgerblue1")
+  (set-face-foreground 'show-paren-match "white")
+  (set-face-attribute 'show-paren-match nil :weight 'extra-bold)
+  (show-paren-mode 1))
 
 ;; (add-to-list 'yas-snippet-dirs "~/.emacs.d/data/snippets/")
 (autoload 'camelCase-mode "camelCase-mode" nil t)
