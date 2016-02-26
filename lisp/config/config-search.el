@@ -1,9 +1,5 @@
 ;;; Configuration for search
 
-;;; occur
-(use-package helm
-  :bind ("M-s i" . helm-occur))
-
 ;;; grep
 (use-package emacs/grep
   :ensure package
