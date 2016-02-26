@@ -1,6 +1,5 @@
 ;;; Some utility functions
 
-(require 'diff-hl)
 (require 'highlight-symbol)
 
 (defconst scratch-buffer-name "*scratch*")
@@ -19,11 +18,6 @@
   "Switch to *scratch* buffer in a new window.\nCalls `switch-to-buffer-other-window'."
   (interactive)
   (switch-to-buffer-other-window scratch-buffer-name))
-
-(defun interactive-diff-hl-update ()
-  "Call (diff-hl-update) interactively."
-  (interactive)
-  (diff-hl-update))
 
 (defun confirm-and-kill-terminal ()
   "Quit Emacs with a confirmation."

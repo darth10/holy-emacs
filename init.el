@@ -28,7 +28,7 @@
   :config
   (add-to-list 'yas-snippet-dirs "~/.emacs.d/data/snippets/"))
 
-(require 'diff-hl)
+;; (require 'diff-hl)
 (require 'edit-server)
 (require 'expand-region)
 (require 'font-utils)
@@ -48,6 +48,7 @@
 (require 'config-comment-annotations)
 (require 'config-csharp)
 (require 'config-cursor)
+(require 'config-diff-hl)
 (require 'config-dired)
 (require 'config-ediff)
 (require 'config-elisp)
@@ -177,7 +178,7 @@
 (global-set-key (kbd "C-x S-<f10>") 'ediff)
 (global-set-key (kbd "C-x \"") 'switch-to-scratch-other-frame)
 (global-set-key (kbd "C-x a k") 'recompile)
-(global-set-key (kbd "C-x r =") 'interactive-diff-hl-update)
+
 (global-set-key (kbd "C-x w") 'save-buffer)
 (global-set-key (kbd "C-x |") 'find-user-init-file)
 (global-set-key (kbd "C-|") 'move-to-window)
@@ -314,7 +315,7 @@
 (recentf-mode 1)
 (global-yascroll-bar-mode 1)
 (global-auto-complete-mode 1)
-(global-diff-hl-mode 1)
+;; (global-diff-hl-mode 1)
 (desktop-save-mode 1)
 ;;; enable these modes after loading saved desktop
 ;; (yas-global-mode 1)

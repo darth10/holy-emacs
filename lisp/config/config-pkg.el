@@ -26,7 +26,7 @@
     clojure-mode
     clojurescript-mode
     csharp-mode
-    diff-hl
+    ;; diff-hl
     dired+
     dired-details
     dired-details+
