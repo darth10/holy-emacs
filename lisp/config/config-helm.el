@@ -1,6 +1,7 @@
 ;;; Configuration for Helm
 
 (use-package helm
+  :ensure t
   :bind (("C-c ;" . helm-imenu)
          ("C-c C-;" . helm-imenu)
          ("C-x C-f" . helm-find-files)
@@ -16,9 +17,11 @@
          ("C-z" . helm-select-action)))
 
 (use-package helm-swoop
+  :ensure t
   :bind ("M-]" . helm-swoop))
 
 (use-package helm-ls-git
+  :ensure t
   :bind ("C-: C-f" . helm-ls-git-ls))
 
 (provide 'config-helm)

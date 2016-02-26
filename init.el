@@ -4,13 +4,12 @@
 
 (require 'config-pkg)
 
-(setq use-package-always-ensure t)
+;; (setq use-package-always-ensure nil)
 
-(use-package diminish)
+(use-package diminish :ensure t)
 (require 'config-common)
 
 (use-package common/match-paren
-  :ensure package
   :bind (("<f6>" . match-paren)
          ("C-%" . match-paren))
   :config
@@ -22,6 +21,7 @@
           (t (message "%s" "No parenthesis under cursor!")))))
 
 (use-package yasnippet
+  :ensure t
   :diminish yas-minor-mode
   :bind (("C-' C-' C-y" . yas-global-mode)
          ("C-' ' y" . yas-global-mode))
@@ -31,7 +31,7 @@
 ;; (require 'diff-hl)
 (require 'edit-server)
 (require 'expand-region)
-(require 'font-utils)
+;; (require 'font-utils)
 (require 'lacarte)
 (require 'load-var-dir)
 (require 'multiple-cursors)
@@ -269,9 +269,13 @@
  '(yascroll:thumb-fringe ((t (:background "lawn green" :foreground "lawn green")))))
 
 ;; custom font
-(progn
-  (when (font-utils-exists-p config-custom-font)
-    (set-frame-font config-custom-font nil t)))
+(use-package font-utils
+  :load-path "lisp/lib/"
+  :init
+  (require 'font-utils)
+  (progn
+    (when (font-utils-exists-p config-custom-font)
+      (set-frame-font config-custom-font nil t))))
 
 (use-package paren
   :config

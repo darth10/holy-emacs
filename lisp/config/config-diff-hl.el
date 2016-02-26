@@ -1,6 +1,7 @@
 ;;; Configuration for diff-hl
 
 (use-package diff-hl
+  :ensure t
   :init
   (defun interactive-diff-hl-update ()
     (interactive)
