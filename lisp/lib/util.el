@@ -1,5 +1,9 @@
 ;;; Some utility functions
 
+(require 'cl)
+(require 'cl-lib)
+
+;; TODO
 (require 'highlight-symbol)
 
 (defconst scratch-buffer-name "*scratch*")
@@ -125,5 +129,18 @@
 	 (if (use-region-p)
 	     (list (region-beginning) (region-end))
 	   (list (line-beginning-position) (line-beginning-position 2))))))
+
+(defun lvd-load-dir (d)
+  (progn
+    (add-to-list 'load-path d)
+    (let* ((files (directory-files d))
+	   (file-names (mapcar 'file-name-base files))
+	   (dup-f (lambda (x y) (equal x y)))
+	   (filter-f (lambda (x) (or (equal x ".")
+				     (equal x ".gitignore"))))
+	   (packages (remove-duplicates (cl-remove-if filter-f file-names)
+					:test dup-f)))
+      (mapcar 'load packages))
+    (message (concat "Loaded all files from " d))))
 
 (provide 'util)

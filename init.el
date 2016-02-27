@@ -7,11 +7,6 @@
 (use-package diminish :ensure t)
 (require 'config-common)
 
-(use-package util
-  :load-path "lisp/lib/"
-  :bind (("<f6>" . match-paren)
-         ("C-%" . match-paren)))
-
 (use-package yasnippet
   :ensure t
   :diminish yas-minor-mode
@@ -25,7 +20,7 @@
 (require 'expand-region)
 ;; (require 'font-utils)
 (require 'lacarte)
-(require 'load-var-dir)
+;; (require 'load-var-dir)
 (require 'multiple-cursors)
 (require 'rainbow-delimiters)
 (require 'regions)
@@ -289,7 +284,7 @@
 
 ;; (add-to-list 'yas-snippet-dirs "~/.emacs.d/data/snippets/")
 (autoload 'camelCase-mode "camelCase-mode" nil t)
-(lvd-load-dir "~/.emacs.d/lisp/var/")
+;; (lvd-load-dir "~/.emacs.d/lisp/var/")
 (set-mode-line-format)
 (kill-line-utils-init)
 (put 'upcase-region 'disabled nil)
@@ -314,6 +309,13 @@
 (desktop-save-mode 1)
 ;;; enable these modes after loading saved desktop
 ;; (yas-global-mode 1)
+
+(use-package util
+  :load-path "lisp/lib/"
+  :bind (("<f6>" . match-paren)
+         ("C-%" . match-paren))
+  :config
+  (lvd-load-dir "~/.emacs.d/lisp/var/"))
 
 ;; comment out this section to disable global god-mode
 (set-god-mode "<escape>" "S-<escape>")
