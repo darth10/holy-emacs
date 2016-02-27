@@ -2,6 +2,7 @@
 
 (use-package helm
   :ensure t
+  :diminish helm-mode
   :bind (("C-c ;" . helm-imenu)
          ("C-c C-;" . helm-imenu)
          ("C-x C-f" . helm-find-files)
