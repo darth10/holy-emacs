@@ -4,27 +4,19 @@
 
 (require 'config-pkg)
 
-;; (setq use-package-always-ensure nil)
-
 (use-package diminish :ensure t)
 (require 'config-common)
 
-(use-package common/match-paren
+(use-package util
+  :load-path "lisp/lib/"
   :bind (("<f6>" . match-paren)
-         ("C-%" . match-paren))
-  :config
-  (defun common/match-paren (arg)
-    "Go to the matching paren if the cursor is on a paren"
-    (interactive "p")
-    (cond ((looking-at "\\s\(") (forward-list 1) (backward-char 1))
-          ((looking-at "\\s\)") (forward-char 1) (backward-list 1))
-          (t (message "%s" "No parenthesis under cursor!")))))
+         ("C-%" . match-paren)))
 
 (use-package yasnippet
   :ensure t
   :diminish yas-minor-mode
-  :bind (("C-' C-' C-y" . yas-global-mode)
-         ("C-' ' y" . yas-global-mode))
+  :bind (("C-' C-y" . yas-global-mode)
+         ("C-' y" . yas-global-mode))
   :config
   (add-to-list 'yas-snippet-dirs "~/.emacs.d/data/snippets/"))
 
@@ -189,7 +181,6 @@
 (global-set-key (kbd "M-n") 'move-line-region-down)
 (global-set-key (kbd "M-p") 'move-line-region-up)
 
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
 (add-hook 'prog-mode-hook 'hl-line-mode)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'prog-mode-hook 'highlight-symbol-mode)
@@ -284,13 +275,13 @@
   (set-face-attribute 'show-paren-match nil :weight 'extra-bold)
   (show-paren-mode 1))
 
-(use-package darth10/files
-  :ensure package
+(use-package util/save
   :bind (("C-s" . save-buffer)
          ("C-x C-s" . isearch-forward))
   :init
   (global-unset-key (kbd "C-s"))
-  (global-unset-key (kbd "C-x C-s")))
+  (global-unset-key (kbd "C-x C-s"))
+  (add-hook 'before-save-hook 'delete-trailing-whitespace))
 
 ;;; TODO
 (define-key isearch-mode-map (kbd "<f3>") 'isearch-repeat-forward)
