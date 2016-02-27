@@ -11,7 +11,7 @@
            (buffer-file-name) " &")))
 
 (defconfig configure-php
-  (smartparens-mode)
+  ;; (smartparens-mode)
   (local-set-key (kbd "C-<f5>") 'php-debug)
   (local-set-key (kbd "C-x C-a C-a") 'php-debug)
   (local-set-key (kbd "C-x a a") 'php-debug)

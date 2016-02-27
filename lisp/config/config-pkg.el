@@ -52,7 +52,7 @@
     highlight-symbol
     idle-highlight-mode
     inflections
-    inf-ruby
+    ;; inf-ruby
     js2-mode
     js2-refactor
     jump
@@ -67,22 +67,22 @@
     rainbow-delimiters
     rainbow-mode
     restclient
-    rinari
-    ruby-compilation
-    ruby-electric
-    ruby-mode
-    rvm
+    ;; rinari
+    ;; ruby-compilation
+    ;; ruby-electric
+    ;; ruby-mode
+    ;; rvm
     solarized-theme
     scala-mode2
     slime
     slime-js
-    smartparens
+    ;; smartparens
     smex
     tern
     tern-auto-complete
     web-mode
     yaml-mode
-    yari
+    ;; yari
     yascroll
     yasnippet
     zencoding-mode))

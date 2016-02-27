@@ -21,7 +21,7 @@
   (setq c-eldoc-includes "`pkg-config glib-2.0 gio-2.0 --cflags` `guile-config compile` -I/usr/include -I./ -I../ ")
   (load "c-eldoc")
   (c-turn-on-eldoc-mode)
-  (smartparens-mode)
+  ;; (smartparens-mode)
   (local-set-key (kbd "C-<f10>") 'config-display-gdb-buffer)
   (local-set-key (kbd "C-! C-r") 'config-display-gdb-buffer)
   (local-set-key (kbd "C-c C-z") 'config-display-gdb-buffer)

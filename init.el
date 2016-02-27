@@ -73,6 +73,7 @@
 (require 'config-scala)
 (require 'config-scheme)
 (require 'config-search)
+(require 'config-smartparens)
 (require 'config-sql)
 (require 'config-sticky)
 (require 'config-web)
