@@ -295,6 +295,11 @@
   (global-unset-key (kbd "C-x C-s"))
   (add-hook 'before-save-hook 'delete-trailing-whitespace))
 
+(use-package util/enable-disabled-commands
+  :init
+  (put 'upcase-region 'disabled nil)
+  (put 'downcase-region 'disabled nil))
+
 ;;; TODO
 (define-key isearch-mode-map (kbd "<f3>") 'isearch-repeat-forward)
 (define-key isearch-mode-map (kbd "S-<f3>") 'isearch-repeat-backward)
@@ -303,9 +308,6 @@
 (autoload 'camelCase-mode "camelCase-mode" nil t)
 ;; (lvd-load-dir "~/.emacs.d/lisp/var/")
 (set-mode-line-format)
-(kill-line-utils-init)
-(put 'upcase-region 'disabled nil)
-(put 'downcase-region 'disabled nil)
 
 ;;; server process
 (use-package server
@@ -339,6 +341,7 @@
   :bind (("<f6>" . match-paren)
          ("C-%" . match-paren))
   :config
+  (kill-line-utils-init)
   (lvd-load-dir "~/.emacs.d/lisp/var/"))
 
 ;; comment out this section to disable global god-mode
