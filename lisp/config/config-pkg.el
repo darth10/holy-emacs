@@ -32,7 +32,7 @@
     dired-details+
     direx
     dockerfile-mode
-    edit-server
+    ;; edit-server
     expand-region
     find-file-in-project
     findr

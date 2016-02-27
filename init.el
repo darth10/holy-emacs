@@ -16,7 +16,7 @@
   (add-to-list 'yas-snippet-dirs "~/.emacs.d/data/snippets/"))
 
 ;; (require 'diff-hl)
-(require 'edit-server)
+;; (require 'edit-server)
 (require 'expand-region)
 ;; (require 'font-utils)
 (require 'lacarte)
@@ -264,6 +264,7 @@
       (set-frame-font config-custom-font nil t))))
 
 (use-package paren
+  :ensure t
   :config
   (set-face-background 'show-paren-match "Dodgerblue1")
   (set-face-foreground 'show-paren-match "white")
@@ -290,9 +291,16 @@
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 
-;;; server processes
-(server-start)
-(edit-server-start)
+;;; server process
+(use-package server
+  :ensure t
+  :config (server-start))
+
+;;; edit-server process
+(use-package edit-server
+  :ensure t
+  :config
+  (edit-server-start))
 
 ;;; disable these modes
 (tool-bar-mode -1)
