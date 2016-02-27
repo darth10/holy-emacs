@@ -15,11 +15,19 @@
   :config
   (add-to-list 'yas-snippet-dirs "~/.emacs.d/data/snippets/"))
 
+(use-package lacarte
+  :ensure t
+  :bind ("ESC M-x" . lacarte-execute-menu-command))
+
+(use-package expand-region
+  :ensure t
+  :bind ("C-=" . er/expand-region))
+
 ;; (require 'diff-hl)
 ;; (require 'edit-server)
-(require 'expand-region)
+;; (require 'expand-region)
 ;; (require 'font-utils)
-(require 'lacarte)
+;; (require 'lacarte)
 ;; (require 'load-var-dir)
 (require 'multiple-cursors)
 (require 'rainbow-delimiters)
@@ -120,7 +128,7 @@
 (global-set-key (kbd "C-<f4>") 'hl-line-mode)
 (global-set-key (kbd "C-<f6>") 'linum-mode)
 (global-set-key (kbd "C-<f9>") 'toggle-truncate-lines)
-(global-set-key (kbd "C-=") 'er/expand-region)
+
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-?") 'info-lookup-symbol)
 (global-set-key (kbd "C-`") 'sticky-control-mode)
@@ -169,7 +177,6 @@
 (global-set-key (kbd "C-x w") 'save-buffer)
 (global-set-key (kbd "C-x |") 'find-user-init-file)
 (global-set-key (kbd "C-|") 'move-to-window)
-(global-set-key (kbd "ESC M-x") 'lacarte-execute-menu-command)
 (global-set-key (kbd "M-<down>") 'move-line-region-down)
 (global-set-key (kbd "M-<f5>") 'recompile)
 (global-set-key (kbd "M-<up>") 'move-line-region-up)
