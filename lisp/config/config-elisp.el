@@ -23,7 +23,7 @@
   (local-set-key (kbd "C-x a a") 'eval-print-last-sexp))
 
 (add-hook 'emacs-lisp-mode-hook 'configure-elisp)
-(add-hook 'emacs-lisp-mode-hook 'configure-lisp)
+;; (add-hook 'emacs-lisp-mode-hook 'configure-lisp)
 (add-hook 'ielm-mode-hook 'configure-interactive-elisp)
 (add-hook 'eshell-mode-hook 'configure-interactive-elisp)
 (add-hook 'lisp-interaction-mode-hook 'configure-elisp-inf)

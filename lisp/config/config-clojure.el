@@ -48,7 +48,7 @@
   (local-set-key (kbd "C-x t") 'cider-test-run-test))
 
 (add-hook 'clojure-mode-hook 'configure-clojure)
-(add-hook 'clojure-mode-hook 'configure-lisp)
+;; (add-hook 'clojure-mode-hook 'configure-lisp)
 (add-hook 'clojure-mode-hook 'configure-clojure-keys)
 
 (add-hook 'cider-mode-hook 'configure-clojure-interaction)

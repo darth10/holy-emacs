@@ -61,7 +61,7 @@
     markdown-mode
     multiple-cursors
     omnisharp
-    paredit
+    ;; paredit
     php-mode
     popup
     rainbow-delimiters

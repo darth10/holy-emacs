@@ -9,7 +9,7 @@
   (equal system-type 'windows-nt))
 
 ;;; refactor into paredit use-package
-(defun configure-lisp ()
-  (paredit-mode))
+;; (defun configure-lisp ()
+;;   (paredit-mode))
 
 (provide 'config-common)

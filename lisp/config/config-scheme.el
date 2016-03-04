@@ -16,12 +16,12 @@
   (local-set-key (kbd "C-x a a") 'scheme-load-and-repl)
   (local-set-key (kbd "C-c C-l") 'geiser-load-file))
 
-(defun configure-scheme-inf ()
-  (when (eq major-mode 'geiser-repl-mode)
-    (configure-lisp)))
+;; (defun configure-scheme-inf ()
+;;   (when (eq major-mode 'geiser-repl-mode)
+;;     (configure-lisp)))
 
 (add-hook 'scheme-mode-hook 'configure-scheme)
-(add-hook 'scheme-mode-hook 'configure-lisp)
-(add-hook 'comint-mode-hook 'configure-scheme-inf)
+;; (add-hook 'scheme-mode-hook 'configure-lisp)
+;; (add-hook 'comint-mode-hook 'configure-scheme-inf)
 
 (provide 'config-scheme)
