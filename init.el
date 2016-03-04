@@ -296,16 +296,16 @@
   (global-unset-key (kbd "C-x C-s"))
   (add-hook 'before-save-hook 'delete-trailing-whitespace))
 
+(use-package util/isearch
+  :init
+  (define-key isearch-mode-map (kbd "<f3>") 'isearch-repeat-forward)
+  (define-key isearch-mode-map (kbd "S-<f3>") 'isearch-repeat-backward))
+
 (use-package util/enable-disabled-commands
   :init
   (put 'upcase-region 'disabled nil)
   (put 'downcase-region 'disabled nil))
 
-;;; TODO
-(define-key isearch-mode-map (kbd "<f3>") 'isearch-repeat-forward)
-(define-key isearch-mode-map (kbd "S-<f3>") 'isearch-repeat-backward)
-
-;; (add-to-list 'yas-snippet-dirs "~/.emacs.d/data/snippets/")
 (autoload 'camelCase-mode "camelCase-mode" nil t)
 ;; (lvd-load-dir "~/.emacs.d/lisp/var/")
 (set-mode-line-format)
