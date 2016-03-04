@@ -58,7 +58,7 @@
     js2-refactor
     jump
     lacarte
-    magit
+    ;; magit
     markdown-mode
     multiple-cursors
     ;; omnisharp ;; TODO
