@@ -31,21 +31,11 @@
          ("C-c C->" . mc/mark-all-like-this)
          ("C-x <C-return>" . mc/edit-lines)))
 
-;; (require 'diff-hl)
-;; (require 'edit-server)
-;; (require 'expand-region)
-;; (require 'font-utils)
-;; (require 'lacarte)
-;; (require 'load-var-dir)
-;; (require 'multiple-cursors)
 (require 'rainbow-delimiters)
 (require 'regions)
-;; (require 'util)
 (require 'yascroll)
-;; (require 'yasnippet)
 
 (require 'config-lisps)
-;; (require 'config-ac)
 (require 'config-bookmarks)
 (require 'config-c)
 (require 'config-clojure)
@@ -68,7 +58,6 @@
 (require 'config-magit)
 (require 'config-modeline)
 (require 'config-org)
-;; (require 'config-paredit)
 (require 'config-php)
 (require 'config-python)
 (require 'config-ruby)
@@ -101,7 +90,6 @@
 (global-unset-key (kbd "C-x a n"))
 
 (global-set-key (kbd "<apps>") 'execute-extended-command)
-;; (global-set-key (kbd "<f6>") 'match-paren)
 (global-set-key (kbd "C-! +") 'ediff)
 (global-set-key (kbd "C-! =") 'ediff-buffers)
 (global-set-key (kbd "C-! C-+") 'ediff)
@@ -111,7 +99,6 @@
 (global-set-key (kbd "C-! C-k") 'compile)
 (global-set-key (kbd "C-! C-n") 'calculator)
 (global-set-key (kbd "C-! C-p") 'list-processes-and-switch)
-;; (global-set-key (kbd "C-%") 'match-paren)
 (global-set-key (kbd "C-' ' c") 'camelCase-mode)
 (global-set-key (kbd "C-' ' q") 'auto-fill-mode)
 (global-set-key (kbd "C-' .") 'highlight-symbol-mode)
@@ -135,18 +122,14 @@
 (global-set-key (kbd "C-: C-k") 'magit-run-gitk)
 (global-set-key (kbd "C-: C-l") 'magit-log-current)
 (global-set-key (kbd "C-: C-s") 'magit-status)
-;; (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-<f4>") 'hl-line-mode)
 (global-set-key (kbd "C-<f6>") 'linum-mode)
 (global-set-key (kbd "C-<f9>") 'toggle-truncate-lines)
 
-;; (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-?") 'info-lookup-symbol)
 (global-set-key (kbd "C-`") 'sticky-control-mode)
 (global-set-key (kbd "C-c (") 'paredit-mode)
 (global-set-key (kbd "C-c C-(") 'paredit-mode)
-;; (global-set-key (kbd "C-c C-<f3>") 'mc/mark-all-like-this)
-;; (global-set-key (kbd "C-c C->") 'mc/mark-all-like-this)
 (global-set-key (kbd "C-c C-\\") 'just-one-space)
 (global-set-key (kbd "C-c C-b") 'org-iswitchb)
 (global-set-key (kbd "C-c C-n") 'org-agenda)
@@ -290,7 +273,6 @@
   (show-paren-mode 1))
 
 (autoload 'camelCase-mode "camelCase-mode" nil t)
-;; (lvd-load-dir "~/.emacs.d/lisp/var/")
 (set-mode-line-format)
 
 ;;; server process
@@ -312,14 +294,9 @@
 ;;; enable these modes before loading saved desktop
 (blink-cursor-mode 1)
 (column-number-mode 1)
-;; (show-paren-mode 1)
 (recentf-mode 1)
 (global-yascroll-bar-mode 1)
-;; (global-auto-complete-mode 1)
-;; (global-diff-hl-mode 1)
 (desktop-save-mode 1)
-;;; enable these modes after loading saved desktop
-;; (yas-global-mode 1)
 
 (use-package util
   :load-path "lisp/lib/"
