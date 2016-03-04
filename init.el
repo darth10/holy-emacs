@@ -44,6 +44,7 @@
 (require 'yascroll)
 ;; (require 'yasnippet)
 
+(require 'config-lisps)
 (require 'config-ac)
 (require 'config-bookmarks)
 (require 'config-c)
@@ -312,7 +313,8 @@
 ;;; server process
 (use-package server
   :ensure t
-  :config (server-start))
+  :config
+  (server-start))
 
 ;;; edit-server process
 (use-package edit-server

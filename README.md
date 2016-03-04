@@ -308,12 +308,12 @@ Available only on GNU/Linux.
 
 Available in Clojure, Scheme and Emacs Lisp modes.
 
-| Keys                                     | God mode Keys | Description                              |
-| ---------------------------------------- | ------------- | ---------------------------------------- |
-| <kbd>C-x C-e</kbd>                       | <kbd>xe</kbd> | Evaluate last sexp.                      |
-| <kbd>C-c C-k</kbd>                       | <kbd>ck</kbd> | Evaluate current buffer.                 |
-| <kbd>C-c C-l</kbd>                       | <kbd>cl</kbd> | Load file.                               |
-| <kbd>C-F12</kbd> or <kbd>C-' C-s</kbd>   | <kbd>'s</kbd> | Toggle highlight s-expresion.            |
+| Keys                                                      | God mode Keys | Description                              |
+| --------------------------------------------------------- | ------------- | ---------------------------------------- |
+| <kbd>C-x C-e</kbd>                                        | <kbd>xe</kbd> | Evaluate last sexp.                      |
+| <kbd>C-c C-k</kbd>                                        | <kbd>ck</kbd> | Evaluate current buffer.                 |
+| <kbd>C-c C-l</kbd>                                        | <kbd>cl</kbd> | Load file.                               |
+| <kbd>C-F12</kbd> <kbd>C-' C-s</kbd> or <kbd>C-' s</kbd>   | <kbd>'s</kbd> | Toggle highlight s-expresion.            |
 
 ### Paredit mode
 
