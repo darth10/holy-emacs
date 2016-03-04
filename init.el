@@ -67,7 +67,7 @@
 (require 'config-magit)
 (require 'config-modeline)
 (require 'config-org)
-(require 'config-paredit)
+;; (require 'config-paredit)
 (require 'config-php)
 (require 'config-python)
 (require 'config-ruby)
