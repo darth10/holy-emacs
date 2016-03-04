@@ -288,24 +288,6 @@
   (set-face-attribute 'show-paren-match nil :weight 'extra-bold)
   (show-paren-mode 1))
 
-(use-package util/save
-  :bind (("C-s" . save-buffer)
-         ("C-x C-s" . isearch-forward))
-  :init
-  (global-unset-key (kbd "C-s"))
-  (global-unset-key (kbd "C-x C-s"))
-  (add-hook 'before-save-hook 'delete-trailing-whitespace))
-
-(use-package util/isearch
-  :init
-  (define-key isearch-mode-map (kbd "<f3>") 'isearch-repeat-forward)
-  (define-key isearch-mode-map (kbd "S-<f3>") 'isearch-repeat-backward))
-
-(use-package util/enable-disabled-commands
-  :init
-  (put 'upcase-region 'disabled nil)
-  (put 'downcase-region 'disabled nil))
-
 (autoload 'camelCase-mode "camelCase-mode" nil t)
 ;; (lvd-load-dir "~/.emacs.d/lisp/var/")
 (set-mode-line-format)
@@ -342,9 +324,24 @@
   :load-path "lisp/lib/"
   :bind (("<f6>" . match-paren)
          ("C-%" . match-paren))
+  :init
+  ;; isearch-mode-map
+  (define-key isearch-mode-map (kbd "<f3>") 'isearch-repeat-forward)
+  (define-key isearch-mode-map (kbd "S-<f3>") 'isearch-repeat-backward)
+  ;; enable disabled commands
+  (put 'upcase-region 'disabled nil)
+  (put 'downcase-region 'disabled nil)
   :config
   (kill-line-utils-init)
   (lvd-load-dir "~/.emacs.d/lisp/var/"))
+
+(use-package util/save
+  :bind (("C-s" . save-buffer)
+         ("C-x C-s" . isearch-forward))
+  :init
+  (global-unset-key (kbd "C-s"))
+  (global-unset-key (kbd "C-x C-s"))
+  (add-hook 'before-save-hook 'delete-trailing-whitespace))
 
 ;; comment out this section to disable global god-mode
 (set-god-mode "<escape>" "S-<escape>")
