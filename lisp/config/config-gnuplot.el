@@ -4,7 +4,7 @@
 
 (defconfig configure-gnuplot
   (require 'gnuplot-mode)
-  (auto-complete-mode)
+  ;; (auto-complete-mode)
   (god-local-mode t)
   (local-unset-key (kbd "C-c C-k"))
   (local-set-key (kbd "C-c C-k") 'gnuplot-send-buffer-to-gnuplot)

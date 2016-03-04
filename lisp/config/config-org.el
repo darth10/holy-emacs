@@ -1,7 +1,7 @@
 ;;; Configuration for Org mode
 
 (defun configure-org ()
-  (auto-complete-mode)
+  ;; (auto-complete-mode)
   (require 'org-agenda)
   (hl-line-mode t)
   (local-unset-key (kbd "C-'"))

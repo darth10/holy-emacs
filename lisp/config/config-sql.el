@@ -12,7 +12,7 @@
   (sql-set-product 'ms))
 
 (defun configure-sql-interactive ()
-  (auto-complete-mode)
+  ;; (auto-complete-mode)
   (toggle-truncate-lines t)
   (setq yas-extra-modes '(sql-mode)))
 
