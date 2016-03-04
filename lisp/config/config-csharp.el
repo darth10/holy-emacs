@@ -53,7 +53,7 @@
 (defconfig configure-csharp
   (require 'csharp-mode)
   ;; (auto-complete-mode)
-  (smartparens-mode)
+  ;; (smartparens-mode)
   (c-set-style "c#")
   (omnisharp-mode)
   (omnisharp-start-flycheck)

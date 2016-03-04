@@ -220,7 +220,7 @@
      )))
  '(rainbow-delimiters-highlight-braces-p nil)
  '(rainbow-delimiters-highlight-brackets-p nil)
- '(split-height-threshold 0)
+ '(split-height-threshold 40)
  '(split-width-threshold nil)
  '(term-default-bg-color "#000000")
  '(term-default-fg-color "#00ff00"))

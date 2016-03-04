@@ -10,7 +10,7 @@
   (js2-minor-mode t)
   (tern-mode t)
   ;; (tern-ac-setup)
-  (smartparens-mode)
+  ;; (smartparens-mode)
   ;; FIXME slime-js
   ;; (slime-js-minor-mode 1)
   ;; TODO

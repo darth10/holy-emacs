@@ -8,7 +8,7 @@
 
 (defconfig configure-sql
   ;; (auto-complete-mode)
-  (smartparens-mode)
+  ;; (smartparens-mode)
   (sql-set-product 'ms))
 
 (defun configure-sql-interactive ()
