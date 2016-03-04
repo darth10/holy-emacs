@@ -75,8 +75,11 @@
     '(progn
        (push "/opt/local/share/info" Info-default-directory-list)
        (push "~/.emacs.d/info" Info-default-directory-list)))
-  (push "/usr/bin/" exec-path)
-  (global-set-key (kbd "C-x ?") 'woman))
+  (push "/usr/bin/" exec-path))
+
+(use-package woman
+  :unless (is-windows?)
+  :bind ("C-x ?" . woman))
 
 ;; Windows-only config
 (when (is-windows?)
@@ -137,7 +140,7 @@
 (global-set-key (kbd "C-x <f3>") 'list-processes-and-switch)
 (global-set-key (kbd "C-x <f5>") 'compile)
 (global-set-key (kbd "C-x <f7>") 'split-and-eshell)
-(global-set-key (kbd "C-x ?") 'woman)
+;; (global-set-key (kbd "C-x ?") 'woman)
 (global-set-key (kbd "C-x C-'") 'switch-to-scratch-other-window)
 (global-set-key (kbd "C-x C-0") 'delete-window)
 (global-set-key (kbd "C-x C-1") 'delete-other-windows)

@@ -15,7 +15,9 @@
          :map helm-map
          ("<tab>" . helm-execute-persistent-action)
          ("C-i" . helm-execute-persistent-action)
-         ("C-z" . helm-select-action)))
+         ("C-z" . helm-select-action))
+  :config
+  (helm-mode t))
 
 (use-package helm-swoop
   :ensure t
