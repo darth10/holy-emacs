@@ -7,7 +7,7 @@
 (setq sql-ms-options nil)
 
 (defconfig configure-sql
-  (auto-complete-mode)
+  ;; (auto-complete-mode)
   (smartparens-mode)
   (sql-set-product 'ms))
 

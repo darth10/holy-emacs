@@ -17,10 +17,11 @@
 ;;; TODO remove these later
 
 (defvar pkg-packages
-  '(ac-cider
-    ac-slime
+  '(
+    ;; ac-cider
+    ;; ac-slime
     ;; ag
-    auto-complete
+    ;; auto-complete
     c-eldoc
     clj-refactor
     clojure-mode
@@ -60,7 +61,7 @@
     magit
     markdown-mode
     multiple-cursors
-    omnisharp
+    ;; omnisharp ;; TODO
     ;; paredit
     php-mode
     popup
@@ -79,7 +80,7 @@
     ;; smartparens
     smex
     tern
-    tern-auto-complete
+    ;; tern-auto-complete
     web-mode
     yaml-mode
     ;; yari

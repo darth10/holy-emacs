@@ -4,7 +4,7 @@
 
 (require 'clojure-mode)
 (require 'cider)
-(require 'ac-cider)
+;; (require 'ac-cider)
 (require 'clj-refactor)
 
 (setq clj-add-ns-to-blank-clj-files nil)
@@ -35,12 +35,12 @@
   (helm-mode -1)
   (configure-clojure))
 
-(eval-after-load "auto-complete"
-  '(add-to-list 'ac-modes 'cider-mode))
+;; (eval-after-load "auto-complete"
+;;   '(add-to-list 'ac-modes 'cider-mode))
 
 (defun configure-clojure-interaction ()
-  (ac-flyspell-workaround)
-  (ac-cider-setup )
+  ;; (ac-flyspell-workaround)
+  ;; (ac-cider-setup )
   (local-set-key (kbd "C-?") 'cider-doc)
   (setq cider-auto-select-error-buffer t)
   (setq cider-repl-popup-stacktraces t)

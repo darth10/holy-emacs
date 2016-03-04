@@ -1,6 +1,6 @@
 ;;; Configuration for C#
 
-(require 'omnisharp)
+;; (require 'omnisharp)
 (require 'config-common)
 
 (defconst omnisharp-process-name
@@ -52,7 +52,7 @@
 
 (defconfig configure-csharp
   (require 'csharp-mode)
-  (auto-complete-mode)
+  ;; (auto-complete-mode)
   (smartparens-mode)
   (c-set-style "c#")
   (omnisharp-mode)

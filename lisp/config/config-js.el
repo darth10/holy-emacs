@@ -9,11 +9,12 @@
 (defconfig configure-js
   (js2-minor-mode t)
   (tern-mode t)
-  (tern-ac-setup)
+  ;; (tern-ac-setup)
   (smartparens-mode)
   ;; FIXME slime-js
   ;; (slime-js-minor-mode 1)
-  (local-set-key (kbd "M-SPC") 'tern-ac-complete)
+  ;; TODO
+  ;; (local-set-key (kbd "M-SPC") 'tern-ac-complete)
   (local-unset-key (kbd "C-x C-e"))
   (local-set-key (kbd "C-x C-e") 'slime-js-send-defun)
   (local-set-key (kbd "C-<f10>") 'slime-connect-to-repl)
@@ -24,19 +25,19 @@
   (local-set-key (kbd "C-<f5>") 'slime-eval-buffer)
   (local-set-key (kbd "C-x a a") 'slime-eval-buffer))
 
-(defun slime-ac-key ()
-  (interactive)
-  (insert ".")
-  (ac-complete-slime))
+;; (defun slime-ac-key ()
+;;   (interactive)
+;;   (insert ".")
+;;   (ac-complete-slime))
 
-(defun configure-slime ()
-  (interactive)
-  (set-up-slime-ac 1)
-  (local-set-key (kbd ".") 'slime-ac-key)
-  (local-set-key (kbd "M-SPC") 'ac-complete-slime))
+;; (defun configure-slime ()
+;;   (interactive)
+;;   (set-up-slime-ac 1)
+;;   (local-set-key (kbd ".") 'slime-ac-key)
+;;   (local-set-key (kbd "M-SPC") 'ac-complete-slime))
 
 (add-hook 'js-mode-hook 'configure-js)
-(add-hook 'slime-repl-mode-hook 'configure-slime)
+;; (add-hook 'slime-repl-mode-hook 'configure-slime)
 
 (setq js2-basic-offset 2)
 

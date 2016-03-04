@@ -45,11 +45,12 @@
 ;; (require 'yasnippet)
 
 (require 'config-lisps)
-(require 'config-ac)
+;; (require 'config-ac)
 (require 'config-bookmarks)
 (require 'config-c)
 (require 'config-clojure)
 (require 'config-comment-annotations)
+(require 'config-company)
 (require 'config-csharp)
 (require 'config-cursor)
 (require 'config-diff-hl)
@@ -314,7 +315,7 @@
 ;; (show-paren-mode 1)
 (recentf-mode 1)
 (global-yascroll-bar-mode 1)
-(global-auto-complete-mode 1)
+;; (global-auto-complete-mode 1)
 ;; (global-diff-hl-mode 1)
 (desktop-save-mode 1)
 ;;; enable these modes after loading saved desktop
