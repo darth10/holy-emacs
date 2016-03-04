@@ -5,7 +5,7 @@
 * Uses <kbd>j</kbd> as a sticky control key.
 * Identical (almost) bindings across different major modes.
 * Installs all required packages from GNU, Marmalade and MELPA repositories on startup.
-* Includes `helm`, `yasnippet` and `autocomplete`.
+* Includes `helm`, `yasnippet` and `company`.
 * Git integration via `magit`.
 * File and project search via `ag`.
 * Manage sessions and buffers via `desktop-save-mode`.
@@ -100,7 +100,8 @@ Some of the default Emacs key bindings are changed, as follows.
 | <kbd>C-F6</kbd>, <kbd>C-' C-n</kbd> or <kbd>C-' n</kbd>         | <kbd>'n</kbd>                   | Toggle line numbers.                                                                                                         |
 | <kbd>C-F9</kbd>, <kbd>C-' C-w</kbd> or <kbd>C-' w</kbd>         | <kbd>'w</kbd>                   | Toggle truncate lines (word wrapping).                                                                                       |
 | <kbd>C-F9</kbd>, <kbd>C-' C-w</kbd> or <kbd>C-' w</kbd>         | <kbd>'w</kbd>                   | Toggle truncate lines (word wrapping).                                                                                       |
-| <kbd>C-' C-' C-a</kbd> or <kbd>C-' ' a</kbd>                    | <kbd>''a</kbd>                  | Toggle auto-completion.                                                                                                      |
+| <kbd>C-' C-(</kbd> or <kbd>C-' (</kbd>                          | <kbd>'(</kbd>                   | Toggle between `paredit` and `smartparens` modes.                                                                            |
+| <kbd>C-' C-' C-a</kbd> or <kbd>C-' ' a</kbd>                    | <kbd>''a</kbd>                  | Toggle auto-completion (`company-mode`).                                                                                     |
 | <kbd>C-' C-' C-q</kbd> or <kbd>C-' ' q</kbd>                    | <kbd>''q</kbd>                  | Toggle auto fill mode.                                                                                                       |
 | <kbd>C-' C-' C-c</kbd> or <kbd>C-' ' c</kbd>                    | <kbd>''c</kbd>                  | Toggle camel-case mode.                                                                                                      |
 | <kbd>C-' C-.</kbd> or <kbd>C-' .</kbd>                          | <kbd>'.</kbd>                   | Toggle highlighting current symbol.                                                                                          |

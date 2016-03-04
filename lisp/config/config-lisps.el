@@ -29,6 +29,8 @@
 (use-package paredit
   :ensure t
   :diminish paredit-mode
+  :bind (("C-' (" . paredit-mode)
+         ("C-' C-(" . paredit-mode))
   :config
   (defmacro set-paredit-key (key function)
     `(define-key paredit-mode-map (kbd ,key) (quote ,function)))
@@ -67,6 +69,12 @@
   (set-paredit-key "ESC ESC <left>" paredit-backward-slurp-sexp)
   (set-paredit-key "C-, C-, C-b" paredit-backward-slurp-sexp)
   (set-paredit-key "C-, , b" paredit-backward-slurp-sexp)
+  (use-package smartparens
+    :config
+    (defun disable-smartparens-mode ()
+      (interactive)
+      (smartparens-mode (if paredit-mode -1 t)))
+    (add-hook 'paredit-mode-hook 'disable-smartparens-mode))
   (use-package lisp-mode
     :config
     (add-hook 'lisp-mode-hook 'paredit-mode)

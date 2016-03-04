@@ -128,8 +128,6 @@
 
 (global-set-key (kbd "C-?") 'info-lookup-symbol)
 (global-set-key (kbd "C-`") 'sticky-control-mode)
-(global-set-key (kbd "C-c (") 'paredit-mode)
-(global-set-key (kbd "C-c C-(") 'paredit-mode)
 (global-set-key (kbd "C-c C-\\") 'just-one-space)
 (global-set-key (kbd "C-c C-b") 'org-iswitchb)
 (global-set-key (kbd "C-c C-n") 'org-agenda)
