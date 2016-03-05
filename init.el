@@ -23,14 +23,6 @@
   :ensure t
   :bind ("C-=" . er/expand-region))
 
-(use-package multiple-cursors
-  :ensure t
-  :bind (("C-<" . mc/mark-previous-like-this)
-         ("C->" . mc/mark-next-like-this)
-         ("C-c C-<f3>" . mc/mark-all-like-this)
-         ("C-c C->" . mc/mark-all-like-this)
-         ("C-x <C-return>" . mc/edit-lines)))
-
 (require 'regions)
 
 (require 'config-lisps)
@@ -40,12 +32,10 @@
 (require 'config-comment-annotations)
 (require 'config-company)
 (require 'config-csharp)
-(require 'config-cursor)
 (require 'config-dired)
 (require 'config-ediff)
 (require 'config-elisp)
 (require 'config-gnuplot)
-(require 'config-god)
 (require 'config-gud)
 (require 'config-haskell)
 (require 'config-helm)
@@ -53,7 +43,6 @@
 (require 'config-java)
 (require 'config-js)
 (require 'config-magit)
-(require 'config-modeline)
 (require 'config-org)
 (require 'config-php)
 (require 'config-python)
@@ -63,9 +52,9 @@
 (require 'config-search)
 (require 'config-smartparens)
 (require 'config-sql)
-(require 'config-sticky)
 (require 'config-web)
 (require 'config-ui)
+(require 'config-modes)
 
 ;; Linux-only config
 (unless (is-windows?)
@@ -147,7 +136,6 @@
 
 (global-set-key (kbd "C-x M-[") 'previous-buffer)
 (global-set-key (kbd "C-x M-]") 'next-buffer)
-(global-set-key (kbd "C-x RET RET") 'set-rectangular-region-anchor)
 (global-set-key (kbd "C-x S-<f10>") 'ediff)
 (global-set-key (kbd "C-x \"") 'switch-to-scratch-other-frame)
 (global-set-key (kbd "C-x a k") 'recompile)
@@ -169,7 +157,6 @@
  '(auto-save-list-file-prefix backup-dir)
  '(backup-directory-alist `((".*" . ,backup-dir)))
  '(create-lockfiles nil)
- '(echo-keystrokes 0.05)
  '(ediff-split-window-function (quote split-window-horizontally))
  '(ediff-window-setup-function (quote ediff-setup-windows-plain))
  '(js-auto-indent-flag t)
@@ -190,7 +177,6 @@
       (set-frame-font config-custom-font nil t))))
 
 (autoload 'camelCase-mode "camelCase-mode" nil t)
-(set-mode-line-format)
 
 ;;; server process
 (use-package server
@@ -205,7 +191,6 @@
   (edit-server-start))
 
 ;;; enable these modes before loading saved desktop
-(blink-cursor-mode 1)
 (column-number-mode 1)
 (recentf-mode 1)
 (desktop-save-mode 1)
@@ -232,8 +217,3 @@
   (global-unset-key (kbd "C-s"))
   (global-unset-key (kbd "C-x C-s"))
   (add-hook 'before-save-hook 'delete-trailing-whitespace))
-
-;; comment out this section to disable global god-mode
-(set-god-mode "<escape>" "S-<escape>")
-;; comment out this section to sticky control key
-(set-sticky-mode ?j)

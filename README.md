@@ -50,7 +50,7 @@ You can always toggle this feature using <kbd>C-`</kbd>.
 
 * <kbd>jx</kbd> emulates the <kbd>C-x</kbd> prefix.
 * <kbd>jc</kbd> emulates the <kbd>C-c</kbd> prefix.
-* <kbd>jw</kbd> saves the buffer (<kbd>C-s</kbd>).
+* <kbd>js</kbd> and <kbd>jw</kbd> save the current buffer (<kbd>C-s</kbd>).
 * <kbd>jf</kbd> opens a file (<kbd>C-x C-f</kbd>).
 
 ## Overridden default key bindings

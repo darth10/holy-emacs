@@ -29,7 +29,6 @@
   (custom-set-faces
    '(default ((t (:foundry "monotype" :slant normal :weight normal :height 130 :width normal))))
    '(button ((t (:background "green" :foreground "black"))))
-   '(cursor ((t (:background "green"))))
    '(escape-glyph ((t (:foreground "#ddaa6f" :weight bold))))
    '(header-line ((((class color) (min-colors 89)) (:background "#303030" :foreground "#e7f6da"))))
    '(helm-ff-directory ((t (:background "LightGray" :foreground "black"))))

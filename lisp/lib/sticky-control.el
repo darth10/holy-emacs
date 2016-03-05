@@ -106,10 +106,12 @@
   '((?x . "\C-x")
     (?c . "\C-c")
     (?w . "\C-s")
+    (?s . "\C-s")
     (?f . "\C-x\C-f")
     (?X . "\C-x")
     (?C . "\C-c")
     (?W . "\C-s")
+    (?S . "\C-s")
     (?F . "\C-x\C-f"))
 
   "Shortcuts available under `sticky-control-mode' which can reduce

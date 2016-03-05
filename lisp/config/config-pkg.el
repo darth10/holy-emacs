@@ -43,7 +43,7 @@
     gist
     gnuplot
     gnuplot-mode
-    god-mode
+    ;; god-mode
     handlebars-mode
     haskell-mode
     ;; helm
@@ -51,16 +51,16 @@
     ;; helm-swoop
     ;; highlight
     ;; highlight-symbol
-    idle-highlight-mode
-    inflections
+    ;; idle-highlight-mode
+    inflections                         ;; TODO
     ;; inf-ruby
     js2-mode
     js2-refactor
     jump
-    lacarte
+    ;; lacarte
     ;; magit
     markdown-mode
-    multiple-cursors
+    ;; multiple-cursors
     ;; omnisharp ;; TODO
     ;; paredit
     php-mode
@@ -84,8 +84,8 @@
     web-mode
     yaml-mode
     ;; yari
-    yascroll
-    yasnippet
+    ;; yascroll
+    ;; yasnippet
     zencoding-mode))
 
 (require 'cl)
