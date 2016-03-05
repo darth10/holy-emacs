@@ -72,10 +72,6 @@
   (w32-send-sys-command 61488))
 
 (global-set-key (kbd "<apps>") 'execute-extended-command)
-(global-set-key (kbd "C-! +") 'ediff)
-(global-set-key (kbd "C-! =") 'ediff-buffers)
-(global-set-key (kbd "C-! C-+") 'ediff)
-(global-set-key (kbd "C-! C-=") 'ediff-buffers)
 (global-set-key (kbd "C-! C-c") 'calendar)
 (global-set-key (kbd "C-! C-e") 'split-and-eshell)
 (global-set-key (kbd "C-! C-k") 'compile)
@@ -88,8 +84,6 @@
 (global-set-key (kbd "C-' n") 'linum-mode)
 (global-set-key (kbd "C-' w") 'toggle-truncate-lines)
 (global-set-key (kbd "C-+") 'w-resize)
-(global-set-key (kbd "C-: <f10>") 'vc-ediff)
-(global-set-key (kbd "C-: C-=") 'vc-ediff)
 
 (global-set-key (kbd "C-<f6>") 'linum-mode)
 (global-set-key (kbd "C-<f9>") 'toggle-truncate-lines)
@@ -141,8 +135,6 @@
  '(auto-save-list-file-prefix backup-dir)
  '(backup-directory-alist `((".*" . ,backup-dir)))
  '(create-lockfiles nil)
- '(ediff-split-window-function (quote split-window-horizontally))
- '(ediff-window-setup-function (quote ediff-setup-windows-plain))
  '(js-auto-indent-flag t)
  '(js-indent-level 2)
  '(org-agenda-files

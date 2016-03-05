@@ -1,16 +1,23 @@
 ;;; Configuration for ediff
 
-(defun configure-ediff ()
-  (setq ediff-split-window-function 'split-window-horizontally))
-
-(defun configure-ediff-bindings ()
-  (ediff-toggle-skip-similar)
-  (local-set-key (kbd "M-<down>") 'ediff-next-difference)
-  (local-set-key (kbd "M-<up>") 'ediff-previous-difference)
-  (local-set-key (kbd "M-<right>") 'ediff-copy-A-to-B)
-  (local-set-key (kbd "M-<left>") 'ediff-copy-B-to-A))
-
-(add-hook 'ediff-mode-hook 'configure-ediff)
-(add-hook 'ediff-startup-hook 'configure-ediff-bindings)
+(use-package ediff
+  :bind (("C-! +" . ediff)
+         ("C-! =" . ediff-buffers)
+         ("C-! C-+" . ediff)
+         ("C-! C-=" . ediff-buffers)
+         ("C-x <f10>" . ediff-buffers)
+         ("C-x S-<f10>" . ediff)
+         ("C-: <f10>" . vc-ediff)
+         ("C-: C-=" . vc-ediff)
+         :map ediff-mode-map
+         ("M-<down>" . ediff-next-difference)
+         ("M-<up>" . ediff-previous-difference)
+         ("M-<right>" . ediff-copy-A-to-B)
+         ("M-<left>" . ediff-copy-B-to-A))
+  :config
+  (custom-set-variables
+   '(ediff-split-window-function (quote split-window-horizontally))
+   '(ediff-window-setup-function (quote ediff-setup-windows-plain)))
+  (ediff-toggle-skip-similar))
 
 (provide 'config-ediff)
