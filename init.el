@@ -70,8 +70,6 @@
   (w32-send-sys-command 61488))
 
 (global-unset-key (kbd "<f10>"))
-(global-unset-key (kbd "C-z"))
-(global-unset-key (kbd "C-x C-c"))
 (global-unset-key (kbd "C-x a n"))
 
 (global-set-key (kbd "<apps>") 'execute-extended-command)
@@ -127,7 +125,6 @@
 (global-set-key (kbd "C-x C-9") 'delete-single-window)
 (global-set-key (kbd "C-x C-a C-k") 'recompile)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
-(global-set-key (kbd "C-x C-c") 'confirm-and-kill-terminal)
 
 (global-set-key (kbd "C-x M-[") 'previous-buffer)
 (global-set-key (kbd "C-x M-]") 'next-buffer)
@@ -189,8 +186,11 @@
 (use-package util
   :load-path "lisp/lib/"
   :bind (("<f6>" . match-paren)
-         ("C-%" . match-paren))
+         ("C-%" . match-paren)
+         ("C-x C-c" . confirm-and-kill-terminal))
   :init
+  (global-unset-key (kbd "C-z"))
+  (global-unset-key (kbd "C-x C-c"))
   ;; isearch-mode-map
   (define-key isearch-mode-map (kbd "<f3>") 'isearch-repeat-forward)
   (define-key isearch-mode-map (kbd "S-<f3>") 'isearch-repeat-backward)
