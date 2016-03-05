@@ -20,6 +20,8 @@
   :bind ("ESC M-x" . lacarte-execute-menu-command))
 
 (require 'config-lisps)
+(require 'config-gud)
+
 (require 'config-bookmarks)
 (require 'config-c)
 (require 'config-clojure)
@@ -30,7 +32,6 @@
 (require 'config-ediff)
 (require 'config-elisp)
 (require 'config-gnuplot)
-(require 'config-gud)
 (require 'config-haskell)
 (require 'config-helm)
 (require 'config-hideshow)
@@ -48,6 +49,7 @@
 (require 'config-smartparens)
 (require 'config-sql)
 (require 'config-web)
+
 (require 'config-ui)
 (require 'config-modes)
 
@@ -68,9 +70,6 @@
 (when (is-windows?)
   (setq w32-get-true-file-attributes nil)
   (w32-send-sys-command 61488))
-
-(global-unset-key (kbd "<f10>"))
-(global-unset-key (kbd "C-x a n"))
 
 (global-set-key (kbd "<apps>") 'execute-extended-command)
 (global-set-key (kbd "C-! +") 'ediff)
