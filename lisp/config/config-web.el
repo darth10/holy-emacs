@@ -1,30 +1,46 @@
-;;; Configuration for Web (HTML, CSS)
+;;; Configuration for Web
 
-(require 'config-common)
-(require 'web-mode)
+(use-package zencoding-mode
+  :ensure t
+  :diminish zencoding-mode
+  :bind (:map zencoding-mode-keymap
+         ("M-SPC" . zencoding-expand-line)))
 
-(defconfig configure-html
-  (require 'rainbow-mode)
-  (require 'zencoding-mode)
-  (local-set-key (kbd "M-SPC") 'zencoding-expand-line))
+(use-package rainbow-mode
+  :ensure t
+  :diminish rainbow-mode
+  :config
+  (add-hook 'css-mode-hook 'rainbow-mode)
+  (add-hook 'web-mode-hook 'rainbow-mode))
 
-(add-hook 'html-mode-hook 'configure-html)
-(add-hook 'web-mode-hook 'configure-html)
+(use-package web-mode
+  :ensure t
+  :mode (("\\.html\\'" . web-mode)
+         ("\\.phtml\\'" . web-mode)
+         ("\\.tpl\\.php\\'" . web-mode)
+         ("\\.twig\\'" . web-mode)
+         ("\\.[agj]sp\\'" . web-mode)
+         ("\\.as[cp]x\\'" . web-mode)
+         ("\\.erb\\'" . web-mode)
+         ("\\.mustache\\'" . web-mode)
+         ("\\.djhtml\\'" . web-mode))
+  :config
 
-(add-hook 'css-mode-hook 'rainbow-mode)
-(add-hook 'php-mode-hook 'rainbow-mode)
-(add-hook 'html-mode-hook 'rainbow-mode)
+  (custom-set-variables
+   '(web-mode-enable-auto-quoting t)
+   '(web-mode-enable-auto-expanding t))
 
-(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.twig\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+  (use-package smartparens
+    :config
+    (defun configure-web-smartparens-mode ()
+      (if smartparens-mode (smartparens-mode -1)))
+    (add-hook 'web-mode-hook 'configure-web-smartparens-mode))
 
-(setq web-mode-enable-auto-quoting t)
-(setq web-mode-enable-auto-expanding t)
+  (use-package zencoding-mode
+    :config
+    (defun configure-web-zencoding-mode ()
+      (require 'zencoding-mode)
+      (zencoding-mode t))
+    (add-hook 'web-mode-hook 'configure-web-zencoding-mode)))
 
 (provide 'config-web)

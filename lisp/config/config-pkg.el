@@ -66,7 +66,7 @@
     php-mode
     popup
     ;; rainbow-delimiters
-    rainbow-mode
+    ;; rainbow-mode
     restclient
     ;; rinari
     ;; ruby-compilation
@@ -81,12 +81,13 @@
     smex
     tern
     ;; tern-auto-complete
-    web-mode
+    ;; web-mode
     yaml-mode
     ;; yari
     ;; yascroll
     ;; yasnippet
-    zencoding-mode))
+    ;; zencoding-mode
+    ))
 
 (require 'cl)
 (defun pkg-packages-installed-p ()

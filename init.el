@@ -28,7 +28,6 @@
 (require 'config-magit)
 (require 'config-regions)
 (require 'config-search)
-(require 'config-web)
 
 ;;; language configurations
 (require 'config-c)
@@ -52,6 +51,7 @@
 (require 'config-modes)
 (require 'config-smartparens)
 (require 'config-ui)
+(require 'config-web)
 
 ;; Linux-only config
 (unless (is-windows?)
