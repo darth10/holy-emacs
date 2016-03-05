@@ -174,12 +174,12 @@ these additional bindings have been defined.
 
 ### Code folding
 
-| Keys                      | God mode Keys     | Description                            |
-| ------------------------- | ----------------- | -------------------------------------- |
-| <kbd>C-c h</kbd>          | <kbd>c h</kbd>    | Hide block.                            |
-| <kbd>C-c g h</kbd>        | <kbd>c g h</kbd>  | Hide all blocks.                       |
-| <kbd>C-c s</kbd>          | <kbd>c s</kbd>    | Show block.                            |
-| <kbd>C-c g s</kbd>        | <kbd>c g s</kbd>  | Show all blocks.                       |
+| Keys                                            | God mode Keys    | Description       |
+| ----------------------------------------------- | ---------------- | ----------------- |
+| <kbd>C-c C-d</kbd> or <kbd>C-c d</kbd>          | <kbd>cd</kbd>    | Hide block.       |
+| <kbd>C-c C-a C-d</kbd> or <kbd>C-c a d</kbd>    | <kbd>cad</kbd>   | Hide all blocks.  |
+| <kbd>C-c C-s</kbd> or <kbd>C-c s</kbd>          | <kbd>cs</kbd>    | Show block.       |
+| <kbd>C-c C-a C-s</kbd> or <kbd>C-c a s</kbd>    | <kbd>cas</kbd>   | Show all blocks.  |
 
 ### Multiple cursors
 
