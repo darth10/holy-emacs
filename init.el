@@ -19,39 +19,42 @@
   :ensure t
   :bind ("ESC M-x" . lacarte-execute-menu-command))
 
-(require 'config-lisps)
-(require 'config-gud)
-
+;;; before language configurations
 (require 'config-bookmarks)
-(require 'config-c)
-(require 'config-clojure)
 (require 'config-comment-annotations)
 (require 'config-company)
-(require 'config-csharp)
 (require 'config-dired)
 (require 'config-ediff)
+(require 'config-gud)
+(require 'config-helm)
+(require 'config-hideshow)
+(require 'config-magit)
+(require 'config-regions)
+(require 'config-search)
+(require 'config-web)
+
+;;; language configurations
+(require 'config-c)
+(require 'config-clojure)
+(require 'config-csharp)
 (require 'config-elisp)
 (require 'config-gnuplot)
 (require 'config-haskell)
-(require 'config-helm)
-(require 'config-hideshow)
 (require 'config-java)
 (require 'config-js)
-(require 'config-magit)
 (require 'config-org)
 (require 'config-php)
 (require 'config-python)
-(require 'config-regions)
 (require 'config-ruby)
 (require 'config-scala)
 (require 'config-scheme)
-(require 'config-search)
-(require 'config-smartparens)
 (require 'config-sql)
-(require 'config-web)
 
-(require 'config-ui)
+;;; after language configurations
+(require 'config-lisps)
 (require 'config-modes)
+(require 'config-smartparens)
+(require 'config-ui)
 
 ;; Linux-only config
 (unless (is-windows?)
@@ -131,7 +134,6 @@
 (global-set-key (kbd "C-x \"") 'switch-to-scratch-other-frame)
 (global-set-key (kbd "C-x a k") 'recompile)
 
-(global-set-key (kbd "C-x w") 'save-buffer)
 (global-set-key (kbd "C-x |") 'find-user-init-file)
 (global-set-key (kbd "C-|") 'move-to-window)
 (global-set-key (kbd "M-<f5>") 'recompile)

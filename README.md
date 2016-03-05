@@ -69,7 +69,6 @@ Some of the default Emacs key bindings are changed, as follows.
 
 | Keys                                                            | God mode Keys                   | Description                                                                                                                  |
 | --------------------------------------------------------------- | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| <kbd>C-x w</kbd>                                                | <kbd>x w</kbd>                  | Save current buffer.                                                                                                         |
 | <kbd>C-x "</kbd>                                                | <kbd>x "</kbd>                  | Switch to `*scratch*` buffer in new frame.                                                                                   |
 | <kbd>C-x C-'</kbd>                                              | <kbd>x'</kbd>                   | Switch to `*scratch*` buffer in other window.                                                                                |
 | <kbd>C-x '</kbd>                                                | <kbd>x '</kbd>                  | Switch to `*scratch*` buffer.                                                                                                |
