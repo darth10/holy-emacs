@@ -47,7 +47,7 @@
            (interactive "p")
            (if gud-minor-mode (,gud-fn arg)
              (config-show-no-gud)))
-         (global-set-key (kbd ,key) ',global-gud-fn))))
+         (bind-key ,key ',global-gud-fn))))
 
   (setq gdb-many-windows t)
   (progn

@@ -6,14 +6,6 @@
 
 (use-package inf-ruby
   :ensure t
-  :bind (:map ruby-mode-map
-         ("C-! C-r" . run-ruby)
-         ("C-<f10>" . run-ruby)
-         ("C-x C-a C-a" . load-file-in-inf-ruby)
-         ("C-x a a" . load-file-in-inf-ruby)
-         ("C-<f5>" . load-file-in-inf-ruby)
-         ("C-! C-d" . run-ruby-debugger)
-         ("C-<f11>" . run-ruby-debugger))
   :config
   (defun load-file-in-inf-ruby ()
     (interactive)
@@ -24,7 +16,14 @@
     (let* ((debug-command (concat  "ruby -r debug " buffer-file-name))
            (user-debug-command (read-string "Run ruby -r debug (like this): "
                                             debug-command)))
-      (gud-gdb user-debug-command))))
+      (gud-gdb user-debug-command)))
+  (bind-key "C-! C-r" 'run-ruby ruby-mode-map)
+  (bind-key "C-<f10>" 'run-ruby ruby-mode-map)
+  (bind-key "C-x C-a C-a" 'load-file-in-inf-ruby ruby-mode-map)
+  (bind-key "C-x a a" 'load-file-in-inf-ruby ruby-mode-map)
+  (bind-key "C-<f5>" 'load-file-in-inf-ruby ruby-mode-map)
+  (bind-key "C-! C-d" 'run-ruby-debugger ruby-mode-map)
+  (bind-key "C-<f11>" 'run-ruby-debugger ruby-mode-map))
 
 (use-package ruby-end
   :ensure t
