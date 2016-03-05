@@ -28,10 +28,10 @@
     clojurescript-mode
     csharp-mode
     ;; diff-hl
-    dired+
-    dired-details
-    dired-details+
-    direx
+    ;; dired+
+    ;; dired-details
+    ;; dired-details+
+    ;; direx
     dockerfile-mode
     ;; edit-server
     ;; expand-region

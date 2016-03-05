@@ -26,12 +26,14 @@
   (add-to-list 'god-exempt-major-modes 'ag-mode)
   (add-to-list 'god-exempt-major-modes 'compilation-mode)
   (add-to-list 'god-exempt-major-modes 'debugger-mode)
+  (add-to-list 'god-exempt-major-modes 'dired-mode)
   (add-to-list 'god-exempt-major-modes 'ediff-mode)
+  (add-to-list 'god-exempt-major-modes 'eww-mode)
   (add-to-list 'god-exempt-major-modes 'geben-breakpoint-list-mode)
   (add-to-list 'god-exempt-major-modes 'ibuffer-mode)
   (add-to-list 'god-exempt-major-modes 'org-agenda-mode)
   (add-to-list 'god-exempt-major-modes 'recentf-dialog-mode)
-  (add-to-list 'god-exempt-major-modes 'eww-mode)
+  (add-to-list 'god-exempt-major-modes 'wdired-mode)
 
   (add-hook 'overwrite-mode-hook 'god-toggle-on-overwrite))
 
