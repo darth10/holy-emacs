@@ -3,9 +3,6 @@
 (require 'cl)
 (require 'cl-lib)
 
-;; TODO
-(require 'highlight-symbol)
-
 (defconst scratch-buffer-name "*scratch*")
 
 (defun switch-to-scratch-other-frame ()

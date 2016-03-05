@@ -49,8 +49,8 @@
     ;; helm
     ;; helm-ls-git
     ;; helm-swoop
-    highlight
-    highlight-symbol
+    ;; highlight
+    ;; highlight-symbol
     idle-highlight-mode
     inflections
     ;; inf-ruby
@@ -65,7 +65,7 @@
     ;; paredit
     php-mode
     popup
-    rainbow-delimiters
+    ;; rainbow-delimiters
     rainbow-mode
     restclient
     ;; rinari
@@ -73,7 +73,7 @@
     ;; ruby-electric
     ;; ruby-mode
     ;; rvm
-    solarized-theme
+    ;; solarized-theme
     ;; scala-mode2
     slime
     slime-js

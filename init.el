@@ -31,9 +31,7 @@
          ("C-c C->" . mc/mark-all-like-this)
          ("C-x <C-return>" . mc/edit-lines)))
 
-(require 'rainbow-delimiters)
 (require 'regions)
-(require 'yascroll)
 
 (require 'config-lisps)
 (require 'config-bookmarks)
@@ -67,6 +65,7 @@
 (require 'config-sql)
 (require 'config-sticky)
 (require 'config-web)
+(require 'config-ui)
 
 ;; Linux-only config
 (unless (is-windows?)
@@ -103,21 +102,16 @@
 (global-set-key (kbd "C-! C-p") 'list-processes-and-switch)
 (global-set-key (kbd "C-' ' c") 'camelCase-mode)
 (global-set-key (kbd "C-' ' q") 'auto-fill-mode)
-(global-set-key (kbd "C-' .") 'highlight-symbol-mode)
 (global-set-key (kbd "C-' C-' C-c") 'camelCase-mode)
 (global-set-key (kbd "C-' C-' C-q") 'auto-fill-mode)
-(global-set-key (kbd "C-' C-.") 'highlight-symbol-mode)
-(global-set-key (kbd "C-' C-l") 'hl-line-mode)
 (global-set-key (kbd "C-' C-n") 'linum-mode)
 (global-set-key (kbd "C-' C-w") 'toggle-truncate-lines)
-(global-set-key (kbd "C-' l") 'hl-line-mode)
 (global-set-key (kbd "C-' n") 'linum-mode)
 (global-set-key (kbd "C-' w") 'toggle-truncate-lines)
 (global-set-key (kbd "C-+") 'w-resize)
 (global-set-key (kbd "C-: <f10>") 'vc-ediff)
 (global-set-key (kbd "C-: C-=") 'vc-ediff)
 
-(global-set-key (kbd "C-<f4>") 'hl-line-mode)
 (global-set-key (kbd "C-<f6>") 'linum-mode)
 (global-set-key (kbd "C-<f9>") 'toggle-truncate-lines)
 
@@ -132,14 +126,12 @@
 (global-set-key (kbd "C-x '") 'switch-to-scratch)
 (global-set-key (kbd "C-x 9") 'delete-single-window)
 (global-set-key (kbd "C-x <C-M-return>") 'find-user-init-file)
-;; (global-set-key (kbd "C-x <C-return>") 'mc/edit-lines)
 (global-set-key (kbd "C-x <f10>") 'ediff-buffers)
 (global-set-key (kbd "C-x <f11>") 'calendar)
 (global-set-key (kbd "C-x <f12>") 'calculator)
 (global-set-key (kbd "C-x <f3>") 'list-processes-and-switch)
 (global-set-key (kbd "C-x <f5>") 'compile)
 (global-set-key (kbd "C-x <f7>") 'split-and-eshell)
-;; (global-set-key (kbd "C-x ?") 'woman)
 (global-set-key (kbd "C-x C-'") 'switch-to-scratch-other-window)
 (global-set-key (kbd "C-x C-0") 'delete-window)
 (global-set-key (kbd "C-x C-1") 'delete-other-windows)
@@ -169,38 +161,17 @@
 (global-set-key (kbd "M-n") 'move-line-region-down)
 (global-set-key (kbd "M-p") 'move-line-region-up)
 
-(add-hook 'prog-mode-hook 'hl-line-mode)
-(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'prog-mode-hook 'highlight-symbol-mode)
-
 (defconst backup-dir "~/.emacs-saves/")
 (defconst config-custom-font "Courier Prime Code")
 
 (custom-set-variables
- ;;; vars set before loading theme
- '(solarized-use-variable-pitch) nil
- '(solarized-scale-org-headlines nil)
- '(solarized-distinct-fringe-background t)
- '(x-underline-at-descent-line t)
- ;;; add any vars to set here
- '(ansi-color-names-vector
-   ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
  '(auto-save-file-name-transforms `((".*" ,backup-dir t)))
  '(auto-save-list-file-prefix backup-dir)
  '(backup-directory-alist `((".*" . ,backup-dir)))
  '(create-lockfiles nil)
- '(custom-enabled-themes (quote (solarized-dark)))
- '(custom-safe-themes
-   (quote
-    ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
  '(echo-keystrokes 0.05)
  '(ediff-split-window-function (quote split-window-horizontally))
  '(ediff-window-setup-function (quote ediff-setup-windows-plain))
- '(fancy-splash-image nil)
- '(hl-sexp-background-colors (quote ("gray27" "midnight blue")))
- '(inhibit-default-init t)
- '(inhibit-startup-screen t)
- '(initial-scratch-message nil)
  '(js-auto-indent-flag t)
  '(js-indent-level 2)
  '(org-agenda-files
@@ -208,44 +179,7 @@
     ("~/Dropbox/org/TODO.org"
      "~/Dropbox/org/code.org"
      "~/Dropbox/org/birthdays.org"
-     "~/Dropbox/org/M-clj.org"
-     )))
- '(rainbow-delimiters-highlight-braces-p nil)
- '(rainbow-delimiters-highlight-brackets-p nil)
- '(split-height-threshold 40)
- '(split-width-threshold nil)
- '(term-default-bg-color "#000000")
- '(term-default-fg-color "#00ff00"))
-
-(custom-set-faces
- '(default ((t (:foundry "monotype" :slant normal :weight normal :height 130 :width normal))))
- '(button ((t (:background "green" :foreground "black"))))
- '(cursor ((t (:background "green"))))
- '(escape-glyph ((t (:foreground "#ddaa6f" :weight bold))))
- '(header-line ((((class color) (min-colors 89)) (:background "#303030" :foreground "#e7f6da"))))
- '(helm-ff-directory ((t (:background "LightGray" :foreground "black"))))
- '(helm-swoop-target-word-face ((t (:foreground "green"))))
- '(highlight ((t (:background "#454545" :foreground "#ffffff"))))
- '(highlight-symbol-face ((t (:foreground "green"))))
- '(hl-line ((t (:background "gray27" :foreground "green"))))
- '(isearch ((t (:background "green" :foreground "black"))))
- '(lazy-highlight ((((class color) (min-colors 89)) (:background "#384048" :foreground "#a0a8b0"))))
- '(minibuffer-prompt ((t (:foreground "green"))))
- '(mode-line ((t (:background "green1" :foreground "black"))))
- '(mode-line-buffer-id ((t (:background "green" :foreground "black" :weight bold))))
- '(mode-line-inactive ((t (:background "dimgray" :foreground "black"))))
- '(rainbow-delimiters-depth-1-face ((t (:foreground "light sky blue"))))
- '(rainbow-delimiters-depth-2-face ((t (:foreground "royal blue"))))
- '(rainbow-delimiters-depth-3-face ((t (:foreground "medium orchid"))))
- '(rainbow-delimiters-depth-4-face ((t (:foreground "dark orange"))))
- '(rainbow-delimiters-depth-5-face ((t (:foreground "yellow"))))
- '(rainbow-delimiters-depth-6-face ((t (:foreground "lawn green"))))
- '(rainbow-delimiters-depth-7-face ((t (:foreground "light sky blue"))))
- '(rainbow-delimiters-depth-8-face ((t (:foreground "royal blue"))))
- '(rainbow-delimiters-depth-9-face ((t (:foreground "royal blue"))))
- '(rainbow-delimiters-unmatched-face ((t (:foreground "medium orchid"))))
- '(region ((t (:background "white" :foreground "black"))))
- '(yascroll:thumb-fringe ((t (:background "lawn green" :foreground "lawn green")))))
+     "~/Dropbox/org/M-clj.org"))))
 
 ;; custom font
 (use-package font-utils
@@ -254,14 +188,6 @@
   (progn
     (when (font-utils-exists-p config-custom-font)
       (set-frame-font config-custom-font nil t))))
-
-(use-package paren
-  :ensure t
-  :config
-  (set-face-background 'show-paren-match "Dodgerblue1")
-  (set-face-foreground 'show-paren-match "white")
-  (set-face-attribute 'show-paren-match nil :weight 'extra-bold)
-  (show-paren-mode 1))
 
 (autoload 'camelCase-mode "camelCase-mode" nil t)
 (set-mode-line-format)
@@ -278,15 +204,10 @@
   :config
   (edit-server-start))
 
-;;; disable these modes
-(tool-bar-mode -1)
-(menu-bar-mode -1)
-(scroll-bar-mode -1)
 ;;; enable these modes before loading saved desktop
 (blink-cursor-mode 1)
 (column-number-mode 1)
 (recentf-mode 1)
-(global-yascroll-bar-mode 1)
 (desktop-save-mode 1)
 
 (use-package util

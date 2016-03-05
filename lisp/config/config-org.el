@@ -3,7 +3,7 @@
 (defun configure-org ()
   ;; (auto-complete-mode)
   (require 'org-agenda)
-  (hl-line-mode t)
+  ;; (hl-line-mode t)
   (local-unset-key (kbd "C-'"))
   (local-unset-key (kbd "C-c :"))
   (local-unset-key (kbd "C-c ;"))

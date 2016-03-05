@@ -8,7 +8,7 @@
 (require 'direx)
 
 (defun configure-dired ()
-  (hl-line-mode 1)
+  ;; (hl-line-mode 1)
   (local-set-key (kbd "C-x C-/") 'wdired-change-to-wdired-mode))
 
 (add-hook 'dired-mode-hook 'configure-dired)
