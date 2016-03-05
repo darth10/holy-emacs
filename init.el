@@ -19,7 +19,6 @@
 
 ;;; before language configurations
 (require 'config-bookmarks)
-(require 'config-comment-annotations)
 (require 'config-company)
 (require 'config-dired)
 (require 'config-ediff)
@@ -197,6 +196,7 @@
   (put 'upcase-region 'disabled nil)
   (put 'downcase-region 'disabled nil)
   :config
+  (add-hook 'prog-mode-hook 'font-lock-comment-annotations)
   (kill-line-utils-init)
   (lvd-load-dir "~/.emacs.d/lisp/var/"))
 
