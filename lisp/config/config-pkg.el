@@ -34,7 +34,7 @@
     direx
     dockerfile-mode
     ;; edit-server
-    expand-region
+    ;; expand-region
     find-file-in-project
     findr
     geben

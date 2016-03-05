@@ -19,12 +19,6 @@
   :ensure t
   :bind ("ESC M-x" . lacarte-execute-menu-command))
 
-(use-package expand-region
-  :ensure t
-  :bind ("C-=" . er/expand-region))
-
-(require 'regions)
-
 (require 'config-lisps)
 (require 'config-bookmarks)
 (require 'config-c)
@@ -46,6 +40,7 @@
 (require 'config-org)
 (require 'config-php)
 (require 'config-python)
+(require 'config-regions)
 (require 'config-ruby)
 (require 'config-scala)
 (require 'config-scheme)
@@ -143,11 +138,7 @@
 (global-set-key (kbd "C-x w") 'save-buffer)
 (global-set-key (kbd "C-x |") 'find-user-init-file)
 (global-set-key (kbd "C-|") 'move-to-window)
-(global-set-key (kbd "M-<down>") 'move-line-region-down)
 (global-set-key (kbd "M-<f5>") 'recompile)
-(global-set-key (kbd "M-<up>") 'move-line-region-up)
-(global-set-key (kbd "M-n") 'move-line-region-down)
-(global-set-key (kbd "M-p") 'move-line-region-up)
 
 (defconst backup-dir "~/.emacs-saves/")
 (defconst config-custom-font "Courier Prime Code")
