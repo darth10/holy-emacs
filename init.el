@@ -121,7 +121,6 @@
 (global-set-key (kbd "C-<f6>") 'linum-mode)
 (global-set-key (kbd "C-<f9>") 'toggle-truncate-lines)
 
-(global-set-key (kbd "C-?") 'info-lookup-symbol)
 (global-set-key (kbd "C-`") 'sticky-control-mode)
 (global-set-key (kbd "C-c C-\\") 'just-one-space)
 (global-set-key (kbd "C-c C-b") 'org-iswitchb)
