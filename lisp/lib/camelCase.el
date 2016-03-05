@@ -1,4 +1,4 @@
-;;;  camelCase-mode.el --- minor mode for editing with camelCase words
+;;;  camelCase.el --- minor mode for editing with camelCase words
 ;;   Copyright (C) 2001  C.R.Manning
 ;;
 ;; This program is free software; you can redistribute it and/or modify

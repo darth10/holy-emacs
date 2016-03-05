@@ -81,9 +81,7 @@
 (global-set-key (kbd "C-! C-k") 'compile)
 (global-set-key (kbd "C-! C-n") 'calculator)
 (global-set-key (kbd "C-! C-p") 'list-processes-and-switch)
-(global-set-key (kbd "C-' ' c") 'camelCase-mode)
 (global-set-key (kbd "C-' ' q") 'auto-fill-mode)
-(global-set-key (kbd "C-' C-' C-c") 'camelCase-mode)
 (global-set-key (kbd "C-' C-' C-q") 'auto-fill-mode)
 (global-set-key (kbd "C-' C-n") 'linum-mode)
 (global-set-key (kbd "C-' C-w") 'toggle-truncate-lines)
@@ -162,7 +160,11 @@
     (when (font-utils-exists-p config-custom-font)
       (set-frame-font config-custom-font nil t))))
 
-(autoload 'camelCase-mode "camelCase-mode" nil t)
+(use-package camelCase
+  :diminish camelCase-mode
+  :load-path "lisp/lib/"
+  :bind (("C-' c" . camelCase-mode)
+         ("C-' C-c" . camelCase-mode)))
 
 ;;; server process
 (use-package server
