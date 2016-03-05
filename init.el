@@ -1,5 +1,3 @@
-(add-to-list 'load-path "~/.emacs.d/lisp/")
-(add-to-list 'load-path "~/.emacs.d/lisp/lib/")
 (add-to-list 'load-path "~/.emacs.d/lisp/config/")
 
 (require 'config-pkg)
