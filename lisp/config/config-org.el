@@ -13,7 +13,7 @@
          ("M-p" . org-metaup)
          ("M-n" . org-metadown))
   :config
-  (bind-key "C-x C-e" (kbd "C-u C-c *"))
+  (bind-key "C-x C-e" (kbd "C-u C-c *") org-mode-map)
   (unbind-key "C-'" org-mode-map)
   (unbind-key "C-c :" org-mode-map)
   (unbind-key "C-c ;" org-mode-map)
