@@ -68,11 +68,7 @@
 (global-set-key (kbd "C-<f9>") 'toggle-truncate-lines)
 
 (global-set-key (kbd "C-c C-\\") 'just-one-space)
-(global-set-key (kbd "C-c C-b") 'org-iswitchb)
-(global-set-key (kbd "C-c C-n") 'org-agenda)
 (global-set-key (kbd "C-c \\") 'just-one-space)
-(global-set-key (kbd "C-c b") 'org-iswitchb)
-(global-set-key (kbd "C-c n") 'org-agenda)
 
 (global-set-key (kbd "C-x '") 'switch-to-scratch)
 (global-set-key (kbd "C-x 9") 'delete-single-window)
