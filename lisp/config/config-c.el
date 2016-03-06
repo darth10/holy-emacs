@@ -1,7 +1,6 @@
 ;;; Configuration for C/C++
 
-(require 'config-common)
-(require 'config-gud)
+;; (require 'config-common)
 
 (setq c-default-style '((java-mode . "java")
                         (awk-mode . "awk")
@@ -13,6 +12,7 @@
 
 (defun config-display-gdb-buffer ()
   (interactive)
+  (require 'config-gud)
   (if (fboundp 'gdb-display-gdb-buffer)
       (gdb-display-gdb-buffer)
     (config-show-no-gud)))

@@ -1,6 +1,6 @@
 ;;; Configuration for JavaScript
 
-(require 'config-common)
+;; (require 'config-common)
 
 (defun slime-connect-to-repl ()
   (interactive)

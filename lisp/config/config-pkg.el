@@ -2,6 +2,9 @@
 
 (require 'package)
 
+(defun is-windows? ()
+  (equal system-type 'windows-nt))
+
 (defun defpkgsource (name-uri-cons)
   (add-to-list 'package-archives name-uri-cons t))
 
@@ -104,6 +107,11 @@
     (dolist (p pkg-packages)
       (when (not (package-installed-p p))
         (package-install p)))))
+
+(defmacro defconfig (name &rest body)
+  `(defun ,name ()
+     (local-set-key "\r" 'newline-and-indent)
+     ,@body))
 
 (pkg-update-packages)
 

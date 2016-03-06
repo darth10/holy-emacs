@@ -1,6 +1,6 @@
 ;;; Configuration for Emacs Lisp
 
-(require 'config-common)
+;; (require 'config-common)
 (require 'util)
 
 (defconfig configure-elisp

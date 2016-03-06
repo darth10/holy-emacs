@@ -1,6 +1,6 @@
 ;;; Configuration for SQL
 
-(require 'config-common)
+;; (require 'config-common)
 
 (add-to-list 'process-coding-system-alist '("sqlcmd" . cp850-dos))
 (setq sql-ms-program "sqlcmd")

@@ -2,9 +2,6 @@
 
 (require 'config-pkg)
 
-;;; TODO
-(require 'config-common)
-
 ;;; load before language configurations
 (require 'config-company)
 (require 'config-gud)
@@ -35,20 +32,6 @@
 (require 'config-servers)
 (require 'config-ui)
 (require 'config-web)
-
-;; Linux-only config
-(unless (is-windows?)
-  (require 'config-c)
-  (eval-after-load 'info
-    '(progn
-       (push "/opt/local/share/info" Info-default-directory-list)
-       (push "~/.emacs.d/info" Info-default-directory-list)))
-  (push "/usr/bin/" exec-path))
-
-;; Windows-only config
-(when (is-windows?)
-  (setq w32-get-true-file-attributes nil)
-  (w32-send-sys-command 61488))
 
 (modes/set-mode-line-format)
 ;; ;; comment out this line to disable god-mode

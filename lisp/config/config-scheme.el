@@ -1,6 +1,6 @@
 ;;; Configuration for Guile
 
-(require 'config-common)
+;; (require 'config-common)
 
 (defun scheme-load-and-repl ()
   (interactive)

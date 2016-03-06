@@ -1,6 +1,6 @@
 ;;; Configuration for Clojure
 
-(require 'config-common)
+;; (require 'config-common)
 
 (require 'clojure-mode)
 (require 'cider)

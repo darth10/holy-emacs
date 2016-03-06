@@ -1,6 +1,6 @@
 ;;; Configuration for PHP
 
-(require 'config-common)
+;; (require 'config-common)
 (require 'config-gud)
 
 (defun php-debug ()

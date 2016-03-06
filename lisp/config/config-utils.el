@@ -229,6 +229,16 @@
   (add-hook 'prog-mode-hook 'font-lock-comment-annotations)
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
   (kill-line-utils-init)
-  (lvd-load-dir "~/.emacs.d/lisp/var/"))
+  (lvd-load-dir "~/.emacs.d/lisp/var/")
+
+  (unless (is-windows?)		;; Linux-only config
+    (eval-after-load 'info
+      '(progn
+         (push "/opt/local/share/info" Info-default-directory-list)
+         (push "~/.emacs.d/info" Info-default-directory-list))))
+
+  (when (is-windows?)		;; Windows-only config
+    (setq w32-get-true-file-attributes nil)
+    (w32-send-sys-command 61488)))
 
 (provide 'config-utils)

@@ -1,7 +1,7 @@
 ;;; Configuration for C#
 
 ;; (require 'omnisharp)
-(require 'config-common)
+;; (require 'config-common)
 
 (defconst omnisharp-process-name
   "omnisharp-server")

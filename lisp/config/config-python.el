@@ -1,6 +1,6 @@
 ;;; Configuration for Python
 
-(require 'config-common)
+;; (require 'config-common)
 
 
 (defun run-python-debugger ()

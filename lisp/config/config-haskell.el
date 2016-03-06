@@ -1,6 +1,6 @@
 ;;; Configuration for Haskell
 
-(require 'config-common)
+;; (require 'config-common)
 
 (defconfig configure-haskell-newline-indent)
 
