@@ -67,7 +67,6 @@
 (global-set-key (kbd "C-<f6>") 'linum-mode)
 (global-set-key (kbd "C-<f9>") 'toggle-truncate-lines)
 
-(global-set-key (kbd "C-`") 'sticky-control-mode)
 (global-set-key (kbd "C-c C-\\") 'just-one-space)
 (global-set-key (kbd "C-c C-b") 'org-iswitchb)
 (global-set-key (kbd "C-c C-n") 'org-agenda)
@@ -123,3 +122,9 @@
 ;;; enable these modes before loading saved desktop
 (column-number-mode 1)
 (desktop-save-mode 1)
+
+(modes/set-mode-line-format)
+;; ;; comment out this line to disable god-mode
+(modes/set-god-mode "<escape>" "S-<escape>")
+;; comment out this line to disable sticky-control-mode
+(modes/set-sticky-control-mode t)

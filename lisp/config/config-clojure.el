@@ -7,7 +7,8 @@
 ;; (require 'ac-cider)
 (require 'clj-refactor)
 
-(setq clj-add-ns-to-blank-clj-files nil)
+;;; This doesn't do anything, lol
+;; (setq clj-add-ns-to-blank-clj-files nil)
 
 (defun load-file-in-nrepl ()
   (interactive)

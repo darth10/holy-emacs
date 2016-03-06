@@ -3,9 +3,10 @@
 (use-package god-mode
   :ensure t
   :diminish god-local-mode
+  :commands (modes/set-god-mode)
   :config
 
-  (defun set-god-mode (god-mode-key god-mode-all-key)
+  (defun modes/set-god-mode (god-mode-key god-mode-all-key)
     (progn
       (bind-key god-mode-key 'god-local-mode)
       (bind-key god-mode-all-key 'god-mode-all)
@@ -37,8 +38,22 @@
 
 (use-package sticky-control
   :bind ("C-`" . sticky-control-mode)
+  :commands (modes/set-sticky-control-mode
+             modes/set-mode-line-format)
   :load-path "lisp/lib/"
   :config
+
+  (defun modes/set-sticky-control-mode (e)
+    (sticky-control-mode e))
+
+  (use-package god-mode
+    :config
+    (defun modes/set-mode-line-format ()
+      (add-to-list 'default-mode-line-format
+                   (quote (:eval (propertize (if (and (boundp 'sticky-control-mode) sticky-control-mode) " ^" "  ")))))
+      (add-to-list 'default-mode-line-format
+                   (quote (:eval (propertize (if (and (boundp 'god-local-mode) god-local-mode) "G" " ")))))))
+
   (setq sticky-control-timeout 0.4)
   (setq sticky-control-key ?j))
 
@@ -90,17 +105,5 @@
          ("C-c C->" . mc/mark-all-like-this)
          ("C-x <C-return>" . mc/edit-lines)
          ("C-x RET RET" . set-rectangular-region-anchor)))
-
-(defun set-mode-line-format ()
-  (add-to-list 'default-mode-line-format
-               (quote (:eval (propertize (if (and (boundp 'sticky-control-mode) sticky-control-mode) " ^" "  ")))))
-  (add-to-list 'default-mode-line-format
-               (quote (:eval (propertize (if (and (boundp 'god-local-mode) god-local-mode) "G" " "))))))
-
-(set-mode-line-format)
-;; ;; comment out this section to disable global god-mode
-(set-god-mode "<escape>" "S-<escape>")
-;; comment out this section to sticky control key
-(sticky-control-mode t)
 
 (provide 'config-modes)
