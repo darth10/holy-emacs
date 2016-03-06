@@ -2,7 +2,7 @@
 
 (require 'config-pkg)
 
-(use-package diminish :ensure t)
+;;; TODO
 (require 'config-common)
 
 ;;; load before language configurations
