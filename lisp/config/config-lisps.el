@@ -33,7 +33,7 @@
          ("C-' C-(" . paredit-mode))
   :config
   (defmacro set-paredit-key (key function)
-    `(define-key paredit-mode-map (kbd ,key) (quote ,function)))
+    `(bind-key (kbd ,key) (quote ,function) paredit-mode-map))
   (defmacro unset-paredit-key (key)
     `(set-paredit-key ,key nil))
   (unset-paredit-key "M-s")

@@ -10,9 +10,9 @@
       (bind-key god-mode-key 'god-local-mode)
       (bind-key god-mode-all-key 'god-mode-all)
       (add-to-list 'god-exempt-major-modes 'dired-mode)
-      (define-key god-local-mode-map (kbd ".") 'repeat)
-      (define-key god-local-mode-map (kbd "z") 'repeat)
-      (define-key god-local-mode-map (kbd "i") 'god-local-mode)
+      (bind-key (kbd ".") 'repeat god-local-mode-map)
+      (bind-key (kbd "z") 'repeat god-local-mode-map)
+      (bind-key (kbd "i") 'god-local-mode god-local-mode-map)
       (god-mode)))
 
   (defun god-toggle-on-overwrite ()
