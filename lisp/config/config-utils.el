@@ -3,6 +3,10 @@
 (defconst config-custom-font "Courier Prime Code")
 (defconst backup-dir "~/.emacs.bak/")
 
+(use-package wide-column
+  :ensure t
+  :diminish wide-column-mode)
+
 ;; custom font
 (use-package font-utils
   :load-path "lisp/lib/"
