@@ -33,6 +33,7 @@
 ;;; after language configurations
 (require 'config-lisps)
 (require 'config-modes)
+(require 'config-servers)
 (require 'config-ui)
 (require 'config-web)
 
@@ -119,18 +120,6 @@
      "~/Dropbox/org/code.org"
      "~/Dropbox/org/birthdays.org"
      "~/Dropbox/org/M-clj.org"))))
-
-;;; server process
-(use-package server
-  :ensure t
-  :config
-  (server-start))
-
-;;; edit-server process
-(use-package edit-server
-  :ensure t
-  :config
-  (edit-server-start))
 
 ;;; enable these modes before loading saved desktop
 (column-number-mode 1)
