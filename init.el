@@ -5,13 +5,12 @@
 (use-package diminish :ensure t)
 (require 'config-common)
 
-;;; before language configurations
+;;; load before language configurations
 (require 'config-company)
-(require 'config-ediff)
 (require 'config-gud)
 (require 'config-helm)
-(require 'config-magit)
 (require 'config-utils)
+(require 'config-vc)
 
 ;;; language configurations
 (require 'config-c)
@@ -30,7 +29,7 @@
 (require 'config-scheme)
 (require 'config-sql)
 
-;;; after language configurations
+;;; load after language configurations
 (require 'config-lisps)
 (require 'config-modes)
 (require 'config-servers)
