@@ -50,8 +50,6 @@
   (setq w32-get-true-file-attributes nil)
   (w32-send-sys-command 61488))
 
-(desktop-save-mode 1)
-
 (modes/set-mode-line-format)
 ;; ;; comment out this line to disable god-mode
 (modes/set-god-mode "<escape>" "S-<escape>")

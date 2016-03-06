@@ -109,4 +109,8 @@
          ("C-x <C-return>" . mc/edit-lines)
          ("C-x RET RET" . set-rectangular-region-anchor)))
 
+(use-package desktop
+  :config
+  (desktop-save-mode 1))
+
 (provide 'config-modes)
