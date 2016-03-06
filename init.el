@@ -5,29 +5,13 @@
 (use-package diminish :ensure t)
 (require 'config-common)
 
-(use-package yasnippet
-  :ensure t
-  :diminish yas-minor-mode
-  :bind (("C-' C-y" . yas-global-mode)
-         ("C-' y" . yas-global-mode))
-  :config
-  (add-to-list 'yas-snippet-dirs "~/.emacs.d/data/snippets/"))
-
-(use-package lacarte
-  :ensure t
-  :bind ("ESC M-x" . lacarte-execute-menu-command))
-
 ;;; before language configurations
-(require 'config-bookmarks)
 (require 'config-company)
-(require 'config-dired)
 (require 'config-ediff)
 (require 'config-gud)
 (require 'config-helm)
-(require 'config-hideshow)
 (require 'config-magit)
-(require 'config-regions)
-(require 'config-search)
+(require 'config-utils)
 
 ;;; language configurations
 (require 'config-c)
@@ -49,7 +33,6 @@
 ;;; after language configurations
 (require 'config-lisps)
 (require 'config-modes)
-(require 'config-smartparens)
 (require 'config-ui)
 (require 'config-web)
 
@@ -61,10 +44,6 @@
        (push "/opt/local/share/info" Info-default-directory-list)
        (push "~/.emacs.d/info" Info-default-directory-list)))
   (push "/usr/bin/" exec-path))
-
-(use-package woman
-  :unless (is-windows?)
-  :bind ("C-x ?" . woman))
 
 ;; Windows-only config
 (when (is-windows?)
@@ -99,7 +78,6 @@
 (global-set-key (kbd "C-x '") 'switch-to-scratch)
 (global-set-key (kbd "C-x 9") 'delete-single-window)
 (global-set-key (kbd "C-x <C-M-return>") 'find-user-init-file)
-(global-set-key (kbd "C-x <f10>") 'ediff-buffers)
 (global-set-key (kbd "C-x <f11>") 'calendar)
 (global-set-key (kbd "C-x <f12>") 'calculator)
 (global-set-key (kbd "C-x <f3>") 'list-processes-and-switch)
@@ -119,7 +97,6 @@
 
 (global-set-key (kbd "C-x M-[") 'previous-buffer)
 (global-set-key (kbd "C-x M-]") 'next-buffer)
-(global-set-key (kbd "C-x S-<f10>") 'ediff)
 (global-set-key (kbd "C-x \"") 'switch-to-scratch-other-frame)
 (global-set-key (kbd "C-x a k") 'recompile)
 
@@ -128,7 +105,6 @@
 (global-set-key (kbd "M-<f5>") 'recompile)
 
 (defconst backup-dir "~/.emacs-saves/")
-(defconst config-custom-font "Courier Prime Code")
 
 (custom-set-variables
  '(auto-save-file-name-transforms `((".*" ,backup-dir t)))
@@ -143,20 +119,6 @@
      "~/Dropbox/org/code.org"
      "~/Dropbox/org/birthdays.org"
      "~/Dropbox/org/M-clj.org"))))
-
-;; custom font
-(use-package font-utils
-  :load-path "lisp/lib/"
-  :config
-  (progn
-    (when (font-utils-exists-p config-custom-font)
-      (set-frame-font config-custom-font nil t))))
-
-(use-package camelCase
-  :diminish camelCase-mode
-  :load-path "lisp/lib/"
-  :bind (("C-' c" . camelCase-mode)
-         ("C-' C-c" . camelCase-mode)))
 
 ;;; server process
 (use-package server
@@ -174,30 +136,3 @@
 (column-number-mode 1)
 (recentf-mode 1)
 (desktop-save-mode 1)
-
-(use-package util
-  :load-path "lisp/lib/"
-  :bind (("<f6>" . match-paren)
-         ("C-%" . match-paren)
-         ("C-x C-c" . confirm-and-kill-terminal))
-  :init
-  (global-unset-key (kbd "C-z"))
-  (global-unset-key (kbd "C-x C-c"))
-  ;; isearch-mode-map
-  (define-key isearch-mode-map (kbd "<f3>") 'isearch-repeat-forward)
-  (define-key isearch-mode-map (kbd "S-<f3>") 'isearch-repeat-backward)
-  ;; enable disabled commands
-  (put 'upcase-region 'disabled nil)
-  (put 'downcase-region 'disabled nil)
-  :config
-  (add-hook 'prog-mode-hook 'font-lock-comment-annotations)
-  (kill-line-utils-init)
-  (lvd-load-dir "~/.emacs.d/lisp/var/"))
-
-(use-package util/save
-  :bind (("C-s" . save-buffer)
-         ("C-x C-s" . isearch-forward))
-  :init
-  (global-unset-key (kbd "C-s"))
-  (global-unset-key (kbd "C-x C-s"))
-  (add-hook 'before-save-hook 'delete-trailing-whitespace))
