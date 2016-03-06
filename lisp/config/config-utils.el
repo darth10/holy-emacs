@@ -107,7 +107,8 @@
   :config
   (custom-set-variables
    '(recentf-max-menu-items 40)
-   '(recentf-max-saved-items 40)))
+   '(recentf-max-saved-items 40))
+  (recentf-mode t))
 
 (use-package breadcrumb
   :load-path "lisp/lib/"

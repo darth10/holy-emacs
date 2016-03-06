@@ -134,5 +134,4 @@
 
 ;;; enable these modes before loading saved desktop
 (column-number-mode 1)
-(recentf-mode 1)
 (desktop-save-mode 1)
