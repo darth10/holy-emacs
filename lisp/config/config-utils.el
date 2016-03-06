@@ -1,7 +1,9 @@
 ;;; Configuration for utility packages
 
-;; custom font
 (defconst config-custom-font "Courier Prime Code")
+(defconst backup-dir "~/.emacs.bak/")
+
+;; custom font
 (use-package font-utils
   :load-path "lisp/lib/"
   :config
@@ -140,13 +142,76 @@
     (bc-clear)
     (message "All breadcrumbs deleted!")))
 
+(use-package ibuffer
+  :bind ("C-x C-b" . ibuffer))
+
+(use-package calendar
+  :bind (("C-! c" . calendar)
+         ("C-! C-c" . calendar)
+         ("C-x <f11>" . calendar)))
+
+(use-package calculator
+  :bind (("C-! n" . calculator)
+         ("C-! C-n" . calculator)
+         ("C-x <f12>" . calculator)))
+
+(use-package compile
+  :bind (("C-! k" . compile)
+         ("C-! C-k" . compile)
+         ("C-x <f5>" . compile)
+         ("M-<f5>" . recompile)
+         ("C-x a k" . recompile)
+         ("C-x C-a C-k" . recompile)))
+
+(use-package linum
+  :bind (("C-' n" . linum-mode)
+         ("C-' C-n" . linum-mode)
+         ("C-<f6>" . linum-mode)))
+
+(use-package simple
+  :bind (("C-' w" . toggle-truncate-lines)
+         ("C-' C-w" . toggle-truncate-lines)
+         ("C-<f9>" . toggle-truncate-lines)
+         ("C-' q" . auto-fill-mode)
+         ("C-' C-q" . auto-fill-mode)
+         ("C-c C-\\" . just-one-space)
+         ("C-c \\" . just-one-space))
+  :config
+  (custom-set-variables
+   '(auto-save-file-name-transforms `((".*" ,backup-dir t)))
+   '(auto-save-list-file-prefix backup-dir)
+   '(backup-directory-alist `((".*" . ,backup-dir)))
+   '(create-lockfiles nil))
+  (column-number-mode 1))
+
 (use-package util
   :load-path "lisp/lib/"
-  :bind (("<f6>" . match-paren)
+  :bind (("C-! e" . split-and-eshell)
+         ("C-! C-e" . split-and-eshell)
+         ("C-! p" . list-processes-and-switch)
+         ("C-! C-p" . list-processes-and-switch)
          ("C-%" . match-paren)
+         ("C-+" . w-resize)
          ("C-s" . save-buffer)
+         ("C-x '" . switch-to-scratch)
+         ("C-x 9" . delete-single-window)
+         ("C-x <C-M-return>" . find-user-init-file)
+         ("C-x <f3>" . list-processes-and-switch)
+         ("C-x <f7>" . split-and-eshell)
+         ("C-x C-'" . switch-to-scratch-other-window)
+         ("C-x C-0" . delete-window)
+         ("C-x C-1" . delete-other-windows)
+         ("C-x C-2" . split-window-below)
+         ("C-x C-3" . split-window-right)
+         ("C-x C-9" . delete-single-window)
+         ("C-x C-c" . confirm-and-kill-terminal)
          ("C-x C-s" . isearch-forward)
-         ("C-x C-c" . confirm-and-kill-terminal))
+         ("C-x M-[" . previous-buffer)
+         ("C-x M-]" . next-buffer)
+         ("C-x \"" . switch-to-scratch-other-frame)
+         ("C-x |" . find-user-init-file)
+         ("C-|" . move-to-window)
+         ("<f6>" . match-paren))
   :init
   (global-unset-key (kbd "C-z"))
   ;; isearch-mode-map

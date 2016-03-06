@@ -9,6 +9,8 @@
          ("C-x b" . helm-mini)
          ("C-~" . helm-mark-ring)
          ("M-x" . helm-M-x)
+         ("<apps>" . helm-M-x)
+         ("<menu>" . helm-M-x)
          ("M-y" . helm-show-kill-ring)
          ("C-<f2>" . helm-imenu)
          ("M-s i" . helm-occur)

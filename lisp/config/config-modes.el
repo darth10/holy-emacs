@@ -58,6 +58,9 @@
   (setq sticky-control-key ?j))
 
 (use-package frame
+  :bind (("C-x C-5 C-0" . delete-frame)
+         ("C-x C-5 C-1" . delete-other-frames)
+         ("C-x C-5 C-2" . make-frame-command))
   :init
   (custom-set-variables
    '(echo-keystrokes 0.05)

@@ -11,7 +11,7 @@
 * Manage sessions and buffers via `desktop-save-mode`.
 * Quickly move regions using <kbd>M-↑</kbd> and <kbd>M-↓</kbd> like in Eclipse.
 * Quickly create and navigate across bookmarks via `breadcrumb`.
-* Automatically saves backup files to `~/.emacs-saves/`.
+* Automatically saves backup files to `~/.emacs.bak/`.
 * Recompile entire `~/.emacs.d` using the `rebuild` function.
 * Remember that the meta (<kbd>M-</kbd>) modifier is the same as prefixing the <kbd>C-[</kbd> key.
 

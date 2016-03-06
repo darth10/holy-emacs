@@ -23,7 +23,14 @@
   (unbind-key "C-c C-j" org-mode-map)
   (unbind-key "C-c C-n" org-mode-map)
   (unbind-key "C-c C-p" org-mode-map)
-  (unbind-key "C-c C-b" org-mode-map))
+  (unbind-key "C-c C-b" org-mode-map)
+  (custom-set-variables
+   '(org-agenda-files
+     (quote
+      ("~/Dropbox/org/TODO.org"
+       "~/Dropbox/org/code.org"
+       "~/Dropbox/org/birthdays.org"
+       "~/Dropbox/org/M-clj.org")))))
 
 (use-package org-agenda
   :bind (("C-c n" . org-agenda)
