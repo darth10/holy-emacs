@@ -5,20 +5,21 @@
 (defun is-windows? ()
   (equal system-type 'windows-nt))
 
-(defun defpkgsource (name-uri-cons)
+(defun pkg/defsource (name-uri-cons)
   (add-to-list 'package-archives name-uri-cons t))
 
-;; Package sources
-(defpkgsource '("marmalade" . "https://marmalade-repo.org/packages/"))
-(defpkgsource '("melpa" . "https://melpa.milkbox.net/packages/"))
-
-(package-initialize)
-(when (not (package-installed-p 'use-package))
-  (package-refresh-contents)
-  (package-install 'use-package))
+(defun pkg/initialize-packages ()
+  (package-initialize)
+  (when (or (not (package-installed-p 'use-package))
+            (not (package-installed-p 'diminish)))
+    (package-refresh-contents))
+  (when (not (package-installed-p 'use-package))
+    (package-install 'use-package))
+  (when (not (package-installed-p 'diminish))
+    (package-install 'diminish)))
 
 ;;; TODO remove these later
-
+(package-initialize)
 (defvar pkg-packages
   '(
     ;; ac-cider
@@ -120,7 +121,5 @@
 (eval-when-compile
   (require 'use-package))
 (require 'bind-key)
-
-(use-package diminish :ensure t)
 
 (provide 'config-pkg)
