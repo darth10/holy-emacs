@@ -215,7 +215,10 @@
          ("C-x \"" . switch-to-scratch-other-frame)
          ("C-x |" . find-user-init-file)
          ("C-|" . move-to-window)
-         ("<f6>" . match-paren))
+         ("<f6>" . match-paren)
+         :map emacs-lisp-mode-map
+         ("C-<f10>" . split-and-eshell)
+         ("C-! C-r" . split-and-eshell))
   :init
   (global-unset-key (kbd "C-z"))
   ;; isearch-mode-map
@@ -228,6 +231,7 @@
   :config
   (add-hook 'prog-mode-hook 'font-lock-comment-annotations)
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
   (kill-line-utils-init)
   (lvd-load-dir "~/.emacs.d/lisp/var/")
 

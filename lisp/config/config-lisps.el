@@ -69,6 +69,9 @@
   (set-paredit-key "ESC ESC <left>" paredit-backward-slurp-sexp)
   (set-paredit-key "C-, C-, C-b" paredit-backward-slurp-sexp)
   (set-paredit-key "C-, , b" paredit-backward-slurp-sexp)
+
+  (add-hook 'eshell-mode-hook 'paredit-mode)
+
   (use-package smartparens
     :config
     (defun disable-smartparens-mode ()
@@ -79,6 +82,9 @@
     :config
     (add-hook 'lisp-mode-hook 'paredit-mode)
     (add-hook 'emacs-lisp-mode-hook 'paredit-mode))
+  (use-package ielm
+    :config
+    (add-hook 'ielm-mode-hook 'paredit-mode))
   (use-package clojure-mode :config (add-hook 'clojure-mode-hook 'paredit-mode))
   (use-package scheme :config (add-hook 'scheme-mode-hook 'paredit-mode)))
 
