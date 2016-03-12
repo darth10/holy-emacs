@@ -2,7 +2,6 @@
 
 * Support for editing/debugging Clojure, Emacs Lisp, Scheme, C#, JavaScript, Haskell, Python, Ruby, PHP and C.
 * Uses `god-mode` to reduce keystrokes. All normal key bindings work in `god-mode` too; `god-mode` is only used to minimize the number of keys pressed.
-* Uses <kbd>j</kbd> as a sticky control key.
 * Uses `use-package` and `bind-key`. `M-x describe-personal-keybindings` will display all available key bindings.
 * Identical (almost) bindings across different major modes.
 * Installs all required packages from GNU, Marmalade and MELPA repositories on startup.
@@ -29,29 +28,16 @@ In `god-mode`, you can simply use <kbd>[</kbd> for the escape key.
 * <kbd>M-10 C-n</kbd> becomes <kbd>10n</kbd>.
 * Use <kbd>.</kbd> or <kbd>z</kbd> to repeat the last command.
 
-## `sticky-control-mode`
-
-Press the <kbd>j</kbd> key twice in quick succession to emulate the control (<kbd>C-</kbd>) modifier.
-If the <kbd>j</kbd> key is pressed while editing text, there will be a slight delay before it is shown in the buffer.
-There are a few additional bindings that use a single quick <kbd>j</kbd> prefix.
-All of these functions still have their original key bindings bound to them.
-`god-mode` does not affect the <kbd>j</kbd> sticky control key.
-You can always toggle this feature using <kbd>C-`</kbd>.
-
-* <kbd>jx</kbd> emulates the <kbd>C-x</kbd> prefix.
-* <kbd>jc</kbd> emulates the <kbd>C-c</kbd> prefix.
-* <kbd>js</kbd> and <kbd>jw</kbd> save the current buffer (<kbd>C-s</kbd>).
-* <kbd>jf</kbd> opens a file (<kbd>C-x C-f</kbd>).
-
 ## Overridden default key bindings
 
 Some of the default Emacs key bindings are changed, as follows.
 
-* <kbd>C-x C-c</kbd> will exit Emacs with a confirmation.
 * <kbd>C-s</kbd> will save the current buffer, while <kbd>C-x C-s</kbd> will perform an incremental search.
-* <kbd>C-x a n</kbd> and <kbd>F10</kbd> don't have their usual behaviour, as they are used by GUD key bindings.
-* <kbd>M-SPC</kbd> doesn't call `just-one-space`, and is used for auto-completion. Use <kbd>C-c \\</kbd> or <kbd>C-c C-\\</kbd> instead.
 * <kbd>C-z</kbd> doesn't minimize Emacs.
+* <kbd>C-x a n</kbd> and <kbd>F10</kbd> don't have their usual behaviour, as they are used by GUD key bindings.
+* <kbd>C-x C-c</kbd> will exit Emacs with a confirmation.
+* <kbd>M-i</kbd> doesn't call `tab-to-tab-stop` and is used to toggle `god-mode`.
+* <kbd>M-SPC</kbd> doesn't call `just-one-space`, and is used for auto-completion. Use <kbd>C-c \\</kbd> or <kbd>C-c C-\\</kbd> instead.
 * When no region is selected, <kbd>C-w</kbd> will kill the current line and <kbd>M-w</kbd> will copy the current line.
 
 ## Scripts

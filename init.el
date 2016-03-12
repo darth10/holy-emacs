@@ -41,5 +41,3 @@
 (modes/set-mode-line-format)
 ;;; comment out this line to disable god-mode
 (modes/set-god-mode "<escape>" "S-<escape>")
-;;; comment out this line to disable sticky-control-mode
-(modes/set-sticky-control-mode t)

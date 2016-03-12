@@ -1,25 +1,30 @@
-;;; Configuration for god-mode, sticky-control-mode, modeline, frame/cursor
+;;; Configuration for god-mode, modeline, frame/cursor
 
 (use-package god-mode
   :ensure t
   :diminish god-local-mode
-  :commands (modes/set-god-mode)
+  :commands (modes/set-god-mode
+             modes/set-mode-line-format)
   :config
 
   (defun modes/set-god-mode (god-mode-key god-mode-all-key)
-    (progn
-      (bind-key god-mode-key 'god-local-mode)
-      (bind-key god-mode-all-key 'god-mode-all)
-      (add-to-list 'god-exempt-major-modes 'dired-mode)
-      (bind-key (kbd ".") 'repeat god-local-mode-map)
-      (bind-key (kbd "z") 'repeat god-local-mode-map)
-      (bind-key (kbd "i") 'god-local-mode god-local-mode-map)
-      (god-mode)))
+    (bind-key god-mode-key 'god-local-mode)
+    (bind-key god-mode-all-key 'god-mode-all)
+    (add-to-list 'god-exempt-major-modes 'dired-mode)
+    (bind-key "." 'repeat god-local-mode-map)
+    (bind-key "z" 'repeat god-local-mode-map)
+    (bind-key "i" 'god-local-mode god-local-mode-map)
+    (bind-key "M-i" 'god-local-mode)
+    (god-mode))
 
   (defun god-toggle-on-overwrite ()
     (if (bound-and-true-p overwrite-mode)
         (god-local-mode-pause)
       (god-local-mode-resume)))
+
+  (defun modes/set-mode-line-format ()
+    (add-to-list 'default-mode-line-format
+                 (quote (:eval (propertize (if (and (boundp 'god-local-mode) god-local-mode) "^" " "))))))
 
   (add-to-list 'god-exempt-major-modes 'Custom-mode)
   (add-to-list 'god-exempt-major-modes 'ag-mode)
@@ -35,27 +40,6 @@
   (add-to-list 'god-exempt-major-modes 'wdired-mode)
 
   (add-hook 'overwrite-mode-hook 'god-toggle-on-overwrite))
-
-(use-package sticky-control
-  :bind ("C-`" . sticky-control-mode)
-  :commands (modes/set-sticky-control-mode
-             modes/set-mode-line-format)
-  :load-path "lisp/lib/"
-  :config
-
-  (defun modes/set-sticky-control-mode (e)
-    (sticky-control-mode e))
-
-  (use-package god-mode
-    :config
-    (defun modes/set-mode-line-format ()
-      (add-to-list 'default-mode-line-format
-                   (quote (:eval (propertize (if (and (boundp 'sticky-control-mode) sticky-control-mode) " ^" "  ")))))
-      (add-to-list 'default-mode-line-format
-                   (quote (:eval (propertize (if (and (boundp 'god-local-mode) god-local-mode) "G" " ")))))))
-
-  (setq sticky-control-timeout 0.4)
-  (setq sticky-control-key ?j))
 
 (use-package frame
   :bind (("C-x C-5 C-0" . delete-frame)
