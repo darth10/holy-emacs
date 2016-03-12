@@ -17,7 +17,8 @@
 
 ## `god-mode`
 
-Use the escape key (<kbd>ESC</kbd>) to toggle `god-mode`. In `god-mode`, <kbd>i</kbd> will also disable `god-mode`.
+Use <kbd>ESC</kbd> or <kbd>M-i</kbd> to toggle `god-mode`. 
+In `god-mode`, <kbd>i</kbd> will also disable `god-mode`.
 Note that you can still use <kbd>C-[</kbd> instead of the escape key.
 In `god-mode`, you can simply use <kbd>[</kbd> for the escape key.
 
@@ -36,7 +37,7 @@ Some of the default Emacs key bindings are changed, as follows.
 * <kbd>C-z</kbd> doesn't minimize Emacs.
 * <kbd>C-x a n</kbd> and <kbd>F10</kbd> don't have their usual behaviour, as they are used by GUD key bindings.
 * <kbd>C-x C-c</kbd> will exit Emacs with a confirmation.
-* <kbd>M-i</kbd> doesn't call `tab-to-tab-stop` and is used to toggle `god-mode`.
+* <kbd>M-i</kbd> doesn't call `tab-to-tab-stop` and is used to toggle `god-mode`. Use <kbd>C-c TAB</kbd> or <kbd>C-q TAB</kbd> instead.
 * <kbd>M-SPC</kbd> doesn't call `just-one-space`, and is used for auto-completion. Use <kbd>C-c \\</kbd> or <kbd>C-c C-\\</kbd> instead.
 * When no region is selected, <kbd>C-w</kbd> will kill the current line and <kbd>M-w</kbd> will copy the current line.
 

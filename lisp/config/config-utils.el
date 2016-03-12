@@ -214,8 +214,9 @@
   :init
   (global-unset-key (kbd "C-z"))
   ;; isearch-mode-map
-  (bind-key (kbd "<f3>") 'isearch-repeat-forward isearch-mode-map)
-  (bind-key (kbd "S-<f3>") 'isearch-repeat-backward isearch-mode-map)
+  (bind-key "<f3>" 'isearch-repeat-forward isearch-mode-map)
+  (bind-key "S-<f3>" 'isearch-repeat-backward isearch-mode-map)
+  (bind-key "M-[" 'tab-to-tab-stop)
   ;; enable disabled commands
   (put 'upcase-region 'disabled nil)
   (put 'downcase-region 'disabled nil)
