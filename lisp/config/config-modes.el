@@ -41,6 +41,42 @@
 
   (add-hook 'overwrite-mode-hook 'god-toggle-on-overwrite))
 
+(use-package which-key
+  :diminish which-key-mode
+  :bind (("C-' k" . which-key-mode)
+         ("C-' C-k" . which-key-mode))
+  :config
+  (which-key-mode t)
+
+  (use-package god-mode
+    :config
+
+    (which-key-setup-minibuffer)
+    (defvar config-which-key--timer nil)
+
+    (defun config-god-mode-cancel-timer (&optional e)
+      (if config-which-key--timer
+          (cancel-timer config-which-key--timer)))
+
+    (defun config-god-mode-lookup-key-sequence (f &rest args)
+      (if (car args)
+          (setq config-which-key--timer
+                (run-with-idle-timer
+                 which-key-idle-delay nil
+                 (lambda (prefix-key) (which-key--create-buffer-and-show prefix-key))
+                 (kbd (car args))))))
+
+    (defun config-which-key-mode-hook ()
+      (if which-key-mode
+          (progn
+            (advice-add 'god-mode-lookup-key-sequence :before 'config-god-mode-lookup-key-sequence)
+            (advice-add 'god-mode-lookup-command :after 'config-god-mode-cancel-timer))
+        (progn
+          (advice-remove 'god-mode-lookup-key-sequence 'config-god-mode-lookup-key-sequence)
+          (advice-remove 'god-mode-lookup-command 'config-god-mode-cancel-timer))))
+
+    (add-hook 'which-key-mode-hook 'config-which-key-mode-hook)))
+
 (use-package frame
   :bind (("C-x C-5 C-0" . delete-frame)
          ("C-x C-5 C-1" . delete-other-frames)
@@ -82,7 +118,7 @@
    '(cursor ((t (:background "green")))))
 
   (add-hook 'post-command-hook 'configure-cursor)
-  (blink-cursor-mode 1))
+  (blink-cursor-mode t))
 
 (use-package multiple-cursors
   :ensure t
@@ -95,6 +131,6 @@
 
 (use-package desktop
   :config
-  (desktop-save-mode 1))
+  (desktop-save-mode t))
 
 (provide 'config-modes)

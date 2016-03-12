@@ -2,6 +2,7 @@
 
 * Support for editing/debugging Clojure, Emacs Lisp, Scheme, C#, JavaScript, Haskell, Python, Ruby, PHP and C.
 * Uses `god-mode` to reduce keystrokes. All normal key bindings work in `god-mode` too; `god-mode` is only used to minimize the number of keys pressed.
+* Uses `which-key` to interactively describe key bindings.
 * Uses `use-package` and `bind-key`. `M-x describe-personal-keybindings` will display all available key bindings.
 * Identical (almost) bindings across different major modes.
 * Installs all required packages from GNU, Marmalade and MELPA repositories on startup.
@@ -9,11 +10,9 @@
 * Git integration via `magit`.
 * File and project search via `ag`.
 * Manage sessions and buffers via `desktop-save-mode`.
-* Quickly move regions using <kbd>M-↑</kbd> and <kbd>M-↓</kbd> like in Eclipse.
-* Quickly create and navigate across bookmarks via `breadcrumb`.
 * Automatically saves backup files to `~/.emacs.bak/`.
 * Recompile entire `~/.emacs.d` using `M-x rebuild`.
-* Remember that the meta (<kbd>M-</kbd>) modifier is the same as prefixing the <kbd>C-[</kbd> key.
+* Remember that the meta (<kbd>M-</kbd>) modifier is the same as the <kbd>C-[</kbd> prefix.
 
 ## `god-mode`
 
