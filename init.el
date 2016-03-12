@@ -4,7 +4,7 @@
 ;; set proxy server, if needed
 ;; (setq url-proxy-services '(("http" . "host:port")))
 (pkg/defsource '("marmalade" . "https://marmalade-repo.org/packages/"))
-(pkg/defsource '("melpa" . "https://melpa.milkbox.net/packages/"))
+(pkg/defsource '("melpa" . "https://melpa.org/packages/"))
 (pkg/initialize-packages)
 
 ;;; load before language configurations
