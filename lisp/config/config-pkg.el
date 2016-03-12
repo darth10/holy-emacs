@@ -27,9 +27,9 @@
     ;; ag
     ;; auto-complete
     c-eldoc
-    clj-refactor
-    clojure-mode
-    clojurescript-mode
+    ;; clj-refactor
+    ;; clojure-mode
+    ;; clojurescript-mode
     csharp-mode
     ;; diff-hl
     ;; dired+
