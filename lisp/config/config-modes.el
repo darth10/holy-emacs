@@ -55,7 +55,7 @@
     (which-key-setup-minibuffer)
     (defvar config-which-key--timer nil)
 
-    (defun config-god-mode-cancel-timer (&optional e)
+    (defun config-god-mode-cancel-timer (&rest e)
       (if config-which-key--timer
           (cancel-timer config-which-key--timer)))
 
@@ -64,17 +64,20 @@
           (setq config-which-key--timer
                 (run-with-idle-timer
                  which-key-idle-delay nil
-                 (lambda (prefix-key) (which-key--create-buffer-and-show prefix-key))
+                 (lambda (prefix-key)
+                   (which-key--create-buffer-and-show prefix-key))
                  (kbd (car args))))))
 
     (defun config-which-key-mode-hook ()
       (if which-key-mode
           (progn
             (advice-add 'god-mode-lookup-key-sequence :before 'config-god-mode-lookup-key-sequence)
-            (advice-add 'god-mode-lookup-command :after 'config-god-mode-cancel-timer))
+            (advice-add 'god-mode-lookup-command :after 'config-god-mode-cancel-timer)
+            (advice-add 'command-error-default-function :after 'config-god-mode-cancel-timer))
         (progn
           (advice-remove 'god-mode-lookup-key-sequence 'config-god-mode-lookup-key-sequence)
-          (advice-remove 'god-mode-lookup-command 'config-god-mode-cancel-timer))))
+          (advice-remove 'god-mode-lookup-command 'config-god-mode-cancel-timer)
+          (advice-remove 'command-error-default-function 'config-god-mode-cancel-timer))))
 
     (add-hook 'which-key-mode-hook 'config-which-key-mode-hook)))
 
