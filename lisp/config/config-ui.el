@@ -44,6 +44,14 @@
   (menu-bar-mode -1)
   (scroll-bar-mode -1))
 
+;; custom font
+(use-package font-utils
+  :load-path "lisp/lib/"
+  :config
+  (progn
+    (when (font-utils-exists-p config-custom-font)
+      (set-frame-font config-custom-font nil t))))
+
 (use-package paren
   :ensure t
   :config
@@ -106,5 +114,6 @@
   (custom-set-faces
    '(highlight-symbol-face ((t (:foreground "green")))))
   (add-hook 'prog-mode-hook 'highlight-symbol-mode))
+
 
 (provide 'config-ui)

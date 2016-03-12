@@ -7,14 +7,6 @@
   :ensure t
   :diminish wide-column-mode)
 
-;; custom font
-(use-package font-utils
-  :load-path "lisp/lib/"
-  :config
-  (progn
-    (when (font-utils-exists-p config-custom-font)
-      (set-frame-font config-custom-font nil t))))
-
 (use-package grep
   :bind (("M-s G" . grep)
          ("M-s g" . rgrep)))
