@@ -42,6 +42,7 @@
   (add-hook 'overwrite-mode-hook 'god-toggle-on-overwrite))
 
 (use-package which-key
+  :ensure t
   :diminish which-key-mode
   :bind (("C-' k" . which-key-mode)
          ("C-' C-k" . which-key-mode))
