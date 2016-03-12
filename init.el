@@ -1,8 +1,8 @@
 (add-to-list 'load-path "~/.emacs.d/lisp/config/")
 
 (require 'config-pkg)
-;; set proxy server, if needed
-;; (setq url-proxy-services '(("http" . "host:port")))
+;;; set proxy server, if needed
+;;; (setq url-proxy-services '(("http" . "host:port")))
 (pkg/defsource '("marmalade" . "https://marmalade-repo.org/packages/"))
 (pkg/defsource '("melpa" . "https://melpa.org/packages/"))
 (pkg/initialize-packages)
@@ -39,7 +39,7 @@
 (require 'config-web)
 
 (modes/set-mode-line-format)
-;; ;; comment out this line to disable god-mode
+;;; comment out this line to disable god-mode
 (modes/set-god-mode "<escape>" "S-<escape>")
-;; comment out this line to disable sticky-control-mode
+;;; comment out this line to disable sticky-control-mode
 (modes/set-sticky-control-mode t)
