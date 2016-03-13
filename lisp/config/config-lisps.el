@@ -89,4 +89,17 @@
   (use-package cider :config (add-hook 'cider-repl-mode-hook 'paredit-mode))
   (use-package scheme :config (add-hook 'scheme-mode-hook 'paredit-mode)))
 
+(use-package eval-sexp-fu
+  :ensure t
+  :config
+  (custom-set-faces
+   '(eval-sexp-fu-flash ((t (:background "green" :foreground "black")))))
+
+  (defun config-init-eval-sexp-fu ()
+    (require 'eval-sexp-fu))
+
+  (add-hook 'lisp-mode-hook 'config-init-eval-sexp-fu)
+  (add-hook 'emacs-lisp-mode-hook 'config-init-eval-sexp-fu)
+  (add-hook 'eshell-mode-hook 'config-init-eval-sexp-fu))
+
 (provide 'config-lisps)
