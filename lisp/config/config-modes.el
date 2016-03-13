@@ -61,12 +61,14 @@
 
     (defun config-god-mode-lookup-key-sequence (f &rest args)
       (if (car args)
-          (setq config-which-key--timer
-                (run-with-idle-timer
-                 which-key-idle-delay nil
-                 (lambda (prefix-key)
-                   (which-key--create-buffer-and-show prefix-key))
-                 (kbd (car args))))))
+          (progn
+            (config-god-mode-cancel-timer nil)
+            (setq config-which-key--timer
+                  (run-with-idle-timer
+                   which-key-idle-delay nil
+                   (lambda (prefix-key)
+                     (which-key--create-buffer-and-show prefix-key))
+                   (kbd (car args)))))))
 
     (defun config-which-key-mode-hook ()
       (if which-key-mode
