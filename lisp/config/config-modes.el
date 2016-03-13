@@ -47,12 +47,12 @@
   :bind (("C-' k" . which-key-mode)
          ("C-' C-k" . which-key-mode))
   :config
+  (which-key-setup-minibuffer)
+  (setq max-mini-window-height 0.3)
   (which-key-mode t)
 
   (use-package god-mode
     :config
-
-    (which-key-setup-minibuffer)
     (defvar config-which-key--timer nil)
 
     (defun config-god-mode-cancel-timer (&rest e)
