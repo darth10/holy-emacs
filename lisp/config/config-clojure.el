@@ -55,4 +55,11 @@
     (cider-switch-to-repl-buffer))
   (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode))
 
+(use-package cider-eval-sexp-fu
+  :ensure t
+  :config
+  (defun config-init-cider-eval-sexp-fu ()
+    (require 'cider-eval-sexp-fu))
+  (add-hook 'cider-mode-hook 'config-init-cider-eval-sexp-fu))
+
 (provide 'config-clojure)
