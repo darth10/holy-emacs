@@ -19,6 +19,8 @@
          ("C-i" . helm-execute-persistent-action)
          ("C-z" . helm-select-action))
   :config
+  (add-hook 'helm-mode-hook
+            (lambda () (diminish 'helm-mode)))
   (helm-mode t))
 
 (use-package helm-swoop
