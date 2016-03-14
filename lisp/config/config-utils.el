@@ -211,6 +211,7 @@
          :map emacs-lisp-mode-map
          ("C-<f10>" . split-and-eshell)
          ("C-! C-r" . split-and-eshell))
+  :commands (util/rebuild)
   :init
   (global-unset-key (kbd "C-z"))
   ;; isearch-mode-map

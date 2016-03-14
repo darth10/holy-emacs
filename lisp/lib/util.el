@@ -75,8 +75,8 @@
         ((looking-at "\\s\)") (forward-char 1) (backward-list 1))
         (t (message "%s" "No parenthesis under cursor!"))))
 
-(defun rebuild ()
-  "Recompile everything in ~/.emacs.d"
+(defun util/rebuild ()
+  "Recompile all Emacs Lisp files in ~/.emacs.d"
   (interactive)
   (byte-recompile-directory (expand-file-name "~/.emacs.d") 0))
 
