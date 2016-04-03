@@ -29,8 +29,7 @@
      (quote
       ("~/Dropbox/org/TODO.org"
        "~/Dropbox/org/code.org"
-       "~/Dropbox/org/birthdays.org"
-       "~/Dropbox/org/M-clj.org")))))
+       "~/Dropbox/org/birthdays.org")))))
 
 (use-package org-agenda
   :bind (("C-c n" . org-agenda)
