@@ -43,13 +43,13 @@
     findr
     geben
     geiser
-    ghci-completion
+    ;; ghci-completion
     gist
     gnuplot
     gnuplot-mode
     ;; god-mode
     handlebars-mode
-    haskell-mode
+    ;; haskell-mode
     ;; helm
     ;; helm-ls-git
     ;; helm-swoop
