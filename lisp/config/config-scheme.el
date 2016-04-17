@@ -1,27 +1,24 @@
-;;; Configuration for Guile
+;;; Configuration for Scheme
 
-;; (require 'config-common)
+(use-package geiser
+  :ensure t
+  :bind (:map scheme-mode-map
+         ("C-<f10>" . run-geiser)
+         ("C-! C-r" . run-geiser)
+         ("C-<f5>" . scheme-load-and-repl)
+         ("C-x C-a C-a" . scheme-load-and-repl)
+         ("C-x a a" . scheme-load-and-repl)
+         ("C-c C-l" . scheme-load-current-file))
 
-(defun scheme-load-and-repl ()
-  (interactive)
-  (geiser-compile-current-buffer)
-  (geiser-mode-switch-to-repl t))
+  :config
 
-(defconfig configure-scheme
-  (require 'geiser)
-  (local-set-key (kbd "C-<f10>") 'run-geiser)
-  (local-set-key (kbd "C-! C-r") 'run-geiser)
-  (local-set-key (kbd "C-<f5>") 'scheme-load-and-repl)
-  (local-set-key (kbd "C-x C-a C-a") 'scheme-load-and-repl)
-  (local-set-key (kbd "C-x a a") 'scheme-load-and-repl)
-  (local-set-key (kbd "C-c C-l") 'geiser-load-file))
+  (defun scheme-load-and-repl ()
+    (interactive)
+    (geiser-compile-current-buffer)
+    (geiser-mode-switch-to-repl t))
 
-;; (defun configure-scheme-inf ()
-;;   (when (eq major-mode 'geiser-repl-mode)
-;;     (configure-lisp)))
-
-(add-hook 'scheme-mode-hook 'configure-scheme)
-;; (add-hook 'scheme-mode-hook 'configure-lisp)
-;; (add-hook 'comint-mode-hook 'configure-scheme-inf)
+  (defun scheme-load-current-file ()
+    (interactive)
+    (geiser-load-file buffer-file-name)))
 
 (provide 'config-scheme)

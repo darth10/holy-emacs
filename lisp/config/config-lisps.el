@@ -87,7 +87,8 @@
     (add-hook 'ielm-mode-hook 'paredit-mode))
   (use-package clojure-mode :config (add-hook 'clojure-mode-hook 'paredit-mode))
   (use-package cider :config (add-hook 'cider-repl-mode-hook 'paredit-mode))
-  (use-package scheme :config (add-hook 'scheme-mode-hook 'paredit-mode)))
+  (use-package scheme :config (add-hook 'scheme-mode-hook 'paredit-mode))
+  (use-package geiser :config (add-hook 'geiser-repl-mode-hook 'paredit-mode)))
 
 (use-package eval-sexp-fu
   :ensure t

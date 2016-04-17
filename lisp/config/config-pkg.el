@@ -42,7 +42,7 @@
     find-file-in-project
     findr
     geben
-    geiser
+    ;; geiser
     ;; ghci-completion
     gist
     gnuplot
