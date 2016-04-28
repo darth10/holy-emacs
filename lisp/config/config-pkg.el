@@ -41,7 +41,7 @@
     ;; expand-region
     find-file-in-project
     findr
-    geben
+    ;; geben
     ;; geiser
     ;; ghci-completion
     gist
@@ -67,7 +67,7 @@
     ;; multiple-cursors
     ;; omnisharp ;; TODO
     ;; paredit
-    php-mode
+    ;; php-mode
     popup
     ;; rainbow-delimiters
     ;; rainbow-mode
