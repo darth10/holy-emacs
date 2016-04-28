@@ -39,16 +39,22 @@
   (use-package php-mode
     :config
 
+    (defun php-debug-sentinel (process event)
+      (when (= 0 (process-exit-status process))
+        (call-interactively 'geben-end)))
+
     (defun php-debug ()
       (interactive)
       (call-interactively 'geben)
-      (let* ((php-debug-command (concat "XDEBUG_CONFIG='idekey=php-54' php "
-                                        (buffer-file-name))))
-        (start-process
-         "php-debug-process"
-         "*php-debug-process-output*"
-         "/bin/sh" "-c"
-         php-debug-command)))
+      (let* ((php-debug-command (concat
+                                 "XDEBUG_CONFIG='idekey=php-54' php "
+                                 (buffer-file-name)))
+             (php-debug-process (start-process
+                                 "php-debug-process"
+                                 "*php-debug-process-output*"
+                                 "/bin/sh" "-c"
+                                 php-debug-command)))
+        (set-process-sentinel php-debug-process 'php-debug-sentinel)))
 
     (bind-key "C-! C-r" 'php-debug php-mode-map)
     (bind-key "C-<f10>" 'php-debug php-mode-map)
