@@ -26,7 +26,7 @@
     ;; ac-slime
     ;; ag
     ;; auto-complete
-    c-eldoc
+    ;; c-eldoc
     ;; clj-refactor
     ;; clojure-mode
     ;; clojurescript-mode

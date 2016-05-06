@@ -3,6 +3,9 @@
 (defconst config-custom-font "Courier Prime Code")
 (defconst backup-dir "~/.emacs.bak/")
 
+(use-package abbrev
+  :diminish abbrev-mode)
+
 (use-package wide-column
   :ensure t
   :diminish wide-column-mode)
