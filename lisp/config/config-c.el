@@ -25,7 +25,7 @@
         (gdb-display-gdb-buffer)
       (config-show-no-gud)))
 
-  (setq c-default-style '((java-mode . "java")
+  (setq c-default-style '((java-mode . "k&r")
                           (awk-mode . "awk")
                           (other . "k&r")))
 
@@ -36,7 +36,7 @@
 (use-package c-eldoc
   :ensure t
   :config
-  (setq c-eldoc-includes "`pkg-config glib-2.0 gio-2.0 --cflags` `guile-config compile` -I/usr/include -I./ -I../ ")    
+  (setq c-eldoc-includes "`pkg-config glib-2.0 gio-2.0 --cflags` `guile-config compile` -I/usr/include -I./ -I../ ")
   (add-hook 'c-mode-hook 'c-turn-on-eldoc-mode))
 
 (provide 'config-c)

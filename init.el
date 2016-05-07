@@ -21,7 +21,6 @@
 (require 'config-elisp)
 (require 'config-gnuplot)
 (require 'config-haskell)
-(require 'config-java)
 (require 'config-js)
 (require 'config-org)
 (require 'config-php)
