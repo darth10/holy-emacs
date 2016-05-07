@@ -45,8 +45,8 @@
     ;; geiser
     ;; ghci-completion
     gist
-    gnuplot
-    gnuplot-mode
+    ;; gnuplot
+    ;; gnuplot-mode
     ;; god-mode
     handlebars-mode
     ;; haskell-mode
