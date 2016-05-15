@@ -53,7 +53,9 @@
     (cider-load-buffer)
     (cider-repl-set-ns (cider-current-ns))
     (cider-switch-to-repl-buffer))
-  (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode))
+  (use-package eldoc-mode
+    :config
+    (add-hook 'cider-mode-hook 'turn-on-eldoc-mode)))
 
 (use-package cider-eval-sexp-fu
   :ensure t
