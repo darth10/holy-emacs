@@ -1,44 +1,26 @@
 ;;; Configuration for JavaScript
 
-;; (require 'config-common)
+(use-package js2-mode
+  :ensure t
+  :mode (("\\.js\\'" . js2-mode)
+         ("\\.jsx\\'" . js2-jsx-mode))
+  :config
+  (setq js2-basic-offset 2)
 
-(defun slime-connect-to-repl ()
-  (interactive)
-  (slime-connect "127.0.0.1" 4005))
+  (use-package js2-refactor
+    :ensure t
+    :config
+    (add-hook 'js2-mode-hook 'js2-refactor-mode))
 
-(defconfig configure-js
-  (js2-minor-mode t)
-  (tern-mode t)
-  ;; (tern-ac-setup)
-  ;; (smartparens-mode)
-  ;; FIXME slime-js
-  ;; (slime-js-minor-mode 1)
-  ;; TODO
-  ;; (local-set-key (kbd "M-SPC") 'tern-ac-complete)
-  (local-unset-key (kbd "C-x C-e"))
-  (local-set-key (kbd "C-x C-e") 'slime-js-send-defun)
-  (local-set-key (kbd "C-<f10>") 'slime-connect-to-repl)
-  (local-set-key (kbd "C-! C-r") 'slime-connect-to-repl)
-  (local-set-key (kbd "C-<f8>") 'slime-connect)
-  (local-set-key (kbd "C-! C-o") 'slime-connect)
-  ;; FIXME should be slime-js-reload
-  (local-set-key (kbd "C-<f5>") 'slime-eval-buffer)
-  (local-set-key (kbd "C-x a a") 'slime-eval-buffer))
+  (use-package tern
+    :ensure t
+    :config
+    (add-hook 'js2-mode-hook 'tern-mode)
 
-;; (defun slime-ac-key ()
-;;   (interactive)
-;;   (insert ".")
-;;   (ac-complete-slime))
-
-;; (defun configure-slime ()
-;;   (interactive)
-;;   (set-up-slime-ac 1)
-;;   (local-set-key (kbd ".") 'slime-ac-key)
-;;   (local-set-key (kbd "M-SPC") 'ac-complete-slime))
-
-(add-hook 'js-mode-hook 'configure-js)
-;; (add-hook 'slime-repl-mode-hook 'configure-slime)
-
-(setq js2-basic-offset 2)
+    (use-package company-tern
+      :ensure t
+      :config
+      (bind-key "M-SPC" 'company-tern js2-mode-map)
+      (bind-key "M-SPC" 'company-tern js2-jsx-mode-map))))
 
 (provide 'config-js)

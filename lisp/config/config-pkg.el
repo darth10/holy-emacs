@@ -58,8 +58,8 @@
     ;; idle-highlight-mode
     inflections                         ;; TODO
     ;; inf-ruby
-    js2-mode
-    js2-refactor
+    ;; js2-mode
+    ;; js2-refactor
     jump
     ;; lacarte
     ;; magit
@@ -79,11 +79,11 @@
     ;; rvm
     ;; solarized-theme
     ;; scala-mode2
-    slime
-    slime-js
+    ;; slime
+    ;; slime-js
     ;; smartparens
     smex
-    tern
+    ;; tern
     ;; tern-auto-complete
     ;; web-mode
     yaml-mode
