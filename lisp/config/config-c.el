@@ -26,8 +26,10 @@
       (config-show-no-gud)))
 
   (setq c-default-style '((java-mode . "k&r")
+                          (csharp-mode . "c#")
                           (awk-mode . "awk")
-                          (other . "k&r")))
+                          (other . "k&r")
+                          ))
 
   (setq-default c-basic-offset 4
                 tab-width 4

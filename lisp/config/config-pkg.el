@@ -30,7 +30,7 @@
     ;; clj-refactor
     ;; clojure-mode
     ;; clojurescript-mode
-    csharp-mode
+    ;; csharp-mode
     ;; diff-hl
     ;; dired+
     ;; dired-details
@@ -65,7 +65,7 @@
     ;; magit
     markdown-mode
     ;; multiple-cursors
-    ;; omnisharp ;; TODO
+    ;; omnisharp
     ;; paredit
     ;; php-mode
     popup
