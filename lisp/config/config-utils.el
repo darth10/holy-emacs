@@ -6,6 +6,33 @@
 (use-package abbrev
   :diminish abbrev-mode)
 
+(use-package findr
+  :ensure t)
+
+(use-package gist
+  :ensure t)
+
+(use-package inflections
+  :ensure t)
+
+(use-package smex
+  :ensure t)
+
+(use-package restclient
+  :ensure t)
+
+(use-package yaml-mode
+  :ensure t)
+
+(use-package markdown-mode
+  :ensure t)
+
+(use-package dockerfile-mode
+  :ensure t)
+
+(use-package handlebars-mode
+  :ensure t)
+
 (use-package wide-column
   :ensure t
   :diminish wide-column-mode)

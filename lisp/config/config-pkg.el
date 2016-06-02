@@ -36,19 +36,19 @@
     ;; dired-details
     ;; dired-details+
     ;; direx
-    dockerfile-mode
+    ;; dockerfile-mode
     ;; edit-server
     ;; expand-region
-    find-file-in-project
-    findr
+    ;; find-file-in-project
+    ;; findr
     ;; geben
     ;; geiser
     ;; ghci-completion
-    gist
+    ;; gist
     ;; gnuplot
     ;; gnuplot-mode
     ;; god-mode
-    handlebars-mode
+    ;; handlebars-mode
     ;; haskell-mode
     ;; helm
     ;; helm-ls-git
@@ -56,22 +56,22 @@
     ;; highlight
     ;; highlight-symbol
     ;; idle-highlight-mode
-    inflections                         ;; TODO
+    ;; inflections                         ;; TODO
     ;; inf-ruby
     ;; js2-mode
     ;; js2-refactor
-    jump
+    ;; jump
     ;; lacarte
     ;; magit
-    markdown-mode
+    ;; markdown-mode
     ;; multiple-cursors
     ;; omnisharp
     ;; paredit
     ;; php-mode
-    popup
+    ;; popup
     ;; rainbow-delimiters
     ;; rainbow-mode
-    restclient
+    ;; restclient
     ;; rinari
     ;; ruby-compilation
     ;; ruby-electric
@@ -82,11 +82,11 @@
     ;; slime
     ;; slime-js
     ;; smartparens
-    smex
+    ;; smex
     ;; tern
     ;; tern-auto-complete
     ;; web-mode
-    yaml-mode
+    ;; yaml-mode
     ;; yari
     ;; yascroll
     ;; yasnippet
