@@ -1,6 +1,6 @@
 ;;; Configuration for Scala
 
-(use-package scala-mode2
+(use-package scala-mode
   :ensure t
   :mode ("\\.scala\\'" . scala-mode))
 
