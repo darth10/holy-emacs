@@ -78,7 +78,8 @@
 (defun util/rebuild ()
   "Recompile all Emacs Lisp files in ~/.emacs.d"
   (interactive)
-  (byte-recompile-directory (expand-file-name "~/.emacs.d") 0))
+  (byte-recompile-directory (expand-file-name "~/.emacs.d/elpa") 0)
+  (byte-recompile-directory (expand-file-name "~/.emacs.d/lisp/lib") 0))
 
 (defun delete-single-window (&optional window)
   (interactive)
