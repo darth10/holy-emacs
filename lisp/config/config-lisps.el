@@ -103,4 +103,11 @@
   (add-hook 'emacs-lisp-mode-hook 'config-init-eval-sexp-fu)
   (add-hook 'eshell-mode-hook 'config-init-eval-sexp-fu))
 
+(use-package eldoc
+  :diminish eldoc-mode
+  :config
+  (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
+  (add-hook 'ielm-mode-hook 'turn-on-eldoc-mode)
+  (add-hook 'eshell-mode-hook 'turn-on-eldoc-mode))
+
 (provide 'config-lisps)

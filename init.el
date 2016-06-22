@@ -11,6 +11,7 @@
 (require 'config-company)
 (require 'config-gud)
 (require 'config-helm)
+(require 'config-lisps)
 (require 'config-utils)
 (require 'config-vc)
 
@@ -31,7 +32,6 @@
 (require 'config-sql)
 
 ;;; load after language configurations
-(require 'config-lisps)
 (require 'config-modes)
 (require 'config-servers)
 (require 'config-ui)
