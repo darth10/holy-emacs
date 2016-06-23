@@ -62,7 +62,7 @@
 
   (use-package eldoc-mode
     :config
-    (add-hook 'cider-mode-hook 'turn-on-eldoc-mode)))
+    (add-hook 'cider-mode-hook 'eldoc-mode)))
 
 (use-package cider-eval-sexp-fu
   :ensure t

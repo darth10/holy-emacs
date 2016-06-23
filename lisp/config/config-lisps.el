@@ -106,8 +106,8 @@
 (use-package eldoc
   :diminish eldoc-mode
   :config
-  (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
-  (add-hook 'ielm-mode-hook 'turn-on-eldoc-mode)
-  (add-hook 'eshell-mode-hook 'turn-on-eldoc-mode))
+  (add-hook 'emacs-lisp-mode-hook 'eldoc-mode)
+  (add-hook 'ielm-mode-hook 'eldoc-mode)
+  (add-hook 'eshell-mode-hook 'eldoc-mode))
 
 (provide 'config-lisps)
