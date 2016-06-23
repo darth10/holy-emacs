@@ -208,7 +208,8 @@
    '(auto-save-list-file-prefix backup-dir)
    '(backup-directory-alist `((".*" . ,backup-dir)))
    '(create-lockfiles nil))
-  (column-number-mode 1))
+  (column-number-mode 1)
+  (add-hook 'before-save-hook 'delete-trailing-whitespace))
 
 (use-package util
   :load-path "lisp/lib/"
@@ -254,7 +255,6 @@
 
   :config
   (add-hook 'prog-mode-hook 'font-lock-comment-annotations)
-  (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
   (kill-line-utils-init)
   (lvd-load-dir "~/.emacs.d/lisp/var/")
