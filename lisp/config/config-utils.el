@@ -64,11 +64,8 @@
     :bind ("C-c C-j" . direx:jump-to-directory-other-window)
     :ensure t)
 
-  (defun configure-dired ()
-    (local-set-key (kbd "C-x C-/") 'wdired-change-to-wdired-mode))
-
   (bind-key "C-x C-j" 'dired-jump-other-window)
-  (add-hook 'dired-mode-hook 'configure-dired))
+  (bind-key "C-x C-/" 'wdired-change-to-wdired-mode dired-mode-map))
 
 (use-package hideshow
   :diminish hs-minor-mode
@@ -96,7 +93,8 @@
   :bind (("C-' C-y" . yas-global-mode)
          ("C-' y" . yas-global-mode))
   :config
-  (add-to-list 'yas-snippet-dirs "~/.emacs.d/data/snippets/"))
+  (add-to-list 'yas-snippet-dirs "~/.emacs.d/data/snippets/")
+  (yas-global-mode t))
 
 (use-package lacarte
   :ensure t
