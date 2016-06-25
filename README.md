@@ -12,6 +12,7 @@
 * Manage sessions and buffers via `desktop-save-mode`.
 * Automatically saves backup files to `~/.emacs.bak/`.
 * Recompile entire `~/.emacs.d` using `M-x util/rebuild` or the `rebuild.sh` script.
+* Upgrade all packages using `M-x util/upgrade`.
 * Remember that the meta (<kbd>M-</kbd>) modifier is the same as the <kbd>C-[</kbd> prefix.
 
 ## `god-mode`
@@ -49,4 +50,3 @@ All scripts are in the `script/` folder.
 | rebuild.sh         | Recompile all Emacs Lisp files in `~/.emacs.d`.                                             |
 | clean.sh           | Delete all compiled Emacs Lisp files in `~/.emacs.d`.                                       |
 | fetch-info-docs.sh | Fetch info documentation. Available only on GNU/Linux.                                      |
-

@@ -75,6 +75,14 @@
         ((looking-at "\\s\)") (forward-char 1) (backward-list 1))
         (t (message "%s" "No parenthesis under cursor!"))))
 
+(defun util/upgrade ()
+  "Upgrade all packages, no questions asked."
+  (interactive)
+  (save-window-excursion
+    (list-packages)
+    (package-menu-mark-upgrades)
+    (package-menu-execute 'no-query)))
+
 (defun util/rebuild ()
   "Recompile all Emacs Lisp files in ~/.emacs.d"
   (interactive)
