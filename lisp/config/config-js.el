@@ -24,4 +24,7 @@
       (bind-key "M-SPC" 'company-tern js2-mode-map)
       (bind-key "M-SPC" 'company-tern js2-jsx-mode-map))))
 
+(use-package web-beautify
+  :ensure t)
+
 (provide 'config-js)
