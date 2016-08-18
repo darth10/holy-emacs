@@ -99,21 +99,6 @@
         (delete-frame)
       (delete-window (selected-window)))))
 
-(defun split-and-eshell ()
-  "Split window and opens up a new shell in the directory associated with the current buffer's file."
-  (interactive)
-  (let* ((parent (file-name-directory (buffer-file-name)))
-         (name   (car
-                  (last
-                   (split-string parent "/" t)))))
-    (split-window-below -10)
-    (other-window 1)
-    (eshell "new")
-    (rename-buffer (concat "*eshell: " name "*"))
-    ;; (when god-local-mode (god-local-mode -1)) ;; not sure about this bit
-    (insert (concat "ls"))
-    (eshell-send-input)))
-
 (defun font-lock-comment-annotations ()
   "Highlight well known comment annotations"
   (let* ((delimiter "[^a-zA-Z0-9]")
@@ -143,6 +128,47 @@
 	 (if (use-region-p)
 	     (list (region-beginning) (region-end))
 	   (list (line-beginning-position) (line-beginning-position 2))))))
+
+(defun find-or-run-shell (&optional shell-only)
+  (interactive)
+  (let* ((shellbuf (get-buffer "*shell*")))
+    (if (or (eq (window-buffer) shellbuf) shell-only)
+        (delete-other-windows)
+      (if (eq 1 (count-windows))
+          (split-window-vertically))
+      (if (not (eq (window-buffer) shellbuf))
+          (other-window 1)))
+    (and shellbuf
+         (> (length (get-buffer-window-list shellbuf nil t)) 0)
+         (replace-buffer-in-windows shellbuf)))
+  (shell)
+  (goto-char (point-max))
+  (recenter -2))
+
+;;; TODO does not look for existing eshell window
+(defun split-and-eshell (&optional shell-only)
+  "Split window and opens up a new shell in the directory associated with the current buffer's file."
+  (interactive)
+  (let* ((parent (file-name-directory (buffer-file-name)))
+         (name   (concat "*eshell: "
+                         (car
+                          (last
+                           (split-string parent "/" t))) "*"))
+         (eshellbuf (get-buffer name)))
+    (if (or (eq (window-buffer) eshellbuf) shell-only)
+        (delete-other-windows)
+      (if (eq 1 (count-windows))
+          (split-window-vertically))
+      (if (not (eq (window-buffer) eshellbuf))
+          (other-window 1)))
+    (if eshellbuf
+        ;; TODO this does not work for some reason
+        (replace-buffer-in-windows eshellbuf)
+      (progn
+        (eshell "new")
+        (rename-buffer name)
+        (insert (concat "ls"))
+        (eshell-send-input)))))
 
 (defun lvd-load-dir (d)
   (progn

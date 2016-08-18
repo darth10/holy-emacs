@@ -215,6 +215,8 @@
          ("C-! C-e" . split-and-eshell)
          ("C-! p" . list-processes-and-switch)
          ("C-! C-p" . list-processes-and-switch)
+         ("C-! s" . find-or-run-shell)
+         ("C-! C-s" . find-or-run-shell)
          ("C-%" . match-paren)
          ("C-+" . w-resize)
          ("C-s" . save-buffer)
