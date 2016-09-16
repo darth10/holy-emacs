@@ -38,6 +38,7 @@
   (add-to-list 'god-exempt-major-modes 'org-agenda-mode)
   (add-to-list 'god-exempt-major-modes 'recentf-dialog-mode)
   (add-to-list 'god-exempt-major-modes 'wdired-mode)
+  (add-to-list 'god-exempt-major-modes 'calendar-mode)
 
   (add-hook 'overwrite-mode-hook 'god-toggle-on-overwrite))
 
