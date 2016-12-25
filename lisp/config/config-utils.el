@@ -1,6 +1,5 @@
 ;;; Configuration for utility packages
 
-(defconst config-custom-font "Courier Prime Code")
 (defconst backup-dir "~/.emacs.bak/")
 
 (use-package abbrev

@@ -27,7 +27,6 @@
    '(term-default-fg-color "#00ff00"))
   :config
   (custom-set-faces
-   '(default ((t (:foundry "monotype" :slant normal :weight normal :height 130 :width normal))))
    '(button ((t (:background "green" :foreground "black"))))
    '(escape-glyph ((t (:foreground "#ddaa6f" :weight bold))))
    '(header-line ((((class color) (min-colors 89)) (:background "#303030" :foreground "#e7f6da"))))
@@ -45,12 +44,15 @@
   (scroll-bar-mode -1))
 
 ;; custom font
+(defconst config-custom-font "Consolas")
 (use-package font-utils
   :load-path "lisp/lib/"
   :config
   (progn
     (when (font-utils-exists-p config-custom-font)
-      (set-frame-font config-custom-font nil t))))
+      (set-frame-font config-custom-font nil t)
+      (custom-set-faces
+       '(default ((t (:height 148 :weight normal :width normal))))))))
 
 (use-package paren
   :ensure t
