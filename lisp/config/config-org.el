@@ -28,7 +28,6 @@
    '(org-agenda-files
      (quote
       ("~/Dropbox/org/TODO.org"
-       "~/Dropbox/org/code.org"
        "~/Dropbox/org/birthdays.org")))))
 
 (use-package org-agenda
