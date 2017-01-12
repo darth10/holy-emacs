@@ -48,9 +48,11 @@
 (use-package font-utils
   :load-path "lisp/lib/"
   :config
-  (progn
-    (when (font-utils-exists-p config-custom-font)
+  (when (font-utils-exists-p config-custom-font)
+    (progn
       (set-frame-font config-custom-font nil t)
+      (add-to-list 'default-frame-alist
+                   '(font . "-MS  -Consolas-normal-normal-normal-*-20-*-*-*-m-0-iso10646-1"))
       (custom-set-faces
        '(default ((t (:height 148 :weight normal :width normal))))))))
 
