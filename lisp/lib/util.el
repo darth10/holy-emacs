@@ -130,6 +130,7 @@
 	   (list (line-beginning-position) (line-beginning-position 2))))))
 
 (defun find-or-run-shell (&optional shell-only)
+  "Switches to or opens up a new shell"
   (interactive)
   (let* ((shellbuf (get-buffer "*shell*")))
     (if (or (eq (window-buffer) shellbuf) shell-only)
@@ -138,12 +139,10 @@
           (split-window-vertically))
       (if (not (eq (window-buffer) shellbuf))
           (other-window 1)))
-    (and shellbuf
-         (> (length (get-buffer-window-list shellbuf nil t)) 0)
-         (replace-buffer-in-windows shellbuf)))
-  (shell)
-  (goto-char (point-max))
-  (recenter -2))
+    (or (and shellbuf
+             (switch-to-buffer shellbuf))
+        (progn
+          (shell)))))
 
 (defun find-or-run-eshell (&optional shell-only)
   "Switches to or opens up a new elisp shell"
