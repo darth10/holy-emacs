@@ -31,6 +31,19 @@
   (interactive)
   (find-file-other-window user-init-file))
 
+(defun find-or-run-process (new-buffer-name process-f)
+  "Switches to or opens up a process"
+  (let* ((process-buffer (get-buffer new-buffer-name)))
+    (if (or (eq (window-buffer) process-buffer) shell-only)
+        (delete-other-windows)
+      (if (eq 1 (count-windows))
+          (split-window-vertically))
+      (if (not (eq (window-buffer) process-buffer))
+          (other-window 1)))
+    (or (and process-buffer
+             (switch-to-buffer process-buffer))
+        (funcall process-f))))
+
 (defun list-processes-and-switch ()
   (interactive)
   (list-processes)
@@ -132,43 +145,28 @@
 (defun find-or-run-shell (&optional shell-only)
   "Switches to or opens up a new shell"
   (interactive)
-  (let* ((shellbuf (get-buffer "*shell*")))
-    (if (or (eq (window-buffer) shellbuf) shell-only)
-        (delete-other-windows)
-      (if (eq 1 (count-windows))
-          (split-window-vertically))
-      (if (not (eq (window-buffer) shellbuf))
-          (other-window 1)))
-    (or (and shellbuf
-             (switch-to-buffer shellbuf))
-        (progn
-          (shell)))))
+  (find-or-run-process
+   "*shell*"
+   (lambda () (shell))))
 
 (defun find-or-run-eshell (&optional shell-only)
   "Switches to or opens up a new elisp shell"
   (interactive)
-  (let* ((eshellbuf (get-buffer "*eshell*")))
-    (if (or (eq (window-buffer) eshellbuf) shell-only)
-        (delete-other-windows)
-      (if (eq 1 (count-windows))
-          (split-window-vertically))
-      (if (not (eq (window-buffer) eshellbuf))
-          (other-window 1)))
-    (or (and eshellbuf
-             (switch-to-buffer eshellbuf))
-        (progn
-          (eshell "new")))))
+  (find-or-run-process
+   "*eshell*"
+   (lambda () (eshell "new"))))
 
 (defun lvd-load-dir (d)
   (progn
     (add-to-list 'load-path d)
     (let* ((files (directory-files d))
-	   (file-names (mapcar 'file-name-base files))
-	   (dup-f (lambda (x y) (equal x y)))
-	   (filter-f (lambda (x) (or (equal x ".")
-				     (equal x ".gitignore"))))
-	   (packages (remove-duplicates (cl-remove-if filter-f file-names)
-					:test dup-f)))
+           (file-names (mapcar 'file-name-base files))
+           (dup-f (lambda (x y) (equal x y)))
+           (filter-f (lambda (x)
+                       (or (equal x ".")
+                           (equal x ".gitignore"))))
+           (packages (remove-duplicates (cl-remove-if filter-f file-names)
+                                        :test dup-f)))
       (mapcar 'load packages))
     (message (concat "Loaded all files from " d))))
 
