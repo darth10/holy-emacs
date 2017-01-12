@@ -209,8 +209,8 @@
 
 (use-package util
   :load-path "lisp/lib/"
-  :bind (("C-! e" . split-and-eshell)
-         ("C-! C-e" . split-and-eshell)
+  :bind (("C-! e" . find-or-run-eshell)
+         ("C-! C-e" . find-or-run-eshell)
          ("C-! p" . list-processes-and-switch)
          ("C-! C-p" . list-processes-and-switch)
          ("C-! s" . find-or-run-shell)
@@ -222,7 +222,7 @@
          ("C-x 9" . delete-single-window)
          ("C-x <C-M-return>" . find-user-init-file)
          ("C-x <f3>" . list-processes-and-switch)
-         ("C-x <f7>" . split-and-eshell)
+         ("C-x <f9>" . find-or-run-eshell)
          ("C-x C-'" . switch-to-scratch-other-window)
          ("C-x C-0" . delete-window)
          ("C-x C-1" . delete-other-windows)
@@ -238,8 +238,8 @@
          ("C-|" . move-to-window)
          ("<f6>" . match-paren)
          :map emacs-lisp-mode-map
-         ("C-<f10>" . split-and-eshell)
-         ("C-! C-r" . split-and-eshell))
+         ("C-<f10>" . find-or-run-eshell)
+         ("C-! C-r" . find-or-run-eshell))
   :commands (util/rebuild)
   :init
   (global-unset-key (kbd "C-z"))

@@ -145,30 +145,20 @@
   (goto-char (point-max))
   (recenter -2))
 
-;;; TODO does not look for existing eshell window
-(defun split-and-eshell (&optional shell-only)
-  "Split window and opens up a new shell in the directory associated with the current buffer's file."
+(defun find-or-run-eshell (&optional shell-only)
+  "Switches to or opens up a new elisp shell"
   (interactive)
-  (let* ((parent (file-name-directory (buffer-file-name)))
-         (name   (concat "*eshell: "
-                         (car
-                          (last
-                           (split-string parent "/" t))) "*"))
-         (eshellbuf (get-buffer name)))
+  (let* ((eshellbuf (get-buffer "*eshell*")))
     (if (or (eq (window-buffer) eshellbuf) shell-only)
         (delete-other-windows)
       (if (eq 1 (count-windows))
           (split-window-vertically))
       (if (not (eq (window-buffer) eshellbuf))
           (other-window 1)))
-    (if eshellbuf
-        ;; TODO this does not work for some reason
-        (replace-buffer-in-windows eshellbuf)
-      (progn
-        (eshell "new")
-        (rename-buffer name)
-        (insert (concat "ls"))
-        (eshell-send-input)))))
+    (or (and eshellbuf
+             (switch-to-buffer eshellbuf))
+        (progn
+          (eshell "new")))))
 
 (defun lvd-load-dir (d)
   (progn
