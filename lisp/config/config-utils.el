@@ -1,7 +1,5 @@
 ;;; Configuration for utility packages
 
-(defconst backup-dir "~/.emacs.bak/")
-
 (use-package abbrev
   :diminish abbrev-mode)
 
@@ -191,6 +189,7 @@
          ("C-' C-n" . linum-mode)
          ("C-<f6>" . linum-mode)))
 
+(defconst backup-dir "~/.emacs.bak/")
 (use-package simple
   :bind (("C-' w" . toggle-truncate-lines)
          ("C-' C-w" . toggle-truncate-lines)
