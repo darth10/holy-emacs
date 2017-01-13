@@ -7,8 +7,6 @@
          :map org-mode-map
          ("C-c n" . org-agenda)
          ("C-c C-n" . org-agenda)
-         ("C-c t" . org-timeline)
-         ("C-c C-t" . org-timeline)
          ("C-c l" . org-store-link)
          ("M-p" . org-metaup)
          ("M-n" . org-metadown))
@@ -35,6 +33,8 @@
          ("C-c C-n" . org-agenda)
          :map org-mode-map
          ("C-c n" . org-agenda)
-         ("C-c C-n" . org-agenda)))
+         ("C-c C-n" . org-agenda)
+         ("C-c t" . org-timeline)
+         ("C-c C-t" . org-timeline)))
 
 (provide 'config-org)
