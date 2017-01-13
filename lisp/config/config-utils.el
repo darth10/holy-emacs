@@ -133,6 +133,9 @@
    '(recentf-max-saved-items 40))
   (recentf-mode t))
 
+(use-package fixme-mode
+  :ensure t)
+
 (use-package breadcrumb
   :load-path "lisp/lib/"
   :bind (("C-c : #" . bc-clear-and-msg)
@@ -253,7 +256,6 @@
   (put 'downcase-region 'disabled nil)
 
   :config
-  (add-hook 'prog-mode-hook 'font-lock-comment-annotations)
 
   (kill-line-utils-init)
   (lvd-load-dir "~/.emacs.d/lisp/var/")

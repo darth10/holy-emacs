@@ -112,14 +112,6 @@
         (delete-frame)
       (delete-window (selected-window)))))
 
-(defun font-lock-comment-annotations ()
-  "Highlight well known comment annotations"
-  (let* ((delimiter "[^a-zA-Z0-9]")
-         (annotation-regex
-          (concat delimiter "\\<\\(FIX\\(ME\\)?\\|TODO\\|OPTIMIZE\\|HACK\\|REFACTOR\\)" delimiter)))
-    (font-lock-add-keywords
-     nil `((,annotation-regex 1 font-lock-warning-face t)))))
-
 (defun kill-ring-save-line (beg end flash)
   (interactive (if (use-region-p)
 		   (list (region-beginning) (region-end) nil)
