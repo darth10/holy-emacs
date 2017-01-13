@@ -10,7 +10,6 @@
   (defun modes/set-god-mode (god-mode-key god-mode-all-key)
     (bind-key god-mode-key 'god-local-mode)
     (bind-key god-mode-all-key 'god-mode-all)
-    (add-to-list 'god-exempt-major-modes 'dired-mode)
     (bind-key "." 'repeat god-local-mode-map)
     (bind-key "z" 'repeat god-local-mode-map)
     (bind-key "i" 'god-local-mode god-local-mode-map)
@@ -26,19 +25,23 @@
     (add-to-list 'default-mode-line-format
                  (quote (:eval (propertize (if (and (boundp 'god-local-mode) god-local-mode) "^" " "))))))
 
-  (add-to-list 'god-exempt-major-modes 'Custom-mode)
-  (add-to-list 'god-exempt-major-modes 'ag-mode)
-  (add-to-list 'god-exempt-major-modes 'compilation-mode)
-  (add-to-list 'god-exempt-major-modes 'debugger-mode)
-  (add-to-list 'god-exempt-major-modes 'dired-mode)
-  (add-to-list 'god-exempt-major-modes 'ediff-mode)
-  (add-to-list 'god-exempt-major-modes 'eww-mode)
-  (add-to-list 'god-exempt-major-modes 'geben-breakpoint-list-mode)
-  (add-to-list 'god-exempt-major-modes 'ibuffer-mode)
-  (add-to-list 'god-exempt-major-modes 'org-agenda-mode)
-  (add-to-list 'god-exempt-major-modes 'recentf-dialog-mode)
-  (add-to-list 'god-exempt-major-modes 'wdired-mode)
-  (add-to-list 'god-exempt-major-modes 'calendar-mode)
+  (let* ((exempt-modes (list
+                        'Custom-mode
+                        'ag-mode
+                        'calendar-mode
+                        'compilation-mode
+                        'debugger-mode
+                        'dired-mode
+                        'ediff-mode
+                        'eww-mode
+                        'geben-breakpoint-list-mode
+                        'ibuffer-mode
+                        'org-agenda-mode
+                        'recentf-dialog-mode
+                        'wdired-mode
+                        )))
+    (dolist (i exempt-modes)
+      (add-to-list 'god-exempt-major-modes i)))
 
   (add-hook 'overwrite-mode-hook 'god-toggle-on-overwrite))
 
