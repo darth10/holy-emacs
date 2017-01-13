@@ -204,6 +204,7 @@
    '(auto-save-list-file-prefix backup-dir)
    '(backup-directory-alist `((".*" . ,backup-dir)))
    '(create-lockfiles nil))
+  (setq-default truncate-lines t)
   (column-number-mode 1)
   (add-hook 'before-save-hook 'delete-trailing-whitespace))
 
