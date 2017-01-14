@@ -213,40 +213,44 @@
 
 (use-package util
   :load-path "lisp/lib/"
-  :bind (("C-! e" . find-or-run-eshell)
-         ("C-! C-e" . find-or-run-eshell)
-         ("C-! p" . list-processes-and-switch)
-         ("C-! C-p" . list-processes-and-switch)
-         ("C-! s" . find-or-run-shell)
-         ("C-! C-s" . find-or-run-shell)
-         ("C-%" . match-paren)
-         ("C-+" . w-resize)
+  :bind (("C-! e" . util/find-or-run-eshell)
+         ("C-! C-e" . util/find-or-run-eshell)
+         ("C-! p" . util/list-processes-and-switch)
+         ("C-! C-p" . util/list-processes-and-switch)
+         ("C-! s" . util/find-or-run-shell)
+         ("C-! C-s" . util/find-or-run-shell)
+         ("C-%" . util/match-paren)
+         ("C-+" . util/resize-window)
          ("C-s" . save-buffer)
-         ("C-x '" . switch-to-scratch)
-         ("C-x 9" . delete-single-window)
-         ("C-x <C-M-return>" . find-user-init-file)
-         ("C-x <f3>" . list-processes-and-switch)
-         ("C-x <f9>" . find-or-run-eshell)
-         ("C-x C-'" . switch-to-scratch-other-window)
+         ("C-x '" . util/switch-to-scratch)
+         ("C-x 9" . util/delete-single-window)
+         ("C-x <C-M-return>" . util/find-user-init-file)
+         ("C-x <f3>" . util/list-processes-and-switch)
+         ("C-x <f9>" . util/find-or-run-eshell)
+         ("C-x C-'" . util/switch-to-scratch-other-window)
          ("C-x C-0" . delete-window)
          ("C-x C-1" . delete-other-windows)
          ("C-x C-2" . split-window-below)
          ("C-x C-3" . split-window-right)
-         ("C-x C-9" . delete-single-window)
-         ("C-x C-c" . confirm-and-kill-terminal)
+         ("C-x C-9" . util/delete-single-window)
+         ("C-x C-c" . util/confirm-and-kill-terminal)
          ("C-x C-s" . isearch-forward)
          ("C-x M-[" . previous-buffer)
          ("C-x M-]" . next-buffer)
-         ("C-x \"" . switch-to-scratch-other-frame)
-         ("C-x |" . find-user-init-file)
-         ("C-|" . move-to-window)
-         ("<f6>" . match-paren)
+         ("C-x \"" . util/switch-to-scratch-other-frame)
+         ("C-x |" . util/find-user-init-file)
+         ("C-|" . util/switch-to-window)
+         ("<f6>" . util/match-paren)
          :map emacs-lisp-mode-map
-         ("C-<f10>" . find-or-run-eshell)
-         ("C-! C-r" . find-or-run-eshell))
-  :commands (util/rebuild)
+         ("C-<f10>" . util/find-or-run-eshell)
+         ("C-! C-r" . util/find-or-run-eshell))
+  :commands (util/kill-line-utils-init
+             util/lvd-load-dir
+             util/upgrade
+             util/rebuild)
   :init
   (global-unset-key (kbd "C-z"))
+
   ;; isearch-mode-map
   (bind-key "<f3>" 'isearch-repeat-forward isearch-mode-map)
   (bind-key "S-<f3>" 'isearch-repeat-backward isearch-mode-map)
@@ -255,10 +259,8 @@
   (put 'upcase-region 'disabled nil)
   (put 'downcase-region 'disabled nil)
 
-  :config
-
-  (kill-line-utils-init)
-  (lvd-load-dir "~/.emacs.d/lisp/var/")
+  (util/kill-line-utils-init)
+  (util/lvd-load-dir "~/.emacs.d/lisp/var/")
 
   (unless (pkg/is-windows?)		;; Linux-only config
     (eval-after-load 'info

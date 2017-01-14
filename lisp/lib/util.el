@@ -5,33 +5,33 @@
 
 (defconst scratch-buffer-name "*scratch*")
 
-(defun switch-to-scratch-other-frame ()
-  "Switch to *scratch* buffer in a new frame.\nCalls `switch-to-buffer-other-frame'."
+(defun util/switch-to-scratch-other-frame ()
+  "Switch to *scratch* buffer in a new frame"
   (interactive)
   (switch-to-buffer-other-frame scratch-buffer-name))
 
-(defun switch-to-scratch ()
-  "Switch to *scratch* buffer.\nCalls `switch-to-buffer'."
+(defun util/switch-to-scratch ()
+  "Switch to *scratch* buffer"
   (interactive)
   (switch-to-buffer scratch-buffer-name))
 
-(defun switch-to-scratch-other-window ()
-  "Switch to *scratch* buffer in a new window.\nCalls `switch-to-buffer-other-window'."
+(defun util/switch-to-scratch-other-window ()
+  "Switch to *scratch* buffer in a new window"
   (interactive)
   (switch-to-buffer-other-window scratch-buffer-name))
 
-(defun confirm-and-kill-terminal ()
-  "Quit Emacs with a confirmation."
+(defun util/confirm-and-kill-terminal ()
+  "Quit Emacs with a confirmation"
   (interactive)
   (when (yes-or-no-p "Quit Emacs? ")
     (save-buffers-kill-terminal)))
 
-(defun find-user-init-file ()
-  "Edit the user-init-file, in another window."
+(defun util/find-user-init-file ()
+  "Edit user-init-file in another window"
   (interactive)
   (find-file-other-window user-init-file))
 
-(defun find-or-run-process (new-buffer-name process-f)
+(defun util/find-or-run-process (new-buffer-name process-f)
   "Switches to or opens up a process"
   (let* ((process-buffer (get-buffer new-buffer-name)))
     (if (or (eq (window-buffer) process-buffer) shell-only)
@@ -44,13 +44,14 @@
              (switch-to-buffer process-buffer))
         (funcall process-f))))
 
-(defun list-processes-and-switch ()
+(defun util/list-processes-and-switch ()
+  "Show all processes in a new window"
   (interactive)
   (list-processes)
   (other-window 1))
 
-(defun w-resize (key)
-  "Interactively resize the window"
+(defun util/resize-window (key)
+  "Interactively resize the current window"
   (interactive "cUse {/} to resize vertically, or </> to resize horizontally")
   (cond
    ((eq key (string-to-char "{"))
@@ -67,7 +68,8 @@
     (call-interactively 'w-resize))
    (t (push key unread-command-events))))
 
-(defun move-to-window ()
+(defun util/switch-to-window ()
+  "Switches to a different window"
   (interactive)
   (let ((wind-key (read-key "Use f/b/n/p or cursor keys to move to next ")))
     (cond
@@ -81,7 +83,7 @@
           (eq wind-key ?n))    (windmove-down))
      (t nil))))
 
-(defun match-paren (arg)
+(defun util/match-paren (arg)
   "Go to the matching paren if the cursor is on a paren"
   (interactive "p")
   (cond ((looking-at "\\s\(") (forward-list 1) (backward-char 1))
@@ -89,7 +91,7 @@
         (t (message "%s" "No parenthesis under cursor!"))))
 
 (defun util/upgrade ()
-  "Upgrade all packages, no questions asked."
+  "Upgrade all packages, no questions asked"
   (interactive)
   (save-window-excursion
     (list-packages)
@@ -97,12 +99,13 @@
     (package-menu-execute 'no-query)))
 
 (defun util/rebuild ()
-  "Recompile all Emacs Lisp files in ~/.emacs.d"
+  "Recompile all Emacs Lisp files"
   (interactive)
   (byte-recompile-directory (expand-file-name "~/.emacs.d/elpa") 0)
   (byte-recompile-directory (expand-file-name "~/.emacs.d/lisp/lib") 0))
 
-(defun delete-single-window (&optional window)
+(defun util/delete-single-window (&optional window)
+  "Close current window and kill its buffer"
   (interactive)
   (save-current-buffer
     (setq window (or window (selected-window)))
@@ -112,7 +115,8 @@
         (delete-frame)
       (delete-window (selected-window)))))
 
-(defun kill-ring-save-line (beg end flash)
+(defun util/kill-ring-save-line (beg end flash)
+  "Copy current line to kill ring"
   (interactive (if (use-region-p)
 		   (list (region-beginning) (region-end) nil)
 		 (list (line-beginning-position)
@@ -124,9 +128,10 @@
 	  (goto-char end)
 	(goto-char beg)))))
 
-(defun kill-line-utils-init ()
+(defun util/kill-line-utils-init ()
+  "Sets alternate kill/copy key bindings"
   ;; M-w
-  (global-set-key [remap kill-ring-save] 'kill-ring-save-line)
+  (global-set-key [remap kill-ring-save] 'util/kill-ring-save-line)
   ;; C-w
   (put 'kill-region 'interactive-form
        '(interactive
@@ -134,21 +139,22 @@
 	     (list (region-beginning) (region-end))
 	   (list (line-beginning-position) (line-beginning-position 2))))))
 
-(defun find-or-run-shell (&optional shell-only)
+(defun util/find-or-run-shell (&optional shell-only)
   "Switches to or opens up a new shell"
   (interactive)
-  (find-or-run-process
+  (util/find-or-run-process
    "*shell*"
    (lambda () (shell))))
 
-(defun find-or-run-eshell (&optional shell-only)
-  "Switches to or opens up a new elisp shell"
+(defun util/find-or-run-eshell (&optional shell-only)
+  "Switches to or opens up a new eshell"
   (interactive)
-  (find-or-run-process
+  (util/find-or-run-process
    "*eshell*"
    (lambda () (eshell "new"))))
 
-(defun lvd-load-dir (d)
+(defun util/lvd-load-dir (d)
+  "Loads all files from a specified directory"
   (progn
     (add-to-list 'load-path d)
     (let* ((files (directory-files d))
@@ -159,7 +165,9 @@
                            (equal x ".gitignore"))))
            (packages (remove-duplicates (cl-remove-if filter-f file-names)
                                         :test dup-f)))
-      (mapcar 'load packages))
-    (message (concat "Loaded all files from " d))))
+      (mapcar (lambda (f)
+                (load f)
+                (message (concat "Loaded " f ".el from " d)))
+              packages))))
 
 (provide 'util)
