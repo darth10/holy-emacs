@@ -27,8 +27,11 @@
 
   (let* ((exempt-modes (list
                         'Custom-mode
+                        'Info-mode
                         'ag-mode
                         'calendar-mode
+                        'calculator-mode
+                        'cider-test-report-mode
                         'compilation-mode
                         'debugger-mode
                         'dired-mode
