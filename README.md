@@ -1,33 +1,31 @@
 ## Overview
 
 * Support for editing/debugging Clojure, Emacs Lisp, Scheme, C#, JavaScript, Haskell, Python, Ruby, PHP and C.
-* Uses `god-mode` for modal editing. All key bindings work in `god-mode`, and `god-mode` is only used to reduce the usage of modifier keys.
-* Uses `which-key` to interactively describe key bindings.
-* Uses `use-package` and `bind-key`. `M-x describe-personal-keybindings` will display all available key bindings.
 * Identical (almost) bindings across different major modes.
 * Installs all required packages from GNU, Marmalade and MELPA repositories on startup.
-* Includes `helm`, `yasnippet` and `company`.
-* Git integration via `magit`.
-* File and project search via `ag`.
-* Manage sessions and buffers via `desktop-save-mode`.
+* Upgrade all packages using `M-x util/upgrade`.
+* Includes `helm`, `yasnippet`, `company` and `magit`.
+* Uses `god-mode` for modal editing. All key bindings work in `god-mode`, and `god-mode` is only used to reduce the usage of modifier keys.
+* Uses `use-package` and `bind-key`. `M-x describe-personal-keybindings` will display all available key bindings.
+* Uses `which-key` to interactively describe key bindings.
+* Uses `ag` for file and project search.
+* Uses `desktop-save-mode` to manage sessions and buffers.
 * Automatically saves backup files to `~/.emacs.bak/`.
 * Recompile entire `~/.emacs.d` using `M-x util/rebuild` or the `rebuild.sh` script.
-* Upgrade all packages using `M-x util/upgrade`.
-* Remember that the meta (<kbd>M-</kbd>) modifier is the same as the <kbd>C-[</kbd> prefix.
 
 ## `god-mode`
 
 Use <kbd>ESC</kbd> or <kbd>M-i</kbd> to toggle `god-mode`.
 In `god-mode`, <kbd>i</kbd> will also disable `god-mode`.
-Note that you can still use <kbd>C-[</kbd> instead of the escape key.
-In `god-mode`, you can simply use <kbd>[</kbd> for the escape key.
+Remember that you can use <kbd>C-[</kbd>, or just <kbd>[</kbd> in `god-mode`, instead of <kbd>ESC</kbd>.
+This has the same effect as using the meta (<kbd>M-</kbd>) modifier.
 
 * <kbd>C-x C-c</kbd> becomes <kbd>xc</kbd>.
 * <kbd>C-x (</kbd> becomes <kbd>x (</kbd>. Note the use of the space key.
 * <kbd>M-x</kbd> becomes <kbd>gx</kbd>.
 * <kbd>C-M-c</kbd> becomes <kbd>Gc</kbd>.
 * <kbd>M-10 C-n</kbd> becomes <kbd>10n</kbd>.
-* Use <kbd>.</kbd> or <kbd>z</kbd> to repeat the last command.
+* <kbd>.</kbd> or <kbd>z</kbd> will repeat the last command.
 
 ## Overridden default key bindings
 
