@@ -77,7 +77,6 @@
 ;;
 ;;     describes four styles of font name.
 ;;
-;; TODO
 ;;
 ;;     Possibly return a font object instead of font-info vector
 ;;     from font-utils-exists-p.

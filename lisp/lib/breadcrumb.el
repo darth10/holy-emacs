@@ -204,7 +204,7 @@ as indicated by `*bc-current*'"
                        ((eq type bc--type-system) filename)
 
                        ((eq type bc--type-info) nil)
-                       ;; TODO?
+
                        ;; (eval-when-compile (require 'info))
                        ;; (save-excursion
                        ;;   (Info-find-node filename (car position))
@@ -748,4 +748,3 @@ If POS is nil, use current buffer location."
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; breadcrumb.el ends here
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
