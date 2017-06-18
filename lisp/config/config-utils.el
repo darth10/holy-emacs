@@ -192,6 +192,10 @@
          ("C-' C-n" . linum-mode)
          ("C-<f6>" . linum-mode)))
 
+(use-package clipmon
+  :config
+  (add-to-list 'after-init-hook 'clipmon-mode-start))
+
 (defconst backup-dir "~/.emacs.bak/")
 (use-package simple
   :bind (("C-' w" . toggle-truncate-lines)
