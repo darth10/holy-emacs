@@ -10,6 +10,7 @@ server/
 swank/
 url/
 ac-comphist.dat
+network-security.data
 places
 .mc-lists.el
 *.elc
