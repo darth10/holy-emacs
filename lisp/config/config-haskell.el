@@ -9,6 +9,8 @@
     (inferior-haskell-load-file)
     (switch-to-haskell))
 
+  (setq haskell-tags-on-save t)
+
   (bind-key "C-<f10>" 'switch-to-haskell haskell-mode-map)
   (bind-key "C-! C-r" 'switch-to-haskell haskell-mode-map)
   (bind-key "C-<f5>" 'load-file-in-inf-haskell haskell-mode-map)
@@ -16,11 +18,6 @@
   (bind-key "C-x a a" 'load-file-in-inf-haskell haskell-mode-map)
 
   (add-hook 'haskell-mode-hook 'haskell-indent-mode)
-
-  (use-package haskell-doc
-    :diminish haskell-doc-mode
-    :config
-    (add-hook 'haskell-mode-hook 'haskell-doc-mode))
 
   (use-package haskell-cabal
     :config
@@ -36,6 +33,7 @@
 (use-package company-ghc
   :ensure t
   :config
-  (push 'company-ghc company-backends))
+  (push 'company-ghc company-backends)
+  (setq company-ghc-show-info t))
 
 (provide 'config-haskell)
