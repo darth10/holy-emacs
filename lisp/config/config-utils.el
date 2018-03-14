@@ -91,6 +91,12 @@
   (add-to-list 'yas-snippet-dirs "~/.emacs.d/data/snippets/")
   (yas-global-mode t))
 
+(use-package editorconfig
+  :ensure t
+  :diminish editorconfig-mode
+  :config
+  (editorconfig-mode 1))
+
 (use-package lacarte
   :ensure t
   :bind ("ESC M-x" . lacarte-execute-menu-command))
