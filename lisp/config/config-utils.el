@@ -195,6 +195,14 @@
   :config
   (add-to-list 'after-init-hook 'clipmon-mode-start))
 
+(use-package ws-butler
+  :ensure t
+  :diminish ws-butler-mode
+  :bind (("C-' d" . ws-butler-global-mode)
+         ("C-' C-d" . ws-butler-global-mode))
+  :config
+  (ws-butler-global-mode t))
+
 (defconst backup-dir "~/.emacs.bak/")
 (use-package simple
   :bind (("C-' w" . toggle-truncate-lines)
@@ -211,8 +219,7 @@
    '(backup-directory-alist `((".*" . ,backup-dir)))
    '(create-lockfiles nil))
   (setq-default truncate-lines t)
-  (column-number-mode 1)
-  (add-hook 'before-save-hook 'delete-trailing-whitespace))
+  (column-number-mode 1))
 
 (use-package util
   :load-path "lisp/lib/"
