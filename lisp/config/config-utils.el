@@ -54,8 +54,6 @@
 
 (use-package dired
   :config
-  (use-package dired+
-    :ensure t)
 
   (use-package direx
     :bind ("C-c C-j" . direx:jump-to-directory-other-window)
