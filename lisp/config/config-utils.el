@@ -193,6 +193,7 @@
          ("C-<f6>" . linum-mode)))
 
 (use-package clipmon
+  :ensure t
   :config
   (add-to-list 'after-init-hook 'clipmon-mode-start))
 
