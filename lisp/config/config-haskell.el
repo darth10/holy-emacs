@@ -2,24 +2,51 @@
 
 (use-package haskell-mode
   :ensure t
+  :bind (:map haskell-mode-map
+         ("C-<f10>" . haskell-interactive-switch)
+         ("C-! C-r" . haskell-interactive-switch)
+         ("C-c C-z" . haskell-interactive-switch)
+         ("C-<f5>" . load-file-in-haskell-process)
+         ("C-x C-a C-a" . load-file-in-haskell-process)
+         ("C-x a a" . load-file-in-haskell-process)
+         ("C-c C-l" . haskell-process-load-or-reload)
+         ("C-c l" . haskell-process-load-or-reload)
+         ("C-c C-k" . haskell-compile)
+         ("C-c k" . haskell-compile)
+         ("C-c C-n C-t" . haskell-process-do-type)
+         ("C-c C-n C-i" . haskell-process-do-info)
+         ("C-c C-n C-c" . haskell-process-cabal-build)
+         ("C-c C-n c" . haskell-process-cabal))
   :config
+  (custom-set-variables
+   '(haskell-tags-on-save t)
+   '(haskell-process-auto-import-loaded-modules t)
+   '(haskell-process-log t)
+   '(haskell-process-show-debug-tips nil)
+   '(haskell-process-suggest-remove-import-lines t))
 
-  (defun load-file-in-inf-haskell ()
+  ;; GHC 8.2.1+ workarounds
+  (setq haskell-process-args-ghci
+        '("-ferror-spans" "-fshow-loaded-modules"))
+  (setq haskell-process-args-cabal-repl
+        '("--ghc-options=-ferror-spans -fshow-loaded-modules"))
+  (setq haskell-process-args-stack-ghci
+        '("--ghci-options=-ferror-spans -fshow-loaded-modules"
+          "--no-build" "--no-load"))
+  (setq haskell-process-args-cabal-new-repl
+        '("--ghc-options=-ferror-spans -fshow-loaded-modules"))
+
+  (defun load-file-in-haskell-process ()
     (interactive)
-    (inferior-haskell-load-file)
-    (switch-to-haskell))
+    (haskell-process-load-or-reload)
+    (haskell-interactive-switch))
 
-  (setq haskell-tags-on-save t)
-
-  (bind-key "C-<f10>" 'switch-to-haskell haskell-mode-map)
-  (bind-key "C-! C-r" 'switch-to-haskell haskell-mode-map)
-  (bind-key "C-<f5>" 'load-file-in-inf-haskell haskell-mode-map)
-  (bind-key "C-x C-a C-a" 'load-file-in-inf-haskell haskell-mode-map)
-  (bind-key "C-x a a" 'load-file-in-inf-haskell haskell-mode-map)
-
-  (add-hook 'haskell-mode-hook 'haskell-indent-mode)
+  (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 
   (use-package haskell-cabal
+    :bind (:map haskell-cabal-mode-map
+           ("C-c C-o" . 'haskell-process-cabal-build)
+           ("C-c C-c" . 'haskell-process-cabal))
     :config
     (add-hook 'haskell-cabal-mode-hook 'configure-haskell-newline-indent)))
 
