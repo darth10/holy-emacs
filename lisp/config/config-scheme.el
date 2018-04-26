@@ -8,7 +8,8 @@
          ("C-<f5>" . scheme-load-and-repl)
          ("C-x C-a C-a" . scheme-load-and-repl)
          ("C-x a a" . scheme-load-and-repl)
-         ("C-c C-l" . scheme-load-current-file))
+         ("C-c C-l" . scheme-load-current-file)
+         ("C-c l" . scheme-load-current-file))
 
   :config
 
