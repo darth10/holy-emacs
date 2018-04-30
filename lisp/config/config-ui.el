@@ -38,10 +38,12 @@
    '(mode-line ((t (:background "green1" :foreground "black"))))
    '(mode-line-buffer-id ((t (:background "green" :foreground "black" :weight bold))))
    '(mode-line-inactive ((t (:background "dimgray" :foreground "black"))))
-   '(region ((t (:background "white" :foreground "black")))))
+   '(region ((t (:background "white" :foreground "black"))))
+   '(show-paren-match ((t (:background "Dodgerblue1" :foreground "white" :weight extra-bold)))))
   (tool-bar-mode -1)
   (menu-bar-mode -1)
-  (scroll-bar-mode -1))
+  (scroll-bar-mode -1)
+  (show-paren-mode 1))
 
 ;; custom font
 (defconst config-custom-font "Consolas")
@@ -55,14 +57,6 @@
                    '(font . "-MS  -Consolas-normal-normal-normal-*-20-*-*-*-m-0-iso10646-1"))
       (custom-set-faces
        '(default ((t (:height 148 :weight normal :width normal))))))))
-
-(use-package paren
-  :ensure t
-  :config
-  (set-face-background 'show-paren-match "Dodgerblue1")
-  (set-face-foreground 'show-paren-match "white")
-  (set-face-attribute 'show-paren-match nil :weight 'extra-bold)
-  (show-paren-mode 1))
 
 (use-package rainbow-delimiters
   :ensure t
