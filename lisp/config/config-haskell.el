@@ -23,6 +23,9 @@
    '(haskell-process-auto-import-loaded-modules t)
    '(haskell-process-log t)
    '(haskell-process-show-debug-tips nil)
+   '(haskell-compile-cabal-build-command "cd %s && stack build")
+   '(haskell-process-type 'stack-ghci)
+   '(haskell-process-path-ghci "stack")
    '(haskell-process-suggest-remove-import-lines t))
 
   ;; GHC 8.2.1+ workarounds
