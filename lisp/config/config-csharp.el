@@ -1,31 +1,38 @@
 ;;; Configuration for C#
 
+;;; Install omnisharp server using omnisharp-install-server
+
+(use-package omnisharp
+  :ensure t
+  :bind (:map omnisharp-mode-map
+         ("M-SPC" . company-omnisharp)
+         ("." . company-omnisharp-intellisense)
+         ("C-x <f5>" . omnisharp-solution-errors)
+         ("C-! C-k" . omnisharp-solution-errors)
+         ("C-c C-k" . omnisharp-solution-errors)
+         ("C-c k" . omnisharp-solution-errors)
+         ("M-." . omnisharp-go-to-definition)
+         ("<f12>" . omnisharp-go-to-definition)
+         ("S-<f12>" . omnisharp-find-usages)
+         ("C-c f" . omnisharp-code-format-entire-file)
+         ("C-." . omnisharp-run-code-action-refactoring)
+         ("C--" . pop-tag-mark))
+  :config
+  (defun company-omnisharp-intellisense ()
+    (interactive)
+    (insert ".")
+    (when omnisharp-mode
+      (call-interactively 'company-omnisharp)))
+
+  (add-hook 'csharp-mode-hook 'omnisharp-mode))
+
 (use-package csharp-mode
   :ensure t
   :mode (("\\.cs\\'" . csharp-mode))
+  :bind (:map csharp-mode-map
+         ("C-<f10>" . start-omnisharp-server )
+         ("C-! C-r" . start-omnisharp-server))
   :config
-
-  (use-package omnisharp
-    :ensure t
-    :bind (:map omnisharp-mode-map
-           ("M-SPC" . company-omnisharp)
-           ("." . company-omnisharp-intellisense)
-           ("C-x <f5>" . omnisharp-build-in-emacs)
-           ("C-! C-k" . omnisharp-build-in-emacs)
-           ("M-." . omnisharp-go-to-definition)
-           ("<f12>" . omnisharp-go-to-definition)
-           ("S-<f12>" . omnisharp-find-usages)
-           ("C-c f" . omnisharp-code-format))
-
-    :config
-    (setq omnisharp-server-executable-path "~/bin/omnisharp/OmniSharp.exe")
-
-    (defun company-omnisharp-intellisense ()
-      (interactive)
-      (insert ".")
-      (when omnisharp-mode
-        (call-interactively 'company-omnisharp))))
-
   (defun get-omnisharp-process-name (solution-file)
     (concat "omnisharp-server:" solution-file))
 
@@ -59,7 +66,6 @@
          new-server-command)
         (omnisharp-mode t))))
 
-  (bind-key "C-<f10>" 'start-omnisharp-server csharp-mode-map)
-  (bind-key "C-! C-r" 'start-omnisharp-server csharp-mode-map))
+  (add-hook 'csharp-mode-hook 'flycheck-mode))
 
 (provide 'config-csharp)
