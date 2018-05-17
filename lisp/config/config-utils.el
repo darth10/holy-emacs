@@ -203,6 +203,8 @@
 
 (use-package exec-path-from-shell
   :ensure t
+  :init
+  (setq exec-path-from-shell-check-startup-files nil)
   :config
   (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize)))
