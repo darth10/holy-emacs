@@ -84,10 +84,10 @@
 
   (add-hook 'which-key-mode-hook 'config-which-key-mode-hook)
 
-  (which-key-setup-minibuffer)
-  (setq max-mini-window-height 0.3)
-
   (defun modes/init-which-key-mode ()
+    (which-key-setup-minibuffer)
+    (setq max-mini-window-height 0.4)
+    (setq which-key-max-description-length 20)
     (which-key-mode t)))
 
 (use-package frame
