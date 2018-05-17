@@ -37,6 +37,4 @@
 (require 'config-ui)
 (require 'config-web)
 
-(modes/set-mode-line-format)
-;;; comment out this line to disable god-mode
-(modes/set-god-mode "<escape>" "S-<escape>")
+(modes/init-global-modes)

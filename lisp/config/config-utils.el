@@ -201,14 +201,6 @@
   :config
   (add-to-list 'after-init-hook 'clipmon-mode-start))
 
-(use-package ws-butler
-  :ensure t
-  :diminish ws-butler-mode
-  :bind (("C-' d" . ws-butler-global-mode)
-         ("C-' C-d" . ws-butler-global-mode))
-  :config
-  (ws-butler-global-mode t))
-
 (use-package exec-path-from-shell
   :ensure t
   :config
