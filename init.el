@@ -36,5 +36,3 @@
 (require 'config-servers)
 (require 'config-ui)
 (require 'config-web)
-
-(modes/init-global-modes)

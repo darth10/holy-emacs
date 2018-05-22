@@ -209,6 +209,31 @@
   (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize)))
 
+(use-package multiple-cursors
+  :ensure t
+  :bind (("C-<" . mc/mark-previous-like-this)
+         ("C->" . mc/mark-next-like-this)
+         ("C-c C-<f3>" . mc/mark-all-like-this)
+         ("C-c C->" . mc/mark-all-like-this)
+         ("C-x <C-return>" . mc/edit-lines)
+         ("C-x RET RET" . set-rectangular-region-anchor))
+  :init
+  (custom-set-faces
+   '(mc/cursor-bar-face ((t (:height 1 :background "green"))))))
+
+(use-package ws-butler
+  :ensure t
+  :diminish ws-butler-mode
+  :commands (modes/init-ws-butler-mode)
+  :bind (("C-' d" . ws-butler-global-mode)
+         ("C-' C-d" . ws-butler-global-mode))
+  :init
+  (ws-butler-global-mode t))
+
+(use-package desktop
+  :config
+  (desktop-save-mode t))
+
 (defconst backup-dir "~/.emacs.bak/")
 (use-package simple
   :bind (("C-' w" . toggle-truncate-lines)
