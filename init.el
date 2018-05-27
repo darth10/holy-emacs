@@ -25,6 +25,7 @@
 (require 'config-js)
 (require 'config-org)
 (require 'config-php)
+(require 'config-powershell)
 (require 'config-python)
 (require 'config-ruby)
 (require 'config-scala)
