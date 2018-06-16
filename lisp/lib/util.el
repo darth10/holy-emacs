@@ -102,7 +102,8 @@
   "Recompile all Emacs Lisp files"
   (interactive)
   (byte-recompile-directory (expand-file-name "~/.emacs.d/elpa") 0)
-  (byte-recompile-directory (expand-file-name "~/.emacs.d/lisp/lib") 0))
+  (byte-recompile-directory (expand-file-name "~/.emacs.d/lisp/lib") 0)
+  (byte-recompile-directory (expand-file-name "~/.emacs.d/lisp/config") 0))
 
 (defun util/delete-single-window (&optional window)
   "Close current window and kill its buffer"
