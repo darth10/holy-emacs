@@ -6,6 +6,7 @@
 
 (use-package geben
   :ensure t
+  :defer 5
   :config
 
   (defun configure-geben (s)

@@ -2,6 +2,7 @@
 
 (use-package server
   :ensure t
+  :defer 4
   :config
   (server-start))
 

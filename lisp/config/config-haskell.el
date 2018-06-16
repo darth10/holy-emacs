@@ -62,6 +62,7 @@
 
 (use-package company-ghc
   :ensure t
+  :defer 4
   :config
   (push 'company-ghc company-backends)
   (setq company-ghc-show-info t))

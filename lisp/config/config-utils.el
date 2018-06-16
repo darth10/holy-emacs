@@ -7,6 +7,10 @@
   :ensure t)
 
 (use-package gist
+  :ensure t
+  :defer 4)
+
+(use-package esup
   :ensure t)
 
 (use-package inflections
@@ -102,7 +106,7 @@
   :bind ("ESC M-x" . lacarte-execute-menu-command))
 
 (use-package woman
-  :unless (pkg/is-windows?)
+  :unless (core/is-windows?)
   :bind ("C-x ?" . woman))
 
 (use-package expand-region
@@ -203,6 +207,7 @@
 
 (use-package exec-path-from-shell
   :ensure t
+  :defer 4
   :init
   (setq exec-path-from-shell-check-startup-files nil)
   :config
@@ -303,13 +308,13 @@
   (util/kill-line-utils-init)
   (util/lvd-load-dir "~/.emacs.d/lisp/var/")
 
-  (unless (pkg/is-windows?)		;; Linux-only config
+  (unless (core/is-windows?)		;; Linux-only config
     (eval-after-load 'info
       '(progn
          (push "/opt/local/share/info" Info-default-directory-list)
          (push "~/.emacs.d/info" Info-default-directory-list))))
 
-  (when (pkg/is-windows?)		;; Windows-only config
+  (when (core/is-windows?)		;; Windows-only config
     (setq w32-get-true-file-attributes nil)
     (w32-send-sys-command 61488)))
 

@@ -46,28 +46,15 @@
 
 (use-package diff-hl
   :ensure t
+  :defer 2
   :config
 
-  (defun interactive-diff-hl-update ()
-    (interactive)
-    (diff-hl-update)
-    (message "Refreshed diff"))
-
-  (defun diff-hl-update-each-buffer ()
-    (interactive)
-    (mapc (lambda (buffer)
-            (condition-case nil
-                (with-current-buffer buffer
-                  (diff-hl-update))
-              (buffer-read-only nil)))
-          (buffer-list)))
-
-  (bind-key "C-x r =" 'interactive-diff-hl-update)
+  (setq-default left-fringe-width  4)
+  (setq-default right-fringe-width 4)
   (global-diff-hl-mode 1)
 
   (use-package magit
     :config
-    (defadvice magit-refresh (after my-magit-refresh activate)
-      (progn (diff-hl-update-each-buffer)))))
+    (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)))
 
 (provide 'config-vc)
