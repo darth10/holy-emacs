@@ -48,9 +48,6 @@
   :ensure t
   :defer 2
   :config
-
-  (setq-default left-fringe-width  4)
-  (setq-default right-fringe-width 4)
   (global-diff-hl-mode 1)
 
   (use-package magit

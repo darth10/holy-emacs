@@ -1,15 +1,30 @@
 ;;; Core
 
-(when (fboundp 'set-charset-priority)
-  (set-charset-priority 'unicode))
-(prefer-coding-system        'utf-8)
-(set-terminal-coding-system  'utf-8)
-(set-keyboard-coding-system  'utf-8)
-(set-selection-coding-system 'utf-8)
-(setq locale-coding-system   'utf-8)
-(setq-default buffer-file-coding-system 'utf-8)
-
 (eval-and-compile
+  (when (fboundp 'set-charset-priority)
+    (set-charset-priority 'unicode))
+  (prefer-coding-system        'utf-8)
+  (set-terminal-coding-system  'utf-8)
+  (set-keyboard-coding-system  'utf-8)
+  (set-selection-coding-system 'utf-8)
+  (setq locale-coding-system   'utf-8)
+  (setq-default buffer-file-coding-system 'utf-8)
+
+  (setq-default
+   left-fringe-width 4
+   right-fringe-width 10
+   fringe-indicator-alist (delq (assq 'continuation fringe-indicator-alist)
+				fringe-indicator-alist)
+   frame-inhibit-implied-resize t
+   window-divider-default-places t
+   window-divider-default-bottom-width 0
+   window-divider-default-right-width 1
+   ;; JIT tweaks for font performance
+   jit-lock-defer-time nil
+   jit-lock-stealth-nice 0.1
+   jit-lock-stealth-time 0.2
+   jit-lock-stealth-verbose nil)
+
   ;; modify GC limits for startup
   (defvar core--file-name-handler-alist file-name-handler-alist)
   (unless (or after-init-time noninteractive)
@@ -25,14 +40,14 @@
           inhibit-default-init t
           initial-major-mode 'fundamental-mode
           initial-scratch-message nil
-          mode-line-format nil)))
+          mode-line-format nil))
 
-(defun core/finalize ()
-  (setq gc-cons-threshold 16777216
-        gc-cons-percentage 0.1
-        file-name-handler-alist core--file-name-handler-alist))
+  (defun core/finalize ()
+    (setq gc-cons-threshold 16777216
+          gc-cons-percentage 0.1
+          file-name-handler-alist core--file-name-handler-alist))
 
-(add-hook 'emacs-startup-hook 'core/finalize)
+  (add-hook 'emacs-startup-hook 'core/finalize))
 
 (require 'package)
 
