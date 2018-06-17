@@ -66,6 +66,10 @@
          new-server-command)
         (omnisharp-mode t))))
 
-  (add-hook 'csharp-mode-hook 'flycheck-mode))
+  (add-hook 'csharp-mode-hook 'flycheck-mode)
+
+  (use-package exec-path-from-shell
+    :config
+    (exec-path-from-shell-copy-env "NUGET_PACKAGES")))
 
 (provide 'config-csharp)

@@ -46,6 +46,10 @@
 
   (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 
+  (use-package exec-path-from-shell
+    :config
+    (exec-path-from-shell-copy-env "STACK_ROOT"))
+
   (use-package haskell-cabal
     :bind (:map haskell-cabal-mode-map
            ("C-c C-o" . 'haskell-process-cabal-build)
