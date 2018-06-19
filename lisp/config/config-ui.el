@@ -28,6 +28,9 @@
   :config
   (custom-set-faces
    '(button ((t (:background "green" :foreground "black"))))
+   '(diff-hl-insert ((t (:background "ForestGreen" :foreground "ForestGreen"))))
+   '(diff-hl-change ((t (:background "DimGray" :foreground "DimGray"))))
+   '(diff-hl-delete ((t (:background "Orangered3" :foreground "Orangered3"))))
    '(escape-glyph ((t (:foreground "#ddaa6f" :weight bold))))
    '(header-line ((((class color) (min-colors 89)) (:background "#303030" :foreground "#e7f6da"))))
    '(helm-ff-directory ((t (:background "LightGray" :foreground "black"))))
