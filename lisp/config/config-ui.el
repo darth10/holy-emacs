@@ -7,7 +7,6 @@
    ;;; vars set before loading theme
    '(solarized-use-variable-pitch) nil
    '(solarized-scale-org-headlines nil)
-   '(solarized-distinct-fringe-background t)
    '(x-underline-at-descent-line t)
    '(ansi-color-names-vector
      ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
@@ -43,6 +42,21 @@
    '(mode-line-inactive ((t (:background "dimgray" :foreground "black"))))
    '(region ((t (:background "white" :foreground "black"))))
    '(show-paren-match ((t (:background "Dodgerblue1" :foreground "white" :weight extra-bold)))))
+
+  (defface fringe-highlight-face
+    '((t (:foreground "yellow")))
+    "Face for the fringe bitmaps"
+    :group 'basic-faces)
+  (set-fringe-bitmap-face 'right-triangle 'fringe-highlight-face)
+  (set-fringe-bitmap-face 'right-arrow 'fringe-highlight-face)
+  (set-fringe-bitmap-face 'right-curly-arrow 'fringe-highlight-face)
+  (set-fringe-bitmap-face 'left-triangle 'fringe-highlight-face)
+  (set-fringe-bitmap-face 'left-arrow 'fringe-highlight-face)
+  (set-fringe-bitmap-face 'left-curly-arrow 'fringe-highlight-face)
+  (set-fringe-bitmap-face 'exclamation-mark 'fringe-highlight-face)
+  (set-fringe-bitmap-face 'question-mark 'fringe-highlight-face)
+  (set-fringe-bitmap-face 'empty-line 'fringe-highlight-face)
+
   (tool-bar-mode -1)
   (menu-bar-mode -1)
   (scroll-bar-mode -1)

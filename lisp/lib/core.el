@@ -11,10 +11,8 @@
   (setq-default buffer-file-coding-system 'utf-8)
 
   (setq-default
-   left-fringe-width 4
-   right-fringe-width 10
-   fringe-indicator-alist (delq (assq 'continuation fringe-indicator-alist)
-				fringe-indicator-alist)
+   left-fringe-width 8
+   right-fringe-width 8
    frame-inhibit-implied-resize t
    window-divider-default-places t
    window-divider-default-bottom-width 0
