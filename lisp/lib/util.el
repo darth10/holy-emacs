@@ -93,10 +93,8 @@
 (defun util/upgrade ()
   "Upgrade all packages, no questions asked"
   (interactive)
-  (save-window-excursion
-    (list-packages)
-    (package-menu-mark-upgrades)
-    (package-menu-execute 'no-query)))
+  (require 'epl)
+  (epl-upgrade))
 
 (defun util/rebuild ()
   "Recompile all Emacs Lisp files"

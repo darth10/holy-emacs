@@ -61,12 +61,15 @@
   (package-initialize)
 
   (when (or (not (package-installed-p 'use-package))
-            (not (package-installed-p 'diminish)))
+            (not (package-installed-p 'diminish))
+            (not (package-installed-p 'epl)))
     (package-refresh-contents))
   (when (not (package-installed-p 'use-package))
     (package-install 'use-package))
   (when (not (package-installed-p 'diminish))
     (package-install 'diminish))
+  (when (not (package-installed-p 'epl))
+    (package-install 'epl))
 
   (eval-when-compile
     (require 'use-package))
