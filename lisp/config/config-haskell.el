@@ -2,6 +2,7 @@
 
 (use-package haskell-mode
   :ensure t
+  :defer 5
   :bind (:map haskell-mode-map
          ("C-<f10>" . haskell-interactive-switch)
          ("C-! C-r" . haskell-interactive-switch)
@@ -59,6 +60,7 @@
 
 (use-package ghc
   :ensure t
+  :defer 5
   :config
   (autoload 'ghc-init "ghc" nil t)
   (autoload 'ghc-debug "ghc" nil t)
@@ -66,7 +68,7 @@
 
 (use-package company-ghc
   :ensure t
-  :defer 4
+  :defer 5
   :config
   (push 'company-ghc company-backends)
   (setq company-ghc-show-info t))

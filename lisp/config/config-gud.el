@@ -29,6 +29,7 @@
 (defconst config-key-gud-run3 "C-x a x r")
 
 (use-package gud
+  :defer 5
   :init
   (global-unset-key (kbd "<f10>"))
   (global-unset-key (kbd "C-x a n"))

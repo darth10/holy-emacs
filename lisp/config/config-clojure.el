@@ -15,7 +15,7 @@
 
 (use-package clj-refactor
   :ensure t
-  :defer 4
+  :defer 5
   :diminish clj-refactor-mode
   :config
   (setq cljr-warn-on-eval nil)
@@ -70,6 +70,7 @@
 
 (use-package cider-eval-sexp-fu
   :ensure t
+  :defer 5
   :config
   (defun config-init-cider-eval-sexp-fu ()
     (require 'cider-eval-sexp-fu))

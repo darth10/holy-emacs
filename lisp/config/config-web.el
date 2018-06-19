@@ -2,12 +2,14 @@
 
 (use-package zencoding-mode
   :ensure t
+  :defer 5
   :diminish zencoding-mode
   :bind (:map zencoding-mode-keymap
          ("M-SPC" . zencoding-expand-line)))
 
 (use-package rainbow-mode
   :ensure t
+  :defer 5
   :diminish rainbow-mode
   :config
   (add-hook 'css-mode-hook 'rainbow-mode)
@@ -15,6 +17,7 @@
 
 (use-package web-mode
   :ensure t
+  :defer 5
   :mode (("\\.html\\'" . web-mode)
          ("\\.phtml\\'" . web-mode)
          ("\\.tpl\\.php\\'" . web-mode)

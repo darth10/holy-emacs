@@ -4,11 +4,12 @@
   :diminish abbrev-mode)
 
 (use-package findr
-  :ensure t)
+  :ensure t
+  :defer 2)
 
 (use-package gist
   :ensure t
-  :defer 4)
+  :defer 5)
 
 (use-package esup
   :ensure t)
@@ -17,19 +18,23 @@
   :ensure t)
 
 (use-package smex
-  :ensure t)
+  :ensure t
+  :defer 2)
 
 (use-package restclient
-  :ensure t)
+  :ensure t
+  :defer 5)
 
 (use-package yaml-mode
   :ensure t)
 
 (use-package markdown-mode
-  :ensure t)
+  :ensure t
+  :defer 5)
 
 (use-package dockerfile-mode
-  :ensure t)
+  :ensure t
+  :defer 5)
 
 (use-package handlebars-mode
   :ensure t)
@@ -57,14 +62,13 @@
          ("M-s a r" . ag-project-regexp)))
 
 (use-package dired
+  :bind (("C-x C-j" . dired-jump-other-window)
+         ("C-x C-/" . wdired-change-to-wdired-mode dired-mode-map))
   :config
-
   (use-package direx
-    :bind ("C-c C-j" . direx:jump-to-directory-other-window)
-    :ensure t)
-
-  (bind-key "C-x C-j" 'dired-jump-other-window)
-  (bind-key "C-x C-/" 'wdired-change-to-wdired-mode dired-mode-map))
+    :ensure t
+    :defer 2
+    :bind ("C-c C-j" . direx:jump-to-directory-other-window)))
 
 (use-package hideshow
   :diminish hs-minor-mode
@@ -122,6 +126,7 @@
 
 (use-package smartparens
   :ensure t
+  :defer 2
   :diminish smartparens-mode
   :config
   (add-hook 'prog-mode-hook 'smartparens-mode))
@@ -207,7 +212,7 @@
 
 (use-package exec-path-from-shell
   :ensure t
-  :defer 4
+  :defer 2
   :init
   (setq exec-path-from-shell-check-startup-files nil)
   :config

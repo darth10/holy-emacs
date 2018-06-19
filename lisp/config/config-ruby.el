@@ -6,6 +6,7 @@
 
 (use-package inf-ruby
   :ensure t
+  :defer 5
   :config
   (defun load-file-in-inf-ruby ()
     (interactive)
@@ -27,10 +28,12 @@
 
 (use-package ruby-end
   :ensure t
+  :defer 5
   :diminish ruby-end-mode)
 
 (use-package rinari
   :ensure t
+  :defer 5
   :bind (:map ruby-mode-map
          ("C-! C-a" . rinari-rake)
          ("C-<f7>" . rinari-rake))
@@ -42,11 +45,13 @@
 
 (use-package yari
   :ensure t
+  :defer 5
   :bind (:map ruby-mode-map
          ("C-?" . yari)))
 
 (use-package rvm
   :ensure t
+  :defer 5
   :config
   (add-hook 'ruby-mode-hook 'rvm-use-default))
 

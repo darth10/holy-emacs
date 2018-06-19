@@ -92,6 +92,7 @@
 
 (use-package eval-sexp-fu
   :ensure t
+  :defer 2
   :config
   (custom-set-faces
    '(eval-sexp-fu-flash ((t (:background "green" :foreground "black")))))
@@ -109,31 +110,5 @@
   (add-hook 'emacs-lisp-mode-hook 'eldoc-mode)
   (add-hook 'ielm-mode-hook 'eldoc-mode)
   (add-hook 'eshell-mode-hook 'eldoc-mode))
-
-;; (use-package prog-mode
-;;   :defer 4
-;;   :bind (("C-' p" . prettify-symbols-mode)
-;;          ("C-' C-p" . prettify-symbols-mode))
-;;   :config
-;;   (use-package lisp-mode
-;;     :config
-;;     (add-hook 'lisp-mode-hook 'prettify-symbols-mode)
-;;     (add-hook 'emacs-lisp-mode-hook 'prettify-symbols-mode))
-;;   (use-package ielm
-;;     :config
-;;     (add-hook 'ielm-mode-hook 'prettify-symbols-mode))
-;;   (use-package clojure-mode
-;;     :config
-;;     (add-to-list 'prettify-symbols-alist '("fn" . 955))
-;;     (add-hook 'clojure-mode-hook 'prettify-symbols-mode)
-;;     (add-hook 'clojurescript-mode-hook 'prettify-symbols-mode))
-;;   (use-package cider :config (add-hook 'cider-repl-mode-hook 'prettify-symbols-mode))
-;;   (use-package scheme
-;;     :config
-;;     (add-hook 'scheme-mode-hook 'prettify-symbols-mode)
-;;     (add-hook 'scheme-mode-hook
-;;               (lambda ()
-;;                 (add-to-list 'prettify-symbols-alist '("lambda" . 955)))))
-;;   (use-package geiser :config (add-hook 'geiser-repl-mode-hook 'prettify-symbols-mode)))
 
 (provide 'config-lisps)
