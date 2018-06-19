@@ -43,12 +43,6 @@
     (rinari-rake "test"))
   (bind-key "C-x T" 'rinari-run-all-test ruby-mode-map))
 
-(use-package yari
-  :ensure t
-  :defer 5
-  :bind (:map ruby-mode-map
-         ("C-?" . yari)))
-
 (use-package rvm
   :ensure t
   :defer 5
