@@ -104,6 +104,7 @@
 
 (use-package highlight
   :ensure t
+  :defer 2
   :config
   (custom-set-faces
    '(highlight ((t (:background "#454545" :foreground "#ffffff"))))))
