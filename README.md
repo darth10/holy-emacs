@@ -48,3 +48,4 @@ All scripts are in the `script/` folder.
 | rebuild.sh         | Recompile all Emacs Lisp files in `~/.emacs.d`.                                             |
 | clean.sh           | Delete all compiled Emacs Lisp files in `~/.emacs.d`.                                       |
 | fetch-info-docs.sh | Fetch info documentation. Available only on GNU/Linux.                                      |
+| clean-ghc.sh       | Cleans GHC packages. Available if `ghc-pkg` and `cabal` are installed.                      |
