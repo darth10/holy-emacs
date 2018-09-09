@@ -49,7 +49,7 @@
   :config
   (doom-modeline-def-modeline
    'main
-   '(workspace-number window-number bar global matches buffer-info buffer-position selection-info)
+   '(workspace-number window-number bar global matches buffer-info-simple buffer-position selection-info)
    '(buffer-encoding major-mode process vcs flycheck)))
 
 (use-package frame
