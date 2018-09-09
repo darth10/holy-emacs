@@ -63,7 +63,8 @@
 
 (use-package dired
   :bind (("C-x C-j" . dired-jump-other-window)
-         ("C-x C-/" . wdired-change-to-wdired-mode dired-mode-map))
+         :map  dired-mode-map
+         ("C-x C-/" . wdired-change-to-wdired-mode))
   :config
   (use-package direx
     :ensure t
