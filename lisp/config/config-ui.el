@@ -30,6 +30,8 @@
    '(diff-hl-insert ((t (:background "ForestGreen" :foreground "ForestGreen"))))
    '(diff-hl-change ((t (:background "DimGray" :foreground "DimGray"))))
    '(diff-hl-delete ((t (:background "Orangered3" :foreground "Orangered3"))))
+   '(doom-modeline-panel ((t (:inherit mode-line-emphasis))))
+   '(doom-modeline-buffer-modified ((t (:inherit (warning bold) :background nil))))
    '(escape-glyph ((t (:foreground "#ddaa6f" :weight bold))))
    '(header-line ((((class color) (min-colors 89)) (:background "#303030" :foreground "#e7f6da"))))
    '(helm-ff-directory ((t (:background "LightGray" :foreground "black"))))
@@ -37,9 +39,10 @@
    '(isearch ((t (:background "green" :foreground "black"))))
    '(lazy-highlight ((((class color) (min-colors 89)) (:background "#384048" :foreground "#a0a8b0"))))
    '(minibuffer-prompt ((t (:foreground "green"))))
-   '(mode-line ((t (:background "green1" :foreground "black"))))
-   '(mode-line-buffer-id ((t (:background "green" :foreground "black" :weight bold))))
-   '(mode-line-inactive ((t (:background "dimgray" :foreground "black"))))
+   ;; #073642 is solarized active mode-line color
+   '(mode-line ((nil (:box nil :overline "#073642" :underline "#073642"))))
+   '(mode-line-inactive ((nil (:box nil :background "#073642" :overline "#073642" :underline "#073642"))))
+
    '(region ((t (:background "white" :foreground "black"))))
    '(show-paren-match ((t (:background "Dodgerblue1" :foreground "white" :weight extra-bold)))))
 
@@ -130,6 +133,5 @@
   (custom-set-faces
    '(highlight-symbol-face ((t (:foreground "green")))))
   (add-hook 'prog-mode-hook 'highlight-symbol-mode))
-
 
 (provide 'config-ui)

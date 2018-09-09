@@ -3,6 +3,11 @@
 (use-package abbrev
   :diminish abbrev-mode)
 
+(use-package anzu
+  :ensure t
+  :defer t
+  :hook (after-init . global-anzu-mode))
+
 (use-package findr
   :ensure t
   :defer 2)

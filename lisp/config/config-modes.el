@@ -11,8 +11,6 @@
          ("z" . repeat)
          ("i" . god-local-mode))
   :init
-  (add-to-list 'default-mode-line-format
-               (quote (:eval (propertize (if (and (boundp 'god-local-mode) god-local-mode) "^" " ")))))
   (god-mode-all)
 
   :config
@@ -44,6 +42,16 @@
 
   (add-hook 'overwrite-mode-hook 'god-toggle-on-overwrite))
 
+(use-package doom-modeline
+  :ensure t
+  :defer t
+  :hook (after-init . doom-modeline-init)
+  :config
+  (doom-modeline-def-modeline
+   'main
+   '(workspace-number window-number bar global matches buffer-info buffer-position selection-info)
+   '(buffer-encoding major-mode process vcs flycheck)))
+
 (use-package frame
   :bind (("C-x C-5 C-0" . delete-frame)
          ("C-x C-5 C-1" . delete-other-frames)
@@ -57,28 +65,24 @@
   (defun configure-cursor ()
     (let* ((is-line-overflow
             (> (current-column) 70))
-           (is-god-mode
-            (and (boundp 'god-local-mode)
-                 god-local-mode))
-           (cur-color
-            (cond (buffer-read-only "Gray")
-                  (is-line-overflow "IndianRed")
-                  (overwrite-mode "yellow")
-                  (t "green")))
-           (cur-type
-            (cond (buffer-read-only 'box)
-                  ((and overwrite-mode
-                        is-god-mode)
-                   'hollow)
-                  ((or is-god-mode
-                       overwrite-mode)
-                   'box)
-                  (t 'bar))))
+           (is-god-mode (and (boundp 'god-local-mode)
+                             god-local-mode))
+           (cur-color (cond (buffer-read-only "Gray")
+                            (is-line-overflow "IndianRed")
+                            (overwrite-mode "yellow")
+                            (t "green")))
+           (cur-type (cond (buffer-read-only 'box)
+                           ((and overwrite-mode is-god-mode) 'hollow)
+                           ((or is-god-mode overwrite-mode) 'box)
+                           (t 'bar)))
+           (next-mode-string (cond ((and overwrite-mode is-god-mode) "λ")
+                                   (is-god-mode "λ")
+                                   (overwrite-mode "!")
+                                   (t " "))))
       (progn
-        (setq cursor-type cur-type)
         (set-cursor-color cur-color)
-        (set-face-background 'mode-line cur-color)
-        (set-face-attribute 'mode-line-buffer-id nil :background cur-color))))
+        (setq cursor-type cur-type)
+        (setq global-mode-string next-mode-string))))
 
   (custom-set-faces
    '(cursor ((t (:background "green")))))
