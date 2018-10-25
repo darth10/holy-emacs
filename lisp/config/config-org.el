@@ -40,9 +40,11 @@
          ("C-c C-t" . org-timeline)))
 
 (use-package htmlize
-  :ensure t)
+  :ensure t
+  :defer 5)
 
 (use-package ox-reveal
-  :ensure t)
+  :ensure t
+  :defer 5)
 
 (provide 'config-org)
