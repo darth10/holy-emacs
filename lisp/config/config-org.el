@@ -1,6 +1,8 @@
 ;;; Configuration for org-mode
 
 (use-package org
+  :pin org-elpa
+  :ensure t
   :mode ("\\.org\\'" . org-mode)
   :bind (("C-c b" . org-iswitchb)
          ("C-c C-b" . org-iswitchb)
@@ -36,5 +38,11 @@
          ("C-c C-n" . org-agenda)
          ("C-c t" . org-timeline)
          ("C-c C-t" . org-timeline)))
+
+(use-package htmlize
+  :ensure t)
+
+(use-package ox-reveal
+  :ensure t)
 
 (provide 'config-org)

@@ -4,6 +4,7 @@
 (require 'core)
 ;;; set proxy server, if needed
 ;;; (setq url-proxy-services '(("http" . "host:port")))
+(core/defsource '("org-elpa" . "https://orgmode.org/elpa/"))
 (core/defsource '("marmalade" . "https://marmalade-repo.org/packages/"))
 (core/defsource '("melpa" . "https://melpa.org/packages/"))
 (core/initialize-packages)
