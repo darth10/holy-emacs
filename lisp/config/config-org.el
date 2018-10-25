@@ -28,7 +28,8 @@
    '(org-agenda-files
      (quote
       ("~/Dropbox/org/TODO.org"
-       "~/Dropbox/org/birthdays.org")))))
+       "~/Dropbox/org/birthdays.org"))))
+  (load-library "ox-reveal"))
 
 (use-package org-agenda
   :bind (("C-c n" . org-agenda)
