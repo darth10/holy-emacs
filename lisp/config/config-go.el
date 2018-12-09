@@ -10,7 +10,9 @@
   :bind (:map go-mode-map
               ("M-." . godef-jump))
   :config
+  (setq gofmt-show-errors 'echo)
   (add-hook 'before-save-hook 'gofmt-before-save)
+  (add-hook 'go-mode-hook 'flycheck-mode)
   (use-package company-go
     :ensure t
     :bind (:map go-mode-map
@@ -21,6 +23,5 @@
       (interactive)
       (insert ".")
       (call-interactively 'company-go))))
-
 
 (provide 'config-go)
