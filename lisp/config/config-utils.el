@@ -12,6 +12,9 @@
   :ensure t
   :defer 2)
 
+(use-package flycheck
+  :ensure t)
+
 (use-package gist
   :ensure t
   :defer 5)
