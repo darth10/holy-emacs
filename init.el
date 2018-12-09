@@ -23,6 +23,7 @@
 (require 'config-csharp)
 (require 'config-elisp)
 (require 'config-gnuplot)
+(require 'config-go)
 (require 'config-haskell)
 (require 'config-js)
 (require 'config-org)
