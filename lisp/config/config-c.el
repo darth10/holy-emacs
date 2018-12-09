@@ -31,9 +31,7 @@
                           (other . "k&r")
                           ))
 
-  (setq-default c-basic-offset 4
-                tab-width 4
-                indent-tabs-mode nil))
+  (setq-default c-basic-offset 4))
 
 (use-package c-eldoc
   :ensure t

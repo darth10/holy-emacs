@@ -20,6 +20,7 @@
    '(inhibit-default-init t)
    '(inhibit-startup-screen t)
    '(initial-scratch-message nil)
+   '(indent-tabs-mode t)
    '(split-height-threshold 40)
    '(split-width-threshold nil)
    '(term-default-bg-color "#000000")

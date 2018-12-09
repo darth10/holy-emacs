@@ -9,6 +9,7 @@
   (set-selection-coding-system 'utf-8)
   (setq locale-coding-system   'utf-8)
   (setq-default buffer-file-coding-system 'utf-8)
+  (setq-default tab-width 4)
 
   (setq-default
    left-fringe-width 8
