@@ -5,7 +5,7 @@
   :init
   (custom-set-variables
    ;;; vars set before loading theme
-   '(solarized-use-variable-pitch) nil
+   '(solarized-use-variable-pitch t)
    '(solarized-scale-org-headlines nil)
    '(x-underline-at-descent-line t)
    '(ansi-color-names-vector
@@ -33,6 +33,7 @@
    '(diff-hl-delete ((t (:background "Orangered3" :foreground "Orangered3"))))
    '(doom-modeline-panel ((t (:inherit mode-line-emphasis))))
    '(doom-modeline-buffer-modified ((t (:inherit (warning bold) :background nil))))
+   '(doom-modeline-inactive-bar ((t (:inherit mode-line-emphasis :foreground "#073642" :background "#073642"))))
    '(escape-glyph ((t (:foreground "#ddaa6f" :weight bold))))
    '(header-line ((((class color) (min-colors 89)) (:background "#303030" :foreground "#e7f6da"))))
    '(helm-ff-directory ((t (:background "LightGray" :foreground "black"))))

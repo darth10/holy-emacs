@@ -47,9 +47,15 @@
   :defer t
   :hook (after-init . doom-modeline-init)
   :config
+  (setq doom-modeline-height 34)
+  (defvar modeline-mode-string " ")
+  (doom-modeline-def-segment cur-mode
+    (if (doom-modeline--active)
+        '(" " modeline-mode-string " ")
+      "   "))
   (doom-modeline-def-modeline
    'main
-   '(workspace-number window-number bar global matches buffer-info-simple buffer-position selection-info)
+   '(workspace-number window-number bar cur-mode matches buffer-info-simple buffer-position selection-info)
    '(buffer-encoding major-mode process vcs flycheck)))
 
 (use-package frame
@@ -65,6 +71,7 @@
   (defun configure-cursor ()
     (let* ((is-line-overflow
             (> (current-column) 70))
+           (prev-cur-color (face-background 'cursor))
            (is-god-mode (and (boundp 'god-local-mode)
                              god-local-mode))
            (cur-color (cond (buffer-read-only "Gray")
@@ -80,9 +87,13 @@
                                    (overwrite-mode "!")
                                    (t " "))))
       (progn
-        (set-cursor-color cur-color)
+        (unless (eq prev-cur-color cur-color)
+          (set-cursor-color cur-color)
+		  (set-face-attribute 'doom-modeline-bar nil :background cur-color)
+		  (doom-modeline-refresh-bars))
+
         (setq cursor-type cur-type)
-        (setq global-mode-string next-mode-string))))
+        (setq modeline-mode-string next-mode-string))))
 
   (custom-set-faces
    '(cursor ((t (:background "green")))))
