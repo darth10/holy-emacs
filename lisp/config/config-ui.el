@@ -5,7 +5,7 @@
   :init
   (custom-set-variables
    ;;; vars set before loading theme
-   '(solarized-use-variable-pitch t)
+   '(solarized-use-variable-pitch nil)
    '(solarized-scale-org-headlines nil)
    '(x-underline-at-descent-line t)
    '(ansi-color-names-vector
