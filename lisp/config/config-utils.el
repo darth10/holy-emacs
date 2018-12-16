@@ -105,6 +105,9 @@
   :bind (("C-' C-y" . yas-global-mode)
          ("C-' y" . yas-global-mode))
   :config
+  (use-package yasnippet-snippets
+	:ensure t)
+
   (add-to-list 'yas-snippet-dirs "~/.emacs.d/data/snippets/")
   (yas-global-mode t))
 
