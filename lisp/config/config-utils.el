@@ -338,8 +338,9 @@
 (use-package tramp
   :config
   (custom-set-variables
-   ;; set proxies for using `sudo:`
-   ;; '(tramp-default-proxies-alist (("192.168.1.7" "root" "/scpx:pirate@%h:")))
+   ;; set proxies for using `sudo:` and scpx is not supported for multi-hop
+   ;; '(tramp-default-proxies-alist (("192.168.1.7" "root" "/sshx:pirate@%h:")))
+   '(tramp-default-method "scpx")
    '(tramp-debug-buffer t)))
 
 (provide 'config-utils)
