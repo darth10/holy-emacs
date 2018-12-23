@@ -314,6 +314,9 @@
   :init
   (global-unset-key (kbd "C-z"))
 
+  ;; tramp doesn't work great with other shells
+  (setq shell-file-name "/bin/bash")
+
   ;; isearch-mode-map
   (bind-key "<f3>" 'isearch-repeat-forward isearch-mode-map)
   (bind-key "S-<f3>" 'isearch-repeat-backward isearch-mode-map)
