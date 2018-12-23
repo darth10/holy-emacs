@@ -56,7 +56,7 @@
   (doom-modeline-def-modeline
    'main
    '(workspace-number window-number bar cur-mode matches buffer-info-simple buffer-position selection-info)
-   '(buffer-encoding major-mode process vcs flycheck)))
+   '(debug buffer-encoding major-mode process vcs flycheck)))
 
 (use-package frame
   :bind (("C-x C-5 C-0" . delete-frame)
