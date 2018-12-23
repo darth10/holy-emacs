@@ -335,4 +335,11 @@
     (setq w32-get-true-file-attributes nil)
     (w32-send-sys-command 61488)))
 
+(use-package tramp
+  :config
+  (custom-set-variables
+   ;; set proxies for using `sudo:`
+   ;; '(tramp-default-proxies-alist (("192.168.1.7" "root" "/scpx:pirate@%h:")))
+   '(tramp-debug-buffer t)))
+
 (provide 'config-utils)

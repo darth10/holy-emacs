@@ -1,6 +1,7 @@
 .cask/
 /geben/
 /var/
+/tramp
 auto-save-list/
 backups/
 elpa/
