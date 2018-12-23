@@ -40,6 +40,10 @@
   :ensure t
   :defer 5)
 
+(use-package docker
+  :ensure t
+  :defer 2)
+
 (use-package dockerfile-mode
   :ensure t
   :defer 5)
