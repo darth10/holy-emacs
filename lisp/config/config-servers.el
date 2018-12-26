@@ -8,6 +8,7 @@
 
 (use-package edit-server
   :ensure t
+  :if window-system
   :defer 2
   :config
   (edit-server-start))
