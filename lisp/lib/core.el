@@ -53,6 +53,9 @@
 (defun core/is-windows? ()
   (equal system-type 'windows-nt))
 
+(defun core/is-unix? ()
+  (not (core/is-windows?)))
+
 (defun core/defsource (name-uri-cons)
   (add-to-list 'package-archives name-uri-cons t))
 
