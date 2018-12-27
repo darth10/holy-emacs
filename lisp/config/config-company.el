@@ -2,6 +2,7 @@
 
 (use-package company
   :ensure t
+  :defer 2
   :diminish company-mode
   :bind (("C-' a" . global-company-mode)
          ("C-' C-a" . global-company-mode)

@@ -1,6 +1,7 @@
 ;;; Configuration for utility packages
 
 (use-package abbrev
+  :defer 2
   :diminish abbrev-mode)
 
 (use-package anzu
@@ -13,7 +14,8 @@
   :defer 2)
 
 (use-package flycheck
-  :ensure t)
+  :ensure t
+  :defer 5)
 
 (use-package gist
   :ensure t
@@ -117,6 +119,7 @@
 
 (use-package editorconfig
   :ensure t
+  :defer 2
   :diminish editorconfig-mode
   :config
   (editorconfig-mode 1))
@@ -344,11 +347,12 @@
     (w32-send-sys-command 61488)))
 
 (use-package tramp
+  :defer 2
   :config
   (custom-set-variables
    ;; set proxies for using `sudo:` and scpx is not supported for multi-hop
    ;; '(tramp-default-proxies-alist (("192.168.1.7" "root" "/sshx:pirate@%h:")))
-   '(tramp-default-method "scpx")
-   '(tramp-debug-buffer t)))
+   '(tramp-debug-buffer t)
+   '(tramp-default-method "scpx")))
 
 (provide 'config-utils)
