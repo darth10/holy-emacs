@@ -228,7 +228,7 @@
 
 (use-package exec-path-from-shell
   :ensure t
-  :if (core/is-unix?)
+  :unless (core/is-windows?)
   :defer 2
   :init
   (setq exec-path-from-shell-check-startup-files nil)
