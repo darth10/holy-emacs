@@ -336,12 +336,6 @@
   (util/kill-line-utils-init)
   (util/lvd-load-dir "~/.emacs.d/lisp/var/")
 
-  (unless (core/is-windows?)		;; Linux-only config
-    (eval-after-load 'info
-      '(progn
-         (push "/opt/local/share/info" Info-default-directory-list)
-         (push "~/.emacs.d/info" Info-default-directory-list))))
-
   (when (core/is-windows?)		;; Windows-only config
     (setq w32-get-true-file-attributes nil)
     (w32-send-sys-command 61488)))
