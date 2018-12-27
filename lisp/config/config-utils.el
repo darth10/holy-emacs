@@ -350,9 +350,9 @@
   :defer 2
   :config
   (custom-set-variables
-   ;; set proxies for using `sudo:` and scpx is not supported for multi-hop
-   ;; '(tramp-default-proxies-alist (("192.168.1.7" "root" "/sshx:pirate@%h:")))
-   '(tramp-debug-buffer t)
+   ;; useful variables for debugging tramp
+   ;; '(tramp-debug-buffer t)
+   ;; '(tramp-verbose 9)
    '(tramp-default-method "scpx")))
 
 (provide 'config-utils)
