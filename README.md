@@ -14,6 +14,15 @@
 * Automatically saves backup files to `~/.emacs.bak/`.
 * Recompile entire `~/.emacs.d` using `M-x core/byte-recompile-files` or `make recompile`.
 
+## Installation
+
+```sh
+git clone git@github.com:darth10/emacs.d.git ~/.emacs.d
+cd ~/.emacs.d
+# edit init.el if needed
+make
+```
+
 ## `god-mode`
 
 Use <kbd>ESC</kbd> or <kbd>M-i</kbd> to toggle `god-mode`.
@@ -39,14 +48,3 @@ Some of the default Emacs key bindings are changed, as follows.
 * <kbd>M-i</kbd> doesn't call `tab-to-tab-stop` and is used to toggle `god-mode`. Use <kbd>M-[</kbd> or <kbd>C-q TAB</kbd> instead.
 * <kbd>M-SPC</kbd> doesn't call `just-one-space`, and is used for auto-completion. Use <kbd>C-c \\</kbd> or <kbd>C-c C-\\</kbd> instead.
 * When no region is selected, <kbd>C-w</kbd> will kill the current line and <kbd>M-w</kbd> will copy the current line.
-
-## Scripts
-
-All scripts are in the `script/` folder.
-
-| Script             | Description                                                                                 |
-| ------------------ | ------------------------------------------------------------------------------------------- |
-| rebuild.sh         | Recompile all Emacs Lisp files in `~/.emacs.d`.                                             |
-| clean.sh           | Delete all compiled Emacs Lisp files in `~/.emacs.d`.                                       |
-| fetch-info-docs.sh | Fetch info documentation. Available only on GNU/Linux.                                      |
-| clean-ghc.sh       | Cleans GHC packages. Available if `ghc-pkg` and `cabal` are installed.                      |
