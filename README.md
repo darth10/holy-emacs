@@ -3,7 +3,7 @@
 * Support for editing/debugging Clojure, Emacs Lisp, Scheme, C#, JavaScript, Haskell, Python, Ruby, PHP and C.
 * Identical (almost) bindings across different major modes.
 * Installs all required packages from GNU, Marmalade and MELPA repositories on startup.
-* Upgrade all packages using `M-x util/upgrade`.
+* Upgrade all packages using `M-x core/upgrade-packages` or `make upgrade`.
 * Includes `helm`, `yasnippet`, `company` and `magit`.
 * Uses `god-mode` for modal editing. All key bindings work in `god-mode`, and `god-mode` is only used to reduce the usage of modifier keys.
 * Uses `use-package` and `bind-key`. `M-x describe-personal-keybindings` will display all available key bindings.
@@ -12,7 +12,7 @@
 * Uses `ag` for file and project search.
 * Uses `desktop-save-mode` to manage sessions and buffers.
 * Automatically saves backup files to `~/.emacs.bak/`.
-* Recompile entire `~/.emacs.d` using `M-x util/rebuild` or the `rebuild.sh` script.
+* Recompile entire `~/.emacs.d` using `M-x core/byte-recompile-files` or `make recompile`.
 
 ## `god-mode`
 

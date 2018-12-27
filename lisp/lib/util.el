@@ -90,19 +90,6 @@
         ((looking-at "\\s\)") (forward-char 1) (backward-list 1))
         (t (message "%s" "No parenthesis under cursor!"))))
 
-(defun util/upgrade ()
-  "Upgrade all packages, no questions asked"
-  (interactive)
-  (require 'epl)
-  (epl-upgrade))
-
-(defun util/rebuild ()
-  "Recompile all Emacs Lisp files"
-  (interactive)
-  (byte-recompile-directory (expand-file-name "~/.emacs.d/elpa") 0)
-  (byte-recompile-directory (expand-file-name "~/.emacs.d/lisp/lib") 0)
-  (byte-recompile-directory (expand-file-name "~/.emacs.d/lisp/config") 0))
-
 (defun util/delete-single-window (&optional window)
   "Close current window and kill its buffer"
   (interactive)

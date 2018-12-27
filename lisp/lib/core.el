@@ -74,4 +74,40 @@
     (require 'use-package))
   (require 'bind-key))
 
+(defun core/upgrade-packages ()
+  "Upgrade all packages, no questions asked"
+  (interactive)
+  (require 'epl)
+  (epl-refresh)
+  (epl-upgrade))
+
+(defun core/autoremove-packages ()
+  "Autoremove unused packages"
+  (package--save-selected-packages (package--find-non-dependencies))
+  (package-autoremove))
+
+(defun core/byte-recompile-files ()
+  "Recompile all .el files"
+  (interactive)
+  (let ((targets (list "~/.emacs.d/elpa" "~/.emacs.d/lisp/lib" "~/.emacs.d/lisp/config"))
+		;; (byte-recompile-directory (expand-file-name "~/.emacs.d/elpa") 0)
+		;; (byte-recompile-directory (expand-file-name "~/.emacs.d/lisp/lib") 0)
+		;; (byte-recompile-directory (expand-file-name "~/.emacs.d/lisp/config") 0)
+		)
+	(cl-loop for path in targets
+			 collect path
+			 and do (byte-recompile-directory (expand-file-name path) 0))))
+
+(defun core/clean-byte-compiled-files ()
+  "Delete all compiled .elc files"
+  (interactive)
+  (let ((targets (append (directory-files-recursively "~/.emacs.d/elpa" "\\.elc$")
+						 (directory-files-recursively "~/.emacs.d/lisp/lib" "\\.elc$")
+                         (directory-files-recursively "~/.emacs.d/lisp/config" "\\.elc$"))))
+    (unless (cl-loop for path in targets
+                     if (file-exists-p path)
+                     collect path
+                     and do (delete-file path))
+      (message "Removed all .elc files"))))
+
 (provide 'core)
