@@ -13,4 +13,11 @@
   (bind-key "C-x C-a C-a" 'eval-buffer emacs-lisp-mode-map)
   (bind-key "C-<f5>" 'eval-buffer emacs-lisp-mode-map))
 
+(use-package eldoc
+  :diminish eldoc-mode
+  :config
+  (add-hook 'emacs-lisp-mode-hook 'eldoc-mode)
+  (add-hook 'ielm-mode-hook 'eldoc-mode)
+  (add-hook 'eshell-mode-hook 'eldoc-mode))
+
 (provide 'config-elisp)
