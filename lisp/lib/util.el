@@ -91,7 +91,7 @@
         (t (message "%s" "No parenthesis under cursor!"))))
 
 (defun util/delete-single-window (&optional window)
-  "Close current window and kill its buffer"
+  "Close window WINDOW and kill its buffer"
   (interactive)
   (save-current-buffer
     (setq window (or window (selected-window)))
@@ -140,7 +140,7 @@
    (lambda () (eshell "new"))))
 
 (defun util/lvd-load-dir (dir)
-  "Loads all files from a specified directory"
+  "Loads all files from directory DIR"
   (progn
     (add-to-list 'load-path dir)
     (let* ((files (directory-files dir))

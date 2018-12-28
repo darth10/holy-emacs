@@ -55,7 +55,7 @@
   (equal system-type 'windows-nt))
 
 (defun core/defsource (name-uri-cons)
-  "Add a source name and URI pair to the list of package sources"
+  "Add a source name and URI pair NAME-URI-CONS to the list of package sources"
   (add-to-list 'package-archives name-uri-cons t))
 
 (defun core/initialize-packages ()

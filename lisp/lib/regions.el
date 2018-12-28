@@ -44,10 +44,12 @@
   (move-region start end (if (null n) 1 n)))
 
 (defun move-line-region-up (start end n)
+  "Move the current region or line up by N lines."
   (interactive "r\np")
   (if (region-active-p) (move-region-up start end n) (move-line-up n)))
 
 (defun move-line-region-down (start end n)
+  "Move the current region or line down by N lines."
   (interactive "r\np")
   (if (region-active-p) (move-region-down start end n) (move-line-down n)))
 
