@@ -32,9 +32,10 @@
   (find-file-other-window user-init-file))
 
 (defun util/find-or-run-process (new-buffer-name process-f)
-  "Switches to or opens up a process"
+  "Switches to or opens up a process using PROCESS-F in
+a new buffer named NEW-BUFFER-NAME"
   (let* ((process-buffer (get-buffer new-buffer-name)))
-    (if (or (eq (window-buffer) process-buffer) shell-only)
+    (if (eq (window-buffer) process-buffer)
         (delete-other-windows)
       (if (eq 1 (count-windows))
           (split-window-vertically))
@@ -125,14 +126,14 @@
 	     (list (region-beginning) (region-end))
 	   (list (line-beginning-position) (line-beginning-position 2))))))
 
-(defun util/find-or-run-shell (&optional shell-only)
+(defun util/find-or-run-shell ()
   "Switches to or opens up a new shell"
   (interactive)
   (util/find-or-run-process
    "*shell*"
    (lambda () (shell))))
 
-(defun util/find-or-run-eshell (&optional shell-only)
+(defun util/find-or-run-eshell ()
   "Switches to or opens up a new eshell"
   (interactive)
   (util/find-or-run-process
