@@ -41,22 +41,25 @@
           initial-scratch-message nil
           mode-line-format nil))
 
-  (defun core/finalize ()
+  (defun core--finalize-startup ()
     (setq gc-cons-threshold 16777216
           gc-cons-percentage 0.1
           file-name-handler-alist core--file-name-handler-alist))
 
-  (add-hook 'emacs-startup-hook 'core/finalize))
+  (add-hook 'emacs-startup-hook 'core--finalize-startup))
 
 (require 'package)
 
 (defun core/is-windows? ()
+  "Checks if the current OS is Windows"
   (equal system-type 'windows-nt))
 
 (defun core/defsource (name-uri-cons)
+  "Add a source name and URI pair to the list of package sources"
   (add-to-list 'package-archives name-uri-cons t))
 
 (defun core/initialize-packages ()
+  "Initialize package system"
   (package-initialize)
 
   (when (or (not (package-installed-p 'use-package))
@@ -75,14 +78,14 @@
   (require 'bind-key))
 
 (defun core/upgrade-packages ()
-  "Upgrade all packages, no questions asked"
+  "Upgrade all packages"
   (interactive)
   (require 'epl)
   (epl-refresh)
   (epl-upgrade))
 
 (defun core/autoremove-packages ()
-  "Autoremove unused packages"
+  "Delete unused packages"
   (package--save-selected-packages (package--find-non-dependencies))
   (package-autoremove))
 
