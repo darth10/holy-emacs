@@ -37,6 +37,7 @@
 
 ;;; load after language configurations
 (require 'config-modes)
+(require 'config-projectile)
 (require 'config-servers)
 (require 'config-ui)
 (require 'config-web)

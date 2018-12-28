@@ -4,7 +4,7 @@
 * Identical (almost) bindings across different major modes.
 * Installs all required packages from GNU, Marmalade and MELPA repositories on startup.
 * Upgrade all packages using `M-x core/upgrade-packages` or `make upgrade`.
-* Includes `helm`, `yasnippet`, `company` and `magit`.
+* Includes `magit`, `helm`, `projectile`, `company` and `yasnippet`.
 * Uses `god-mode` for modal editing. All key bindings work in `god-mode`, and `god-mode` is only used to reduce the usage of modifier keys.
 * Uses `use-package` and `bind-key`. `M-x describe-personal-keybindings` will display all available key bindings.
 * Uses `which-key` to interactively describe key bindings.

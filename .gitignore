@@ -14,6 +14,7 @@ url/
 ac-comphist.dat
 bookmarks
 network-security.data
+projectile-bookmarks.eld
 places
 .mc-lists.el
 *.elc
