@@ -139,11 +139,11 @@
    "*eshell*"
    (lambda () (eshell "new"))))
 
-(defun util/lvd-load-dir (d)
+(defun util/lvd-load-dir (dir)
   "Loads all files from a specified directory"
   (progn
-    (add-to-list 'load-path d)
-    (let* ((files (directory-files d))
+    (add-to-list 'load-path dir)
+    (let* ((files (directory-files dir))
            (file-names (mapcar 'file-name-base files))
            (dup-f (lambda (x y) (equal x y)))
            (filter-f (lambda (x)
@@ -153,7 +153,7 @@
                                         :test dup-f)))
       (mapcar (lambda (f)
                 (load f)
-                (message (concat "Loaded " f ".el from " d)))
+                (message (concat "Loaded " f ".el from " dir)))
               packages))))
 
 (provide 'util)
