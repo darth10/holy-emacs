@@ -89,11 +89,9 @@
 (defun core/byte-recompile-files ()
   "Recompile all .el files"
   (interactive)
-  (let ((targets (list "~/.emacs.d/elpa" "~/.emacs.d/lisp/lib" "~/.emacs.d/lisp/config"))
-		;; (byte-recompile-directory (expand-file-name "~/.emacs.d/elpa") 0)
-		;; (byte-recompile-directory (expand-file-name "~/.emacs.d/lisp/lib") 0)
-		;; (byte-recompile-directory (expand-file-name "~/.emacs.d/lisp/config") 0)
-		)
+  (let ((targets (list "~/.emacs.d/elpa"
+					   "~/.emacs.d/lisp/lib"
+					   "~/.emacs.d/lisp/config")))
 	(cl-loop for path in targets
 			 collect path
 			 and do (byte-recompile-directory (expand-file-name path) 0))))
