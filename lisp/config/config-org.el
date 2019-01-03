@@ -24,12 +24,17 @@
   (unbind-key "C-c C-n" org-mode-map)
   (unbind-key "C-c C-p" org-mode-map)
   (unbind-key "C-c C-b" org-mode-map)
-  (require 'ox-reveal)
+
   (custom-set-variables
    '(org-agenda-files
      (quote
       ("~/Dropbox/org/TODO.org"
-       "~/Dropbox/org/birthdays.org")))))
+       "~/Dropbox/org/birthdays.org"))))
+
+  (use-package ox-reveal
+	:ensure t
+	:config
+	(setq org-reveal-root "http://cdn.jsdelivr.net/reveal.js/3.0.0/")))
 
 (use-package org-agenda
   :bind (("C-c n" . org-agenda)
@@ -43,11 +48,5 @@
 (use-package htmlize
   :ensure t
   :defer 5)
-
-(use-package ox-reveal
-  :ensure t
-  :defer t
-  :config
-  (setq org-reveal-root "http://cdn.jsdelivr.net/reveal.js/3.0.0/"))
 
 (provide 'config-org)
