@@ -1,4 +1,4 @@
-;;; Core
+;;; Core -*- lexical-binding: t; -*-
 
 (eval-and-compile
   (when (fboundp 'set-charset-priority)
@@ -84,28 +84,40 @@
   (epl-refresh)
   (epl-upgrade))
 
+(defconst core--elisp-dir-paths
+  (list "elpa"
+		"lisp/lib"
+		"lisp/config"))
+
+(defun core--get-elisp-dirs ()
+  (mapcar (lambda (x) (concat user-emacs-directory x))
+		  core--elisp-dir-paths))
+
+(defun core/set-load-path ()
+  "Adds directories with Emacs Lisp files to the global load path"
+  (cl-loop for path in (core--get-elisp-dirs)
+		   collect path
+		   and do (add-to-list 'load-path path)))
+
 (defun core/autoremove-packages ()
   "Delete unused packages"
   (package--save-selected-packages (package--find-non-dependencies))
   (package-autoremove))
 
 (defun core/byte-recompile-files ()
-  "Recompile all .el files"
+  "Recompile all Emacs Lisp files"
   (interactive)
-  (let ((targets (list "~/.emacs.d/elpa"
-					   "~/.emacs.d/lisp/lib"
-					   "~/.emacs.d/lisp/config")))
-	(cl-loop for path in targets
-			 collect path
-			 and do (byte-recompile-directory (expand-file-name path) 0))))
+  (cl-loop for path in (core--get-elisp-dirs)
+		   collect path
+		   and do (byte-recompile-directory (expand-file-name path) 0)))
 
 (defun core/clean-byte-compiled-files ()
-  "Delete all compiled .elc files"
+  "Delete all compiled Emacs Lisp files"
   (interactive)
-  (let ((targets (append (directory-files-recursively "~/.emacs.d/elpa" "\\.elc$")
-						 (directory-files-recursively "~/.emacs.d/lisp/lib" "\\.elc$")
-                         (directory-files-recursively "~/.emacs.d/lisp/config" "\\.elc$"))))
-    (unless (cl-loop for path in targets
+  (let* ((recursive-elc-files (mapcar (lambda (x) (directory-files-recursively x "\\.elc$"))
+									  (core--get-elisp-dirs)))
+		 (elc-files (apply #'append recursive-elc-files)))
+    (unless (cl-loop for path in elc-files
                      if (file-exists-p path)
                      collect path
                      and do (delete-file path))

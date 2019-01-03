@@ -1,7 +1,10 @@
-(add-to-list 'load-path "~/.emacs.d/lisp/lib/")
-(add-to-list 'load-path "~/.emacs.d/lisp/config/")
+;;; init.el -*- lexical-binding: t; -*-
 
-(require 'core)
+(defconst core-file-path "lisp/lib/core")
+(require 'core (concat user-emacs-directory core-file-path))
+
+(core/set-load-path)
+
 ;;; set proxy server, if needed
 ;;; (setq url-proxy-services '(("http" . "host:port")))
 (core/defsource '("org-elpa" . "https://orgmode.org/elpa/"))
