@@ -1,8 +1,8 @@
 ;;; Configuration for org-mode
 
 (use-package org
-  :pin org-elpa
   :ensure t
+  :pin org-elpa
   :mode ("\\.org\\'" . org-mode)
   :bind (("C-c b" . org-iswitchb)
          ("C-c C-b" . org-iswitchb)
@@ -24,12 +24,12 @@
   (unbind-key "C-c C-n" org-mode-map)
   (unbind-key "C-c C-p" org-mode-map)
   (unbind-key "C-c C-b" org-mode-map)
+  (require 'ox-reveal)
   (custom-set-variables
    '(org-agenda-files
      (quote
       ("~/Dropbox/org/TODO.org"
-       "~/Dropbox/org/birthdays.org"))))
-  (load-library "ox-reveal"))
+       "~/Dropbox/org/birthdays.org")))))
 
 (use-package org-agenda
   :bind (("C-c n" . org-agenda)
@@ -46,6 +46,8 @@
 
 (use-package ox-reveal
   :ensure t
-  :defer 5)
+  :defer t
+  :config
+  (setq org-reveal-root "http://cdn.jsdelivr.net/reveal.js/3.0.0/"))
 
 (provide 'config-org)
