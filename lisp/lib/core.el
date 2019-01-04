@@ -62,6 +62,9 @@
 (defconst core--required-packages
   '(use-package diminish epl async))
 
+(defconst core--elisp-dir-paths
+  '("elpa" "lisp/lib" "lisp/config"))
+
 (defun core--is-package-not-installed? (pkg)
   (not (package-installed-p pkg)))
 
@@ -90,11 +93,6 @@
   (require 'epl)
   (epl-refresh)
   (epl-upgrade))
-
-(defconst core--elisp-dir-paths
-  (list "elpa"
-		"lisp/lib"
-		"lisp/config"))
 
 (defun core--get-elisp-dirs ()
   (mapcar (lambda (x) (concat user-emacs-directory x))
