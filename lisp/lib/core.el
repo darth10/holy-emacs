@@ -51,7 +51,7 @@
 (require 'cl-lib)
 (require 'package)
 
-(defun core/is-windows? ()
+(defun core/is-windows-p ()
   "Checks if the current OS is Windows."
   (equal system-type 'windows-nt))
 
@@ -68,7 +68,7 @@
   "A list of relative paths containing Emacs Lisp files
 for byte compilation.")
 
-(defun core--is-package-not-installed? (pkg)
+(defun core--is-package-not-installed-p (pkg)
   "Checks if package PKG needs to be installed."
   (not (package-installed-p pkg)))
 
@@ -76,12 +76,12 @@ for byte compilation.")
   "Initializes the package sub-system."
   (package-initialize)
 
-  (when (cl-some #'core--is-package-not-installed?
+  (when (cl-some #'core--is-package-not-installed-p
 			  core--required-packages)
     (package-refresh-contents))
 
   (cl-loop for pkg in core--required-packages
-		   if (core--is-package-not-installed? pkg)
+		   if (core--is-package-not-installed-p pkg)
   		   collect pkg
   		   and do (package-install pkg))
 
