@@ -52,28 +52,28 @@
 (require 'package)
 
 (defun core/is-windows? ()
-  "Checks if the current OS is Windows"
+  "Checks if the current OS is Windows."
   (equal system-type 'windows-nt))
 
 (defun core/defsource (name-uri-cons)
-  "Add a source name and URI pair NAME-URI-CONS to the list of package sources"
+  "Add a source name and URI pair NAME-URI-CONS to the list of package sources."
   (add-to-list 'package-archives name-uri-cons t))
 
 (defconst core--required-packages
   '(use-package diminish epl async)
-  "A list of required packages")
+  "A list of required packages.")
 
 (defconst core--elisp-dir-paths
   '("elpa" "lisp/lib" "lisp/config")
   "A list of relative paths containing Emacs Lisp files
-for byte compilation")
+for byte compilation.")
 
 (defun core--is-package-not-installed? (pkg)
-  "Checks if package PKG needs to be installed"
+  "Checks if package PKG needs to be installed."
   (not (package-installed-p pkg)))
 
 (defun core/initialize-packages ()
-  "Initialize package system"
+  "Initializes the package sub-system."
   (package-initialize)
 
   (when (cl-some #'core--is-package-not-installed?
@@ -92,7 +92,7 @@ for byte compilation")
   (require 'bind-key))
 
 (defun core/upgrade-packages ()
-  "Upgrade all packages"
+  "Upgrade all packages."
   (interactive)
   (require 'epl)
   (epl-refresh)
@@ -100,31 +100,31 @@ for byte compilation")
 
 (defun core--get-elisp-dirs ()
   "Get a list of absolute paths of directories containing Emacs
-Lisp files for byte compilation"
+Lisp files for byte compilation."
   (mapcar (lambda (x) (concat user-emacs-directory x))
 		  core--elisp-dir-paths))
 
 (defun core/set-load-path ()
-  "Adds directories with Emacs Lisp files to the global load path"
+  "Adds directories with Emacs Lisp files to the global load path."
   (cl-loop for path in (core--get-elisp-dirs)
 		   collect path
 		   and do (add-to-list 'load-path path)))
 
 (defun core/autoremove-packages ()
-  "Delete unused packages"
+  "Delete unused packages."
   (interactive)
   (package--save-selected-packages (package--find-non-dependencies))
   (package-autoremove))
 
 (defun core/byte-recompile-files ()
-  "Recompile all Emacs Lisp files"
+  "Recompile all Emacs Lisp files."
   (interactive)
   (cl-loop for path in (core--get-elisp-dirs)
 		   collect path
 		   and do (byte-recompile-directory (expand-file-name path) 0)))
 
 (defun core/clean-byte-compiled-files ()
-  "Delete all compiled Emacs Lisp files"
+  "Delete all compiled Emacs Lisp files."
   (interactive)
   (let* ((recursive-elc-files (mapcar (lambda (x) (directory-files-recursively x "\\.elc$"))
 									  (core--get-elisp-dirs)))
