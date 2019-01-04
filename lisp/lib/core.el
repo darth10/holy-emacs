@@ -48,6 +48,7 @@
 
   (add-hook 'emacs-startup-hook 'core--finalize-startup))
 
+(require 'cl-lib)
 (require 'package)
 
 (defun core/is-windows? ()
@@ -58,21 +59,27 @@
   "Add a source name and URI pair NAME-URI-CONS to the list of package sources"
   (add-to-list 'package-archives name-uri-cons t))
 
+(defconst core--required-packages
+  '(use-package diminish epl async))
+
+(defun core--is-package-not-installed? (pkg)
+  (not (package-installed-p pkg)))
+
 (defun core/initialize-packages ()
   "Initialize package system"
   (package-initialize)
 
-  (when (or (not (package-installed-p 'use-package))
-            (not (package-installed-p 'diminish))
-            (not (package-installed-p 'epl)))
+  (when (cl-some #'core--is-package-not-installed?
+			  core--required-packages)
     (package-refresh-contents))
-  (when (not (package-installed-p 'use-package))
-    (package-install 'use-package))
-  (when (not (package-installed-p 'diminish))
-    (package-install 'diminish))
-  (when (not (package-installed-p 'epl))
-    (package-install 'epl))
 
+  (cl-loop for pkg in core--required-packages
+		   if (core--is-package-not-installed? pkg)
+  		   collect pkg
+  		   and do (package-install pkg))
+
+  ;; require only a few packages here
+  ;; and the rest when they're needed
   (eval-when-compile
     (require 'use-package))
   (require 'bind-key))
