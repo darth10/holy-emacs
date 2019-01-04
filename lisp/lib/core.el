@@ -60,12 +60,16 @@
   (add-to-list 'package-archives name-uri-cons t))
 
 (defconst core--required-packages
-  '(use-package diminish epl async))
+  '(use-package diminish epl async)
+  "A list of required packages")
 
 (defconst core--elisp-dir-paths
-  '("elpa" "lisp/lib" "lisp/config"))
+  '("elpa" "lisp/lib" "lisp/config")
+  "A list of relative paths containing Emacs Lisp files
+for byte compilation")
 
 (defun core--is-package-not-installed? (pkg)
+  "Checks if package PKG needs to be installed"
   (not (package-installed-p pkg)))
 
 (defun core/initialize-packages ()
@@ -95,6 +99,8 @@
   (epl-upgrade))
 
 (defun core--get-elisp-dirs ()
+  "Get a list of absolute paths of directories containing Emacs
+Lisp files for byte compilation"
   (mapcar (lambda (x) (concat user-emacs-directory x))
 		  core--elisp-dir-paths))
 
