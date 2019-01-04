@@ -112,6 +112,7 @@ Lisp files for byte compilation"
 
 (defun core/autoremove-packages ()
   "Delete unused packages"
+  (interactive)
   (package--save-selected-packages (package--find-non-dependencies))
   (package-autoremove))
 
