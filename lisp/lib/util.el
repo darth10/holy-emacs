@@ -105,15 +105,15 @@ a new buffer named NEW-BUFFER-NAME."
 (defun util/kill-ring-save-line (beg end flash)
   "Copy current line to kill ring."
   (interactive (if (use-region-p)
-		   (list (region-beginning) (region-end) nil)
-		 (list (line-beginning-position)
-		       (line-beginning-position 2) 'flash)))
+           (list (region-beginning) (region-end) nil)
+         (list (line-beginning-position)
+               (line-beginning-position 2) 'flash)))
   (kill-ring-save beg end)
   (when flash
     (save-excursion
       (if (equal (current-column) 0)
-	  (goto-char end)
-	(goto-char beg)))))
+      (goto-char end)
+    (goto-char beg)))))
 
 (defun util/kill-line-utils-init ()
   "Sets alternate kill/copy key bindings."
@@ -122,9 +122,9 @@ a new buffer named NEW-BUFFER-NAME."
   ;; C-w
   (put 'kill-region 'interactive-form
        '(interactive
-	 (if (use-region-p)
-	     (list (region-beginning) (region-end))
-	   (list (line-beginning-position) (line-beginning-position 2))))))
+     (if (use-region-p)
+         (list (region-beginning) (region-end))
+       (list (line-beginning-position) (line-beginning-position 2))))))
 
 (defun util/find-or-run-shell ()
   "Switches to or opens up a new shell."

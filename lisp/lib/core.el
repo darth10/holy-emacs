@@ -77,13 +77,13 @@ for byte compilation.")
   (package-initialize)
 
   (when (cl-some #'core--is-package-not-installed-p
-			  core--required-packages)
+              core--required-packages)
     (package-refresh-contents))
 
   (cl-loop for pkg in core--required-packages
-		   if (core--is-package-not-installed-p pkg)
-  		   collect pkg
-  		   and do (package-install pkg))
+           if (core--is-package-not-installed-p pkg)
+           collect pkg
+           and do (package-install pkg))
 
   ;; require only a few packages here
   ;; and the rest when they're needed
@@ -102,13 +102,13 @@ for byte compilation.")
   "Get a list of absolute paths of directories containing Emacs
 Lisp files for byte compilation."
   (mapcar (lambda (x) (concat user-emacs-directory x))
-		  core--elisp-dir-paths))
+          core--elisp-dir-paths))
 
 (defun core/set-load-path ()
   "Adds directories with Emacs Lisp files to the global load path."
   (cl-loop for path in (core--get-elisp-dirs)
-		   collect path
-		   and do (add-to-list 'load-path path)))
+           collect path
+           and do (add-to-list 'load-path path)))
 
 (defun core/autoremove-packages ()
   "Delete unused packages."
@@ -120,15 +120,15 @@ Lisp files for byte compilation."
   "Recompile all Emacs Lisp files."
   (interactive)
   (cl-loop for path in (core--get-elisp-dirs)
-		   collect path
-		   and do (byte-recompile-directory (expand-file-name path) 0)))
+           collect path
+           and do (byte-recompile-directory (expand-file-name path) 0)))
 
 (defun core/clean-byte-compiled-files ()
   "Delete all compiled Emacs Lisp files."
   (interactive)
   (let* ((recursive-elc-files (mapcar (lambda (x) (directory-files-recursively x "\\.elc$"))
-									  (core--get-elisp-dirs)))
-		 (elc-files (apply #'append recursive-elc-files)))
+                                      (core--get-elisp-dirs)))
+         (elc-files (apply #'append recursive-elc-files)))
     (unless (cl-loop for path in elc-files
                      if (file-exists-p path)
                      collect path
