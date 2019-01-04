@@ -40,7 +40,7 @@
 
   (defmacro global-gud-set-key (key fn)
     (let ((gud-fn (intern fn))
-          (global-gud-fn (intern  (concat "global-" fn)))
+          (global-gud-fn (intern (concat "global-" fn)))
           (doc-string (format "Call (%s ARG) interactively.\nSee `%s' function for more information." fn fn)))
       `(progn
          (defun ,global-gud-fn (arg)
