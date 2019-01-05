@@ -51,14 +51,6 @@
 (require 'cl-lib)
 (require 'package)
 
-(defun core/is-windows-p ()
-  "Checks if the current OS is Windows."
-  (equal system-type 'windows-nt))
-
-(defun core/defsource (name-uri-cons)
-  "Add a source name and URI pair NAME-URI-CONS to the list of package sources."
-  (add-to-list 'package-archives name-uri-cons t))
-
 (defconst core--required-packages
   '(use-package diminish epl async)
   "A list of required packages.")
@@ -67,6 +59,14 @@
   '("elpa" "lisp/lib" "lisp/config")
   "A list of relative paths containing Emacs Lisp files
 for byte compilation.")
+
+(defun core/is-windows-p ()
+  "Checks if the current OS is Windows."
+  (equal system-type 'windows-nt))
+
+(defun core/defsource (name-uri-cons)
+  "Add a source name and URI pair NAME-URI-CONS to the list of package sources."
+  (add-to-list 'package-archives name-uri-cons t))
 
 (defun core--is-package-not-installed-p (pkg)
   "Checks if package PKG needs to be installed."
