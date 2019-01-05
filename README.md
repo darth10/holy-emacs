@@ -17,7 +17,7 @@
 ## Installation
 
 ```sh
-git clone git@github.com:darth10/emacs.d.git ~/.emacs.d
+git clone git@github.com:darth10/holy-emacs.git ~/.emacs.d
 cd ~/.emacs.d
 # edit init.el if needed
 make
