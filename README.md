@@ -41,10 +41,14 @@ This has the same effect as using the meta (<kbd>M-</kbd>) modifier.
 
 Some of the default Emacs key bindings are changed, as follows.
 
-* <kbd>C-s</kbd> will save the current buffer, while <kbd>C-x C-s</kbd> will perform an incremental search.
+* <kbd>C-s</kbd> will save the current buffer.
+* <kbd>C-r</kbd> and <kbd>C-x C-s</kbd> will perform an incremental forward and backward search respectively.
+  During an incremental search, <kbd>C-r</kbd> and <kbd>C-s</kbd> will seach forward and backward respectively.
 * <kbd>C-z</kbd> doesn't minimize Emacs.
 * <kbd>C-x a n</kbd> and <kbd>F10</kbd> don't have their usual behaviour, as they are used by GUD key bindings.
 * <kbd>C-x C-c</kbd> will exit Emacs with a confirmation.
-* <kbd>M-i</kbd> doesn't call `tab-to-tab-stop` and is used to toggle `god-mode`. Use <kbd>M-[</kbd> or <kbd>C-q TAB</kbd> instead.
-* <kbd>M-SPC</kbd> doesn't call `just-one-space`, and is used for auto-completion. Use <kbd>C-c \\</kbd> or <kbd>C-c C-\\</kbd> instead.
+* <kbd>M-i</kbd> doesn't call `tab-to-tab-stop` and is used to toggle `god-mode`.
+  Use <kbd>M-[</kbd> or <kbd>C-q TAB</kbd> instead.
+* <kbd>M-SPC</kbd> doesn't call `just-one-space`, and is used for auto-completion.
+  Use <kbd>C-c \\</kbd> or <kbd>C-c C-\\</kbd> instead.
 * When no region is selected, <kbd>C-w</kbd> will kill the current line and <kbd>M-w</kbd> will copy the current line.

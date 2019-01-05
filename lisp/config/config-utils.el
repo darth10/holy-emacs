@@ -282,6 +282,15 @@
   (setq-default truncate-lines t)
   (column-number-mode 1))
 
+(use-package isearch
+  :bind (("C-r" . isearch-forward)
+		 ("C-x C-s" . isearch-backward)
+		 :map isearch-mode-map
+		 ("C-r" . isearch-repeat-forward)
+		 ("<f3>" . isearch-repeat-forward)
+		 ("C-s" . isearch-repeat-backward)
+		 ("S-<f3>" . isearch-repeat-backward)))
+
 (use-package util
   :load-path "lisp/lib/"
   :bind (("C-! e" . util/find-or-run-eshell)
@@ -305,9 +314,9 @@
          ("C-x C-3" . split-window-right)
          ("C-x C-9" . util/delete-single-window)
          ("C-x C-c" . util/confirm-and-kill-terminal)
-         ("C-x C-s" . isearch-forward)
          ("C-x M-[" . previous-buffer)
          ("C-x M-]" . next-buffer)
+		 ("M-[" . tab-to-tab-stop)
          ("C-x \"" . util/switch-to-scratch-other-frame)
          ("C-x |" . util/find-user-init-file)
          ("C-|" . util/switch-to-window)
@@ -325,10 +334,6 @@
   ;; tramp doesn't work great with other shells
   (setq shell-file-name "/bin/bash")
 
-  ;; isearch-mode-map
-  (bind-key "<f3>" 'isearch-repeat-forward isearch-mode-map)
-  (bind-key "S-<f3>" 'isearch-repeat-backward isearch-mode-map)
-  (bind-key "M-[" 'tab-to-tab-stop)
   ;; enable disabled commands
   (put 'upcase-region 'disabled nil)
   (put 'downcase-region 'disabled nil)
