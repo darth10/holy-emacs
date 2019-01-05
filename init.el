@@ -1,4 +1,4 @@
-;;; init.el -*- lexical-binding: t; -*-
+;;; init.el -*- lexical-binding: t; no-byte-compile: t; -*-
 
 (defconst core-file-path "lisp/lib/core")
 (require 'core (concat user-emacs-directory core-file-path))
