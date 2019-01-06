@@ -150,11 +150,10 @@
   :config
   (add-hook 'prog-mode-hook 'smartparens-mode))
 
-(use-package camelCase
-  :diminish camelCase-mode
-  :load-path "lisp/lib/"
-  :bind (("C-' c" . camelCase-mode)
-         ("C-' C-c" . camelCase-mode)))
+(use-package subword
+  :diminish subword-mode
+  :bind (("C-' c" . subword-mode)
+         ("C-' C-c" . subword-mode)))
 
 (use-package recentf
   :bind (("C-c : ;" . recentf-open-files)
