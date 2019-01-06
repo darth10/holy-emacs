@@ -25,7 +25,8 @@
 
 (use-package helm-swoop
   :ensure t
-  :bind ("M-]" . helm-swoop))
+  :bind (("M-]" . helm-swoop)
+		 ("M-s ]" . helm-swoop)))
 
 (use-package helm-ls-git
   :ensure t

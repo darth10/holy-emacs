@@ -68,12 +68,10 @@
 
 (use-package ag
   :ensure t
-  :bind (("C-<f3>" . ag)
-         ("M-s s" . ag)
-         ("C-S-<f3>" . ag-regexp)
-         ("M-s r" . ag-regexp)
-         ("M-s a s" . ag-project)
-         ("M-s a r" . ag-project-regexp)))
+  :bind (("M-s a a" . ag)
+         ("M-s a g" . ag-regexp)
+         ("M-s a A" . ag-project)
+         ("M-s a G" . ag-project-regexp)))
 
 (use-package dired
   :bind (("C-x C-j" . dired-jump-other-window)
@@ -282,12 +280,12 @@
   (column-number-mode 1))
 
 (use-package isearch
-  :bind (("C-r" . isearch-forward)
-		 ("C-x C-s" . isearch-backward)
+  :bind (("M-s s" . isearch-forward)
+		 ("M-s r" . isearch-backward)
 		 :map isearch-mode-map
-		 ("C-r" . isearch-repeat-forward)
+		 ("M-s" . isearch-repeat-forward)
 		 ("<f3>" . isearch-repeat-forward)
-		 ("C-s" . isearch-repeat-backward)
+		 ("M-r" . isearch-repeat-backward)
 		 ("S-<f3>" . isearch-repeat-backward)))
 
 (use-package util
