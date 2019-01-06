@@ -1,7 +1,6 @@
 ## Overview
 
 * Support for editing/debugging Clojure, Emacs Lisp, Scheme, C#, JavaScript, Haskell, Python, Ruby, PHP and C.
-* Identical (almost) bindings across different major modes.
 * Installs all required packages from GNU, Marmalade and MELPA repositories on startup.
 * Upgrade all packages using `M-x core/upgrade-packages` or `make upgrade`.
 * Includes `magit`, `helm`, `projectile`, `company` and `yasnippet`.
@@ -9,8 +8,8 @@
 * Uses `use-package` and `bind-key`. `M-x describe-personal-keybindings` will display all available key bindings.
 * Uses `which-key` to interactively describe key bindings.
 * Uses `tramp` for editing remote files. `C-x C-f` (or `M-x find-file`) with paths like `/sshx:user@remotehost|sudo:remotehost:/etc/dhcpd.conf` will open remote files.
-* Uses `ag` for file and project search.
 * Uses `desktop-save-mode` to manage sessions and buffers.
+* Uses `editorconfig` to handle multiple indentation styles.
 * Automatically saves backup files to `~/.emacs.bak/`.
 * Recompile entire `~/.emacs.d` using `M-x core/byte-recompile-files` or `make recompile`.
 
