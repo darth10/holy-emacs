@@ -44,7 +44,9 @@
 
 (use-package docker
   :ensure t
-  :defer 2)
+  :defer 2
+  :config
+  (setq docker-container-shell-file-name "/bin/sh"))
 
 (use-package dockerfile-mode
   :ensure t
@@ -327,9 +329,6 @@
              util/rebuild)
   :init
   (global-unset-key (kbd "C-z"))
-
-  ;; tramp doesn't work great with other shells
-  (setq shell-file-name "/bin/bash")
 
   ;; enable disabled commands
   (put 'upcase-region 'disabled nil)
