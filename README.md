@@ -43,8 +43,6 @@ Some of the default Emacs key bindings are changed, as follows.
 * <kbd>C-s</kbd> will save the current buffer (`save-buffer`).
 * <kbd>M-s s</kbd> and <kbd>M-s r</kbd> will perform an incremental
   forward and backward search respectively (`isearch-forward` and `isearch-backward`).
-  During an incremental search, <kbd>M-s</kbd> and <kbd>M-r</kbd> can be used to 
-  search forward and backward respectively (`isearch-repeat-forward` and `isearch-repeat-backward`).
 * <kbd>M-i</kbd> won't add indentation to current line (`tab-to-tab-stop`).
   Use <kbd>M-[</kbd> or <kbd>C-q TAB</kbd> instead.
 * <kbd>M-SPC</kbd> won't delete all space leaving one space (`just-one-space`).

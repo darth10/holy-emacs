@@ -285,9 +285,7 @@
   :bind (("M-s s" . isearch-forward)
 		 ("M-s r" . isearch-backward)
 		 :map isearch-mode-map
-		 ("M-s" . isearch-repeat-forward)
 		 ("<f3>" . isearch-repeat-forward)
-		 ("M-r" . isearch-repeat-backward)
 		 ("S-<f3>" . isearch-repeat-backward)))
 
 (use-package util
