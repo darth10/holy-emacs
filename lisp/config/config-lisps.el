@@ -2,6 +2,7 @@
 
 (use-package highlight-sexp
   :ensure t
+  :defer 2
   :config
 
   (defun hl-sexp-set-hl-line ()

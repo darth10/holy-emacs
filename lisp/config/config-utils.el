@@ -22,7 +22,8 @@
   :defer 5)
 
 (use-package esup
-  :ensure t)
+  :ensure t
+  :defer 2)
 
 (use-package inflections
   :ensure t)
@@ -64,6 +65,7 @@
          ("M-s g" . rgrep)))
 
 (use-package vc-git
+  :defer 2
   :bind (("C-: <f3>" . vc-git-grep)
          ("M-s :" . vc-git-grep)
          ("C-: M-s" . vc-git-grep)))
