@@ -43,7 +43,6 @@
    ;; #073642 is solarized active mode-line color
    '(mode-line ((nil (:box nil :overline "#073642" :underline "#073642"))))
    '(mode-line-inactive ((nil (:box nil :background "#073642" :overline "#073642" :underline "#073642"))))
-
    '(region ((t (:background "white" :foreground "black"))))
    '(show-paren-match ((t (:background "Dodgerblue1" :foreground "white" :weight extra-bold)))))
 
@@ -66,18 +65,16 @@
   (scroll-bar-mode -1)
   (show-paren-mode 1))
 
-;; custom font
-(defconst config-custom-font "Consolas")
 (use-package font-utils
-  :load-path "lisp/lib/"
+  :ensure t
   :config
+  (defconst config-custom-font "Consolas")
   (when (font-utils-exists-p config-custom-font)
-    (progn
-      (set-frame-font config-custom-font nil t)
-      (add-to-list 'default-frame-alist
-                   '(font . "-MS  -Consolas-normal-normal-normal-*-20-*-*-*-m-0-iso10646-1"))
-      (custom-set-faces
-       '(default ((t (:height 148 :weight normal :width normal))))))))
+    (set-frame-font config-custom-font nil t)
+    (add-to-list 'default-frame-alist
+                 '(font . "-MS  -Consolas-normal-normal-normal-*-20-*-*-*-m-0-iso10646-1"))
+    (custom-set-faces
+     '(default ((t (:height 148 :weight normal :width normal)))))))
 
 (use-package rainbow-delimiters
   :ensure t
