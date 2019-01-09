@@ -28,7 +28,7 @@
   (defvar core--file-name-handler-alist file-name-handler-alist)
   (unless (or after-init-time noninteractive)
     (setq gc-cons-threshold 402653184
-          gc-cons-percentage 0.6
+          gc-cons-percentage 0.7
           file-name-handler-alist nil))
 
   ;; be quiet at startup; don't load or display anything unnecessary
