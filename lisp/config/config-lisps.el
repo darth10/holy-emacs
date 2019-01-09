@@ -1,30 +1,30 @@
 ;;; Configuration for Lisps
 
-(use-package highlight-sexps
-  :load-path "lisp/lib/"
-  :diminish highlight-sexps-mode
-  :bind (:map clojure-mode-map
-         ("C-<f12>" . highlight-sexps-mode)
-         ("C-' s" . highlight-sexps-mode)
-         ("C-' C-s" . highlight-sexps-mode)
-         :map emacs-lisp-mode-map
-         ("C-<f12>" . highlight-sexps-mode)
-         ("C-' s" . highlight-sexps-mode)
-         ("C-' C-s" . highlight-sexps-mode)
-         :map lisp-mode-map
-         ("C-<f12>" . highlight-sexps-mode)
-         ("C-' s" . highlight-sexps-mode)
-         ("C-' C-s" . highlight-sexps-mode))
+(use-package highlight-sexp
+  :ensure t
   :config
+
   (defun hl-sexp-set-hl-line ()
     (interactive)
-    (hl-line-mode (if highlight-sexps-mode -1 t)))
-  (add-hook 'highlight-sexps-mode-hook 'hl-sexp-set-hl-line)
-  (use-package scheme
-      :bind (:map scheme-mode-map
-             ("C-<f12>" . highlight-sexps-mode)
-             ("C-' s" . highlight-sexps-mode)
-             ("C-' C-s" . highlight-sexps-mode))))
+    (hl-line-mode (if highlight-sexp-mode -1 t)))
+  (add-hook 'highlight-sexp-mode-hook 'hl-sexp-set-hl-line)
+
+  (defconst highlight-sexp-keys
+	'("C-<f12>"
+	  "C-' C-s"
+	  "C-' s"))
+
+  (defun set-highlight-sexp-keys (mode-map)
+    (cl-loop for key in highlight-sexp-keys
+             collect key
+             and do (bind-key (kbd key) 'highlight-sexp-mode mode-map)))
+
+  (use-package lisp-mode
+    :config
+	(set-highlight-sexp-keys lisp-mode-map)
+	(set-highlight-sexp-keys emacs-lisp-mode-map))
+  (use-package clojure-mode :config (set-highlight-sexp-keys clojure-mode-map))
+  (use-package scheme :config (set-highlight-sexp-keys scheme-mode-map)))
 
 (use-package paredit
   :ensure t

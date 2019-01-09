@@ -16,7 +16,6 @@
       ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
    ;;; vars set after loading theme
    '(fancy-splash-image nil)
-   '(hl-sexp-background-colors (quote ("gray27" "midnight blue")))
    '(inhibit-default-init t)
    '(inhibit-startup-screen t)
    '(initial-scratch-message nil)
