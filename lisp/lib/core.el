@@ -135,4 +135,11 @@ Lisp files for byte compilation."
                      and do (delete-file path))
       (message "Removed all .elc files"))))
 
+(defun core-bind-keys (keys func &optional map)
+  "Binds multiple keys in the list KEYS to function FUNC.
+An option keymap MAP can also be specified for the key binding."
+  (cl-loop for key in keys
+           collect key
+           and do (bind-key (kbd key) func map)))
+
 (provide 'core)

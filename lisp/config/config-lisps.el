@@ -5,71 +5,71 @@
   :defer 2
   :config
 
-  (defun hl-sexp-set-hl-line ()
+  (defun +highlight-sexp-set-hl-line ()
     (interactive)
     (hl-line-mode (if highlight-sexp-mode -1 t)))
-  (add-hook 'highlight-sexp-mode-hook 'hl-sexp-set-hl-line)
+  (add-hook 'highlight-sexp-mode-hook '+highlight-sexp-set-hl-line)
 
-  (defconst highlight-sexp-keys
+  (defconst +highlight-sexp-keys
 	'("C-<f12>"
 	  "C-' C-s"
 	  "C-' s"))
 
-  (defun set-highlight-sexp-keys (mode-map)
-    (cl-loop for key in highlight-sexp-keys
-             collect key
-             and do (bind-key (kbd key) 'highlight-sexp-mode mode-map)))
+  (defun +highlight-sexp-bind-keys (mode-map)
+	(core-bind-keys +highlight-sexp-keys 'highlight-sexp-mode mode-map))
 
   (use-package lisp-mode
     :config
-	(set-highlight-sexp-keys lisp-mode-map)
-	(set-highlight-sexp-keys emacs-lisp-mode-map))
-  (use-package clojure-mode :config (set-highlight-sexp-keys clojure-mode-map))
-  (use-package scheme :config (set-highlight-sexp-keys scheme-mode-map)))
+	(+highlight-sexp-bind-keys lisp-mode-map)
+	(+highlight-sexp-bind-keys emacs-lisp-mode-map))
+  (use-package clojure-mode :config (+highlight-sexp-bind-keys clojure-mode-map))
+  (use-package scheme :config (+highlight-sexp-bind-keys scheme-mode-map)))
 
 (use-package paredit
   :ensure t
+  :defer 2
   :diminish paredit-mode
   :bind (("C-' (" . paredit-mode)
          ("C-' C-(" . paredit-mode))
   :config
-  (defmacro set-paredit-key (key function)
-    `(bind-key (kbd ,key) (quote ,function) paredit-mode-map))
-  (defmacro unset-paredit-key (key)
-    `(set-paredit-key ,key nil))
-  (unset-paredit-key "M-s")
-  (unset-paredit-key "ESC <up>")
-  (unset-paredit-key "M-<up>")
-  (set-paredit-key "ESC M-<up>" paredit-splice-sexp-killing-backward)
-  (set-paredit-key "ESC ESC <up>" paredit-splice-sexp-killing-backward)
-  (set-paredit-key "C-, C-, C-k" paredit-splice-sexp-killing-backward)
-  (set-paredit-key "C-, , k" paredit-splice-sexp-killing-backward)
-  (unset-paredit-key "ESC <down>")
-  (unset-paredit-key "M-<down>")
-  (set-paredit-key "ESC M-<down>" paredit-splice-sexp-killing-forward)
-  (set-paredit-key "ESC ESC <down>" paredit-splice-sexp-killing-forward)
-  (set-paredit-key "C-, C-k" paredit-splice-sexp-killing-forward)
-  (set-paredit-key "C-, k" paredit-splice-sexp-killing-forward)
-  (unset-paredit-key "C-<right>")
-  (set-paredit-key "M-<right>" paredit-forward-slurp-sexp)
-  (set-paredit-key "ESC <right>" paredit-forward-slurp-sexp)
-  (set-paredit-key "C-, C-f" paredit-forward-slurp-sexp)
-  (set-paredit-key "C-, f" paredit-forward-slurp-sexp)
-  (unset-paredit-key "C-<left>")
-  (set-paredit-key "M-<left>" paredit-forward-barf-sexp)
-  (set-paredit-key "ESC <left>" paredit-forward-barf-sexp)
-  (set-paredit-key "C-, C-b" paredit-forward-barf-sexp)
-  (set-paredit-key "C-, b" paredit-forward-barf-sexp)
-  (unset-paredit-key "ESC C-<right>")
-  (set-paredit-key "ESC M-<right>" paredit-backward-barf-sexp)
-  (set-paredit-key "ESC ESC <right>" paredit-backward-barf-sexp)
-  (set-paredit-key "C-, C-, C-f" paredit-backward-barf-sexp)
-  (set-paredit-key "C-, , f" paredit-backward-barf-sexp)
-  (unset-paredit-key "ESC C-<left>")
-  (set-paredit-key "ESC M-<left>" paredit-backward-slurp-sexp)
-  (set-paredit-key "ESC ESC <left>" paredit-backward-slurp-sexp)
-  (set-paredit-key "C-, C-, C-b" paredit-backward-slurp-sexp)
-  (set-paredit-key "C-, , b" paredit-backward-slurp-sexp)
+  (defun +paredit-bind-key (key function)
+    (bind-key (kbd key) function paredit-mode-map))
+  (defun +paredit-unbind-key (key)
+    (unbind-key key paredit-mode-map))
+
+  (+paredit-unbind-key "M-s")
+  (+paredit-unbind-key "ESC <up>")
+  (+paredit-unbind-key "M-<up>")
+  (+paredit-bind-key "ESC M-<up>" 'paredit-splice-sexp-killing-backward)
+  (+paredit-bind-key "ESC ESC <up>" 'paredit-splice-sexp-killing-backward)
+  (+paredit-bind-key "C-, C-, C-k" 'paredit-splice-sexp-killing-backward)
+  (+paredit-bind-key "C-, , k" 'paredit-splice-sexp-killing-backward)
+  (+paredit-unbind-key "ESC <down>")
+  (+paredit-unbind-key "M-<down>")
+  (+paredit-bind-key "ESC M-<down>" 'paredit-splice-sexp-killing-forward)
+  (+paredit-bind-key "ESC ESC <down>" 'paredit-splice-sexp-killing-forward)
+  (+paredit-bind-key "C-, C-k" 'paredit-splice-sexp-killing-forward)
+  (+paredit-bind-key "C-, k" 'paredit-splice-sexp-killing-forward)
+  (+paredit-unbind-key "C-<right>")
+  (+paredit-bind-key "M-<right>" 'paredit-forward-slurp-sexp)
+  (+paredit-bind-key "ESC <right>" 'paredit-forward-slurp-sexp)
+  (+paredit-bind-key "C-, C-f" 'paredit-forward-slurp-sexp)
+  (+paredit-bind-key "C-, f" 'paredit-forward-slurp-sexp)
+  (+paredit-unbind-key "C-<left>")
+  (+paredit-bind-key "M-<left>" 'paredit-forward-barf-sexp)
+  (+paredit-bind-key "ESC <left>" 'paredit-forward-barf-sexp)
+  (+paredit-bind-key "C-, C-b" 'paredit-forward-barf-sexp)
+  (+paredit-bind-key "C-, b" 'paredit-forward-barf-sexp)
+  (+paredit-unbind-key "ESC C-<right>")
+  (+paredit-bind-key "ESC M-<right>" 'paredit-backward-barf-sexp)
+  (+paredit-bind-key "ESC ESC <right>" 'paredit-backward-barf-sexp)
+  (+paredit-bind-key "C-, C-, C-f" 'paredit-backward-barf-sexp)
+  (+paredit-bind-key "C-, , f" 'paredit-backward-barf-sexp)
+  (+paredit-unbind-key "ESC C-<left>")
+  (+paredit-bind-key "ESC M-<left>" 'paredit-backward-slurp-sexp)
+  (+paredit-bind-key "ESC ESC <left>" 'paredit-backward-slurp-sexp)
+  (+paredit-bind-key "C-, C-, C-b" 'paredit-backward-slurp-sexp)
+  (+paredit-bind-key "C-, , b" 'paredit-backward-slurp-sexp)
 
   (add-hook 'eshell-mode-hook 'paredit-mode)
 
@@ -98,11 +98,11 @@
   (custom-set-faces
    '(eval-sexp-fu-flash ((t (:background "green" :foreground "black")))))
 
-  (defun config-init-eval-sexp-fu ()
+  (defun +eval-sexp-fu-init ()
     (require 'eval-sexp-fu))
 
-  (add-hook 'lisp-mode-hook 'config-init-eval-sexp-fu)
-  (add-hook 'emacs-lisp-mode-hook 'config-init-eval-sexp-fu)
-  (add-hook 'eshell-mode-hook 'config-init-eval-sexp-fu))
+  (add-hook 'lisp-mode-hook '+eval-sexp-fu-init)
+  (add-hook 'emacs-lisp-mode-hook '+eval-sexp-fu-init)
+  (add-hook 'eshell-mode-hook '+eval-sexp-fu-init))
 
 (provide 'config-lisps)
