@@ -51,12 +51,16 @@
 (require 'cl-lib)
 (require 'package)
 
+(defconst core-modules-path
+  "lisp/config"
+  "Relative path of all modules.")
+
 (defconst core--required-packages
   '(use-package diminish epl async)
   "A list of required packages.")
 
 (defconst core--elisp-dir-paths
-  '("elpa" "lisp/lib" "lisp/config")
+  (list "elpa" "lisp/lib" core-modules-path)
   "A list of relative paths containing Emacs Lisp files
 for byte compilation.")
 
