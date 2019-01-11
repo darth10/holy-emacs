@@ -109,6 +109,7 @@
 
 (use-package yasnippet
   :ensure t
+  :defer 2
   :diminish yas-minor-mode
   :bind (("C-' C-y" . yas-global-mode)
          ("C-' y" . yas-global-mode))
