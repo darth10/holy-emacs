@@ -49,6 +49,7 @@
   :defer 2
   :config
   (global-diff-hl-mode 1)
+  (diff-hl-margin-mode t)
 
   (use-package magit
     :config
