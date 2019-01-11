@@ -32,4 +32,10 @@
   :ensure t
   :bind ("C-: C-f" . helm-ls-git-ls))
 
+(use-package helm-bm
+  :ensure t
+  :after (bm)
+  :bind (("C-c : :" . helm-bm)
+         ("C-c : C-:" . helm-bm)))
+
 (provide 'config-helm)

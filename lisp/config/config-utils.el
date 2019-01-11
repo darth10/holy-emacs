@@ -175,8 +175,8 @@
   :defer 2
   :bind (("C-c : #" . bm-remove-all-current-buffer)
 		 ("C-c : C-#" . bm-remove-all-current-buffer)
-		 ("C-c : :" . bm-show-all)
-         ("C-c : C-:" . bm-show-all)
+		 ("C-c : c" . bm-show-all)
+         ("C-c : C-c" . bm-show-all)
          ("C-c ," . bm-previous)
          ("C-c ." . bm-next)
          ("C-c : p" . bm-previous)
