@@ -170,35 +170,48 @@
 (use-package fixme-mode
   :ensure t)
 
-(use-package breadcrumb
-  :load-path "lisp/lib/"
-  :bind (("C-c : #" . bc-clear-and-msg)
-         ("C-c : :" . bc-list)
-         ("C-c : <down>" . bc-local-next)
-         ("C-c : <left>" . bc-previous)
-         ("C-c : <right>" . bc-next)
-         ("C-c : <up>" . bc-local-previous)
-         ("C-c : =" . bc-set)
-         ("C-c : b" . bc-previous)
-         ("C-c : f" . bc-next)
-         ("C-c : n" . bc-local-next)
-         ("C-c : p" . bc-local-previous)
-         ("C-c C-: C-#" . bc-clear-and-msg)
-         ("C-c C-: C-:" . bc-list)
-         ("C-c C-: C-<down>" . bc-local-next)
-         ("C-c C-: C-<left>" . bc-previous)
-         ("C-c C-: C-<right>" . bc-next)
-         ("C-c C-: C-<up>" . bc-local-previous)
-         ("C-c C-: C-=" . bc-set)
-         ("C-c C-: C-b" . bc-previous)
-         ("C-c C-: C-f" . bc-next)
-         ("C-c C-: C-n" . bc-local-next)
-         ("C-c C-: C-p" . bc-local-previous))
+(use-package bm
+  :ensure t
+  :defer 2
+  :bind (("C-c : #" . bm-remove-all-current-buffer)
+		 ("C-c : C-#" . bm-remove-all-current-buffer)
+		 ("C-c : :" . bm-show-all)
+         ("C-c : C-:" . bm-show-all)
+         ("C-c ," . bm-previous)
+         ("C-c ." . bm-next)
+         ("C-c : p" . bm-previous)
+         ("C-c : C-p" . bm-previous)
+         ("C-c : n" . bm-next)
+         ("C-c : C-n" . bm-next)
+         ("C-c : ." . bm-toggle)
+		 ("C-c : C-." . bm-toggle))
+  :init
+  (setq bm-restore-repository-on-load t)
   :config
-  (defun bc-clear-and-msg ()
-    (interactive)
-    (bc-clear)
-    (message "All breadcrumbs deleted!")))
+  (defface +bm-fringe-face
+    '((t (:foreground "SkyBlue")))
+    "Face for bookmark fringe"
+    :group 'bm)
+
+  (custom-set-variables
+   '(bm-fringe-face '+bm-fringe-face)
+   '(bm-fringe-persistent-face '+bm-fringe-face)
+   '(bm-highlight-style 'bm-highlight-only-fringe)
+   '(bm-cycle-all-buffers t)
+   '(bm-buffer-persistence t)
+   '(bm-repository-file "~/.emacs.d/bookmarks"))
+
+  (bm-repository-load)
+
+  (add-hook 'find-file-hooks 'bm-buffer-restore)
+  (add-hook 'after-revert-hook 'bm-buffer-restore)
+  (add-hook 'after-save-hook 'bm-buffer-save)
+  (add-hook 'kill-buffer-hook 'bm-buffer-save)
+  (add-hook 'kill-emacs-hook '(lambda ()
+                                (bm-buffer-save-all)
+                                (bm-repository-save)))
+
+  (advice-add 'bm-toggle :after 'bm-buffer-save))
 
 (use-package ibuffer
   :bind ("C-x C-b" . ibuffer))
