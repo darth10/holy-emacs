@@ -227,8 +227,9 @@
 
 (use-package clipmon
   :ensure t
+  :defer 2
   :config
-  (add-to-list 'after-init-hook 'clipmon-mode-start))
+  (clipmon-mode-start))
 
 (use-package exec-path-from-shell
   :ensure t
