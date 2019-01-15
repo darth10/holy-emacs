@@ -11,19 +11,19 @@
   (add-hook 'highlight-sexp-mode-hook '+highlight-sexp-set-hl-line)
 
   (defconst +highlight-sexp-keys
-	'("C-<f12>"
-	  "C-' C-s"
-	  "C-' s"))
+    '("C-<f12>"
+      "C-' C-s"
+      "C-' s"))
 
   (defun +highlight-sexp-bind-keys (mode-map)
-	(core-bind-keys +highlight-sexp-keys 'highlight-sexp-mode mode-map))
+    (core-bind-keys +highlight-sexp-keys 'highlight-sexp-mode mode-map))
 
   (use-package lisp-mode
     :config
-	(+highlight-sexp-bind-keys lisp-mode-map)
-	(+highlight-sexp-bind-keys emacs-lisp-mode-map))
-  (use-package clojure-mode :config (+highlight-sexp-bind-keys clojure-mode-map))
-  (use-package scheme :config (+highlight-sexp-bind-keys scheme-mode-map)))
+    (+highlight-sexp-bind-keys 'lisp-mode-map)
+    (+highlight-sexp-bind-keys 'emacs-lisp-mode-map))
+  (use-package clojure-mode :config (+highlight-sexp-bind-keys 'clojure-mode-map))
+  (use-package scheme :config (+highlight-sexp-bind-keys 'scheme-mode-map)))
 
 (use-package paredit
   :ensure t
@@ -33,7 +33,7 @@
          ("C-' C-(" . paredit-mode))
   :config
   (defun +paredit-bind-key (key function)
-    (bind-key (kbd key) function paredit-mode-map))
+    (bind-key key function paredit-mode-map))
   (defun +paredit-unbind-key (key)
     (unbind-key key paredit-mode-map))
 

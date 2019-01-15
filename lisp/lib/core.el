@@ -144,6 +144,6 @@ Lisp files for byte compilation."
 An option keymap MAP can also be specified for the key binding."
   (cl-loop for key in keys
            collect key
-           and do (bind-key (kbd key) func map)))
+           and do (eval `(bind-key ,key ',func ,map))))
 
 (provide 'core)
