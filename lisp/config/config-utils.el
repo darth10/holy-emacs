@@ -234,11 +234,6 @@
          ("C-x a k" . recompile)
          ("C-x C-a C-k" . recompile)))
 
-(use-package linum
-  :bind (("C-' n" . linum-mode)
-         ("C-' C-n" . linum-mode)
-         ("C-<f6>" . linum-mode)))
-
 (use-package clipmon
   :ensure t
   :defer 2

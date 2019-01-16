@@ -51,6 +51,14 @@
   (global-diff-hl-mode 1)
   (diff-hl-margin-mode t)
 
+  ;; Since both nlinum and diff-hl use the margin, diff-hl
+  ;; seems to overwrite line numbers. To get around this,
+  ;; enable nlinum-mode again if it's active.
+  (use-package nlinum
+	:if (version< emacs-version "26.0.50")
+	:config
+	(+nlinum-refresh))
+
   (use-package magit
     :config
     (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)))

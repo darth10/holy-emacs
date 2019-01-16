@@ -169,4 +169,57 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
    '(highlight-symbol-face ((t (:foreground "green")))))
   (add-hook 'prog-mode-hook 'highlight-symbol-mode))
 
+(use-package display-line-numbers
+  :unless (version< emacs-version "26.0.50")
+  :bind (("C-' n" . display-line-numbers-mode)
+         ("C-' C-n" . display-line-numbers-mode)
+         ("C-<f6>" . display-line-numbers-mode))
+  :commands (display-line-numbers-mode)
+  :init
+  (add-hook 'prog-mode-hook 'display-line-numbers-mode)
+  (add-hook 'conf-mode-hook 'display-line-numbers-mode))
+
+;; Emacs versions less than 26.1 will have to use nlinum-mode
+;; for line numbers. There's a few minor issues it has with edebug.
+(use-package nlinum
+  :ensure t
+  :if (version< emacs-version "26.0.50")
+  :bind (("C-' n" . nlinum-mode)
+         ("C-' C-n" . nlinum-mode)
+         ("C-<f6>" . nlinum-mode))
+  :commands (nlinum-mode)
+  :init
+  (defun +nlinum-refresh ()
+    (when nlinum-mode
+      (nlinum-mode)))
+
+  (add-hook 'prog-mode-hook 'nlinum-mode)
+  (add-hook 'conf-mode-hook 'nlinum-mode)
+
+  :config
+  (defconst +nlinum-line-number-lpad 4
+    "Left padding for line numbers.")
+  (defconst +nlinum-line-number-rpad 1
+    "Right padding for line numbers.")
+  (defconst +nlinum-line-number-pad-char 32
+    "Padding character for line numbers.")
+
+  (defun +nlinum-format-fn (line width)
+    "Formatting function for `nlinum-format-function'."
+    (let ((str (number-to-string line)))
+      (setq str (concat (make-string (max 0 (- +nlinum-line-number-lpad (length str)))
+                                     +nlinum-line-number-pad-char)
+                        str
+                        (make-string +nlinum-line-number-rpad +nlinum-line-number-pad-char)))
+      (put-text-property 0 (length str) 'face 'linum str)
+      str))
+
+  (setq nlinum-format-function '+nlinum-format-fn)
+
+  (use-package nlinum-hl
+	:ensure t
+	:if (version< emacs-version "26.0.50")
+	:config
+	(advice-add 'set-frame-font :after 'nlinum-hl-flush-all-windows)))
+
 (provide 'config-ui)
