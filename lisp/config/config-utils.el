@@ -359,6 +359,8 @@
 (use-package tramp
   :defer 2
   :config
+  ;; File paths like `/sshx:user@remotehost|sudo:remotehost:/etc/dhcpd.conf`
+  ;; will open remote files over multiple hops.
   (custom-set-variables
    ;; useful variables for debugging tramp
    ;; '(tramp-debug-buffer t)
