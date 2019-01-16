@@ -29,6 +29,7 @@
                         'compilation-mode
                         'debugger-mode
                         'dired-mode
+						'edebug-mode
                         'ediff-mode
                         'eww-mode
                         'geben-breakpoint-list-mode
