@@ -186,7 +186,9 @@
          ("C-c : ." . bm-toggle)
 		 ("C-c : C-." . bm-toggle))
   :init
-  (setq bm-restore-repository-on-load t)
+  (custom-set-variables
+   '(bm-restore-repository-on-load t)
+   '(bm-repository-file "~/.emacs.d/bookmarks"))
   :config
   (defface +bm-fringe-face
     '((t (:foreground "SkyBlue")))
@@ -198,8 +200,7 @@
    '(bm-fringe-persistent-face '+bm-fringe-face)
    '(bm-highlight-style 'bm-highlight-only-fringe)
    '(bm-cycle-all-buffers t)
-   '(bm-buffer-persistence t)
-   '(bm-repository-file "~/.emacs.d/bookmarks"))
+   '(bm-buffer-persistence t))
 
   (bm-repository-load)
 
