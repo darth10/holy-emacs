@@ -4,7 +4,7 @@
   :ensure t
   :init
 
-  (defconst +theme-scratch-message-logo
+  (defconst +theme-scratch-message-logo-text
     "
       __          __
      / /_  ____  / /_  __    ___  ____ ___  ____ ___________
@@ -15,7 +15,7 @@
 
 ")
 
-  (defconst +theme-scratch-message-help
+  (defconst +theme-scratch-message-help-text
     "To open a file, type C-x C-f.
 To display all available key bindings, type M-x describe-personal-keybindings.
 To quit a partially entered command, type C-g.
@@ -27,13 +27,12 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
     (let* ((face-for-logo 'font-lock-function-name-face)
            (face-for-keys 'font-lock-string-face)
            (face-for-comments 'font-lock-comment-delimiter-face)
-           (help-text +theme-scratch-message-help)
+           (help-text +theme-scratch-message-help-text)
            (help-text (replace-regexp-in-string
                        "C-."
                        (lambda (s) (propertize s 'face face-for-keys))
                        help-text))
            (help-text (replace-regexp-in-string
-                       ;; "M-x .+\."
                        "M-x [^ .,]+"
                        (lambda (s) (propertize s 'face face-for-keys))
                        help-text)))
@@ -41,10 +40,10 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
        (replace-regexp-in-string
         "^"
         (propertize ";; " 'face face-for-comments)
-        (propertize +theme-scratch-message-logo 'face face-for-logo))
+        (propertize +theme-scratch-message-logo-text 'face face-for-logo))
        (replace-regexp-in-string
         "^"
-        (propertize ";; " 'face 'font-lock-comment-delimiter-face)
+        (propertize ";; " 'face face-for-comments)
         help-text)
        "\n\n")))
 
