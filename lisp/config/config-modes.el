@@ -48,7 +48,10 @@
   :defer t
   :hook (after-init . doom-modeline-init)
   :config
-  (setq doom-modeline-height 34)
+  (custom-set-variables
+   '(doom-modeline-height 34)
+   '(doom-modeline-bar-width 11))
+
   (defvar modeline-mode-string " ")
   (doom-modeline-def-segment cur-mode
     (if (doom-modeline--active)
