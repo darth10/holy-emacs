@@ -345,7 +345,7 @@
   (put 'downcase-region 'disabled nil)
 
   (util/kill-line-utils-init)
-  (util/lvd-load-dir "~/.emacs.d/lisp/var/")
+  (add-hook 'after-init-hook 'util/lvd-load-dir)
 
   (when (core/is-windows-p)     ;; Windows-only config
     (setq w32-get-true-file-attributes nil)

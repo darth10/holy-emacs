@@ -55,12 +55,16 @@
   "lisp/config"
   "Relative path of all modules.")
 
+(defconst core-var-files-path
+  "lisp/var"
+  "Relative path of all custom Emacs Lisp files.")
+
 (defconst core--required-packages
   '(use-package diminish epl async)
   "A list of required packages.")
 
 (defconst core--elisp-dir-paths
-  (list "elpa" "lisp/lib" core-modules-path)
+  (list "elpa" "lisp/lib" core-modules-path core-var-files-path)
   "A list of relative paths containing Emacs Lisp files
 for byte compilation.")
 
