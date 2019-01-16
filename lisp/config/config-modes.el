@@ -114,4 +114,7 @@
   (unbind-key "C-h C-h")
   (which-key-mode t))
 
+(use-package help-fns
+  :bind (("C-h C-l" . describe-personal-keybindings)))
+
 (provide 'config-modes)
