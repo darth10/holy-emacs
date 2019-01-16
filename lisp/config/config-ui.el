@@ -1,8 +1,53 @@
-;;; Configuration for UI/theme
+;;; Configuration for UI/theme -*- lexical-binding: t; -*-
 
 (use-package solarized-theme
   :ensure t
   :init
+
+  (defconst +theme-scratch-message-logo
+    "
+      __          __
+     / /_  ____  / /_  __    ___  ____ ___  ____ ___________
+    / __ \\/ __ \\/ / / / /   / _ \\/ __ `__ \\/ __ `/ ___/ ___/
+   / / / / /_/ / / /_/ /   /  __/ / / / / / /_/ / /__(__  )
+  /_/ /_/\\____/_/\\__, /    \\___/_/ /_/ /_/\\__,_/\\___/____/
+                /____/
+
+")
+
+  (defconst +theme-scratch-message-help
+    "To open a file, type C-x C-f.
+To display all available key bindings, type M-x describe-personal-keybindings.
+To quit a partially entered command, type C-g.
+To quit Emacs, type C-x C-c.
+
+For information about GNU Emacs and the GNU system, type C-h C-a.")
+
+  (defun +theme-get-scratch-message ()
+    (let* ((face-for-logo 'font-lock-function-name-face)
+           (face-for-keys 'font-lock-string-face)
+           (face-for-comments 'font-lock-comment-delimiter-face)
+           (help-text +theme-scratch-message-help)
+           (help-text (replace-regexp-in-string
+                       "C-."
+                       (lambda (s) (propertize s 'face face-for-keys))
+                       help-text))
+           (help-text (replace-regexp-in-string
+                       ;; "M-x .+\."
+                       "M-x [^ .,]+"
+                       (lambda (s) (propertize s 'face face-for-keys))
+                       help-text)))
+      (concat
+       (replace-regexp-in-string
+        "^"
+        (propertize ";; " 'face face-for-comments)
+        (propertize +theme-scratch-message-logo 'face face-for-logo))
+       (replace-regexp-in-string
+        "^"
+        (propertize ";; " 'face 'font-lock-comment-delimiter-face)
+        help-text)
+       "\n\n")))
+
   (custom-set-variables
    ;;; vars set before loading theme
    '(solarized-use-variable-pitch nil)
@@ -18,12 +63,13 @@
    '(fancy-splash-image nil)
    '(inhibit-default-init t)
    '(inhibit-startup-screen t)
-   '(initial-scratch-message nil)
    '(indent-tabs-mode t)
    '(split-height-threshold 40)
    '(split-width-threshold nil)
    '(term-default-bg-color "#000000")
    '(term-default-fg-color "#00ff00"))
+  (setq initial-scratch-message (+theme-get-scratch-message))
+
   :config
   (custom-set-faces
    '(button ((t (:background "green" :foreground "black"))))
