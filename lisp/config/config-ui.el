@@ -17,7 +17,7 @@
 
   (defconst +theme-scratch-message-help-text
     "To open a file, type C-x C-f.
-To display all available key bindings, type M-x describe-personal-keybindings.
+To display all available key bindings, type C-h C-l.
 To quit a partially entered command, type C-g.
 To quit Emacs, type C-x C-c.
 
@@ -27,23 +27,15 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
     (let* ((face-for-logo 'font-lock-function-name-face)
            (face-for-keys 'font-lock-string-face)
            (face-for-comments 'font-lock-comment-delimiter-face)
-           (help-text +theme-scratch-message-help-text)
            (help-text (replace-regexp-in-string
-                       "C-."
-                       (lambda (s) (propertize s 'face face-for-keys))
-                       help-text))
-           (help-text (replace-regexp-in-string
-                       "M-x [^ .,]+"
-                       (lambda (s) (propertize s 'face face-for-keys))
-                       help-text)))
+                       "C-." (lambda (s) (propertize s 'face face-for-keys))
+                       +theme-scratch-message-help-text)))
       (concat
        (replace-regexp-in-string
-        "^"
-        (propertize ";; " 'face face-for-comments)
+        "^" (propertize ";; " 'face face-for-comments)
         (propertize +theme-scratch-message-logo-text 'face face-for-logo))
        (replace-regexp-in-string
-        "^"
-        (propertize ";; " 'face face-for-comments)
+        "^" (propertize ";; " 'face face-for-comments)
         help-text)
        "\n\n")))
 
