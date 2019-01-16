@@ -4,7 +4,7 @@
 * Installs all required packages from GNU, Marmalade and MELPA repositories on startup.
 * Includes `magit`, `helm`, `projectile`, `company` and `yasnippet`.
 * Uses `god-mode` for modal editing. All key bindings work in `god-mode`, and `god-mode` is only used to reduce the usage of modifier keys.
-* Uses `use-package` and `bind-key`. `M-x describe-personal-keybindings` will display all available key bindings.
+* Uses `use-package` and `bind-key`. Display all available key bindings using `M-x describe-personal-keybindings`.
 * Uses `which-key` to interactively describe key bindings.
 * Uses `tramp` for editing remote files. `C-x C-f` (or `M-x find-file`) with paths like `/sshx:user@remotehost|sudo:remotehost:/etc/dhcpd.conf` will open remote files.
 * Uses `desktop-save-mode` to manage sessions and buffers.
