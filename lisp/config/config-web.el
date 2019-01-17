@@ -1,10 +1,13 @@
-;;; Configuration for Web
+;;; Configuration for Web -*- lexical-binding: t; -*-
 
 (use-package emmet-mode
   :ensure t
   :defer 5
   :bind (:map emmet-mode-keymap
-         ("M-SPC" . emmet-expand-line)))
+		 ("M-SPC" . emmet-expand-line))
+  :config
+  (add-hook 'sgml-mode-hook 'emmet-mode)
+  (add-hook 'css-mode-hook  'emmet-mode))
 
 (use-package rainbow-mode
   :ensure t
@@ -27,7 +30,6 @@
          ("\\.mustache\\'" . web-mode)
          ("\\.djhtml\\'" . web-mode))
   :config
-
   (custom-set-variables
    '(web-mode-enable-auto-quoting t)
    '(web-mode-enable-auto-expanding t))
@@ -40,8 +42,6 @@
 
   (use-package emmet-mode
     :config
-    (defun +web-mode-init-emmet-mode ()
-      (emmet-mode t))
-    (add-hook 'web-mode-hook '+web-mode-init-emmet-mode)))
+    (add-hook 'web-mode-hook 'emmet-mode)))
 
 (provide 'config-web)
