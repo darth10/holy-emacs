@@ -48,9 +48,12 @@
   :defer t
   :hook (after-init . doom-modeline-init)
   :config
-  (custom-set-variables
-   '(doom-modeline-height 34)
-   '(doom-modeline-bar-width 11))
+
+  ;; modeline on Windows needs a bit more height
+  (let* ((modeline-height (if (core/is-windows-p) 40 34)))
+	(custom-set-variables
+	 '(doom-modeline-height `,modeline-height)
+	 '(doom-modeline-bar-width 11)))
 
   (defvar modeline-mode-string " ")
   (doom-modeline-def-segment cur-mode
