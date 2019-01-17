@@ -1,11 +1,10 @@
 ;;; Configuration for Web
 
-(use-package zencoding-mode
+(use-package emmet-mode
   :ensure t
   :defer 5
-  :diminish zencoding-mode
-  :bind (:map zencoding-mode-keymap
-         ("M-SPC" . zencoding-expand-line)))
+  :bind (:map emmet-mode-keymap
+         ("M-SPC" . emmet-expand-line)))
 
 (use-package rainbow-mode
   :ensure t
@@ -39,11 +38,10 @@
       (if smartparens-mode (smartparens-mode -1)))
     (add-hook 'web-mode-hook 'configure-web-smartparens-mode))
 
-  (use-package zencoding-mode
+  (use-package emmet-mode
     :config
-    (defun configure-web-zencoding-mode ()
-      (require 'zencoding-mode)
-      (zencoding-mode t))
-    (add-hook 'web-mode-hook 'configure-web-zencoding-mode)))
+    (defun +web-mode-init-emmet-mode ()
+      (emmet-mode t))
+    (add-hook 'web-mode-hook '+web-mode-init-emmet-mode)))
 
 (provide 'config-web)
