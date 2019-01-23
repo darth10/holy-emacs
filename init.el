@@ -3,14 +3,13 @@
 (defconst core-file-path "lisp/lib/core")
 (require 'core (concat user-emacs-directory core-file-path))
 
-(core/set-load-path)
-
 ;;; set proxy server, if needed
 ;;; (setq url-proxy-services '(("http" . "host:port")))
 (core/defsource '("org-elpa" . "https://orgmode.org/elpa/"))
 (core/defsource '("marmalade" . "https://marmalade-repo.org/packages/"))
 (core/defsource '("melpa" . "https://melpa.org/packages/"))
 (core/initialize-packages)
+(core/initialize-modules)
 
 ;;; load before language configurations
 (require 'config-company)

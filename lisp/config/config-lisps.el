@@ -8,7 +8,7 @@
   (defun +highlight-sexp-set-hl-line ()
     (interactive)
     (hl-line-mode (if highlight-sexp-mode -1 t)))
-  (add-hook 'highlight-sexp-mode-hook '+highlight-sexp-set-hl-line)
+  (add-hook 'highlight-sexp-mode-hook #'+highlight-sexp-set-hl-line)
 
   (defconst +highlight-sexp-keys
     '("C-<f12>"
@@ -16,7 +16,7 @@
       "C-' s"))
 
   (defun +highlight-sexp-bind-keys (mode-map)
-    (core-bind-keys +highlight-sexp-keys 'highlight-sexp-mode mode-map))
+    (core-bind-keys +highlight-sexp-keys #'highlight-sexp-mode mode-map))
 
   (use-package lisp-mode
     :config

@@ -41,15 +41,15 @@
           initial-scratch-message nil
           mode-line-format nil))
 
+  (require 'cl-lib)
+  (require 'package)
+
   (defun core--finalize-startup ()
     (setq gc-cons-threshold 16777216
           gc-cons-percentage 0.1
           file-name-handler-alist core--file-name-handler-alist))
 
-  (add-hook 'emacs-startup-hook 'core--finalize-startup))
-
-(require 'cl-lib)
-(require 'package)
+  (add-hook 'emacs-startup-hook #'core--finalize-startup))
 
 (defconst core-modules-path
   "lisp/config"
@@ -99,6 +99,17 @@ for byte compilation.")
     (require 'use-package))
   (require 'bind-key))
 
+(defun core/initialize-modules ()
+  "Initializes global load path and module sub-system."
+  ;; set load-path
+  (eval-and-compile
+	(cl-loop for path in (core--get-elisp-dirs)
+             collect path
+             and do (add-to-list 'load-path path)))
+
+ (require 'core-keys)
+ (require 'core-extensions))
+
 (defun core/upgrade-packages ()
   "Upgrade all packages."
   (interactive)
@@ -111,12 +122,6 @@ for byte compilation.")
 Lisp files for byte compilation."
   (mapcar (lambda (x) (concat user-emacs-directory x))
           core--elisp-dir-paths))
-
-(defun core/set-load-path ()
-  "Adds directories with Emacs Lisp files to the global load path."
-  (cl-loop for path in (core--get-elisp-dirs)
-           collect path
-           and do (add-to-list 'load-path path)))
 
 (defun core/autoremove-packages ()
   "Delete unused packages."
@@ -142,12 +147,5 @@ Lisp files for byte compilation."
                      collect path
                      and do (delete-file path))
       (message "Removed all .elc files"))))
-
-(defun core-bind-keys (keys func &optional map)
-  "Binds multiple keys in the list KEYS to function FUNC.
-An option keymap MAP can also be specified for the key binding."
-  (cl-loop for key in keys
-           collect key
-           and do (eval `(bind-key ,key ',func ,map))))
 
 (provide 'core)
