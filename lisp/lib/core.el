@@ -51,6 +51,13 @@
 
   (add-hook 'emacs-startup-hook #'core--finalize-startup))
 
+(defgroup holy-emacs nil
+  "An opinionated and extensible Emacs configuration"
+  :group 'emacs)
+
+(defconst holy-emacs-version "0.1.1"
+  "Version of holy-emacs.")
+
 (defconst core-modules-path
   "lisp/config"
   "Relative path of all modules.")
