@@ -66,9 +66,7 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
    '(inhibit-startup-screen t)
    '(indent-tabs-mode t)
    '(split-height-threshold 40)
-   '(split-width-threshold nil)
-   '(term-default-bg-color "#000000")
-   '(term-default-fg-color "#00ff00"))
+   '(split-width-threshold nil))
   (setq initial-scratch-message (+theme-get-scratch-message))
 
   :config
