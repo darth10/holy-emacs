@@ -38,9 +38,8 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
                                       'face face-for-logo)))
            (help-text (replace-regexp-in-string
                        "C-." (lambda (s) (propertize s 'face face-for-keys))
-                       (concat +theme-scratch-message-help-text "\n\n"
-                               version-text "\n"
-                               emacs-copyright))))
+                       (concat +theme-scratch-message-help-text "\n"
+                               version-text))))
       (concat
        (replace-regexp-in-string
         "^" (propertize ";; " 'face face-for-comments)
