@@ -59,21 +59,25 @@
   "Version of holy-emacs.")
 
 (defconst core-modules-path
-  "lisp/config"
+  "lisp/config/"
   "Relative path of all modules.")
 
-(defconst core-var-files-path
-  "lisp/var"
+(defconst core-var-dir-path
+  "lisp/var/"
   "Relative path of all custom Emacs Lisp files.")
 
 (defconst core--required-packages
   '(use-package diminish epl async)
-  "A list of required packages.")
+  "List of required packages.")
 
 (defconst core--elisp-dir-paths
-  (list "elpa" "lisp/lib" core-modules-path core-var-files-path)
-  "A list of relative paths containing Emacs Lisp files
+  (list "elpa" "lisp/lib/" core-modules-path core-var-dir-path)
+  "List of relative paths containing Emacs Lisp files
 for byte compilation.")
+
+(defconst core-custom-defs-file-path
+  (concat user-emacs-directory core-var-dir-path "custom-defs.el")
+  "Absolute path to save customize definitions.")
 
 (defun core/is-windows-p ()
   "Checks if the current OS is Windows."
@@ -114,14 +118,18 @@ for byte compilation.")
 
 (defun core/initialize-modules ()
   "Initializes global load path and module sub-system."
+  (setq custom-file core-custom-defs-file-path)
   ;; set load-path
-  (eval-and-compile
-	(cl-loop for path in (core--get-elisp-dirs)
-             collect path
-             and do (add-to-list 'load-path path)))
+  (cl-loop for path in (core--get-elisp-dirs)
+           collect path
+           and do (add-to-list 'load-path path))
 
  (require 'core-keys)
- (require 'core-extensions))
+ (require 'core-extensions)
+
+ (advice-add 'customize-save-variable :after
+             #'(lambda (_variable _value)
+				 (core-compile-file core-custom-defs-file-path))))
 
 (defun core/upgrade-packages ()
   "Upgrade all packages."
