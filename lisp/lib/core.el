@@ -97,6 +97,21 @@ for byte compilation.")
       (byte-recompile-file file)
     (byte-compile-file file)))
 
+(defun core-load-var-dir ()
+  "Loads all Emacs Lisp files from directory CORE-VAR-DIR-PATH."
+  (let* ((var-dir (concat user-emacs-directory core-var-dir-path))
+         (files (directory-files var-dir))
+         (file-names (mapcar 'file-name-base files))
+         (dup-f (lambda (x y) (equal x y)))
+         (filter-f (lambda (x)
+                     (or (equal x ".")
+                         (equal x ".gitignore"))))
+         (packages (remove-duplicates (cl-remove-if filter-f file-names)
+                                      :test dup-f)))
+    (cl-loop for pkg in packages
+             collect pkg
+             and do (load pkg))))
+
 (defun core/initialize-packages ()
   "Initializes the package sub-system."
   (package-initialize)
@@ -124,12 +139,13 @@ for byte compilation.")
            collect path
            and do (add-to-list 'load-path path))
 
- (require 'core-keys)
- (require 'core-extensions)
+  (require 'core-keys)
+  (require 'core-extensions)
 
- (advice-add 'customize-save-variable :after
-             #'(lambda (_variable _value)
-				 (core-compile-file core-custom-defs-file-path))))
+  (add-hook 'after-init-hook #'core-load-var-dir)
+  (advice-add 'customize-save-variable :after
+              #'(lambda (_variable _value)
+                  (core-compile-file core-custom-defs-file-path))))
 
 (defun core/upgrade-packages ()
   "Upgrade all packages."

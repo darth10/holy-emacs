@@ -140,20 +140,4 @@ a new buffer named NEW-BUFFER-NAME."
    "*eshell*"
    (lambda () (eshell "new"))))
 
-(defun util/lvd-load-dir (&optional dir)
-  "Loads all files from directory DIR."
-  (interactive)
-  (let* ((var-dir (or dir (concat user-emacs-directory core-var-dir-path)))
-		 (files (directory-files var-dir))
-         (file-names (mapcar 'file-name-base files))
-         (dup-f (lambda (x y) (equal x y)))
-         (filter-f (lambda (x)
-                     (or (equal x ".")
-                         (equal x ".gitignore"))))
-         (packages (remove-duplicates (cl-remove-if filter-f file-names)
-                                      :test dup-f)))
-	(cl-loop for pkg in packages
-			 collect pkg
-			 and do (load pkg))))
-
 (provide 'util)

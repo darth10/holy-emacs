@@ -333,7 +333,6 @@
          ("C-<f10>" . util/find-or-run-eshell)
          ("C-! C-r" . util/find-or-run-eshell))
   :commands (util/kill-line-utils-init
-             util/lvd-load-dir
              util/upgrade
              util/rebuild)
   :init
@@ -344,7 +343,6 @@
   (put 'downcase-region 'disabled nil)
 
   (util/kill-line-utils-init)
-  (add-hook 'after-init-hook 'util/lvd-load-dir)
 
   (when (core/is-windows-p)     ;; Windows-only config
     (setq w32-get-true-file-attributes nil)
