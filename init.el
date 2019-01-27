@@ -1,7 +1,6 @@
 ;;; init.el -*- lexical-binding: t; no-byte-compile: t; -*-
 
-(defconst core-file-path "lisp/lib/core")
-(require 'core (concat user-emacs-directory core-file-path))
+(require 'core (concat user-emacs-directory "lisp/lib/core"))
 
 ;;; set proxy server, if needed
 ;;; (setq url-proxy-services '(("http" . "host:port")))
