@@ -115,7 +115,7 @@
          ("C-' y" . yas-global-mode))
   :config
   (use-package yasnippet-snippets
-	:ensure t)
+    :ensure t)
 
   (add-to-list 'yas-snippet-dirs "~/.emacs.d/data/snippets/")
   (yas-global-mode t))
@@ -162,9 +162,8 @@
   :bind (("C-c : ;" . recentf-open-files)
          ("C-c C-: C-;" . recentf-open-files))
   :config
-  (custom-set-variables
-   '(recentf-max-menu-items 40)
-   '(recentf-max-saved-items 40))
+  (setq recentf-max-menu-items 40
+        recentf-max-saved-items 40)
   (recentf-mode t))
 
 (use-package fixme-mode
@@ -174,8 +173,8 @@
   :ensure t
   :defer 2
   :bind (("C-c : #" . bm-remove-all-current-buffer)
-		 ("C-c : C-#" . bm-remove-all-current-buffer)
-		 ("C-c : c" . bm-show-all)
+         ("C-c : C-#" . bm-remove-all-current-buffer)
+         ("C-c : c" . bm-show-all)
          ("C-c : C-c" . bm-show-all)
          ("C-c ," . bm-previous)
          ("C-c ." . bm-next)
@@ -184,23 +183,21 @@
          ("C-c : n" . bm-next)
          ("C-c : C-n" . bm-next)
          ("C-c : ." . bm-toggle)
-		 ("C-c : C-." . bm-toggle))
+         ("C-c : C-." . bm-toggle))
   :init
-  (custom-set-variables
-   '(bm-restore-repository-on-load t)
-   '(bm-repository-file "~/.emacs.d/bookmarks"))
+  (setq bm-restore-repository-on-load t
+        bm-repository-file "~/.emacs.d/bookmarks")
   :config
   (defface +bm-fringe-face
     '((t (:foreground "SkyBlue")))
     "Face for bookmark fringe"
     :group 'bm)
 
-  (custom-set-variables
-   '(bm-fringe-face '+bm-fringe-face)
-   '(bm-fringe-persistent-face '+bm-fringe-face)
-   '(bm-highlight-style 'bm-highlight-only-fringe)
-   '(bm-cycle-all-buffers t)
-   '(bm-buffer-persistence t))
+  (setq bm-fringe-face '+bm-fringe-face
+        bm-fringe-persistent-face '+bm-fringe-face
+        bm-highlight-style 'bm-highlight-only-fringe
+        bm-cycle-all-buffers t
+        bm-buffer-persistence t)
 
   (bm-repository-load)
 
@@ -326,7 +323,7 @@
          ("C-x C-c" . util/confirm-and-kill-terminal)
          ("C-x M-[" . previous-buffer)
          ("C-x M-]" . next-buffer)
-		 ("M-[" . tab-to-tab-stop)
+         ("M-[" . tab-to-tab-stop)
          ("C-x \"" . util/switch-to-scratch-other-frame)
          ("C-x |" . util/find-user-init-file)
          ("C-|" . util/switch-to-window)
@@ -357,10 +354,10 @@
   :config
   ;; File paths like `/sshx:user@remotehost|sudo:remotehost:/etc/dhcpd.conf`
   ;; will open remote files over multiple hops.
-  (custom-set-variables
+  (setq
    ;; useful variables for debugging tramp
-   ;; '(tramp-debug-buffer t)
-   ;; '(tramp-verbose 9)
-   '(tramp-default-method "scpx")))
+   ;; tramp-debug-buffer t
+   ;; tramp-verbose 9
+   tramp-default-method "scpx"))
 
 (provide 'config-utils)
