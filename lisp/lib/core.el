@@ -127,8 +127,8 @@ for byte compilation.")
 (defun core--get-elisp-dirs ()
   "Get a list of absolute paths of directories containing Emacs
 Lisp files for byte compilation."
-  (mapcar (lambda (x) (concat user-emacs-directory x))
-          core--elisp-dir-paths))
+  (cl-loop for dir in core--elisp-dir-paths
+           collect (concat user-emacs-directory dir)))
 
 (defun core/autoremove-packages ()
   "Delete unused packages."
@@ -146,8 +146,9 @@ Lisp files for byte compilation."
 (defun core/clean-byte-compiled-files ()
   "Delete all compiled Emacs Lisp files."
   (interactive)
-  (let* ((recursive-elc-files (mapcar (lambda (x) (directory-files-recursively x "\\.elc$"))
-                                      (core--get-elisp-dirs)))
+  (let* ((recursive-elc-files
+          (cl-loop for dir in (core--get-elisp-dirs)
+                   collect (directory-files-recursively dir "\\.elc$")))
          (elc-files (apply #'append recursive-elc-files)))
     (unless (cl-loop for path in elc-files
                      if (file-exists-p path)
