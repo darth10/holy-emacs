@@ -49,47 +49,42 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
         help-text)
        "\n\n")))
 
+  ;;; vars set before loading theme
+  (setq solarized-use-variable-pitch nil
+        solarized-scale-org-headlines nil
+        x-underline-at-descent-line t
+        ansi-color-names-vector
+        ["#242424" "#e5786d" "#95e454" "#cae682"
+         "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
+
   (custom-set-variables
-   ;;; vars set before loading theme
-   '(solarized-use-variable-pitch nil)
-   '(solarized-scale-org-headlines nil)
-   '(x-underline-at-descent-line t)
-   '(ansi-color-names-vector
-     ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
    '(custom-enabled-themes (quote (solarized-dark)))
    '(custom-safe-themes
-     (quote
-      ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
-   ;;; vars set after loading theme
-   '(fancy-splash-image nil)
-   '(inhibit-default-init t)
-   '(inhibit-startup-screen t)
-   '(indent-tabs-mode t)
-   '(split-height-threshold 40)
-   '(split-width-threshold nil))
-  (setq initial-scratch-message (+theme-get-scratch-message))
+     (quote ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4"
+             default))))
+
+  ;;; vars set after loading theme
+  (setq fancy-splash-image nil
+        inhibit-default-init t
+        inhibit-startup-screen t
+        indent-tabs-mode t
+        split-height-threshold 40
+        split-width-threshold nil
+        initial-scratch-message (+theme-get-scratch-message))
 
   :config
-  (custom-set-faces
-   '(button ((t (:background "green" :foreground "black"))))
-   '(diff-hl-insert ((t (:background "ForestGreen" :foreground "ForestGreen"))))
-   '(diff-hl-change ((t (:background "DimGray" :foreground "DimGray"))))
-   '(diff-hl-delete ((t (:background "Orangered3" :foreground "Orangered3"))))
-   '(doom-modeline-panel ((t (:inherit mode-line-emphasis))))
-   '(doom-modeline-buffer-modified ((t (:inherit (warning bold) :background nil))))
-   '(doom-modeline-inactive-bar ((t (:inherit mode-line-emphasis :foreground "#073642" :background "#073642"))))
-   '(escape-glyph ((t (:foreground "#ddaa6f" :weight bold))))
-   '(header-line ((((class color) (min-colors 89)) (:background "#303030" :foreground "#e7f6da"))))
-   '(helm-ff-directory ((t (:background "LightGray" :foreground "black"))))
-   '(helm-swoop-target-word-face ((t (:foreground "green"))))
-   '(isearch ((t (:background "green" :foreground "black"))))
-   '(lazy-highlight ((((class color) (min-colors 89)) (:background "#384048" :foreground "#a0a8b0"))))
-   '(minibuffer-prompt ((t (:foreground "green"))))
-   ;; #073642 is solarized active mode-line color
-   '(mode-line ((nil (:box nil :overline "#073642" :underline "#073642"))))
-   '(mode-line-inactive ((nil (:box nil :background "#073642" :overline "#073642" :underline "#073642"))))
-   '(region ((t (:background "white" :foreground "black"))))
-   '(show-paren-match ((t (:background "Dodgerblue1" :foreground "white" :weight extra-bold)))))
+
+  (face-spec-set 'escape-glyph '((t (:foreground "#ddaa6f" :weight bold))))
+  (face-spec-set 'header-line '((((class color) (min-colors 89)) (:background "#303030" :foreground "#e7f6da"))))
+  (face-spec-set 'helm-ff-directory '((t (:background "LightGray" :foreground "black"))))
+  (face-spec-set 'helm-swoop-target-word-face '((t (:foreground "green"))))
+  (face-spec-set 'lazy-highlight '((((class color) (min-colors 89)) (:background "#384048" :foreground "#a0a8b0"))))
+  (face-spec-set 'minibuffer-prompt '((t (:foreground "green"))))
+  ;; #073642 is solarized active mode-line color
+  (face-spec-set 'mode-line '((nil (:box nil :overline "#073642" :underline "#073642"))))
+  (face-spec-set 'mode-line-inactive '((nil (:box nil :background "#073642" :overline "#073642" :underline "#073642"))))
+  (face-spec-set 'region '((t (:background "white" :foreground "black"))))
+  (face-spec-set 'show-paren-match '((t (:background "Dodgerblue1" :foreground "white" :weight extra-bold))))
 
   (defface fringe-highlight-face
     '((t (:foreground "yellow")))
@@ -118,42 +113,37 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
     (set-frame-font config-custom-font nil t)
     (add-to-list 'default-frame-alist
                  '(font . "-MS  -Consolas-normal-normal-normal-*-20-*-*-*-m-0-iso10646-1"))
-    (custom-set-faces
-     '(default ((t (:height 148 :weight normal :width normal)))))))
+    (face-spec-set 'default '((t (:height 148 :weight normal :width normal))))))
 
 (use-package rainbow-delimiters
   :ensure t
   :init
-  (custom-set-variables
-   '(rainbow-delimiters-highlight-braces-p nil)
-   '(rainbow-delimiters-highlight-brackets-p nil))
+  (setq rainbow-delimiters-highlight-braces-p nil
+        rainbow-delimiters-highlight-brackets-p nil)
   :config
-  (custom-set-faces
-   '(rainbow-delimiters-depth-1-face ((t (:foreground "light sky blue"))))
-   '(rainbow-delimiters-depth-2-face ((t (:foreground "royal blue"))))
-   '(rainbow-delimiters-depth-3-face ((t (:foreground "medium orchid"))))
-   '(rainbow-delimiters-depth-4-face ((t (:foreground "dark orange"))))
-   '(rainbow-delimiters-depth-5-face ((t (:foreground "yellow"))))
-   '(rainbow-delimiters-depth-6-face ((t (:foreground "lawn green"))))
-   '(rainbow-delimiters-depth-7-face ((t (:foreground "light sky blue"))))
-   '(rainbow-delimiters-depth-8-face ((t (:foreground "royal blue"))))
-   '(rainbow-delimiters-depth-9-face ((t (:foreground "royal blue"))))
-   '(rainbow-delimiters-unmatched-face ((t (:foreground "medium orchid")))))
+  (face-spec-set 'rainbow-delimiters-depth-1-face '((t (:foreground "light sky blue"))))
+  (face-spec-set 'rainbow-delimiters-depth-2-face '((t (:foreground "royal blue"))))
+  (face-spec-set 'rainbow-delimiters-depth-3-face '((t (:foreground "medium orchid"))))
+  (face-spec-set 'rainbow-delimiters-depth-4-face '((t (:foreground "dark orange"))))
+  (face-spec-set 'rainbow-delimiters-depth-5-face '((t (:foreground "yellow"))))
+  (face-spec-set 'rainbow-delimiters-depth-6-face '((t (:foreground "lawn green"))))
+  (face-spec-set 'rainbow-delimiters-depth-7-face '((t (:foreground "light sky blue"))))
+  (face-spec-set 'rainbow-delimiters-depth-8-face '((t (:foreground "royal blue"))))
+  (face-spec-set 'rainbow-delimiters-depth-9-face '((t (:foreground "royal blue"))))
+  (face-spec-set 'rainbow-delimiters-unmatched-face '((t (:foreground "medium orchid"))))
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 
 (use-package yascroll
   :ensure t
   :config
-  (custom-set-faces
-   '(yascroll:thumb-fringe ((t (:background "lawn green" :foreground "lawn green")))))
+  (face-spec-set 'yascroll:thumb-fringe '((t (:background "lawn green" :foreground "lawn green"))))
   (global-yascroll-bar-mode 1))
 
 (use-package highlight
   :ensure t
   :defer 2
   :config
-  (custom-set-faces
-   '(highlight ((t (:background "#454545" :foreground "#ffffff"))))))
+  (face-spec-set 'highlight '((t (:background "#454545" :foreground "#ffffff")))))
 
 (use-package hl-line
   :bind (("C-' l" . hl-line-mode)
@@ -164,8 +154,7 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
   (add-hook 'org-mode-hook 'hl-line-mode)
   (add-hook 'dired-mode-hook 'hl-line-mode)
   :config
-  (custom-set-faces
-   '(hl-line ((t (:background "gray27" :foreground "green"))))))
+  (face-spec-set 'hl-line '((t (:background "gray27" :foreground "green")))))
 
 (use-package highlight-symbol
   :ensure t
@@ -173,8 +162,7 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
   :bind (("C-' ." . highlight-symbol-mode)
          ("C-' C-." . highlight-symbol-mode))
   :config
-  (custom-set-faces
-   '(highlight-symbol-face ((t (:foreground "green")))))
+  (face-spec-set 'highlight-symbol-face '((t (:foreground "green"))))
   (add-hook 'prog-mode-hook 'highlight-symbol-mode))
 
 (use-package display-line-numbers
@@ -225,25 +213,35 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
   (setq nlinum-format-function '+nlinum-format-fn)
 
   (use-package nlinum-hl
-	:ensure t
-	:if (version< emacs-version "26.0.50")
-	:config
-	(advice-add 'set-frame-font :after 'nlinum-hl-flush-all-windows)))
+    :ensure t
+    :if (version< emacs-version "26.0.50")
+    :config
+    (advice-add 'set-frame-font :after 'nlinum-hl-flush-all-windows)))
 
 (use-package diff-hl
   :ensure t
   :defer 2
   :config
+  (setq diff-hl-margin-symbols-alist '((insert . " ")
+                                       (delete . " ")
+                                       (change . " ")
+                                       (unknown . " ")
+                                       (ignored . " ")))
+
   (global-diff-hl-mode 1)
   (diff-hl-margin-mode t)
+
+  (face-spec-set 'diff-hl-insert '((t (:background "ForestGreen" :foreground "ForestGreen"))))
+  (face-spec-set 'diff-hl-change '((t (:background "DimGray" :foreground "DimGray"))))
+  (face-spec-set 'diff-hl-delete '((t (:background "Orangered3" :foreground "Orangered3"))))
 
   ;; Since both nlinum and diff-hl use the margin, diff-hl
   ;; seems to overwrite line numbers. To get around this,
   ;; enable nlinum-mode again if it's active.
   (use-package nlinum
-	:if (version< emacs-version "26.0.50")
-	:config
-	(+nlinum-refresh))
+    :if (version< emacs-version "26.0.50")
+    :config
+    (+nlinum-refresh))
 
   (use-package magit
     :config

@@ -95,8 +95,7 @@
   :ensure t
   :defer 2
   :config
-  (custom-set-faces
-   '(eval-sexp-fu-flash ((t (:background "green" :foreground "black")))))
+  (face-spec-set 'eval-sexp-fu-flash '((t (:background "green" :foreground "black"))))
 
   (defun +eval-sexp-fu-init ()
     (require 'eval-sexp-fu))

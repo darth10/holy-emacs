@@ -257,8 +257,7 @@
          ("C-x <C-return>" . mc/edit-lines)
          ("C-x RET RET" . set-rectangular-region-anchor))
   :init
-  (custom-set-faces
-   '(mc/cursor-bar-face ((t (:height 1 :background "green"))))))
+  (face-spec-set 'mc/cursor-bar-face '((t (:height 1 :background "green")))))
 
 (use-package ws-butler
   :ensure t
@@ -273,7 +272,6 @@
   :config
   (desktop-save-mode t))
 
-(defconst backup-dir "~/.emacs.bak/")
 (use-package simple
   :bind (("C-' w" . toggle-truncate-lines)
          ("C-' C-w" . toggle-truncate-lines)
@@ -283,20 +281,23 @@
          ("C-c C-\\" . just-one-space)
          ("C-c \\" . just-one-space))
   :config
-  (custom-set-variables
-   '(auto-save-file-name-transforms `((".*" ,backup-dir t)))
-   '(auto-save-list-file-prefix backup-dir)
-   '(backup-directory-alist `((".*" . ,backup-dir)))
-   '(create-lockfiles nil))
+  (defconst +simple-backup-dir
+	(concat user-emacs-directory "var/backup"))
+  (setq auto-save-file-name-transforms `((".*" ,+simple-backup-dir t))
+        auto-save-list-file-prefix +simple-backup-dir
+        backup-directory-alist `((".*" . ,+simple-backup-dir))
+        create-lockfiles nil)
   (setq-default truncate-lines t)
   (column-number-mode 1))
 
 (use-package isearch
   :bind (("M-s s" . isearch-forward)
-		 ("M-s r" . isearch-backward)
-		 :map isearch-mode-map
-		 ("<f3>" . isearch-repeat-forward)
-		 ("S-<f3>" . isearch-repeat-backward)))
+         ("M-s r" . isearch-backward)
+         :map isearch-mode-map
+         ("<f3>" . isearch-repeat-forward)
+         ("S-<f3>" . isearch-repeat-backward))
+  :config
+  (face-spec-set 'isearch '((t (:background "green" :foreground "black")))))
 
 (use-package util
   :load-path "lisp/lib/"

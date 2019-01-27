@@ -29,7 +29,7 @@
                         'compilation-mode
                         'debugger-mode
                         'dired-mode
-						'edebug-mode
+                        'edebug-mode
                         'ediff-mode
                         'eww-mode
                         'geben-breakpoint-list-mode
@@ -49,11 +49,14 @@
   :hook (after-init . doom-modeline-init)
   :config
 
+  (face-spec-set 'doom-modeline-panel '((t (:inherit mode-line-emphasis))))
+  (face-spec-set 'doom-modeline-buffer-modified '((t (:inherit (warning bold) :background nil))))
+  (face-spec-set 'doom-modeline-inactive-bar '((t (:inherit mode-line-emphasis :foreground "#073642" :background "#073642"))))
+
   ;; modeline on Windows needs a bit more height
   (let* ((modeline-height (if (core/is-windows-p) 40 34)))
-	(custom-set-variables
-	 '(doom-modeline-height `,modeline-height)
-	 '(doom-modeline-bar-width 11)))
+    (setq doom-modeline-height modeline-height
+          doom-modeline-bar-width 11))
 
   (defvar modeline-mode-string " ")
   (doom-modeline-def-segment cur-mode
@@ -70,9 +73,8 @@
          ("C-x C-5 C-1" . delete-other-frames)
          ("C-x C-5 C-2" . make-frame-command))
   :init
-  (custom-set-variables
-   '(echo-keystrokes 0.05)
-   '(cursor-in-non-selected-windows nil))
+  (setq echo-keystrokes 0.05
+        cursor-in-non-selected-windows nil)
 
   :config
   (defun configure-cursor ()
@@ -96,14 +98,13 @@
       (progn
         (unless (eq prev-cur-color cur-color)
           (set-cursor-color cur-color)
-		  (set-face-attribute 'doom-modeline-bar nil :background cur-color)
-		  (doom-modeline-refresh-bars))
+          (set-face-attribute 'doom-modeline-bar nil :background cur-color)
+          (doom-modeline-refresh-bars))
 
         (setq cursor-type cur-type)
         (setq modeline-mode-string next-mode-string))))
 
-  (custom-set-faces
-   '(cursor ((t (:background "green")))))
+  (face-spec-set 'cursor '((t (:background "green"))))
 
   (add-hook 'post-command-hook 'configure-cursor)
   (blink-cursor-mode t))
