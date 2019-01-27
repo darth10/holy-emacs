@@ -19,15 +19,14 @@
          ("C-c C-n C-c" . haskell-process-cabal-build)
          ("C-c C-n c" . haskell-process-cabal))
   :config
-  (custom-set-variables
-   '(haskell-tags-on-save t)
-   '(haskell-process-auto-import-loaded-modules t)
-   '(haskell-process-log t)
-   '(haskell-process-show-debug-tips nil)
-   '(haskell-compile-cabal-build-command "cd %s && stack build")
-   '(haskell-process-type 'stack-ghci)
-   '(haskell-process-path-ghci "stack")
-   '(haskell-process-suggest-remove-import-lines t))
+  (setq haskell-tags-on-save t
+        haskell-process-auto-import-loaded-modules t
+        haskell-process-log t
+        haskell-process-show-debug-tips nil
+        haskell-compile-cabal-build-command "cd %s && stack build"
+        haskell-process-type 'stack-ghci
+        haskell-process-path-ghci "stack"
+        haskell-process-suggest-remove-import-lines t)
 
   ;; GHC 8.2.1+ workarounds
   (setq haskell-process-args-ghci
@@ -48,8 +47,8 @@
   (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 
   (use-package exec-path-from-shell
-	:defer 2
-	:unless (core/is-windows-p)
+    :defer 2
+    :unless (core/is-windows-p)
     :config
     (exec-path-from-shell-copy-env "STACK_ROOT"))
 
