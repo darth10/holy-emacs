@@ -13,9 +13,7 @@
 
   (defun +elisp-compile-file ()
 	(interactive)
-	(if (file-exists-p (concat buffer-file-name "c"))
-		(byte-recompile-file buffer-file-name)
-	  (byte-compile-file buffer-file-name)))
+	(core-compile-file buffer-file-name))
 
   (bind-key "C-c k" '+elisp-compile-file emacs-lisp-mode-map)
   (bind-key "C-c C-k" '+elisp-compile-file emacs-lisp-mode-map))

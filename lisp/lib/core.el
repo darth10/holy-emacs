@@ -87,6 +87,12 @@ for byte compilation.")
   "Checks if package PKG needs to be installed."
   (not (package-installed-p pkg)))
 
+(defun core-compile-file (file)
+  "Compile/recompile an Emacs Lisp file."
+  (if (file-exists-p (concat file "c"))
+      (byte-recompile-file file)
+    (byte-compile-file file)))
+
 (defun core/initialize-packages ()
   "Initializes the package sub-system."
   (package-initialize)
