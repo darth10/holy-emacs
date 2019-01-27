@@ -4,7 +4,7 @@
   :ensure t
   :defer 5
   :bind (:map emmet-mode-keymap
-		 ("M-SPC" . emmet-expand-line))
+         ("M-SPC" . emmet-expand-line))
   :config
   (add-hook 'sgml-mode-hook 'emmet-mode)
   (add-hook 'css-mode-hook  'emmet-mode))
@@ -30,9 +30,8 @@
          ("\\.mustache\\'" . web-mode)
          ("\\.djhtml\\'" . web-mode))
   :config
-  (custom-set-variables
-   '(web-mode-enable-auto-quoting t)
-   '(web-mode-enable-auto-expanding t))
+  (setq web-mode-enable-auto-quoting t
+        web-mode-enable-auto-expanding t)
 
   (use-package smartparens
     :config
