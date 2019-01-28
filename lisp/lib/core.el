@@ -8,21 +8,23 @@
   (set-keyboard-coding-system  'utf-8)
   (set-selection-coding-system 'utf-8)
   (setq locale-coding-system   'utf-8)
-  (setq-default buffer-file-coding-system 'utf-8)
-  (setq-default tab-width 4)
 
-  (setq-default
-   left-fringe-width 8
-   right-fringe-width 8
-   frame-inhibit-implied-resize t
-   window-divider-default-places t
-   window-divider-default-bottom-width 0
-   window-divider-default-right-width 1
-   ;; JIT tweaks for font performance
-   jit-lock-defer-time nil
-   jit-lock-stealth-nice 0.1
-   jit-lock-stealth-time 0.2
-   jit-lock-stealth-verbose nil)
+  (setq-default buffer-file-coding-system 'utf-8
+                delete-trailing-lines t
+                indent-tabs-mode nil
+                tab-always-indent t
+                tab-width 4
+                left-fringe-width 8
+                right-fringe-width 8
+                frame-inhibit-implied-resize t
+                window-divider-default-places t
+                window-divider-default-bottom-width 0
+                window-divider-default-right-width 1
+                ;; JIT tweaks for font performance
+                jit-lock-defer-time nil
+                jit-lock-stealth-nice 0.1
+                jit-lock-stealth-time 0.2
+                jit-lock-stealth-verbose nil)
 
   ;; modify GC limits for startup
   (defvar core--file-name-handler-alist file-name-handler-alist)

@@ -67,7 +67,6 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
   (setq fancy-splash-image nil
         inhibit-default-init t
         inhibit-startup-screen t
-        indent-tabs-mode t
         split-height-threshold 40
         split-width-threshold nil
         initial-scratch-message (+theme-get-scratch-message))
