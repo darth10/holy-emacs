@@ -126,7 +126,7 @@ for byte compilation.")
       (byte-recompile-file file)
     (byte-compile-file file)))
 
-(defun core-load-var-dir ()
+(defun core--load-var-dir ()
   "Loads all Emacs Lisp files from directory CORE-VAR-DIR-PATH."
   (let* ((var-dir (concat user-emacs-directory core-var-dir-path))
          (files (directory-files var-dir))
@@ -171,7 +171,7 @@ for byte compilation.")
   (require 'core-keys)
   (require 'core-extensions)
 
-  (add-hook 'after-init-hook #'core-load-var-dir)
+  (add-hook 'after-init-hook #'core--load-var-dir)
   (advice-add 'customize-save-variable :after
               #'(lambda (_variable _value)
                   (core:compile-file core-custom-defs-file-path))))
