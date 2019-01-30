@@ -7,7 +7,7 @@
 (core:defsource '("org-elpa"  . "https://orgmode.org/elpa/"))
 (core:defsource '("marmalade" . "https://marmalade-repo.org/packages/"))
 (core:defsource '("melpa"     . "https://melpa.org/packages/"))
-(core/initialize-packages)
+(core:initialize-packages)
 (core/initialize-modules)
 
 ;;; load before language configurations

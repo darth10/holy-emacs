@@ -141,7 +141,7 @@ for byte compilation.")
              collect pkg
              and do (load pkg))))
 
-(defun core/initialize-packages ()
+(defun core:initialize-packages ()
   "Initializes the package sub-system."
   (package-initialize)
 
