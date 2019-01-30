@@ -87,12 +87,6 @@
 (defconst holy-emacs-version "0.1.1"
   "Version of holy-emacs.")
 
-(defcustom core-enable-god-mode t
- "When nil, do not enable `god-mode` and relevant bindings."
-  :type 'boolean
-  :safe #'booleanp
-  :group 'holy-emacs)
-
 (defconst core-modules-path
   "lisp/config/"
   "Relative path of all modules.")
@@ -109,10 +103,6 @@
   (list "elpa" "lisp/lib/" core-modules-path core-var-dir-path)
   "List of relative paths containing Emacs Lisp files
 for byte compilation.")
-
-(defconst core-custom-defs-file-path
-  (concat user-emacs-directory core-var-dir-path "custom-defs.el")
-  "Absolute path to save customize definitions.")
 
 (defun core:is-windows-p ()
   "Checks if the current OS is Windows."
@@ -166,29 +156,19 @@ for byte compilation.")
     (require 'use-package))
   (require 'bind-key))
 
-(defun core--initialize-custom-advice ()
-  "Add advice functions for writing to `custom-file`."
-  (cl-flet
-      ((recompile-custom (&rest _args)
-                         (core:compile-file core-custom-defs-file-path)))
-    (advice-add 'customize-save-variable :after #'recompile-custom)
-    (advice-add 'custom-variable-reset-standard :after #'recompile-custom)
-    (advice-add 'Custom-save :after #'recompile-custom)
-    (advice-add 'Custom-rest-saved :after #'recompile-custom)))
-
 (defun core:initialize-modules ()
   "Initializes global load path and module sub-system."
-  (setq custom-file core-custom-defs-file-path)
   ;; set load-path
   (cl-loop for path in (core--get-elisp-dirs)
            collect path
            and do (add-to-list 'load-path path))
 
   (require 'core-keys)
+  (require 'core-customize)
+  (require 'core-ui)
   (require 'core-extensions)
 
-  (core--load-var-dir)
-  (core--initialize-custom-advice))
+  (core--load-var-dir))
 
 (defun core/upgrade-packages ()
   "Upgrade all packages."

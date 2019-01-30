@@ -3,10 +3,6 @@
 (use-package abbrev
   :defer 2)
 
-(use-package cus-edit
-  :bind (:map custom-mode-map
-         ("C-s" . Custom-save)))
-
 (use-package anzu
   :ensure t
   :defer t
