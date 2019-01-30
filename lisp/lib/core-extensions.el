@@ -42,8 +42,8 @@
       (:test-all        . core-lang-test-all-keys)))
 
 (defun core--bind-language-keys-form (args)
-  "Internal function to generate core-bind-keys forms. Should be used
-within a use-package handler definition."
+  "Internal function to generate `core-bind-keys` forms. Should be used
+within a `use-package` handler definition."
   (let (map
         filter)
 
@@ -87,7 +87,7 @@ within a use-package handler definition."
          (core--bind-language-keys-form next))))))
 
 (defun core--lang-extension-normalizer (name keyword args)
-  "Normalize arguments for use-package :lang extension."
+  "Normalize arguments for `use-package` :lang extension."
   (let ((arg args)
         args*)
     (while arg
@@ -118,7 +118,7 @@ within a use-package handler definition."
     args*))
 
 (defun core--lang-extension-handler (name _keyword args rest state)
-  "Generate forms for use-package :lang extension."
+  "Generate forms for `use-package` :lang extension."
   (use-package-concat
    (use-package-process-keywords name rest state)
    `(,@(cl-mapcan
