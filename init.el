@@ -8,7 +8,7 @@
 (core:defsource '("marmalade" . "https://marmalade-repo.org/packages/"))
 (core:defsource '("melpa"     . "https://melpa.org/packages/"))
 (core:initialize-packages)
-(core/initialize-modules)
+(core:initialize-modules)
 
 ;;; load before language configurations
 (require 'config-company)

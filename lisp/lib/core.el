@@ -160,7 +160,7 @@ for byte compilation.")
     (require 'use-package))
   (require 'bind-key))
 
-(defun core/initialize-modules ()
+(defun core:initialize-modules ()
   "Initializes global load path and module sub-system."
   (setq custom-file core-custom-defs-file-path)
   ;; set load-path
