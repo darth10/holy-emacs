@@ -35,6 +35,9 @@ This has the same effect as using the meta (<kbd>M-</kbd>) modifier.
 * <kbd>M-10 C-n</kbd> becomes <kbd>10n</kbd>.
 * <kbd>.</kbd> or <kbd>z</kbd> will repeat the last command.
 
+If you prefer to not use `god-mode`, toggle the `core-enable-god-mode` variable through 
+`M-x customize-group RET holy-emacs RET`.
+
 ## Overridden default key bindings
 
 Some of the default Emacs key bindings are changed, as follows.

@@ -87,6 +87,12 @@
 (defconst holy-emacs-version "0.1.1"
   "Version of holy-emacs.")
 
+(defcustom core-enable-god-mode t
+ "When nil, do not enable `god-mode` and relevant bindings."
+  :type 'boolean
+  :safe #'booleanp
+  :group 'holy-emacs)
+
 (defconst core-modules-path
   "lisp/config/"
   "Relative path of all modules.")

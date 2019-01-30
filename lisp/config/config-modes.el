@@ -2,6 +2,7 @@
 
 (use-package god-mode
   :ensure t
+  :if core-enable-god-mode
   :bind (("<escape>" . god-local-mode)
          ("S-<escape>" . god-mode-all)
          ("M-i" . god-local-mode)
