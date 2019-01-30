@@ -120,7 +120,7 @@ for byte compilation.")
   "Checks if package PKG needs to be installed."
   (not (package-installed-p pkg)))
 
-(defun core-compile-file (file)
+(defun core:compile-file (file)
   "Compile/recompile an Emacs Lisp file."
   (if (file-exists-p (concat file "c"))
       (byte-recompile-file file)
@@ -174,7 +174,7 @@ for byte compilation.")
   (add-hook 'after-init-hook #'core-load-var-dir)
   (advice-add 'customize-save-variable :after
               #'(lambda (_variable _value)
-                  (core-compile-file core-custom-defs-file-path))))
+                  (core:compile-file core-custom-defs-file-path))))
 
 (defun core/upgrade-packages ()
   "Upgrade all packages."
