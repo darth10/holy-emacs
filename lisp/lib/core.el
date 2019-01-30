@@ -112,7 +112,7 @@ for byte compilation.")
   "Checks if the current OS is Windows."
   (equal system-type 'windows-nt))
 
-(defun core/defsource (name-uri-cons)
+(defun core:defsource (name-uri-cons)
   "Add a source name and URI pair NAME-URI-CONS to the list of package sources."
   (add-to-list 'package-archives name-uri-cons t))
 
