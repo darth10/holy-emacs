@@ -166,6 +166,16 @@ for byte compilation.")
     (require 'use-package))
   (require 'bind-key))
 
+(defun core--initialize-custom-advice ()
+  "Add advice functions for writing to `custom-file`."
+  (cl-flet
+      ((recompile-custom (&rest _args)
+                         (core:compile-file core-custom-defs-file-path)))
+    (advice-add 'customize-save-variable :after #'recompile-custom)
+    (advice-add 'custom-variable-reset-standard :after #'recompile-custom)
+    (advice-add 'Custom-save :after #'recompile-custom)
+    (advice-add 'Custom-rest-saved :after #'recompile-custom)))
+
 (defun core:initialize-modules ()
   "Initializes global load path and module sub-system."
   (setq custom-file core-custom-defs-file-path)
@@ -178,12 +188,7 @@ for byte compilation.")
   (require 'core-extensions)
 
   (core--load-var-dir)
-  (advice-add 'customize-save-variable :after
-              #'(lambda (_variable _value)
-                  (core:compile-file core-custom-defs-file-path)))
-  (advice-add 'Custom-save :after
-              #'(lambda (&rest _args)
-                  (core:compile-file core-custom-defs-file-path))))
+  (core--initialize-custom-advice))
 
 (defun core/upgrade-packages ()
   "Upgrade all packages."
