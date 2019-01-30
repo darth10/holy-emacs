@@ -12,7 +12,6 @@
 (use-package rainbow-mode
   :ensure t
   :defer 5
-  :diminish rainbow-mode
   :config
   (add-hook 'css-mode-hook 'rainbow-mode)
   (add-hook 'web-mode-hook 'rainbow-mode))

@@ -14,7 +14,6 @@
 (use-package clj-refactor
   :ensure t
   :defer 5
-  :diminish clj-refactor-mode
   :config
   (setq cljr-warn-on-eval nil)
 

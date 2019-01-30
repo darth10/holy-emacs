@@ -19,7 +19,6 @@
   (bind-key "C-c C-k" '+elisp-compile-file emacs-lisp-mode-map))
 
 (use-package eldoc
-  :diminish eldoc-mode
   :config
   (add-hook 'emacs-lisp-mode-hook 'eldoc-mode)
   (add-hook 'ielm-mode-hook 'eldoc-mode)

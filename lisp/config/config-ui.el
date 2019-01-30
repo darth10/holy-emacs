@@ -157,7 +157,6 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
 
 (use-package highlight-symbol
   :ensure t
-  :diminish highlight-symbol-mode
   :bind (("C-' ." . highlight-symbol-mode)
          ("C-' C-." . highlight-symbol-mode))
   :config

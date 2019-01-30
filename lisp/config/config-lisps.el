@@ -28,7 +28,6 @@
 (use-package paredit
   :ensure t
   :defer 2
-  :diminish paredit-mode
   :bind (("C-' (" . paredit-mode)
          ("C-' C-(" . paredit-mode))
   :config

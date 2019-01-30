@@ -1,8 +1,7 @@
 ;;; Configuration for utility packages
 
 (use-package abbrev
-  :defer 2
-  :diminish abbrev-mode)
+  :defer 2)
 
 (use-package anzu
   :ensure t
@@ -57,8 +56,7 @@
   :ensure t)
 
 (use-package wide-column
-  :ensure t
-  :diminish wide-column-mode)
+  :ensure t)
 
 (use-package grep
   :bind (("M-s G" . grep)
@@ -88,7 +86,6 @@
     :bind ("C-c C-j" . direx:jump-to-directory-other-window)))
 
 (use-package hideshow
-  :diminish hs-minor-mode
   :bind (:map hs-minor-mode-map
               ("C-c d" . hs-hide-block)
               ("C-c a d" . hs-hide-all)
@@ -110,7 +107,6 @@
 (use-package yasnippet
   :ensure t
   :defer 2
-  :diminish yas-minor-mode
   :bind (("C-' C-y" . yas-global-mode)
          ("C-' y" . yas-global-mode))
   :config
@@ -123,7 +119,6 @@
 (use-package editorconfig
   :ensure t
   :defer 2
-  :diminish editorconfig-mode
   :config
   (editorconfig-mode 1))
 
@@ -149,12 +144,10 @@
 (use-package smartparens
   :ensure t
   :defer 2
-  :diminish smartparens-mode
   :config
   (add-hook 'prog-mode-hook 'smartparens-mode))
 
 (use-package subword
-  :diminish subword-mode
   :bind (("C-' c" . subword-mode)
          ("C-' C-c" . subword-mode)))
 
@@ -261,7 +254,6 @@
 
 (use-package ws-butler
   :ensure t
-  :diminish ws-butler-mode
   :commands (modes/init-ws-butler-mode)
   :bind (("C-' d" . ws-butler-global-mode)
          ("C-' C-d" . ws-butler-global-mode))

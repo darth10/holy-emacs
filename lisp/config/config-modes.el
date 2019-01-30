@@ -2,7 +2,6 @@
 
 (use-package god-mode
   :ensure t
-  :diminish god-local-mode
   :bind (("<escape>" . god-local-mode)
          ("S-<escape>" . god-mode-all)
          ("M-i" . god-local-mode)
@@ -111,7 +110,6 @@
 
 (use-package which-key
   :ensure t
-  :diminish which-key-mode
   :bind (("C-' k" . which-key-mode)
          ("C-' C-k" . which-key-mode))
   :init

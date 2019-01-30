@@ -14,7 +14,6 @@
 
   (use-package tern
     :ensure t
-    :diminish tern-mode
     :config
     (add-hook 'js2-mode-hook 'tern-mode)
 

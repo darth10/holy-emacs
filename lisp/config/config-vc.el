@@ -21,7 +21,6 @@
 
 (use-package magit
   :ensure t
-  :diminish auto-revert-mode
   :bind (("C-: :" . magit-status)
          ("C-: C-:" . magit-status)
          ("C-: C-s" . magit-status)

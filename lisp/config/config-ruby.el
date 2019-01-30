@@ -28,8 +28,7 @@
 
 (use-package ruby-end
   :ensure t
-  :defer 5
-  :diminish ruby-end-mode)
+  :defer 5)
 
 (use-package rinari
   :ensure t
