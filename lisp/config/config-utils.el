@@ -132,7 +132,7 @@
   :bind ("ESC M-x" . lacarte-execute-menu-command))
 
 (use-package woman
-  :unless (core/is-windows-p)
+  :unless (core:is-windows-p)
   :bind ("C-x ?" . woman))
 
 (use-package expand-region
@@ -240,7 +240,7 @@
 
 (use-package exec-path-from-shell
   :ensure t
-  :unless (core/is-windows-p)
+  :unless (core:is-windows-p)
   :defer 2
   :init
   (setq exec-path-from-shell-check-startup-files nil)
@@ -344,7 +344,7 @@
 
   (util/kill-line-utils-init)
 
-  (when (core/is-windows-p)     ;; Windows-only config
+  (when (core:is-windows-p)     ;; Windows-only config
     (setq w32-get-true-file-attributes nil)
     (w32-send-sys-command 61488)))
 

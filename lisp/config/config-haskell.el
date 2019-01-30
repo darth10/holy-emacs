@@ -48,7 +48,7 @@
 
   (use-package exec-path-from-shell
     :defer 2
-    :unless (core/is-windows-p)
+    :unless (core:is-windows-p)
     :config
     (exec-path-from-shell-copy-env "STACK_ROOT"))
 

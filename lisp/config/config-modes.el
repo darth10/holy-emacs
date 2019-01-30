@@ -54,7 +54,7 @@
   (face-spec-set 'doom-modeline-inactive-bar '((t (:inherit mode-line-emphasis :foreground "#073642" :background "#073642"))))
 
   ;; modeline on Windows needs a bit more height
-  (let* ((modeline-height (if (core/is-windows-p) 40 34)))
+  (let* ((modeline-height (if (core:is-windows-p) 40 34)))
     (setq doom-modeline-height modeline-height
           doom-modeline-bar-width 11))
 

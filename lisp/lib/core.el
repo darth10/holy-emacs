@@ -108,7 +108,7 @@ for byte compilation.")
   (concat user-emacs-directory core-var-dir-path "custom-defs.el")
   "Absolute path to save customize definitions.")
 
-(defun core/is-windows-p ()
+(defun core:is-windows-p ()
   "Checks if the current OS is Windows."
   (equal system-type 'windows-nt))
 
