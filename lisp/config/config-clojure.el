@@ -1,13 +1,11 @@
 ;;; Configuration for Clojure
 
-(use-package subword
-  :diminish subword-mode)
-
 (use-package clojure-mode
   :ensure t
   :mode ("\\.clj\\'" . clojure-mode)
   :config
-  (add-hook 'clojure-mode-hook 'subword-mode))
+  (use-package subword
+    (add-hook 'clojure-mode-hook #'subword-mode)))
 
 (use-package clojurescript-mode
   :ensure t
