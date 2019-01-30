@@ -171,9 +171,12 @@ for byte compilation.")
   (require 'core-keys)
   (require 'core-extensions)
 
-  (add-hook 'after-init-hook #'core--load-var-dir)
+  (core--load-var-dir)
   (advice-add 'customize-save-variable :after
               #'(lambda (_variable _value)
+                  (core:compile-file core-custom-defs-file-path)))
+  (advice-add 'Custom-save :after
+              #'(lambda (&rest _args)
                   (core:compile-file core-custom-defs-file-path))))
 
 (defun core/upgrade-packages ()
