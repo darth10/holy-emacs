@@ -21,14 +21,11 @@
 (use-package yascroll
   :ensure t
   :config
-  (face-spec-set 'yascroll:thumb-fringe '((t (:background "lawn green" :foreground "lawn green"))))
   (global-yascroll-bar-mode 1))
 
 (use-package highlight
   :ensure t
-  :defer 2
-  :config
-  (face-spec-set 'highlight '((t (:background "#454545" :foreground "#ffffff")))))
+  :defer 2)
 
 (use-package hl-line
   :bind (("C-' l" . hl-line-mode)
@@ -37,17 +34,16 @@
   :init
   (add-hook 'prog-mode-hook 'hl-line-mode)
   (add-hook 'org-mode-hook 'hl-line-mode)
-  (add-hook 'dired-mode-hook 'hl-line-mode)
-  :config
-  (face-spec-set 'hl-line '((t (:background "gray27" :foreground "green")))))
+  (add-hook 'dired-mode-hook 'hl-line-mode))
 
 (use-package highlight-symbol
   :ensure t
   :bind (("C-' ." . highlight-symbol-mode)
          ("C-' C-." . highlight-symbol-mode))
-  :config
-  (face-spec-set 'highlight-symbol-face '((t (:foreground "green"))))
-  (add-hook 'prog-mode-hook 'highlight-symbol-mode))
+  :commands (highlight-symbol-mode)
+  :init
+  (add-hook 'prog-mode-hook 'highlight-symbol-mode)
+  (add-hook 'conf-mode-hook 'highlight-symbol-mode))
 
 (use-package display-line-numbers
   :unless (version< emacs-version "26.0.50")

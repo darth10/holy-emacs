@@ -287,9 +287,7 @@
          ("M-s r" . isearch-backward)
          :map isearch-mode-map
          ("<f3>" . isearch-repeat-forward)
-         ("S-<f3>" . isearch-repeat-backward))
-  :config
-  (face-spec-set 'isearch '((t (:background "green" :foreground "black")))))
+         ("S-<f3>" . isearch-repeat-backward)))
 
 (use-package util
   :load-path "lisp/lib/"
