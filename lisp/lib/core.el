@@ -85,7 +85,7 @@
   "An opinionated and extensible Emacs configuration"
   :group 'emacs)
 
-(defconst holy-emacs-version "0.1.1"
+(defconst holy-emacs-version "0.1.2"
   "Version of holy-emacs.")
 
 (defconst core-modules-path
