@@ -1,15 +1,5 @@
 ;;; Configuration for UI/theme -*- lexical-binding: t; -*-
 
-(use-package font-utils
-  :ensure t
-  :config
-  (defconst config-custom-font "Consolas")
-  (when (font-utils-exists-p config-custom-font)
-    (set-frame-font config-custom-font nil t)
-    (add-to-list 'default-frame-alist
-                 '(font . "-MS  -Consolas-normal-normal-normal-*-20-*-*-*-m-0-iso10646-1"))
-    (face-spec-set 'default '((t (:height 148 :weight normal :width normal))))))
-
 (use-package rainbow-delimiters
   :ensure t
   :init

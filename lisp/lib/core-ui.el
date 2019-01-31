@@ -12,6 +12,9 @@ use any custom theme."
   :type '(repeat symbol)
   :group 'holy-emacs)
 
+(defconst core--default-font "Consolas"
+  "Default font.")
+
 (defconst core--scratch-message-logo-text
   "
       __          __
@@ -57,63 +60,61 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
       help-text)
      "\n\n")))
 
-(defface core-fringe-highlight-face
-  '((t (:foreground "yellow")))
+(defface core-fringe-highlight-face '((t (:foreground "yellow")))
   "Face for the fringe bitmaps."
   :group 'holy-emacs)
 
 (use-package solarized-theme
   :ensure t)
 
-(eval-and-compile
+(progn
+ (face-spec-set 'mode-line '((nil (:box nil :overline "#073642" :underline "#073642"))))
+ (face-spec-set 'mode-line-inactive '((nil (:box nil :background "#073642" :overline "#073642" :underline "#073642"))))
+ (face-spec-set 'show-paren-match '((t (:background "Dodgerblue1" :foreground "white" :weight extra-bold))))
 
-  (face-spec-set 'escape-glyph '((t (:foreground "#ddaa6f" :weight bold))))
-  (face-spec-set 'header-line '((((class color) (min-colors 89)) (:background "#303030" :foreground "#e7f6da"))))
-  (face-spec-set 'helm-ff-directory '((t (:background "LightGray" :foreground "black"))))
-  (face-spec-set 'helm-swoop-target-word-face '((t (:foreground "green"))))
-  (face-spec-set 'lazy-highlight '((((class color) (min-colors 89)) (:background "#384048" :foreground "#a0a8b0"))))
-  (face-spec-set 'minibuffer-prompt '((t (:foreground "green"))))
-  ;; #073642 is solarized active mode-line color
-  (face-spec-set 'mode-line '((nil (:box nil :overline "#073642" :underline "#073642"))))
-  (face-spec-set 'mode-line-inactive '((nil (:box nil :background "#073642" :overline "#073642" :underline "#073642"))))
-  (face-spec-set 'region '((t (:background "white" :foreground "black"))))
-  (face-spec-set 'show-paren-match '((t (:background "Dodgerblue1" :foreground "white" :weight extra-bold))))
+ (set-fringe-bitmap-face 'right-triangle 'core-fringe-highlight-face)
+ (set-fringe-bitmap-face 'right-arrow 'core-fringe-highlight-face)
+ (set-fringe-bitmap-face 'right-curly-arrow 'core-fringe-highlight-face)
+ (set-fringe-bitmap-face 'left-triangle 'core-fringe-highlight-face)
+ (set-fringe-bitmap-face 'left-arrow 'core-fringe-highlight-face)
+ (set-fringe-bitmap-face 'left-curly-arrow 'core-fringe-highlight-face)
+ (set-fringe-bitmap-face 'exclamation-mark 'core-fringe-highlight-face)
+ (set-fringe-bitmap-face 'question-mark 'core-fringe-highlight-face)
+ (set-fringe-bitmap-face 'empty-line 'core-fringe-highlight-face)
 
-  (set-fringe-bitmap-face 'right-triangle 'core-fringe-highlight-face)
-  (set-fringe-bitmap-face 'right-arrow 'core-fringe-highlight-face)
-  (set-fringe-bitmap-face 'right-curly-arrow 'core-fringe-highlight-face)
-  (set-fringe-bitmap-face 'left-triangle 'core-fringe-highlight-face)
-  (set-fringe-bitmap-face 'left-arrow 'core-fringe-highlight-face)
-  (set-fringe-bitmap-face 'left-curly-arrow 'core-fringe-highlight-face)
-  (set-fringe-bitmap-face 'exclamation-mark 'core-fringe-highlight-face)
-  (set-fringe-bitmap-face 'question-mark 'core-fringe-highlight-face)
-  (set-fringe-bitmap-face 'empty-line 'core-fringe-highlight-face)
+ (tool-bar-mode -1)
+ (menu-bar-mode -1)
+ (scroll-bar-mode -1)
+ (show-paren-mode 1)
 
-  (tool-bar-mode -1)
-  (menu-bar-mode -1)
-  (scroll-bar-mode -1)
-  (show-paren-mode 1)
+ ;;; vars set before loading theme
+ (setq solarized-use-variable-pitch nil
+       solarized-scale-org-headlines nil
+       x-underline-at-descent-line t
+       ansi-color-names-vector
+       ["#242424" "#e5786d" "#95e454" "#cae682"
+        "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
 
-  ;;; vars set before loading theme
-  (setq solarized-use-variable-pitch nil
-        solarized-scale-org-headlines nil
-        x-underline-at-descent-line t
-        ansi-color-names-vector
-        ["#242424" "#e5786d" "#95e454" "#cae682"
-         "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
+ (custom-set-variables
+  `(custom-enabled-themes (quote ,core-enabled-custom-themes))
+  '(custom-safe-themes
+    (quote ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4"
+            default))))
 
-  (custom-set-variables
-   `(custom-enabled-themes (quote ,core-enabled-custom-themes))
-   '(custom-safe-themes
-     (quote ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4"
-             default))))
+ ;;; vars set after loading theme
+ (setq fancy-splash-image nil
+       inhibit-default-init t
+       inhibit-startup-screen t
+       split-height-threshold 40
+       split-width-threshold nil
+       initial-scratch-message (core--get-scratch-message))
 
-  ;;; vars set after loading theme
-  (setq fancy-splash-image nil
-        inhibit-default-init t
-        inhibit-startup-screen t
-        split-height-threshold 40
-        split-width-threshold nil
-        initial-scratch-message (core--get-scratch-message)))
+ ;; customized font (other than core--default-font) will be
+ ;; overwritten if the package-selected-packages custom variable
+ ;; has not been written to custom-file.
+ (when (if (null (x-list-fonts core--default-font)) nil t)
+   (let ((font-height (if (core:is-windows-p) 134 148)))
+     (custom-set-faces
+      `(default ((t (:height ,font-height :family ,core--default-font :weight normal :width normal))))))))
 
 (provide 'core-ui)
