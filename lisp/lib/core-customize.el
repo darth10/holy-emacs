@@ -33,7 +33,7 @@ for the `holy-emacs` group and saves the resulting state."
          :map custom-theme-choose-mode-map
          ("C-s" . custom-theme-save)))
 
-(eval-and-compile
+(progn
   (setq custom-file core-custom-defs-file-path)
 
   (cl-flet
