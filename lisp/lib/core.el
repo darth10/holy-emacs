@@ -47,7 +47,6 @@
                 window-divider-default-places t
                 window-divider-default-bottom-width 0
                 window-divider-default-right-width 1
-                vc-handled-backends nil
                 ;; JIT tweaks for font performance
                 jit-lock-defer-time nil
                 jit-lock-stealth-nice 0.1
