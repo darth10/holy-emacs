@@ -1,3 +1,11 @@
+```
+     __          __
+    / /_  ____  / /_  __    ___  ____ ___  ____ ___________
+   / __ \/ __ \/ / / / /   / _ \/ __ ‘__ \/ __ ‘/ ___/ ___/
+  / / / / /_/ / / /_/ /   /  __/ / / / / / /_/ / /__(__  )
+ /_/ /_/\____/_/\__, /    \___/_/ /_/ /_/\__,_/\___/____/
+               /____/
+```
 ## Overview
 
 * Support for editing/debugging Clojure, Emacs Lisp, Scheme, C#, JavaScript, Haskell, Python, Ruby, PHP and C.
