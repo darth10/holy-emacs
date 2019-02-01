@@ -47,7 +47,6 @@ within a `use-package` handler definition."
   (let (map
         filter)
 
-    ;; Process any initial keyword arguments
     (let ((cont t))
       (while (and cont args)
         (if (cond ((eq :map (car args))
@@ -57,7 +56,6 @@ within a `use-package` handler definition."
             (setq args (cddr args))
           (setq cont nil))))
 
-    ;; Process key binding arguments
     (let (first next)
       (while args
         (if (keywordp (car args))
@@ -99,7 +97,7 @@ within a `use-package` handler definition."
                (or (use-package-recognize-function (cdr x) t #'stringp)))
           (setq args* (nconc args* (list x)))
           (setq arg (cdr arg)))
-         ;; KEYWORD
+         ;; keywords:
          ;;   :map KEYMAP
          ;;   :filter SEXP
          ((or (and (eq x :map) (symbolp (cadr arg)))
@@ -111,7 +109,6 @@ within a `use-package` handler definition."
                 (nconc args* (core--lang-extension-normalizer name keyword x)))
           (setq arg (cdr arg)))
          (t
-          ;; Error!
           (use-package-error
            (concat (symbol-name name)
                    " :language received bad values"))))))
