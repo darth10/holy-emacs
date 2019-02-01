@@ -149,7 +149,7 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
   (menu-bar-mode -1)
   (scroll-bar-mode -1)
   (show-paren-mode 1)
-  (blink-cursor-mode t)
+  (blink-cursor-mode 1)
 
   ;;; vars set before loading theme
   (setq solarized-use-variable-pitch nil
