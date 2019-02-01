@@ -6,6 +6,9 @@
  /_/ /_/\____/_/\__, /    \___/_/ /_/ /_/\__,_/\___/____/
                /____/
 ```
+
+![version](https://img.shields.io/github/tag/darth10/holy-emacs.svg?label=version&style=flat)
+
 ## Overview
 
 * Support for editing/debugging Clojure, Emacs Lisp, Scheme, C#, JavaScript, Haskell, Python, Ruby, PHP and C.
