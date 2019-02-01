@@ -7,7 +7,8 @@
                /____/
 ```
 
-![version](https://img.shields.io/github/tag/darth10/holy-emacs.svg?label=version&style=flat)
+![release](https://img.shields.io/github/tag/darth10/holy-emacs.svg?label=release&style=flat)
+![license](https://img.shields.io/badge/license-MIT-green.svg?style=flat)
 
 ## Overview
 
