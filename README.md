@@ -8,7 +8,7 @@
 ```
 
 ![release](https://img.shields.io/github/tag/darth10/holy-emacs.svg?label=release&style=flat)
-![license](https://img.shields.io/badge/license-MIT-green.svg?style=flat)
+[![license](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](./LICENSE)
 
 ## Overview
 
