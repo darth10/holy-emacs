@@ -215,7 +215,10 @@
 (use-package calculator
   :bind (("C-! n" . calculator)
          ("C-! C-n" . calculator)
-         ("C-x <f12>" . calculator)))
+         ("C-x <f12>" . calculator))
+  :config
+  ;; increase size of calculator window
+  (advice-add 'calculator :after #'(lambda () (enlarge-window 2))))
 
 (use-package compile
   :bind (("C-! k" . compile)
