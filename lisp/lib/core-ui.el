@@ -145,11 +145,12 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
     (set-fringe-bitmap-face 'left-curly-arrow 'core-fringe-highlight-face)
     (set-fringe-bitmap-face 'exclamation-mark 'core-fringe-highlight-face)
     (set-fringe-bitmap-face 'question-mark 'core-fringe-highlight-face)
-    (set-fringe-bitmap-face 'empty-line 'core-fringe-highlight-face))
+    (set-fringe-bitmap-face 'empty-line 'core-fringe-highlight-face)
 
-  (tool-bar-mode -1)
-  (menu-bar-mode -1)
-  (scroll-bar-mode -1)
+    (tool-bar-mode -1)
+    (menu-bar-mode -1)
+    (scroll-bar-mode -1))
+
   (show-paren-mode 1)
   (blink-cursor-mode 1)
 
