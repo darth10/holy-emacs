@@ -37,7 +37,6 @@
 
   (setq-default buffer-file-coding-system 'utf-8-unix
                 default-buffer-file-coding-system 'utf-8-unix
-                delete-trailing-lines t
                 indent-tabs-mode nil
                 tab-always-indent t
                 tab-width 4
