@@ -130,8 +130,8 @@ for byte compilation.")
          (filter-f (lambda (x)
                      (or (equal x ".")
                          (equal x ".gitignore"))))
-         (packages (remove-duplicates (cl-remove-if filter-f file-names)
-                                      :test dup-f)))
+         (packages (cl-remove-duplicates (cl-remove-if filter-f file-names)
+                                         :test dup-f)))
     (cl-loop for pkg in packages
              collect pkg
              and do (load pkg))))
