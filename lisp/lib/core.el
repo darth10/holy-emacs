@@ -212,12 +212,14 @@ Lisp files for byte compilation."
   (interactive)
   (let* ((recursive-elc-files
           (cl-loop for dir in (core--get-elisp-dirs)
+                   if (file-exists-p dir)
                    collect (directory-files-recursively dir "\\.elc$")))
          (elc-files (apply #'append recursive-elc-files)))
-    (unless (cl-loop for path in elc-files
+    (if (cl-loop for path in elc-files
                      if (file-exists-p path)
                      collect path
                      and do (delete-file path))
-      (message "Removed all .elc files"))))
+        (message "Removed all .elc files!")
+      (message "No .elc files found!"))))
 
 (provide 'core)
