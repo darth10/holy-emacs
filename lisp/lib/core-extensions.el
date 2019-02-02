@@ -97,7 +97,7 @@ within a `use-package` handler definition."
                (or (use-package-recognize-function (cdr x) t #'stringp)))
           (setq args* (nconc args* (list x)))
           (setq arg (cdr arg)))
-         ;; keywords:
+         ;; Keywords:
          ;;   :map KEYMAP
          ;;   :filter SEXP
          ((or (and (eq x :map) (symbolp (cadr arg)))
