@@ -9,6 +9,8 @@
 
 ![release](https://img.shields.io/github/tag/darth10/holy-emacs.svg?label=release&style=flat)
 [![license](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](./LICENSE)
+[![master-build](https://img.shields.io/travis/darth10/holy-emacs/master.svg?label=master&style=flat)](https://travis-ci.org/darth10/holy-emacs)
+[![develop-build](https://img.shields.io/travis/darth10/holy-emacs/develop.svg?label=develop&style=flat)](https://travis-ci.org/darth10/holy-emacs)
 
 ## Overview
 
