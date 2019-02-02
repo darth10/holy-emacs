@@ -257,11 +257,12 @@
 
 (use-package ws-butler
   :ensure t
-  :commands (modes/init-ws-butler-mode)
-  :bind (("C-' d" . ws-butler-global-mode)
-         ("C-' C-d" . ws-butler-global-mode))
+  :bind (("C-' d" . ws-butler-mode)
+         ("C-' C-d" . ws-butler-mode))
+  :commands (ws-butler-mode)
   :init
-  (ws-butler-global-mode t))
+  (add-hook 'prog-mode-hook #'ws-butler-mode)
+  (add-hook 'conf-mode-hook #'ws-butler-mode))
 
 (use-package desktop
   :config
