@@ -136,15 +136,16 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
 
   (face-spec-set 'show-paren-match '((t (:background "Dodgerblue1" :foreground "white" :weight extra-bold))))
 
-  (set-fringe-bitmap-face 'right-triangle 'core-fringe-highlight-face)
-  (set-fringe-bitmap-face 'right-arrow 'core-fringe-highlight-face)
-  (set-fringe-bitmap-face 'right-curly-arrow 'core-fringe-highlight-face)
-  (set-fringe-bitmap-face 'left-triangle 'core-fringe-highlight-face)
-  (set-fringe-bitmap-face 'left-arrow 'core-fringe-highlight-face)
-  (set-fringe-bitmap-face 'left-curly-arrow 'core-fringe-highlight-face)
-  (set-fringe-bitmap-face 'exclamation-mark 'core-fringe-highlight-face)
-  (set-fringe-bitmap-face 'question-mark 'core-fringe-highlight-face)
-  (set-fringe-bitmap-face 'empty-line 'core-fringe-highlight-face)
+  (when window-system
+    (set-fringe-bitmap-face 'right-triangle 'core-fringe-highlight-face)
+    (set-fringe-bitmap-face 'right-arrow 'core-fringe-highlight-face)
+    (set-fringe-bitmap-face 'right-curly-arrow 'core-fringe-highlight-face)
+    (set-fringe-bitmap-face 'left-triangle 'core-fringe-highlight-face)
+    (set-fringe-bitmap-face 'left-arrow 'core-fringe-highlight-face)
+    (set-fringe-bitmap-face 'left-curly-arrow 'core-fringe-highlight-face)
+    (set-fringe-bitmap-face 'exclamation-mark 'core-fringe-highlight-face)
+    (set-fringe-bitmap-face 'question-mark 'core-fringe-highlight-face)
+    (set-fringe-bitmap-face 'empty-line 'core-fringe-highlight-face))
 
   (tool-bar-mode -1)
   (menu-bar-mode -1)
@@ -152,7 +153,7 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
   (show-paren-mode 1)
   (blink-cursor-mode 1)
 
-  ;;; vars set before loading theme
+  ;;; Variables to set before loading theme
   (setq solarized-use-variable-pitch nil
         solarized-scale-org-headlines nil
         x-underline-at-descent-line t
@@ -161,12 +162,13 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
          "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
 
   (custom-set-variables
-   `(custom-enabled-themes (quote ,core-enabled-custom-themes))
    '(custom-safe-themes
      (quote ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4"
              default))))
+  (custom-set-variables
+   `(custom-enabled-themes (quote ,core-enabled-custom-themes)))
 
-  ;;; vars set after loading theme
+  ;;; Variables to set after loading theme
   (setq fancy-splash-image nil
         inhibit-default-init t
         inhibit-startup-screen t
@@ -178,7 +180,7 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
 
   (add-hook 'post-command-hook #'core--configure-mode)
 
-  ;; customized font (other than core--default-font) will be
+  ;; Customized font (other than core--default-font) will be
   ;; overwritten if the package-selected-packages custom variable
   ;; has not been written to custom-file.
   (when (and window-system (x-list-fonts core--default-font))
