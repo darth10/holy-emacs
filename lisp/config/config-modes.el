@@ -10,9 +10,7 @@
          ("." . repeat)
          ("z" . repeat)
          ("i" . god-local-mode))
-  :init
-  (god-mode-all)
-
+  :hook (after-init . god-mode-all)
   :config
   (defun god-toggle-on-overwrite ()
     (if (bound-and-true-p overwrite-mode)
