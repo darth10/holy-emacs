@@ -104,6 +104,50 @@
   "List of relative paths containing Emacs Lisp files
 for byte compilation.")
 
+(defun core--get-elisp-dirs ()
+  "Get a list of absolute paths of directories containing Emacs
+Lisp files for byte compilation."
+  (cl-loop for dir in core--elisp-dir-paths
+           collect (concat user-emacs-directory dir)))
+
+(defun core--load-var-dir ()
+  "Loads all Emacs Lisp files from directory `core-var-dir-path`."
+  (let* ((var-dir (concat user-emacs-directory core-var-dir-path))
+         (files (directory-files var-dir))
+         (file-names (cl-loop for file in files
+                              collect (file-name-base file)))
+         (packages (cl-remove-duplicates
+                    (cl-remove-if
+                     (lambda (x)
+                       (or (equal x ".")
+                           (equal x ".gitignore")))
+                     file-names)
+                    :test (lambda (x y) (equal x y)))))
+    (cl-loop for pkg in packages
+             collect pkg
+             and do (load pkg))))
+
+(defun core--check-and-install-required-packages ()
+  "Checks if packages in `core--required-packages` are installed
+and installs them if needed. Must be called after
+`package-initialize`."
+  (cl-flet ((is-package-not-installed-p (pkg)
+             (not (package-installed-p pkg))))
+    (when (cl-some #'is-package-not-installed-p
+                   core--required-packages)
+      (package-refresh-contents))
+
+    (cl-loop for pkg in core--required-packages
+             if (is-package-not-installed-p pkg)
+             collect pkg
+             and do (package-install pkg))))
+
+(defun core--init-load-path ()
+  "Adds paths to the `load-path` variable."
+  (cl-loop for path in (core--get-elisp-dirs)
+           collect path
+           and do (add-to-list 'load-path path)))
+
 (defun core:is-windows-p ()
   "Checks if the current OS is Windows."
   (equal system-type 'windows-nt))
@@ -112,69 +156,35 @@ for byte compilation.")
   "Add a source name and URI pair NAME-URI-CONS to the list of package sources."
   (add-to-list 'package-archives name-uri-cons t))
 
-(defun core--is-package-not-installed-p (pkg)
-  "Checks if package PKG needs to be installed."
-  (not (package-installed-p pkg)))
-
 (defun core:compile-file (file)
   "Compile/recompile an Emacs Lisp file."
   (if (file-exists-p (concat file "c"))
       (byte-recompile-file file)
     (byte-compile-file file)))
 
-(defun core--load-var-dir ()
-  "Loads all Emacs Lisp files from directory CORE-VAR-DIR-PATH."
-  (let* ((var-dir (concat user-emacs-directory core-var-dir-path))
-         (files (directory-files var-dir))
-         (file-names (mapcar 'file-name-base files))
-         (dup-f (lambda (x y) (equal x y)))
-         (filter-f (lambda (x)
-                     (or (equal x ".")
-                         (equal x ".gitignore"))))
-         (packages (cl-remove-duplicates (cl-remove-if filter-f file-names)
-                                         :test dup-f)))
-    (cl-loop for pkg in packages
-             collect pkg
-             and do (load pkg))))
-
-(defun core:initialize-packages ()
-  "Initializes the package sub-system."
-
+(defun core:initialize-packages-and-modules ()
+  "Initializes the packages and modules sub-system."
   ;; FIXME use var-dir when it's declared
-  (setq package-user-dir (concat user-emacs-directory "var/packages/elpa/"))
-  (setq package-gnupghome-dir (expand-file-name "gnupg" package-user-dir))
-  (package-initialize)
+  (let ((packages-dir (concat user-emacs-directory "var/packages/")))
+    (setq package-user-dir (concat packages-dir "elpa/"))
+    (setq package-gnupghome-dir (expand-file-name "gnupg" package-user-dir))
+    (package-initialize)
+    (core--check-and-install-required-packages)
 
-  (when (cl-some #'core--is-package-not-installed-p
-                 core--required-packages)
-    (package-refresh-contents))
+    ;; Require only a few packages here and the rest when they're
+    ;; needed. They should be available on the `load-path` as
+    ;; `package-initialize` has been called.
+    (eval-when-compile
+      (require 'use-package)
+      (require 'quelpa-use-package))
+    (require 'bind-key)
+    (core--init-load-path)
 
-  (cl-loop for pkg in core--required-packages
-           if (core--is-package-not-installed-p pkg)
-           collect pkg
-           and do (package-install pkg))
-
-  ;; Require only a few packages here and the rest when they're
-  ;; needed. They should be available on the `load-path` as
-  ;; `package-initialize` has been called.
-  (eval-when-compile
-    (require 'use-package)
-    (require 'quelpa-use-package))
-  (require 'bind-key)
-
-  ;; FIXME use var-dir when it's declared
-  (setq quelpa-dir (concat user-emacs-directory "var/packages/quelpa/")
-        quelpa-checkout-melpa-p nil
-        quelpa-update-melpa-p nil
-        quelpa-melpa-recipe-stores nil
-        quelpa-self-upgrade-p nil))
-
-(defun core:initialize-modules ()
-  "Initializes global load path and module sub-system."
-  ;; Set load-path
-  (cl-loop for path in (core--get-elisp-dirs)
-           collect path
-           and do (add-to-list 'load-path path))
+    (setq quelpa-dir (concat packages-dir "quelpa/")
+          quelpa-checkout-melpa-p nil
+          quelpa-update-melpa-p nil
+          quelpa-melpa-recipe-stores nil
+          quelpa-self-upgrade-p nil))
 
   (require 'core-keys)
   (require 'core-customize)
@@ -190,12 +200,6 @@ for byte compilation.")
   (epl-refresh)
   (epl-upgrade))
 
-(defun core--get-elisp-dirs ()
-  "Get a list of absolute paths of directories containing Emacs
-Lisp files for byte compilation."
-  (cl-loop for dir in core--elisp-dir-paths
-           collect (concat user-emacs-directory dir)))
-
 (defun core/autoremove-packages ()
   "Delete unused packages."
   (interactive)
@@ -205,9 +209,9 @@ Lisp files for byte compilation."
 (defun core/byte-recompile-files ()
   "Recompile all Emacs Lisp files."
   (interactive)
-  (cl-loop for path in (core--get-elisp-dirs)
-           collect path
-           and do (byte-recompile-directory (expand-file-name path) 0)))
+  (cl-loop for dir in (core--get-elisp-dirs)
+           collect dir
+           and do (byte-recompile-directory (expand-file-name dir) 0)))
 
 (defun core/clean-byte-compiled-files ()
   "Delete all compiled Emacs Lisp files."
