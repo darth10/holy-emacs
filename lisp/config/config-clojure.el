@@ -2,10 +2,7 @@
 
 (use-package clojure-mode
   :ensure t
-  :mode ("\\.clj\\'" . clojure-mode)
-  :config
-  (use-package subword
-    (add-hook 'clojure-mode-hook #'subword-mode)))
+  :mode ("\\.clj\\'" . clojure-mode))
 
 (use-package clojurescript-mode
   :ensure t
