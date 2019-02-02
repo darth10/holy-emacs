@@ -1,4 +1,6 @@
-EMACS=emacs -batch --eval '(setq user-emacs-directory default-directory)' -l init.el
+EMACS_BATCH=emacs -batch --eval '(setq user-emacs-directory default-directory)'
+EMACS_FULL=@$(EMACS_BATCH) -l init.el
+EMACS_CORE=@$(EMACS_BATCH) -l lisp/lib/core.el
 
 all: install compile
 
@@ -9,16 +11,17 @@ install: upgrade
 compile: recompile
 
 upgrade:
-	@$(EMACS) -f core/upgrade-packages
+	touch lisp/var/custom-defs.el
+	@$(EMACS_FULL) -f core/upgrade-packages
 
 recompile:
-	@$(EMACS) -f core/byte-recompile-files
+	@$(EMACS_FULL) -f core/byte-recompile-files
 
 autoremove:
-	@$(EMACS) -f core/autoremove-packages
+	@$(EMACS_FULL) -f core/autoremove-packages
 
 clean:
-	@$(EMACS) -f core/clean-byte-compiled-files
+	@$(EMACS_CORE) -f core/clean-byte-compiled-files
 
 clean-ghc: SHELL := /bin/bash
 clean-ghc:
