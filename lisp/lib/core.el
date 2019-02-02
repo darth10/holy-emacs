@@ -96,11 +96,11 @@
   "Relative path of all custom Emacs Lisp files.")
 
 (defconst core--required-packages
-  '(use-package diminish epl async)
+  '(epl async quelpa use-package quelpa-use-package)
   "List of required packages.")
 
 (defconst core--elisp-dir-paths
-  (list "elpa" "lisp/lib/" core-modules-path core-var-dir-path)
+  (list "var/packages/elpa" "lisp/lib/" core-modules-path core-var-dir-path)
   "List of relative paths containing Emacs Lisp files
 for byte compilation.")
 
@@ -139,10 +139,13 @@ for byte compilation.")
 
 (defun core:initialize-packages ()
   "Initializes the package sub-system."
+
+  ;; FIXME
+  (setq package-user-dir (concat user-emacs-directory "var/packages/elpa/"))
   (package-initialize)
 
   (when (cl-some #'core--is-package-not-installed-p
-              core--required-packages)
+                 core--required-packages)
     (package-refresh-contents))
 
   (cl-loop for pkg in core--required-packages
@@ -153,8 +156,16 @@ for byte compilation.")
   ;; require only a few packages here
   ;; and the rest when they're needed
   (eval-when-compile
-    (require 'use-package))
-  (require 'bind-key))
+    (require 'use-package)
+    (require 'quelpa-use-package))
+  (require 'bind-key)
+
+  ;; FIXME use var-dir when it's declared
+  (setq quelpa-dir (concat user-emacs-directory "var/packages/quelpa/")
+        quelpa-checkout-melpa-p nil
+        quelpa-update-melpa-p nil
+        quelpa-melpa-recipe-stores nil
+        quelpa-self-upgrade-p nil))
 
 (defun core:initialize-modules ()
   "Initializes global load path and module sub-system."

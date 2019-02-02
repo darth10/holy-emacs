@@ -8,7 +8,6 @@ ac-comphist.dat
 auto-save-list/
 backups/
 bookmarks
-elpa/
 eshell/
 geben/
 image-dired/
@@ -21,4 +20,6 @@ server/
 swank/
 tramp
 url/
-var/
+var/pcache
+var/packages
+var/backups
