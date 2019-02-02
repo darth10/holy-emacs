@@ -181,7 +181,7 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
   ;; customized font (other than core--default-font) will be
   ;; overwritten if the package-selected-packages custom variable
   ;; has not been written to custom-file.
-  (when (if (null (x-list-fonts core--default-font)) nil t)
+  (when (and window-system (x-list-fonts core--default-font))
     (let ((font-height (if (core:is-windows-p) 134 148)))
       (custom-set-faces
        `(default ((t (:height ,font-height :family ,core--default-font :weight normal :width normal))))))))
