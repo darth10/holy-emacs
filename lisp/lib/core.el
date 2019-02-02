@@ -224,8 +224,10 @@ and installs them if needed. Must be called after
     (if (cl-loop for path in elc-files
                      if (file-exists-p path)
                      collect path
-                     and do (delete-file path))
-        (message "Removed all .elc files!")
+                     and do
+                     (delete-file path)
+                     (message "Deleted %s" path))
+        (message "Deleted all .elc files!")
       (message "No .elc files found!"))))
 
 (provide 'core)
