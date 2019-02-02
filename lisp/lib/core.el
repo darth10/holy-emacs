@@ -139,8 +139,9 @@ for byte compilation.")
 (defun core:initialize-packages ()
   "Initializes the package sub-system."
 
-  ;; FIXME
+  ;; FIXME use var-dir when it's declared
   (setq package-user-dir (concat user-emacs-directory "var/packages/elpa/"))
+  (setq package-gnupghome-dir (expand-file-name "gnupg" package-user-dir))
   (package-initialize)
 
   (when (cl-some #'core--is-package-not-installed-p
