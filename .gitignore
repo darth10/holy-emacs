@@ -22,4 +22,4 @@ tramp
 url/
 var/pcache
 var/packages
-var/backups
+var/backups*
