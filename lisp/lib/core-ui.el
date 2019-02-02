@@ -86,15 +86,14 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
                                  (is-god-mode "λ")
                                  (overwrite-mode "!")
                                  (t " "))))
-    (progn
-      (unless (eq prev-cur-color cur-color)
-        (set-cursor-color cur-color))
-      (when (and prev-modeline-color (not (eq prev-modeline-color cur-color)))
-        (set-face-attribute 'doom-modeline-bar nil :background cur-color)
-        (doom-modeline-refresh-bars))
+    (unless (eq prev-cur-color cur-color)
+      (set-cursor-color cur-color))
+    (when (and prev-modeline-color (not (eq prev-modeline-color cur-color)))
+      (set-face-attribute 'doom-modeline-bar nil :background cur-color)
+      (doom-modeline-refresh-bars))
 
-      (setq cursor-type cur-type)
-      (setq core--modeline-mode-string next-mode-string))))
+    (setq cursor-type cur-type)
+    (setq core--modeline-mode-string next-mode-string)))
 
 (use-package solarized-theme
   :ensure t)
