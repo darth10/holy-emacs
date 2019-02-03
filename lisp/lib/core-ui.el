@@ -12,9 +12,13 @@ use any custom theme."
   :type '(repeat symbol)
   :group 'holy-emacs)
 
-(defface core-fringe-highlight-face '((t (:foreground "yellow")))
+(defface core-fringe-highlight-face '((t (:foreground "Yellow")))
   "Face for the fringe bitmaps."
   :group 'holy-emacs)
+
+(defconst core--default-search-face-spec
+  '((t (:background "Springgreen2" :foreground "DimGray")))
+  "Face for search highlighting.")
 
 (defconst core--default-font "Consolas"
   "Default font.")
@@ -233,10 +237,11 @@ value of `core--display-line-numbers-function`."
 (progn
   (custom-set-faces
    '(mode-line ((t (:box nil :overline nil :underline nil))))
-   ;; #073642 is for solarized theme only
-   '(mode-line-inactive ((t (:box nil :overline nil :underline nil)))))
-
-  (face-spec-set 'show-paren-match '((t (:background "Dodgerblue1" :foreground "white" :weight extra-bold))))
+   '(mode-line-inactive ((t (:box nil :overline nil :underline nil))))
+   `(isearch ,core--default-search-face-spec)
+   `(helm-swoop-target-word-face ,core--default-search-face-spec)
+   `(highlight-symbol-face ,core--default-search-face-spec)
+   `(show-paren-match ,core--default-search-face-spec))
 
   (when window-system
     (set-fringe-bitmap-face 'right-triangle 'core-fringe-highlight-face)
@@ -264,6 +269,8 @@ value of `core--display-line-numbers-function`."
         ["#242424" "#e5786d" "#95e454" "#cae682"
          "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
 
+  ;; Here, `custom-safe-themes` and `custom-enabled-themes` need to be
+  ;; in separate `custom-set-variables` forms to avoid user prompts.
   (custom-set-variables
    '(custom-safe-themes
      (quote ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4"
