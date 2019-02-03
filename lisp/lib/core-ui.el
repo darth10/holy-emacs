@@ -194,7 +194,7 @@ value of `core--display-line-numbers-function`."
     :ensure t
     :if (version< emacs-version "26.0.50")
     :config
-    (advice-add 'set-frame-font :after 'nlinum-hl-flush-all-windows)))
+    (advice-add 'set-frame-font :after #'nlinum-hl-flush-all-windows)))
 
 (use-package diff-hl
   :ensure t
