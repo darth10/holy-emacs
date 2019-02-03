@@ -131,14 +131,14 @@ Lisp files for byte compilation."
   "Checks if packages in `core--required-packages` are installed
 and installs them if needed. Must be called after
 `package-initialize`."
-  (cl-flet ((is-package-not-installed-p (pkg)
-             (not (package-installed-p pkg))))
-    (when (cl-some #'is-package-not-installed-p
+  (cl-flet ((to-install-package-p (pkg)
+                                  (not (package-installed-p pkg))))
+    (when (cl-some #'to-install-package-p
                    core--required-packages)
       (package-refresh-contents))
 
     (cl-loop for pkg in core--required-packages
-             if (is-package-not-installed-p pkg)
+             if (to-install-package-p pkg)
              collect pkg
              and do (package-install pkg))))
 
