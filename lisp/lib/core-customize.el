@@ -1,7 +1,9 @@
 ;;; core-customize.el -*- lexical-binding: t; -*-
 
 (defconst core-custom-defs-file-path
-  (concat user-emacs-directory core-var-dir-path "custom-defs.el")
+  (expand-file-name
+   (concat core-var-lib-path "custom-defs.el")
+   user-emacs-directory)
   "Absolute path to save customize definitions.")
 
 (defun core--before-customize-save-variable
