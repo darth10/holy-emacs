@@ -42,6 +42,9 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
 (defvar core--modeline-mode-string ""
   "Current mode state for `doom-modeline`.")
 
+(defvar core--display-line-numbers-function nil
+  "Function to call for displaying line numbers.")
+
 (defun core--get-scratch-message ()
   (let* ((face-for-logo 'font-lock-function-name-face)
          (face-for-keys 'font-lock-string-face)
@@ -138,52 +141,50 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
     '(workspace-number window-number bar cur-mode matches buffer-info-simple buffer-position selection-info)
     '(debug buffer-encoding major-mode process vcs checker)))
 
+(defun core/display-line-numbers ()
+  "Toggle displaying line numbers. This function simply calls the
+value of `core--display-line-numbers-function`."
+  (interactive)
+  (call-interactively core--display-line-numbers-function))
+
 (use-package display-line-numbers
   :unless (version< emacs-version "26.0.50")
-  :bind (("C-' n" . display-line-numbers-mode)
-         ("C-' C-n" . display-line-numbers-mode)
-         ("C-<f6>" . display-line-numbers-mode))
   :commands (display-line-numbers-mode)
   :init
-  (add-hook 'prog-mode-hook 'display-line-numbers-mode)
-  (add-hook 'conf-mode-hook 'display-line-numbers-mode))
+  (setq core--display-line-numbers-function #'display-line-numbers-mode))
 
 ;; Emacs versions less than 26.1 will have to use nlinum-mode
 ;; for line numbers. There's a few minor issues it has with edebug.
 (use-package nlinum
   :ensure t
   :if (version< emacs-version "26.0.50")
-  :bind (("C-' n" . nlinum-mode)
-         ("C-' C-n" . nlinum-mode)
-         ("C-<f6>" . nlinum-mode))
   :commands (nlinum-mode)
   :init
-  (defun +nlinum-refresh ()
+  (defun core--refresh-nlinum ()
     (when nlinum-mode
       (nlinum-mode)))
 
-  (add-hook 'prog-mode-hook 'nlinum-mode)
-  (add-hook 'conf-mode-hook 'nlinum-mode)
+  (setq core--display-line-numbers-function #'nlinum-mode)
 
   :config
-  (defconst +nlinum-line-number-lpad 4
+  (defconst core--nlinum-line-number-lpad 4
     "Left padding for line numbers.")
-  (defconst +nlinum-line-number-rpad 1
+  (defconst core--nlinum-line-number-rpad 1
     "Right padding for line numbers.")
-  (defconst +nlinum-line-number-pad-char 32
+  (defconst core--nlinum-line-number-pad-char 32
     "Padding character for line numbers.")
 
-  (defun +nlinum-format-fn (line width)
+  (defun core--nlinum-format-fn (line width)
     "Formatting function for `nlinum-format-function'."
     (let ((str (number-to-string line)))
-      (setq str (concat (make-string (max 0 (- +nlinum-line-number-lpad (length str)))
-                                     +nlinum-line-number-pad-char)
+      (setq str (concat (make-string (max 0 (- core--nlinum-line-number-lpad (length str)))
+                                     core--nlinum-line-number-pad-char)
                         str
-                        (make-string +nlinum-line-number-rpad +nlinum-line-number-pad-char)))
+                        (make-string core--nlinum-line-number-rpad core--nlinum-line-number-pad-char)))
       (put-text-property 0 (length str) 'face 'linum str)
       str))
 
-  (setq nlinum-format-function '+nlinum-format-fn)
+  (setq nlinum-format-function 'core--nlinum-format-fn)
 
   (use-package nlinum-hl
     :ensure t
@@ -214,11 +215,11 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
   (use-package nlinum
     :if (version< emacs-version "26.0.50")
     :config
-    (+nlinum-refresh))
+    (core--refresh-nlinum))
 
   (use-package magit
     :config
-    (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)))
+    (add-hook 'magit-post-refresh-hook #'diff-hl-magit-post-refresh)))
 
 (use-package rainbow-delimiters
   :ensure t
@@ -281,6 +282,12 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
         initial-scratch-message (core--get-scratch-message))
 
   (add-hook 'post-command-hook #'core--configure-mode)
+  (add-hook 'prog-mode-hook core--display-line-numbers-function)
+  (add-hook 'conf-mode-hook core--display-line-numbers-function)
+
+  (bind-key "C-' n" #'core/display-line-numbers)
+  (bind-key "C-' C-n" #'core/display-line-numbers)
+  (bind-key "C-<f6>" #'core/display-line-numbers)
 
   ;; Customized font (other than core--default-font) will be
   ;; overwritten if the package-selected-packages custom variable
