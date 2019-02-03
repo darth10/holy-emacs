@@ -35,13 +35,11 @@ for the `holy-emacs` group and saves the resulting state."
 
 (progn
   (setq custom-file core-custom-defs-file-path)
-
   (cl-flet
       ((recompile-custom (&rest _args)
                          (core:compile-file core-custom-defs-file-path)))
     (advice-add 'customize-save-variable :after #'recompile-custom)
     (advice-add 'custom-save-all :after #'recompile-custom))
-
   (advice-add 'customize-save-variable :before #'core--before-customize-save-variable)
   (advice-add 'custom-save-all :before #'core--before-custom-save-all))
 
