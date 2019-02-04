@@ -214,7 +214,9 @@ and installs them if needed. Must be called after
   (interactive)
   (require 'epl)
   (epl-refresh)
-  (epl-upgrade))
+  (quelpa-upgrade)
+  (epl-upgrade)
+  (message "Upgraded all packages!"))
 
 (defun core/autoremove-packages ()
   "Delete unused packages."
