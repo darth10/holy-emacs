@@ -183,7 +183,13 @@ and installs them if needed. Must be called after
   (setq package-user-dir (expand-file-name
                           core-elpa-packages-path user-emacs-directory)
         package-gnupghome-dir (expand-file-name
-                               "gnupg/" package-user-dir))
+                               "gnupg/" package-user-dir)
+        quelpa-dir (expand-file-name
+                    core-quelpa-packages-path user-emacs-directory)
+        quelpa-checkout-melpa-p nil
+        quelpa-update-melpa-p nil
+        quelpa-melpa-recipe-stores nil
+        quelpa-self-upgrade-p nil)
   (package-initialize)
   (core--check-and-install-required-packages)
 
@@ -191,23 +197,15 @@ and installs them if needed. Must be called after
   ;; needed. They should be available on the `load-path` as
   ;; `package-initialize` has been called.
   (eval-when-compile
-    (require 'use-package)
-    (require 'quelpa-use-package))
+    (require 'use-package))
+  (require 'quelpa-use-package)
   (require 'bind-key)
   (core--init-load-path)
-
-  (setq quelpa-dir (expand-file-name
-                    core-quelpa-packages-path user-emacs-directory)
-        quelpa-checkout-melpa-p nil
-        quelpa-update-melpa-p nil
-        quelpa-melpa-recipe-stores nil
-        quelpa-self-upgrade-p nil)
 
   (require 'core-keys)
   (require 'core-customize)
   (require 'core-ui)
   (require 'core-extensions)
-
   (core--load-var-dir))
 
 (defun core/upgrade-packages ()
