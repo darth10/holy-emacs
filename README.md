@@ -15,7 +15,8 @@
 ## Overview
 
 * Support for editing/debugging Clojure, Emacs Lisp, Scheme, C#, JavaScript, Haskell, Python, Ruby, PHP and C.
-* Installs all required packages from MELPA and Marmalade repositories on startup.
+* Installs all required packages from MELPA and GNU ELPA repositories on startup.
+  Packages can also be installed through `quelpa`.
 * Includes `magit`, `helm`, `projectile`, `company` and `yasnippet`.
 * Uses `god-mode` for modal editing. All key bindings work in `god-mode` and it's only used to reduce the usage of modifier keys.
 * Uses `use-package` and `bind-key`. <kbd>C-h C-l</kbd> (or <kbd>M-x describe-personal-keybindings</kbd>) will display all available key bindings.
