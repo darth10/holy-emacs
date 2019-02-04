@@ -144,7 +144,7 @@ Lisp files for byte compilation."
                        (or (equal x ".")
                            (equal x ".gitignore")))
                      file-names)
-                    :test (lambda (x y) (equal x y)))))
+                    :test #'equal)))
     (cl-loop for pkg in packages
              collect pkg
              and do (load pkg))))
