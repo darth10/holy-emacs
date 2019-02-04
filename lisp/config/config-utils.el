@@ -159,8 +159,12 @@
         recentf-max-saved-items 40)
   (recentf-mode t))
 
-(use-package fixme-mode
-  :ensure t)
+(use-package fic-mode
+  :ensure t
+  :config
+  (setq fic-highlighted-words '("FIXME" "TODO" "BUG" "HACK"))
+  (add-hook 'prog-mode-hook #'fic-mode)
+  (add-hook 'conf-mode-hook #'fic-mode))
 
 (use-package bm
   :ensure t
