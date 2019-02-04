@@ -87,13 +87,13 @@
 (defconst holy-emacs-version "0.1.5"
   "Version of holy-emacs.")
 
-(defconst core-path "lisp/lib/"
+(defconst core-lib-path "lisp/lib/"
   "Relative path of all modules.")
 
-(defconst core-modules-path "lisp/config/"
+(defconst core-modules-lib-path "lisp/config/"
   "Relative path of all modules.")
 
-(defconst core-var-path "var/"
+(defconst core-var-dir-path "var/"
   "Relative path of directory containing all files that are
 prone to change.")
 
@@ -102,11 +102,11 @@ prone to change.")
 prone to change.")
 
 (defconst core-elpa-packages-path
-  (concat core-var-path "packages/elpa/")
+  (concat core-var-dir-path "packages/elpa/")
   "Relative path of ELPA/MELPA packages directory.")
 
 (defconst core-quelpa-packages-path
-  (concat core-var-path "packages/quelpa/")
+  (concat core-var-dir-path "packages/quelpa/")
   "Relative path of quelpa packages directory.")
 
 (defconst core--required-packages
@@ -116,16 +116,16 @@ prone to change.")
 (defun core--get-elisp-compile-dirs ()
   "Get a list of absolute paths of directories containing Emacs
 Lisp files for byte compilation."
-  (cl-loop for dir in (list core-path
-                            core-modules-path
+  (cl-loop for dir in (list core-lib-path
+                            core-modules-lib-path
                             core-var-lib-path
                             core-elpa-packages-path)
            collect (expand-file-name dir user-emacs-directory)))
 
 (defun core--init-load-path ()
   "Adds required paths to the `load-path` variable."
-  (cl-loop for path in (list core-path
-                             core-modules-path
+  (cl-loop for path in (list core-lib-path
+                             core-modules-lib-path
                              core-var-lib-path)
            collect path
            and do (add-to-list
