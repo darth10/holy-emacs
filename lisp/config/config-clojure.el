@@ -3,7 +3,8 @@
 (use-package clojure-mode
   :ensure t
   :mode (("\\.clj\\'" . clojure-mode)
-         ("\\.cljs\\'" . clojurescript-mode)))
+         ("\\.cljs\\'" . clojurescript-mode)
+         ("\\.cljc\\'" . clojurec-mode)))
 
 (use-package clj-refactor
   :ensure t
