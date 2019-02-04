@@ -189,7 +189,8 @@ and installs them if needed. Must be called after
         quelpa-checkout-melpa-p nil
         quelpa-update-melpa-p nil
         quelpa-melpa-recipe-stores nil
-        quelpa-self-upgrade-p nil)
+        quelpa-self-upgrade-p nil
+        quelpa-use-package-inhibit-loading-quelpa t)
   (package-initialize)
   (core--check-and-install-required-packages)
 
