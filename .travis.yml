@@ -11,4 +11,4 @@ env:
   - EVM_EMACS=emacs-26.1-travis
 script:
   - emacs --version
-  - INSECURE=1 YES=1 make
+  - make
