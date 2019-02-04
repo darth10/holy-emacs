@@ -1,10 +1,9 @@
 ;;; Configuration for Lisps
 
 (use-package highlight-sexp
-  :ensure t
+  :quelpa (highlight-sexp :fetcher github :repo "daimrod/highlight-sexp")
   :defer 2
   :config
-
   (defun +highlight-sexp-set-hl-line ()
     (interactive)
     (hl-line-mode (if highlight-sexp-mode -1 t)))
