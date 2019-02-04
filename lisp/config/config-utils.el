@@ -122,10 +122,6 @@
   :config
   (editorconfig-mode 1))
 
-(use-package lacarte
-  :ensure t
-  :bind ("ESC M-x" . lacarte-execute-menu-command))
-
 (use-package woman
   :unless (core:is-windows-p)
   :bind ("C-x ?" . woman))
