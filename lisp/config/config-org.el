@@ -4,8 +4,7 @@
   :ensure t
   :pin org-elpa
   :mode ("\\.org\\'" . org-mode)
-  :bind (("C-c b" . org-iswitchb)
-         ("C-c C-b" . org-iswitchb)
+  :bind (("C-c b" . org-switchb)
          :map org-mode-map
          ("C-c n" . org-agenda)
          ("C-c C-n" . org-agenda)
