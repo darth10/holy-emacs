@@ -140,12 +140,6 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
     '(workspace-number window-number bar cur-mode matches buffer-info-simple buffer-position selection-info)
     '(debug buffer-encoding major-mode process vcs checker)))
 
-(defun core/display-line-numbers ()
-  "Toggle displaying line numbers. This function simply calls the
-value of `core--display-line-numbers-function`."
-  (interactive)
-  (call-interactively core--display-line-numbers-function))
-
 (use-package display-line-numbers
   :unless (version< emacs-version "26.0.50")
   :commands (display-line-numbers-mode)
@@ -287,9 +281,7 @@ value of `core--display-line-numbers-function`."
   (add-hook 'prog-mode-hook core--display-line-numbers-function)
   (add-hook 'conf-mode-hook core--display-line-numbers-function)
 
-  (bind-key "C-' n" #'core/display-line-numbers)
-  (bind-key "C-' C-n" #'core/display-line-numbers)
-  (bind-key "C-<f6>" #'core/display-line-numbers)
+  (defalias 'core/display-line-numbers core--display-line-numbers-function)
 
   ;; Customized font (other than core--default-font) will be
   ;; overwritten if the package-selected-packages custom variable
