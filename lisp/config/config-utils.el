@@ -88,13 +88,9 @@
 (use-package hideshow
   :bind (:map hs-minor-mode-map
               ("C-c d" . hs-hide-block)
-              ("C-c a d" . hs-hide-all)
-              ("C-c C-d" . hs-hide-block)
-              ("C-c C-a C-d" . hs-hide-all)
+              ("C-c v d" . hs-hide-all)
               ("C-c s" . hs-show-block)
-              ("C-c a s" . hs-show-all)
-              ("C-c C-s" . hs-show-block)
-              ("C-c C-a C-s" . hs-show-all))
+              ("C-c v s" . hs-show-all))
   :config
   (add-hook 'clojure-mode-hook 'hs-minor-mode)
   (add-hook 'c-mode-common-hook 'hs-minor-mode)
