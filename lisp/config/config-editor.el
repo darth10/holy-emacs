@@ -44,6 +44,7 @@
          ("M-p" . core/move-line-region-up))
   :commands (core/kill-line-utils-init)
   :init
+  (global-unset-key (kbd "<f10>"))
   (global-unset-key (kbd "C-z"))
 
   ;; enable disabled commands
