@@ -42,9 +42,7 @@
          ("M-<up>" . core/move-line-region-up)
          ("M-n" . core/move-line-region-down)
          ("M-p" . core/move-line-region-up))
-  :commands (core/kill-line-utils-init
-             core/upgrade
-             core/rebuild)
+  :commands (core/kill-line-utils-init)
   :init
   (global-unset-key (kbd "C-z"))
 
