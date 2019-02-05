@@ -14,6 +14,7 @@
 (require 'config-helm)
 (require 'config-lisps)
 (require 'config-utils)
+(require 'config-editor)
 (require 'config-vc)
 
 ;;; language configurations

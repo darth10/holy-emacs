@@ -116,11 +116,6 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
   :config
   (global-yascroll-bar-mode 1))
 
-(use-package frame
-  :bind (("C-x C-5 C-0" . delete-frame)
-         ("C-x C-5 C-1" . delete-other-frames)
-         ("C-x C-5 C-2" . make-frame-command)))
-
 (use-package doom-modeline
   :ensure t
   :defer t

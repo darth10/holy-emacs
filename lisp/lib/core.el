@@ -207,6 +207,7 @@ and installs them if needed. Must be called after
   (require 'core-customize)
   (require 'core-ui)
   (require 'core-extensions)
+  ;; core-editor.el is not loaded here as it's not required.
   (core--load-var-dir))
 
 (defun core/upgrade-packages ()

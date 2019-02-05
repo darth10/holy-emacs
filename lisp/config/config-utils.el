@@ -130,13 +130,6 @@
   :ensure t
   :bind ("C-=" . er/expand-region))
 
-(use-package regions
-  :load-path "lisp/lib/"
-  :bind (("M-<down>" . move-line-region-down)
-         ("M-<up>" . move-line-region-up)
-         ("M-n" . move-line-region-down)
-         ("M-p" . move-line-region-up)))
-
 (use-package smartparens
   :ensure t
   :defer 2
@@ -292,55 +285,6 @@
          :map isearch-mode-map
          ("<f3>" . isearch-repeat-forward)
          ("S-<f3>" . isearch-repeat-backward)))
-
-(use-package util
-  :load-path "lisp/lib/"
-  :bind (("C-! e" . util/find-or-run-eshell)
-         ("C-! C-e" . util/find-or-run-eshell)
-         ("C-! p" . util/list-processes-and-switch)
-         ("C-! C-p" . util/list-processes-and-switch)
-         ("C-! s" . util/find-or-run-shell)
-         ("C-! C-s" . util/find-or-run-shell)
-         ("C-%" . util/match-paren)
-         ("C-+" . util/resize-window)
-         ("C-s" . save-buffer)
-         ("C-x '" . util/switch-to-scratch)
-         ("C-x 9" . util/delete-single-window)
-         ("C-x <C-M-return>" . util/find-user-init-file)
-         ("C-x <f3>" . util/list-processes-and-switch)
-         ("C-x <f9>" . util/find-or-run-eshell)
-         ("C-x C-'" . util/switch-to-scratch-other-window)
-         ("C-x C-0" . delete-window)
-         ("C-x C-1" . delete-other-windows)
-         ("C-x C-2" . split-window-below)
-         ("C-x C-3" . split-window-right)
-         ("C-x C-9" . util/delete-single-window)
-         ("C-x C-c" . util/confirm-and-kill-terminal)
-         ("C-x M-[" . previous-buffer)
-         ("C-x M-]" . next-buffer)
-         ("M-[" . tab-to-tab-stop)
-         ("C-x \"" . util/switch-to-scratch-other-frame)
-         ("C-x |" . util/find-user-init-file)
-         ("C-|" . util/switch-to-window)
-         ("<f6>" . util/match-paren)
-         :map emacs-lisp-mode-map
-         ("C-<f10>" . util/find-or-run-eshell)
-         ("C-! C-r" . util/find-or-run-eshell))
-  :commands (util/kill-line-utils-init
-             util/upgrade
-             util/rebuild)
-  :init
-  (global-unset-key (kbd "C-z"))
-
-  ;; enable disabled commands
-  (put 'upcase-region 'disabled nil)
-  (put 'downcase-region 'disabled nil)
-
-  (util/kill-line-utils-init)
-
-  (when (core:is-windows-p)     ;; Windows-only config
-    (setq w32-get-true-file-attributes nil)
-    (w32-send-sys-command 61488)))
 
 (use-package tramp
   :defer 2
