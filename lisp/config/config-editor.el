@@ -41,11 +41,7 @@
          ("M-<down>" . core/move-line-region-down)
          ("M-<up>" . core/move-line-region-up)
          ("M-n" . core/move-line-region-down)
-         ("M-p" . core/move-line-region-up)
-         :map emacs-lisp-mode-map
-         ("C-<f10>" . core/find-or-run-eshell)
-         ("C-! C-r" . core/find-or-run-eshell)
-         )
+         ("M-p" . core/move-line-region-up))
   :commands (core/kill-line-utils-init
              core/upgrade
              core/rebuild)

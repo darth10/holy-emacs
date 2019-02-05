@@ -10,6 +10,8 @@
   (bind-key "C-x a a" 'eval-buffer emacs-lisp-mode-map)
   (bind-key "C-x C-a C-a" 'eval-buffer emacs-lisp-mode-map)
   (bind-key "C-<f5>" 'eval-buffer emacs-lisp-mode-map)
+  (bind-key "C-<f10>" 'core/find-or-run-eshell emacs-lisp-mode-map)
+  (bind-key "C-! C-r" 'core/find-or-run-eshell emacs-lisp-mode-map)
 
   (defun +elisp-compile-file ()
 	(interactive)
