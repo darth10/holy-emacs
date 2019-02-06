@@ -25,6 +25,13 @@
 ;; TODO
 ;; based on https://www.gnu.org/software/emacs/manual/html_node/elisp/Key-Binding-Conventions.html
 
+(defgroup holy-emacs nil
+  "An opinionated and extensible Emacs configuration"
+  :group 'emacs)
+
+(defconst holy-emacs-version "0.1.5"
+  "Version of holy-emacs.")
+
 (eval-and-compile
   (when (fboundp 'set-charset-priority)
     (set-charset-priority 'unicode))
@@ -79,13 +86,6 @@
           file-name-handler-alist core--file-name-handler-alist))
 
   (add-hook 'emacs-startup-hook #'core--finalize-startup))
-
-(defgroup holy-emacs nil
-  "An opinionated and extensible Emacs configuration"
-  :group 'emacs)
-
-(defconst holy-emacs-version "0.1.5"
-  "Version of holy-emacs.")
 
 (defconst core-lib-path "lisp/lib/"
   "Relative path of all modules.")
