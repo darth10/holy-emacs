@@ -10,10 +10,11 @@
 
 ;;; load before language configurations
 (require 'config-company)
+(require 'config-editor)
 (require 'config-gud)
 (require 'config-helm)
+(require 'config-search)
 (require 'config-utils)
-(require 'config-editor)
 (require 'config-vc)
 
 ;;; language configurations

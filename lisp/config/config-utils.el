@@ -8,10 +8,6 @@
   :defer t
   :hook (after-init . global-anzu-mode))
 
-(use-package findr
-  :ensure t
-  :defer 2)
-
 (use-package flycheck
   :ensure t
   :defer 5)
@@ -57,23 +53,6 @@
 
 (use-package wide-column
   :ensure t)
-
-(use-package grep
-  :bind (("M-s G" . grep)
-         ("M-s g" . rgrep)))
-
-(use-package vc-git
-  :defer 2
-  :bind (("C-: <f3>" . vc-git-grep)
-         ("M-s :" . vc-git-grep)
-         ("C-: M-s" . vc-git-grep)))
-
-(use-package ag
-  :ensure t
-  :bind (("M-s a a" . ag)
-         ("M-s a g" . ag-regexp)
-         ("M-s a A" . ag-project)
-         ("M-s a G" . ag-project-regexp)))
 
 (use-package dired
   :bind (("C-x C-j" . dired-jump-other-window)
@@ -274,13 +253,6 @@
         create-lockfiles nil)
   (setq-default truncate-lines t)
   (column-number-mode 1))
-
-(use-package isearch
-  :bind (("M-s s" . isearch-forward)
-         ("M-s r" . isearch-backward)
-         :map isearch-mode-map
-         ("<f3>" . isearch-repeat-forward)
-         ("S-<f3>" . isearch-repeat-backward)))
 
 (use-package tramp
   :defer 2
