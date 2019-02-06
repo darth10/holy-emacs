@@ -41,7 +41,8 @@
          ("M-<down>" . core/move-line-region-down)
          ("M-<up>" . core/move-line-region-up)
          ("M-n" . core/move-line-region-down)
-         ("M-p" . core/move-line-region-up))
+         ("M-p" . core/move-line-region-up)
+         ("C-h C-l" . describe-personal-keybindings))
   :commands (core/kill-line-utils-init)
   :init
   (global-unset-key (kbd "<f10>"))
@@ -56,6 +57,59 @@
   (when (core:is-windows-p)     ;; Windows-only config
     (setq w32-get-true-file-attributes nil)
     (w32-send-sys-command 61488)))
+
+(use-package god-mode
+  :ensure t
+  :if core-enable-god-mode
+  :bind (("<escape>" . god-local-mode)
+         ("S-<escape>" . god-mode-all)
+         ("M-i" . god-local-mode)
+         :map god-local-mode-map
+         ("." . repeat)
+         ("z" . repeat)
+         ("i" . god-local-mode))
+  :hook (after-init . god-mode-all)
+  :config
+  (defun god-toggle-on-overwrite ()
+    (if (bound-and-true-p overwrite-mode)
+        (god-local-mode-pause)
+      (god-local-mode-resume)))
+
+  (let* ((exempt-modes (list
+                        'Custom-mode
+                        'Info-mode
+                        'ag-mode
+                        'calendar-mode
+                        'calculator-mode
+                        'cider-test-report-mode
+                        'compilation-mode
+                        'debugger-mode
+                        'dired-mode
+                        'edebug-mode
+                        'ediff-mode
+                        'eww-mode
+                        'geben-breakpoint-list-mode
+                        'ibuffer-mode
+                        'org-agenda-mode
+                        'recentf-dialog-mode
+                        'wdired-mode
+                        )))
+    (dolist (i exempt-modes)
+      (add-to-list 'god-exempt-major-modes i)))
+
+  (add-hook 'overwrite-mode-hook #'god-toggle-on-overwrite))
+
+(use-package which-key
+  :ensure t
+  :bind (("C-' k" . which-key-mode)
+         ("C-' C-k" . which-key-mode))
+  :init
+  (which-key-setup-side-window-bottom)
+  (which-key-enable-god-mode-support)
+  (setq which-key-max-description-length 24)
+  (setq which-key-max-display-columns 4)
+  (unbind-key "C-h C-h")
+  (which-key-mode t))
 
 (use-package hl-line
   :bind (("C-' l" . hl-line-mode)
@@ -144,25 +198,23 @@
   (+paredit-bind-key "C-, C-, C-b" 'paredit-backward-slurp-sexp)
   (+paredit-bind-key "C-, , b" 'paredit-backward-slurp-sexp)
 
-  (add-hook 'eshell-mode-hook 'paredit-mode)
+  (add-hook 'eshell-mode-hook #'paredit-mode)
 
   (use-package smartparens
     :config
     (defun disable-smartparens-mode ()
       (interactive)
       (smartparens-mode (if paredit-mode -1 t)))
-    (add-hook 'paredit-mode-hook 'disable-smartparens-mode))
+    (add-hook 'paredit-mode-hook #'disable-smartparens-mode))
   (use-package lisp-mode
     :config
-    (add-hook 'lisp-mode-hook 'paredit-mode)
-    (add-hook 'emacs-lisp-mode-hook 'paredit-mode))
-  (use-package ielm
-    :config
-    (add-hook 'ielm-mode-hook 'paredit-mode))
-  (use-package clojure-mode :config (add-hook 'clojure-mode-hook 'paredit-mode))
-  (use-package cider :config (add-hook 'cider-repl-mode-hook 'paredit-mode))
-  (use-package scheme :config (add-hook 'scheme-mode-hook 'paredit-mode))
-  (use-package geiser :config (add-hook 'geiser-repl-mode-hook 'paredit-mode)))
+    (add-hook 'lisp-mode-hook #'paredit-mode)
+    (add-hook 'emacs-lisp-mode-hook #'paredit-mode))
+  (use-package ielm :config (add-hook 'ielm-mode-hook #'paredit-mode))
+  (use-package clojure-mode :config (add-hook 'clojure-mode-hook #'paredit-mode))
+  (use-package cider :config (add-hook 'cider-repl-mode-hook #'paredit-mode))
+  (use-package scheme :config (add-hook 'scheme-mode-hook #'paredit-mode))
+  (use-package geiser :config (add-hook 'geiser-repl-mode-hook #'paredit-mode)))
 
 (use-package eval-sexp-fu
   :ensure t
@@ -173,8 +225,8 @@
   (defun +eval-sexp-fu-init ()
     (require 'eval-sexp-fu))
 
-  (add-hook 'lisp-mode-hook '+eval-sexp-fu-init)
-  (add-hook 'emacs-lisp-mode-hook '+eval-sexp-fu-init)
-  (add-hook 'eshell-mode-hook '+eval-sexp-fu-init))
+  (add-hook 'lisp-mode-hook #'+eval-sexp-fu-init)
+  (add-hook 'emacs-lisp-mode-hook #'+eval-sexp-fu-init)
+  (add-hook 'eshell-mode-hook #'+eval-sexp-fu-init))
 
 (provide 'config-editor)
