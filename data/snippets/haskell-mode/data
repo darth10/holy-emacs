@@ -1,4 +1,0 @@
-#name : data
-#contributor : Akhil Wali <akhil.wali.10@gmail.com>
-# --
-data ${1:synonym} = $0

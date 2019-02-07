@@ -3,5 +3,5 @@
 # key: **t
 # --
 select top ${1:1} ${2:*}
-from ${3:zz} h
+from ${3:tab} h
 $0

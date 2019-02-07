@@ -1,5 +1,0 @@
-#name : import qualified hiding
-#contributor : Akhil Wali <akhil.wali.10@gmail.com>
-# --
-import qualified ${1:module} as ${2:alias} hiding (${3:names})
-$0

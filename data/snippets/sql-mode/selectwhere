@@ -3,6 +3,6 @@
 # key: *
 # --
 select ${1:*}
-from ${2:zz} h
+from ${2:tab} h
 where ${3:pkey} = ${4:0}
 $0

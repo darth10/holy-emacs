@@ -2,6 +2,6 @@
 # name: join
 # key: j
 # --
-join ${1:zz} ${2:d}
+join ${1:tab} ${2:d}
 on ${3:h}.${4:pkey} = ${5:$2}.${6:fkey}
 $0

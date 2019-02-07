@@ -2,7 +2,7 @@
 # name: insert
 # key: ins
 # --
-insert into ${1:zz}
+insert into ${1:tab}
 ($2)
 values
 (${3:$2})

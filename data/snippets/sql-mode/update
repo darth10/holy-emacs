@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: update
+# key: set
+# --
+update ${1:tab}
+set ${2:x} = ${3:0}
+where ${4:pkey} = ${5:0}

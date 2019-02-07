@@ -1,8 +1,8 @@
 # -*- mode: snippet -*-
 # name: selectwhere
-# key: *
+# key: *t
 # --
 select top ${1:1} ${2:*}
-from ${3:zz} h
+from ${3:tab} h
 where ${4:pkey} = ${5:0}
 $0

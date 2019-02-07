@@ -1,5 +1,0 @@
-#name : instance
-#contributor : Akhil Wali <akhil.wali.10@gmail.com>
-# --
-instance ${1:Typeclass} ${2:Name} where
-    $0
