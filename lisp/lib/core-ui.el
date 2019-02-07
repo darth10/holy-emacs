@@ -23,6 +23,9 @@ use any custom theme."
 (defconst core--default-font "Consolas"
   "Default font.")
 
+(defconst core--default-fill-column 80
+  "Default column limit.")
+
 (defconst core--scratch-message-logo-text
   "
       __          __
@@ -75,7 +78,7 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
      "\n\n")))
 
 (defun core--configure-mode ()
-  (let* ((is-line-overflow (> (current-column) 70))
+  (let* ((is-line-overflow (> (current-column) core--default-fill-column))
          (prev-cur-color (face-background 'cursor))
          (prev-modeline-color (and (facep 'doom-modeline-bar)
                                    (face-background 'doom-modeline-bar)))
@@ -241,6 +244,7 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
    indent-tabs-mode nil
    tab-always-indent t
    tab-width 4
+   fill-column core--default-fill-column
    left-fringe-width 8
    right-fringe-width 8
    frame-inhibit-implied-resize t
