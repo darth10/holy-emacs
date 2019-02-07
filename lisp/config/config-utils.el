@@ -88,7 +88,10 @@
   (use-package yasnippet-snippets
     :ensure t)
 
-  (add-to-list 'yas-snippet-dirs "~/.emacs.d/data/snippets/")
+  (add-to-list
+   'yas-snippet-dirs
+   (expand-file-name (concat core-var-dir-path "snippets")
+                     user-emacs-directory))
   (yas-global-mode t))
 
 (use-package editorconfig
