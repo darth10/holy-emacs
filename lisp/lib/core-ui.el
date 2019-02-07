@@ -237,6 +237,23 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
   (advice-add 'tmm-add-prompt :after #'core--tmm-window-adjust))
 
 (progn
+  (setq-default
+   indent-tabs-mode nil
+   tab-always-indent t
+   tab-width 4
+   left-fringe-width 8
+   right-fringe-width 8
+   frame-inhibit-implied-resize t
+   window-divider-default-places t
+   window-divider-default-bottom-width 0
+   window-divider-default-right-width 1
+   ;; JIT tweaks for font performance
+   jit-lock-defer-time nil
+   jit-lock-chunk-size 500
+   jit-lock-stealth-nice 0.1
+   jit-lock-stealth-time 1
+   jit-lock-stealth-verbose nil)
+
   (custom-set-faces
    '(mode-line ((t (:box nil :overline nil :underline nil))))
    '(mode-line-inactive ((t (:box nil :overline nil :underline nil))))
