@@ -17,8 +17,8 @@
 ;; * +module-...   any other public definitions like vars, consts, etc
 ;;
 ;; The only exceptions to these conventions are:
-;; * the holy-emacs customization group (core.el)
-;; * the holy-emacs-version const       (core.el)
+;; * the `holy-emacs' customization group (core.el)
+;; * the `holy-emacs-version' const       (core.el)
 
 ;;; Key binding conventions:
 ;;
@@ -26,7 +26,7 @@
 ;; based on https://www.gnu.org/software/emacs/manual/html_node/elisp/Key-Binding-Conventions.html
 
 (defgroup holy-emacs nil
-  "An opinionated and extensible Emacs configuration"
+  "An opinionated and extensible Emacs configuration."
   :group 'emacs)
 
 (defconst holy-emacs-version "0.1.6"
@@ -123,7 +123,7 @@ Lisp files for byte compilation."
            collect (expand-file-name dir user-emacs-directory)))
 
 (defun core--init-load-path ()
-  "Adds required paths to the `load-path` variable."
+  "Adds required paths to the `load-path' variable."
   (cl-loop for path in (list core-lib-path
                              core-modules-lib-path
                              core-var-lib-path)
@@ -133,7 +133,7 @@ Lisp files for byte compilation."
                    (expand-file-name path user-emacs-directory))))
 
 (defun core--load-var-dir ()
-  "Loads all Emacs Lisp files from directory `core-var-lib-path`."
+  "Loads all Emacs Lisp files from directory `core-var-lib-path'."
   (let* ((var-dir (concat user-emacs-directory core-var-lib-path))
          (files (directory-files var-dir))
          (file-names (cl-loop for file in files
@@ -150,9 +150,9 @@ Lisp files for byte compilation."
              and do (load pkg))))
 
 (defun core--check-and-install-required-packages ()
-  "Checks if packages in `core--required-packages` are installed
+  "Checks if packages in `core--required-packages' are installed
 and installs them if needed. Must be called after
-`package-initialize`."
+`package-initialize'."
   (cl-flet ((to-install-package-p (pkg)
                                   (not (package-installed-p pkg))))
     (when (cl-some #'to-install-package-p
@@ -195,8 +195,8 @@ and installs them if needed. Must be called after
   (core--check-and-install-required-packages)
 
   ;; Require only a few packages here and the rest when they're
-  ;; needed. They should be available on the `load-path` as
-  ;; `package-initialize` has been called.
+  ;; needed. They should be available on the `load-path' as
+  ;; `package-initialize' has been called.
   (eval-when-compile
     (require 'use-package))
   (require 'quelpa-use-package)

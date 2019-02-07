@@ -1,7 +1,7 @@
 ;;; core-ui.el -*- lexical-binding: t; -*-
 
 (defcustom core-enable-god-mode t
-  "When nil, do not enable `god-mode` and relevant bindings."
+  "When nil, do not enable `god-mode' and relevant bindings."
   :type 'boolean
   :safe #'booleanp
   :group 'holy-emacs)
@@ -44,7 +44,7 @@ To quit Emacs, type C-x C-c.
 For information about GNU Emacs and the GNU system, type C-h C-a.")
 
 (defvar core--modeline-mode-string ""
-  "Current mode state for `doom-modeline`.")
+  "Current mode state for `doom-modeline-mode'.")
 
 (defvar core--display-line-numbers-function nil
   "Function to call for displaying line numbers.")
@@ -271,8 +271,8 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
         ["#242424" "#e5786d" "#95e454" "#cae682"
          "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
 
-  ;; Here, `custom-safe-themes` and `custom-enabled-themes` need to be
-  ;; in separate `custom-set-variables` forms to avoid user prompts.
+  ;; Here, `custom-safe-themes' and `custom-enabled-themes' need to be
+  ;; in separate `custom-set-variables' forms to avoid user prompts.
   (custom-set-variables
    '(custom-safe-themes
      (quote ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4"
