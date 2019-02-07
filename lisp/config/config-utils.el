@@ -88,6 +88,9 @@
   (use-package yasnippet-snippets
     :ensure t)
 
+  (custom-set-faces
+   '(yas-field-highlight-face ((t (:inherit 'region)))))
+
   (add-to-list
    'yas-snippet-dirs
    (expand-file-name (concat core-var-dir-path "snippets")
