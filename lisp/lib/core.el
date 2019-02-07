@@ -49,7 +49,7 @@
   ;; Increase GC limits and remove file handlers for startup
   (defvar core--file-name-handler-alist file-name-handler-alist)
   (unless (or after-init-time noninteractive)
-    (setq gc-cons-threshold 402653184
+    (setq gc-cons-threshold 402653184   ; 384MB
           gc-cons-percentage 0.7
           file-name-handler-alist nil))
 
@@ -68,7 +68,7 @@
 
   (defun core--finalize-startup ()
     ;; Reset GC limits and file handlers
-    (setq gc-cons-threshold 16777216
+    (setq gc-cons-threshold 16777216    ; 16MB
           gc-cons-percentage 0.1
           file-name-handler-alist core--file-name-handler-alist))
 
