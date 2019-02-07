@@ -223,6 +223,19 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
   (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
   (add-hook 'conf-mode-hook #'rainbow-delimiters-mode))
 
+(use-package tmm       ;; textual menu
+  :config
+  (setq tmm-completion-prompt nil
+        tmm-shortcut-style 'downcase
+        tmm-shortcut-words 3
+        tmm-mid-prompt " -> ")
+
+  (defun core--tmm-window-adjust ()
+    (with-selected-window (get-buffer-window "*Completions*")
+      (enlarge-window 2)))
+
+  (advice-add 'tmm-add-prompt :after #'core--tmm-window-adjust))
+
 (progn
   (custom-set-faces
    '(mode-line ((t (:box nil :overline nil :underline nil))))
