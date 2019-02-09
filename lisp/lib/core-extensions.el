@@ -2,7 +2,7 @@
 
 ;;; Commentary:
 
-;; Provides support for the use-package :lang extension/keyword.
+;; Provides support for the `use-package' :lang extension/keyword.
 ;; This allows concise definitions of modules for editing, running
 ;; and debugging programming languages with consistent and
 ;; customizable key bindings.
