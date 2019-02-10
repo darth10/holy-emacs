@@ -283,6 +283,7 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
 
   (show-paren-mode 1)
   (blink-cursor-mode 1)
+  (column-number-mode 1)
 
   ;;; Variables to set before loading theme
   (setq solarized-use-variable-pitch nil

@@ -256,8 +256,7 @@
   (setq auto-save-file-name-transforms `((".*" ,+simple-backup-dir t))
         auto-save-list-file-prefix +simple-backup-dir
         backup-directory-alist `((".*" . ,+simple-backup-dir))
-        create-lockfiles nil)
-  (column-number-mode 1))
+        create-lockfiles nil))
 
 (use-package tramp
   :defer 2
