@@ -111,7 +111,8 @@
          ("C-c C-: C-;" . recentf-open-files))
   :config
   (setq recentf-max-menu-items 40
-        recentf-max-saved-items 40)
+        recentf-max-saved-items 40
+        recentf-save-file (concat core-var-cache-dir-full-path "recentf"))
   (recentf-mode t))
 
 (use-package fic-mode
