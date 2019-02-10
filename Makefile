@@ -1,6 +1,8 @@
 EMACS_BATCH=emacs -batch --eval '(setq user-emacs-directory default-directory)'
 EMACS_FULL=@$(EMACS_BATCH) -l init.el
 EMACS_CORE=@$(EMACS_BATCH) -l lisp/lib/core.el
+CUSTOM_DEFS_FILE=lisp/var/custom-defs.el
+CACHE_DIR=var/cache
 
 all: install compile
 
@@ -11,8 +13,8 @@ install: upgrade
 compile: recompile
 
 init-files:
-	if [ ! -f lisp/var/custom-defs.el ]; then touch lisp/var/custom-defs.el; fi
-	if [ ! -d var/cache ]; then mkdir var/cache; fi
+	if [ ! -f $(CUSTOM_DEFS_FILE) ]; then touch $(CUSTOM_DEFS_FILE); fi
+	if [ ! -d $(CACHE_DIR) ]; then mkdir $(CACHE_DIR); fi
 
 upgrade: init-files
 	@$(EMACS_FULL) -f core/upgrade-packages
