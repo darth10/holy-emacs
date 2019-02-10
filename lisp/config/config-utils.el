@@ -70,16 +70,20 @@
   :bind (("C-' C-y" . yas-global-mode)
          ("C-' y" . yas-global-mode))
   :config
-  (use-package yasnippet-snippets
-    :ensure t)
-
   (custom-set-faces
    '(yas-field-highlight-face ((t (:inherit 'region)))))
 
-  (add-to-list
-   'yas-snippet-dirs
-   (expand-file-name (concat core-var-dir-path "snippets")
-                     user-emacs-directory))
+  (let* ((temp-yas-snippet-dirs
+          (append yas-snippet-dirs
+                  (list (expand-file-name (concat core-var-dir-path "snippets")
+                                          user-emacs-directory))))
+         (temp-yas-snippet-dirs
+          (delete yas--default-user-snippets-dir temp-yas-snippet-dirs)))
+    (setq yas-snippet-dirs temp-yas-snippet-dirs))
+
+  (use-package yasnippet-snippets
+    :ensure t)
+
   (yas-global-mode t))
 
 (use-package editorconfig
