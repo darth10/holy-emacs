@@ -252,12 +252,11 @@
          ("C-c \\" . just-one-space))
   :config
   (defconst +simple-backup-dir
-    (concat user-emacs-directory "var/backups"))
+    (concat user-emacs-directory "var/backups/"))
   (setq auto-save-file-name-transforms `((".*" ,+simple-backup-dir t))
         auto-save-list-file-prefix +simple-backup-dir
         backup-directory-alist `((".*" . ,+simple-backup-dir))
         create-lockfiles nil)
-  (setq-default truncate-lines t)
   (column-number-mode 1))
 
 (use-package tramp
