@@ -50,6 +50,10 @@ prone to change.")
   (concat core-var-dir-path "cache/")
   "Relative path of directory containing all cached data.")
 
+(defconst core-var-cache-dir-full-path
+  (expand-file-name core-var-cache-dir-path user-emacs-directory)
+  "Absolute path of directory containing all cached data.")
+
 (defconst core-elpa-packages-path
   (concat core-var-dir-path "packages/elpa/")
   "Relative path of ELPA/MELPA packages directory.")
@@ -75,9 +79,9 @@ prone to change.")
   (setq-default
    buffer-file-coding-system 'utf-8-unix
    default-buffer-file-coding-system 'utf-8-unix
-   pcache-directory (concat core-var-cache-dir-path "pcache/")
-   url-configuration-directory (concat core-var-cache-dir-path "url/")
-   url-cache-directory (concat core-var-cache-dir-path "url/"))
+   pcache-directory (concat core-var-cache-dir-full-path "pcache/")
+   url-configuration-directory (concat core-var-cache-dir-full-path "url/")
+   url-cache-directory (concat core-var-cache-dir-full-path "url/cache"))
 
   ;; Increase GC limits and remove file handlers for startup
   (defvar core--file-name-handler-alist file-name-handler-alist)
