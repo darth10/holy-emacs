@@ -229,4 +229,19 @@
   (add-hook 'emacs-lisp-mode-hook #'+eval-sexp-fu-init)
   (add-hook 'eshell-mode-hook #'+eval-sexp-fu-init))
 
+(use-package abbrev
+  :defer 2)
+
+(use-package anzu
+  :ensure t
+  :defer t
+  :hook (after-init . global-anzu-mode))
+
+(use-package inflections
+  :ensure t)
+
+(use-package smex
+  :ensure t
+  :defer 2)
+
 (provide 'config-editor)

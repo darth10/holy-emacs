@@ -1,13 +1,5 @@
 ;;; Configuration for utility packages
 
-(use-package abbrev
-  :defer 2)
-
-(use-package anzu
-  :ensure t
-  :defer t
-  :hook (after-init . global-anzu-mode))
-
 (use-package flycheck
   :ensure t
   :defer 5)
@@ -17,13 +9,6 @@
   :defer 5)
 
 (use-package esup
-  :ensure t
-  :defer 2)
-
-(use-package inflections
-  :ensure t)
-
-(use-package smex
   :ensure t
   :defer 2)
 
