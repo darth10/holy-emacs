@@ -32,6 +32,36 @@
 (defconst holy-emacs-version "0.1.6"
   "Version of holy-emacs.")
 
+(defconst core-lib-path "lisp/lib/"
+  "Relative path of all modules.")
+
+(defconst core-modules-lib-path "lisp/config/"
+  "Relative path of all modules.")
+
+(defconst core-var-dir-path "var/"
+  "Relative path of directory containing all files that are
+prone to change.")
+
+(defconst core-var-lib-path "lisp/var/"
+  "Relative path of directory containing Emacs Lisp files that are
+prone to change.")
+
+(defconst core-var-cache-dir-path
+  (concat core-var-dir-path "cache/")
+  "Relative path of directory containing all cached data.")
+
+(defconst core-elpa-packages-path
+  (concat core-var-dir-path "packages/elpa/")
+  "Relative path of ELPA/MELPA packages directory.")
+
+(defconst core-quelpa-packages-path
+  (concat core-var-dir-path "packages/quelpa/")
+  "Relative path of quelpa packages directory.")
+
+(defconst core--required-packages
+  '(epl async quelpa use-package quelpa-use-package)
+  "List of required packages.")
+
 (eval-and-compile
   (when (fboundp 'set-charset-priority)
     (set-charset-priority 'unicode))
@@ -44,7 +74,10 @@
 
   (setq-default
    buffer-file-coding-system 'utf-8-unix
-   default-buffer-file-coding-system 'utf-8-unix)
+   default-buffer-file-coding-system 'utf-8-unix
+   pcache-directory (concat core-var-cache-dir-path "pcache/")
+   url-configuration-directory (concat core-var-cache-dir-path "url/")
+   url-cache-directory (concat core-var-cache-dir-path "url/"))
 
   ;; Increase GC limits and remove file handlers for startup
   (defvar core--file-name-handler-alist file-name-handler-alist)
@@ -73,32 +106,6 @@
           file-name-handler-alist core--file-name-handler-alist))
 
   (add-hook 'emacs-startup-hook #'core--finalize-startup))
-
-(defconst core-lib-path "lisp/lib/"
-  "Relative path of all modules.")
-
-(defconst core-modules-lib-path "lisp/config/"
-  "Relative path of all modules.")
-
-(defconst core-var-dir-path "var/"
-  "Relative path of directory containing all files that are
-prone to change.")
-
-(defconst core-var-lib-path "lisp/var/"
-  "Relative path of directory containing Emacs Lisp files that are
-prone to change.")
-
-(defconst core-elpa-packages-path
-  (concat core-var-dir-path "packages/elpa/")
-  "Relative path of ELPA/MELPA packages directory.")
-
-(defconst core-quelpa-packages-path
-  (concat core-var-dir-path "packages/quelpa/")
-  "Relative path of quelpa packages directory.")
-
-(defconst core--required-packages
-  '(epl async quelpa use-package quelpa-use-package)
-  "List of required packages.")
 
 (defun core--get-elisp-compile-dirs ()
   "Get a list of absolute paths of directories containing Emacs
@@ -169,8 +176,7 @@ and installs them if needed. Must be called after
   "Initializes the packages and modules sub-system."
   (setq package-user-dir (expand-file-name
                           core-elpa-packages-path user-emacs-directory)
-        package-gnupghome-dir (expand-file-name
-                               "gnupg/" package-user-dir)
+        package-gnupghome-dir (expand-file-name "gnupg/" package-user-dir)
         quelpa-dir (expand-file-name
                     core-quelpa-packages-path user-emacs-directory)
         quelpa-checkout-melpa-p nil
