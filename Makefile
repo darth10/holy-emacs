@@ -10,8 +10,11 @@ c: compile
 install: upgrade
 compile: recompile
 
-upgrade:
-	touch lisp/var/custom-defs.el
+init-files:
+	if [ ! -f lisp/var/custom-defs.el ]; then touch lisp/var/custom-defs.el; fi
+	if [ ! -d var/cache ]; then mkdir var/cache; fi
+
+upgrade: init-files
 	@$(EMACS_FULL) -f core/upgrade-packages
 
 recompile:
