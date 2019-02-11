@@ -2,19 +2,20 @@
 
 ;;; Emacs Lisp naming conventions:
 ;;
-;; Definitions in files within the core/ directory should use
-;; the following conventions:
+;; Definitions in files within the core/ directory should use the
+;; following conventions:
 ;; * core/...      interactive functions
 ;; * core:...      public non-interactive functions
 ;; * core--...     any non-interactive private definitions
 ;; * core-...      any other public definitions like vars, consts, etc
 ;;
-;; Definitions in files outside the core/ directory should
-;; have the +file... prefix and use the same conventions:
-;; * +module/...   interactive functions
-;; * +module:...   public non-interactive functions
-;; * +module--...  any non-interactive private definitions
-;; * +module-...   any other public definitions like vars, consts, etc
+;; Definitions in files outside the core/ directory should have the
+;; +pkg... prefix, depending on which package or feature (pkg) they are
+;; used for, and use the same conventions:
+;; * +pkg/...      interactive functions
+;; * +pkg:...      public non-interactive functions
+;; * +pkg--...     any non-interactive private definitions
+;; * +pkg-...      any other public definitions like vars, consts, etc
 ;;
 ;; The only exceptions to these conventions are:
 ;; * the `holy-emacs' customization group (core.el)
