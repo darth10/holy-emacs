@@ -184,6 +184,10 @@
   ;; increase size of calculator window
   (advice-add 'calculator :after #'(lambda () (enlarge-window 2))))
 
+(use-package try
+  :ensure t
+  :defer 2)
+
 (use-package compile
   :bind (("C-! k" . compile)
          ("C-! C-k" . compile)
