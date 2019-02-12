@@ -241,6 +241,7 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
    indent-tabs-mode nil
    tab-always-indent t
    tab-width 4
+   truncate-lines t
    fill-column core--default-fill-column
    left-fringe-width 8
    right-fringe-width 8
