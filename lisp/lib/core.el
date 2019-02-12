@@ -203,6 +203,7 @@ and installs them if needed. Must be called after
 
   (require 'core-keys)
   (require 'core-customize)
+  (require 'core-themes)
   (require 'core-ui)
   (require 'core-extensions)
   ;; core-editor.el is not loaded here as it's not required.

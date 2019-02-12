@@ -1,5 +1,8 @@
 ;;; config-editor.el -*- lexical-binding: t; -*-
 
+(custom-set-variables   ;; Set color theme
+ `(custom-enabled-themes (quote ,core-enabled-custom-themes)))
+
 (use-package core-editor
   :load-path core-lib-path
   :bind (("C-' n" . core/display-line-numbers)

@@ -106,9 +106,6 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
     (setq cursor-type cur-type)
     (setq core--modeline-mode-string next-mode-string)))
 
-(use-package solarized-theme
-  :ensure t)
-
 ;; This package is needed for eval-sexp-fu
 (use-package highlight
   :ensure t
@@ -285,32 +282,19 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
   (blink-cursor-mode 1)
   (column-number-mode 1)
 
-  ;;; Variables to set before loading theme
   (setq solarized-use-variable-pitch nil
         solarized-scale-org-headlines nil
         x-underline-at-descent-line t
-        ansi-color-names-vector
-        ["#242424" "#e5786d" "#95e454" "#cae682"
-         "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
-
-  ;; Here, `custom-safe-themes' and `custom-enabled-themes' need to be
-  ;; in separate `custom-set-variables' forms to avoid user prompts.
-  (custom-set-variables
-   '(custom-safe-themes
-     (quote ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4"
-             default))))
-  (custom-set-variables
-   `(custom-enabled-themes (quote ,core-enabled-custom-themes)))
-
-  ;;; Variables to set after loading theme
-  (setq fancy-splash-image nil
+        fancy-splash-image nil
         inhibit-default-init t
         inhibit-startup-screen t
         split-height-threshold 40
         split-width-threshold nil
         echo-keystrokes 0.05
         cursor-in-non-selected-windows nil
-        initial-scratch-message (core--get-scratch-message))
+        initial-scratch-message (core--get-scratch-message)
+        ansi-color-names-vector ["#242424" "#e5786d" "#95e454" "#cae682"
+                                 "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
 
   (add-hook 'post-command-hook #'core--configure-mode)
   (add-hook 'prog-mode-hook core--display-line-numbers-function)
