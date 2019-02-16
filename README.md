@@ -14,7 +14,6 @@
 
 ## Overview
 
-* Support for editing/debugging Clojure, Emacs Lisp, Scheme, C#, JavaScript, Haskell, Python, Ruby, PHP and C.
 * Installs all required packages from MELPA and GNU ELPA repositories on startup.
   Packages can also be installed through `quelpa`.
 * Includes `magit`, `helm`, `projectile`, `company` and `yasnippet`.
@@ -69,3 +68,17 @@ Some of the default Emacs key bindings are changed, as follows.
 * <kbd>C-w</kbd> will kill the current line and <kbd>M-w</kbd> will
   copy the current line when no region is selected.
 * <kbd>C-x C-c</kbd> will exit Emacs with a confirmation.
+
+## Supported languages
+
+* Emacs Lisp
+* Clojure
+* Scheme
+* JavaScript
+* C#
+* Go
+* Haskell
+* Python
+* Ruby
+* PHP
+* C
