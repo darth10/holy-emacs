@@ -39,3 +39,5 @@ clean-ghc:
 	echo 'erasing ~/.cabal/lib'; rm -rf ~/.cabal/lib
 	echo 'erasing ~/.cabal/packages'; rm -rf ~/.cabal/packages
 	echo 'erasing ~/.cabal/share'; rm -rf ~/.cabal/share
+
+.PHONY: all init-files compile recompile install upgrade clean
