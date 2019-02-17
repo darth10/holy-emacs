@@ -12,6 +12,8 @@
 [![master-build](https://img.shields.io/travis/darth10/holy-emacs/master.svg?label=master&style=flat)](https://travis-ci.org/darth10/holy-emacs)
 [![develop-build](https://img.shields.io/travis/darth10/holy-emacs/develop.svg?label=develop&style=flat)](https://travis-ci.org/darth10/holy-emacs)
 
+> You can use any editor you want, but remember that vi vi vi is the text editor of the beast.
+
 ## Overview
 
 * Installs all required packages from MELPA and GNU ELPA repositories on startup.
