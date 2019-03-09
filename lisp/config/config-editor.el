@@ -232,6 +232,14 @@
   (add-hook 'emacs-lisp-mode-hook #'+eval-sexp-fu-init)
   (add-hook 'eshell-mode-hook #'+eval-sexp-fu-init))
 
+(use-package transient
+  :ensure t
+  :init
+  (let ((transient-dir-path (concat core-var-cache-dir-full-path "transient/")))
+    (setq transient-levels-file (concat transient-dir-path "levels.el")
+          transient-values-file (concat transient-dir-path "values.el")
+          transient-history-file (concat transient-dir-path "history.el"))))
+
 (use-package abbrev
   :defer 2)
 
