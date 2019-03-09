@@ -45,6 +45,13 @@
          ("M-<up>" . core/move-line-region-up)
          ("M-n" . core/move-line-region-down)
          ("M-p" . core/move-line-region-up)
+         ("C-' w" . toggle-truncate-lines)
+         ("C-' C-w" . toggle-truncate-lines)
+         ("C-<f9>" . toggle-truncate-lines)
+         ("C-' q" . auto-fill-mode)
+         ("C-' C-q" . auto-fill-mode)
+         ("C-c C-\\" . just-one-space)
+         ("C-c \\" . just-one-space)
          ("C-h C-l" . describe-personal-keybindings))
   :commands (core/kill-line-utils-init)
   :init
@@ -239,6 +246,15 @@
     (setq transient-levels-file (concat transient-dir-path "levels.el")
           transient-values-file (concat transient-dir-path "values.el")
           transient-history-file (concat transient-dir-path "history.el"))))
+
+(use-package simple
+  :config
+  (defconst +simple-backup-dir
+    (concat user-emacs-directory (concat core-var-cache-dir-path "backups/")))
+  (setq auto-save-file-name-transforms `((".*" ,+simple-backup-dir t))
+        auto-save-list-file-prefix +simple-backup-dir
+        backup-directory-alist `((".*" . ,+simple-backup-dir))
+        create-lockfiles nil))
 
 (use-package abbrev
   :defer 2)

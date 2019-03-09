@@ -236,22 +236,6 @@
   :config
   (desktop-save-mode t))
 
-(use-package simple
-  :bind (("C-' w" . toggle-truncate-lines)
-         ("C-' C-w" . toggle-truncate-lines)
-         ("C-<f9>" . toggle-truncate-lines)
-         ("C-' q" . auto-fill-mode)
-         ("C-' C-q" . auto-fill-mode)
-         ("C-c C-\\" . just-one-space)
-         ("C-c \\" . just-one-space))
-  :config
-  (defconst +simple-backup-dir
-    (concat user-emacs-directory "var/backups/"))
-  (setq auto-save-file-name-transforms `((".*" ,+simple-backup-dir t))
-        auto-save-list-file-prefix +simple-backup-dir
-        backup-directory-alist `((".*" . ,+simple-backup-dir))
-        create-lockfiles nil))
-
 (use-package tramp
   :defer 2
   :config

@@ -16,4 +16,3 @@ swank/
 tramp
 var/cache
 var/packages
-var/backups*
