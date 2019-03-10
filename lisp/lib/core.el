@@ -30,7 +30,7 @@
   "An opinionated and extensible Emacs configuration."
   :group 'emacs)
 
-(defconst holy-emacs-version "0.1.6"
+(defconst holy-emacs-version "0.1.7"
   "Version of holy-emacs.")
 
 (defconst core-lib-path "lisp/lib/"
