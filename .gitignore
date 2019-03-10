@@ -12,6 +12,5 @@ image-dired/
 network-security.data
 projectile-bookmarks.eld
 swank/
-tramp
 var/cache
 var/packages
