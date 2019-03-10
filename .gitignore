@@ -3,7 +3,6 @@
 .cask/
 .emacs.desktop
 .emacs.desktop.lock
-.mc-lists.el
 ac-comphist.dat
 eshell/
 geben/

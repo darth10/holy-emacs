@@ -170,17 +170,6 @@
   (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize)))
 
-(use-package multiple-cursors
-  :ensure t
-  :bind (("C-<" . mc/mark-previous-like-this)
-         ("C->" . mc/mark-next-like-this)
-         ("C-c C-<f3>" . mc/mark-all-like-this)
-         ("C-c C->" . mc/mark-all-like-this)
-         ("C-x <C-return>" . mc/edit-lines)
-         ("C-x RET RET" . set-rectangular-region-anchor))
-  :init
-  (face-spec-set 'mc/cursor-bar-face '((t (:height 1 :background "green")))))
-
 (use-package ws-butler
   :ensure t
   :bind (("C-' d" . ws-butler-mode)

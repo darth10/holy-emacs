@@ -163,6 +163,18 @@
   (use-package clojure-mode :config (+highlight-sexp-bind-keys 'clojure-mode-map))
   (use-package scheme :config (+highlight-sexp-bind-keys 'scheme-mode-map)))
 
+(use-package multiple-cursors
+  :ensure t
+  :bind (("C-<" . mc/mark-previous-like-this)
+         ("C->" . mc/mark-next-like-this)
+         ("C-c C-<f3>" . mc/mark-all-like-this)
+         ("C-c C->" . mc/mark-all-like-this)
+         ("C-x <C-return>" . mc/edit-lines)
+         ("C-x RET RET" . set-rectangular-region-anchor))
+  :init
+  (setq mc/list-file (concat core-var-cache-dir-full-path "mc-lists.el"))
+  (face-spec-set 'mc/cursor-bar-face '((t (:height 1 :background "green")))))
+
 (use-package paredit
   :ensure t
   :defer 2
