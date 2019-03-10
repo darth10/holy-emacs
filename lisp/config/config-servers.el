@@ -4,6 +4,7 @@
   :ensure t
   :defer 2
   :config
+  (setq server-auth-dir (concat core-var-cache-dir-full-path "server/"))
   (server-start))
 
 (use-package edit-server
