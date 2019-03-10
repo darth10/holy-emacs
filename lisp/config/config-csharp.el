@@ -17,6 +17,9 @@
          ("C-c f" . omnisharp-code-format-entire-file)
          ("C-." . omnisharp-run-code-action-refactoring)
          ("C--" . pop-tag-mark))
+  :init
+  (setq omnisharp-cache-directory
+        (concat core-var-cache-dir-full-path "omnisharp/"))
   :config
   (defun company-omnisharp-intellisense ()
     (interactive)
