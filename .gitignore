@@ -1,7 +1,5 @@
 *.elc
 *.el~
 .cask/
-ac-comphist.dat
-swank/
 var/cache
 var/packages
