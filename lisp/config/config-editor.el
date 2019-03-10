@@ -57,6 +57,7 @@
   :init
   (global-unset-key (kbd "<f10>"))
   (global-unset-key (kbd "C-z"))
+  (setq eshell-directory-name (concat core-var-cache-dir-full-path "eshell/"))
 
   ;; enable disabled commands
   (put 'upcase-region 'disabled nil)
