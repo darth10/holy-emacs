@@ -236,15 +236,4 @@
   :config
   (desktop-save-mode t))
 
-(use-package tramp
-  :defer 2
-  :config
-  ;; File paths like `/sshx:user@remotehost|sudo:remotehost:/etc/dhcpd.conf`
-  ;; will open remote files over multiple hops.
-  (setq
-   ;; useful variables for debugging tramp
-   ;; tramp-debug-buffer t
-   ;; tramp-verbose 9
-   tramp-default-method "scpx"))
-
 (provide 'config-utils)

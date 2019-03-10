@@ -256,6 +256,18 @@
         backup-directory-alist `((".*" . ,+simple-backup-dir))
         create-lockfiles nil))
 
+(use-package tramp
+  :defer 2
+  :config
+  ;; File paths like `/sshx:user@remotehost|sudo:remotehost:/etc/dhcpd.conf`
+  ;; will open remote files over multiple hops.
+  (setq
+   ;; tramp-debug-buffer t
+   ;; tramp-verbose 9
+   tramp-default-method "scpx"
+   tramp-persistency-file-name (concat core-var-cache-dir-full-path "tramp")
+   tramp-auto-save-directory (concat core-var-cache-dir-full-path "tramp-auto-save/")))
+
 (use-package abbrev
   :defer 2)
 
