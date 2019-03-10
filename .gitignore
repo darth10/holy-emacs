@@ -5,7 +5,6 @@
 .emacs.desktop.lock
 .mc-lists.el
 ac-comphist.dat
-bookmarks
 eshell/
 geben/
 image-dired/

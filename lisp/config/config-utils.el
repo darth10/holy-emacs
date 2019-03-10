@@ -126,48 +126,6 @@
   (add-hook 'prog-mode-hook #'fic-mode)
   (add-hook 'conf-mode-hook #'fic-mode))
 
-(use-package bm
-  :ensure t
-  :defer 2
-  :bind (("C-c : #" . bm-remove-all-current-buffer)
-         ("C-c : C-#" . bm-remove-all-current-buffer)
-         ("C-c : c" . bm-show-all)
-         ("C-c : C-c" . bm-show-all)
-         ("C-c ," . bm-previous)
-         ("C-c ." . bm-next)
-         ("C-c : p" . bm-previous)
-         ("C-c : C-p" . bm-previous)
-         ("C-c : n" . bm-next)
-         ("C-c : C-n" . bm-next)
-         ("C-c : ." . bm-toggle)
-         ("C-c : C-." . bm-toggle))
-  :init
-  (setq bm-restore-repository-on-load t
-        bm-repository-file "~/.emacs.d/bookmarks")
-  :config
-  (defface +bm-fringe-face
-    '((t (:foreground "SkyBlue")))
-    "Face for bookmark fringe"
-    :group 'bm)
-
-  (setq bm-fringe-face '+bm-fringe-face
-        bm-fringe-persistent-face '+bm-fringe-face
-        bm-highlight-style 'bm-highlight-only-fringe
-        bm-cycle-all-buffers t
-        bm-buffer-persistence t)
-
-  (bm-repository-load)
-
-  (add-hook 'find-file-hooks 'bm-buffer-restore)
-  (add-hook 'after-revert-hook 'bm-buffer-restore)
-  (add-hook 'after-save-hook 'bm-buffer-save)
-  (add-hook 'kill-buffer-hook 'bm-buffer-save)
-  (add-hook 'kill-emacs-hook '(lambda ()
-                                (bm-buffer-save-all)
-                                (bm-repository-save)))
-
-  (advice-add 'bm-toggle :after 'bm-buffer-save))
-
 (use-package ibuffer
   :bind ("C-x C-b" . ibuffer))
 
