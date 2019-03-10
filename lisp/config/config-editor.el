@@ -322,6 +322,22 @@
 
   (advice-add 'bm-toggle :after 'bm-buffer-save))
 
+(use-package ws-butler
+  :ensure t
+  :bind (("C-' d" . ws-butler-mode)
+         ("C-' C-d" . ws-butler-mode))
+  :commands (ws-butler-mode)
+  :init
+  (add-hook 'prog-mode-hook #'ws-butler-mode)
+  (add-hook 'conf-mode-hook #'ws-butler-mode))
+
+(use-package fic-mode
+  :ensure t
+  :config
+  (setq fic-highlighted-words '("FIXME" "TODO" "BUG" "HACK"))
+  (add-hook 'prog-mode-hook #'fic-mode)
+  (add-hook 'conf-mode-hook #'fic-mode))
+
 (use-package abbrev
   :defer 2)
 

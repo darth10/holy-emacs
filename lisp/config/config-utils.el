@@ -119,13 +119,6 @@
         recentf-save-file (concat core-var-cache-dir-full-path "recentf"))
   (recentf-mode t))
 
-(use-package fic-mode
-  :ensure t
-  :config
-  (setq fic-highlighted-words '("FIXME" "TODO" "BUG" "HACK"))
-  (add-hook 'prog-mode-hook #'fic-mode)
-  (add-hook 'conf-mode-hook #'fic-mode))
-
 (use-package ibuffer
   :bind ("C-x C-b" . ibuffer))
 
@@ -169,15 +162,6 @@
   :config
   (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize)))
-
-(use-package ws-butler
-  :ensure t
-  :bind (("C-' d" . ws-butler-mode)
-         ("C-' C-d" . ws-butler-mode))
-  :commands (ws-butler-mode)
-  :init
-  (add-hook 'prog-mode-hook #'ws-butler-mode)
-  (add-hook 'conf-mode-hook #'ws-butler-mode))
 
 (use-package desktop
   :config
