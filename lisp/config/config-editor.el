@@ -254,6 +254,7 @@
 
 (use-package transient
   :ensure t
+  :defer 2
   :init
   (let ((transient-dir-path (concat core-var-cache-dir-full-path "transient/")))
     (setq transient-levels-file (concat transient-dir-path "levels.el")

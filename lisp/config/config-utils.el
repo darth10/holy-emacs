@@ -52,7 +52,8 @@
 (use-package image-dired
   :init
   (setq image-dired-dir (concat core-var-cache-dir-full-path "image-dired/")
-        image-dired-db-file (concat image-dired-dir "db/db.el")))
+        image-dired-db-file (concat image-dired-dir "db/db.el"))
+  :defer 2)
 
 (use-package hideshow
   :bind (:map hs-minor-mode-map
