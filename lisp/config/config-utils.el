@@ -49,6 +49,11 @@
     :defer 2
     :bind ("C-c C-j" . direx:jump-to-directory-other-window)))
 
+(use-package image-dired
+  :init
+  (setq image-dired-dir (concat core-var-cache-dir-full-path "image-dired/")
+        image-dired-db-file (concat image-dired-dir "db/db.el")))
+
 (use-package hideshow
   :bind (:map hs-minor-mode-map
               ("C-c d" . hs-hide-block)
