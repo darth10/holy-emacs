@@ -169,6 +169,10 @@
     (exec-path-from-shell-initialize)))
 
 (use-package desktop
+  :init
+  (setq desktop-path (list core-var-cache-dir-full-path)
+        desktop-base-file-name "desktop"
+        desktop-base-lock-name "desktop.lock")
   :config
   (desktop-save-mode t))
 

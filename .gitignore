@@ -1,8 +1,6 @@
 *.elc
 *.el~
 .cask/
-.emacs.desktop
-.emacs.desktop.lock
 ac-comphist.dat
 swank/
 var/cache
