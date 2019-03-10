@@ -7,6 +7,9 @@
 (use-package geben
   :ensure t
   :defer 5
+  :init
+  (setq geben-temporary-file-directory
+        (concat core-var-cache-dir-full-path "geben/"))
   :config
 
   (defun configure-geben (s)
