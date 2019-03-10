@@ -11,6 +11,9 @@
          ("C-c l" . org-store-link)
          ("M-p" . org-metaup)
          ("M-n" . org-metadown))
+  :init
+  (setq org-preview-latex-image-directory
+        (concat core-var-cache-dir-path "org-latex-images/"))
   :config
   (bind-key "C-x C-e" (kbd "C-u C-c *") org-mode-map)
   (unbind-key "C-'" org-mode-map)
