@@ -333,6 +333,11 @@
   (add-hook 'prog-mode-hook #'ws-butler-mode)
   (add-hook 'conf-mode-hook #'ws-butler-mode))
 
+(use-package helpful
+  :bind (("C-h f" . helpful-function)
+         ("C-h v" . helpful-variable)
+         ("C-h k" . helpful-key)))
+
 (use-package fic-mode
   :ensure t
   :config
