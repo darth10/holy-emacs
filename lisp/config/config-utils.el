@@ -39,6 +39,10 @@
 (use-package wide-column
   :ensure t)
 
+(use-package nov
+  :ensure t
+  :mode ("\\.epub\\'" . nov-mode))
+
 (use-package pdf-tools
   :ensure t
   :unless (core:is-windows-p)
