@@ -39,6 +39,14 @@
 (use-package wide-column
   :ensure t)
 
+(use-package pdf-tools
+  :ensure t
+  :unless (core:is-windows-p)
+  :mode (("\\.pdf\\'" . pdf-view-mode))
+  :config
+  (unless noninteractive
+    (pdf-tools-install t)))
+
 (use-package dired
   :bind (("C-x C-j" . dired-jump-other-window)
          :map  dired-mode-map
