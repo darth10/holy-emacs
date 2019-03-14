@@ -46,7 +46,7 @@
 (use-package pdf-tools
   :ensure t
   :unless (core:is-windows-p)
-  :mode (("\\.pdf\\'" . pdf-view-mode))
+  :mode ("\\.pdf\\'" . pdf-view-mode)
   :config
   (unless noninteractive
     (pdf-tools-install t)))
