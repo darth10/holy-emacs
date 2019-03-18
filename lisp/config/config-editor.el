@@ -334,6 +334,7 @@
   (add-hook 'conf-mode-hook #'ws-butler-mode))
 
 (use-package helpful
+  :ensure t
   :bind (("C-h f" . helpful-function)
          ("C-h v" . helpful-variable)
          ("C-h k" . helpful-key)))
