@@ -70,16 +70,14 @@ prone to change.")
 (eval-and-compile
   (when (fboundp 'set-charset-priority)
     (set-charset-priority 'unicode))
-  (prefer-coding-system        'utf-8-unix)
+  (set-selection-coding-system 'utf-8-unix)
   (set-default-coding-systems  'utf-8-unix)
   (set-terminal-coding-system  'utf-8-unix)
   (set-keyboard-coding-system  'utf-8-unix)
-  (set-selection-coding-system 'utf-8-unix)
   (setq locale-coding-system   'utf-8-unix)
+  (prefer-coding-system        'utf-8-unix)
 
   (setq-default
-   buffer-file-coding-system 'utf-8-unix
-   default-buffer-file-coding-system 'utf-8-unix
    pcache-directory (concat core-var-cache-dir-full-path "pcache/")
    url-configuration-directory (concat core-var-cache-dir-full-path "url/")
    url-cache-directory (concat core-var-cache-dir-full-path "url/cache"))
