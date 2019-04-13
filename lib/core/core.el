@@ -33,11 +33,11 @@
 (defconst holy-emacs-version "0.1.7"
   "Version of holy-emacs.")
 
-(defconst core-lib-path "lisp/lib/"
-  "Relative path of all modules.")
+(defconst core-lib-path "lib/core/"
+  "Relative path of core files.")
 
-(defconst core-modules-lib-path "lisp/config/"
-  "Relative path of all modules.")
+(defconst core-modules-lib-path "lib/config/"
+  "Relative path of all module files.")
 
 (defconst core-var-dir-path "var/"
   "Relative path of directory containing all files that are
