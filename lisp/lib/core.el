@@ -43,7 +43,7 @@
   "Relative path of directory containing all files that are
 prone to change.")
 
-(defconst core-var-lib-path "lisp/var/"
+(defconst core-var-lib-path "var/lib/"
   "Relative path of directory containing Emacs Lisp files that are
 prone to change.")
 
