@@ -1,7 +1,7 @@
 EMACS_BATCH=emacs -batch --eval '(setq user-emacs-directory default-directory)'
 EMACS_FULL=@$(EMACS_BATCH) -l init.el
-EMACS_CORE=@$(EMACS_BATCH) -l lisp/lib/core.el
-CUSTOM_DEFS_FILE=lisp/var/custom-defs.el
+EMACS_CORE=@$(EMACS_BATCH) -l lib/core/core.el
+CUSTOM_DEFS_FILE=var/lib/custom-defs.el
 CACHE_DIR=var/cache
 
 all: install compile
