@@ -137,7 +137,7 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
       "   "))
   (doom-modeline-def-modeline
     'main
-    '(workspace-number window-number bar cur-mode matches buffer-info-simple buffer-position selection-info)
+    '(workspace-name window-number bar cur-mode matches buffer-info-simple buffer-position selection-info)
     '(debug buffer-encoding major-mode process vcs checker)))
 
 (use-package display-line-numbers
