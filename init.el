@@ -2,13 +2,13 @@
 
 (require 'core (concat user-emacs-directory "lib/core/core"))
 
-;;; set proxy server, if needed
+;;; Set proxy server if required.
 ;;; (setq url-proxy-services '(("http" . "host:port")))
 (core:defsource '("org-elpa"  . "https://orgmode.org/elpa/"))
 (core:defsource '("melpa"     . "https://melpa.org/packages/"))
 (core:initialize-packages-and-modules)
 
-;;; load before language configurations
+;;; Load before language modules.
 (require 'mod-company)
 (require 'mod-compile)
 (require 'mod-editor)
@@ -18,7 +18,7 @@
 (require 'mod-search)
 (require 'mod-vc)
 
-;;; language configurations
+;;; Load language modules.
 (require 'mod-lang-c)
 (require 'mod-lang-clojure)
 (require 'mod-lang-csharp)
@@ -35,7 +35,7 @@
 (require 'mod-lang-scheme)
 (require 'mod-lang-sql)
 
-;;; load after language configurations
+;;; Load after language modules.
 (require 'mod-docker)
 (require 'mod-github)
 (require 'mod-org)
