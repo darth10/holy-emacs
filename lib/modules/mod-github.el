@@ -8,4 +8,4 @@
   :ensure t
   :defer 5)
 
-(provide 'config-github)
+(provide 'mod-github)

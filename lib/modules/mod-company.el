@@ -9,4 +9,4 @@
   :config
   (global-company-mode t))
 
-(provide 'config-company)
+(provide 'mod-company)

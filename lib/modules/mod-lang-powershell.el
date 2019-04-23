@@ -4,4 +4,4 @@
   :ensure t
   :defer 5)
 
-(provide 'config-powershell)
+(provide 'mod-lang-powershell)

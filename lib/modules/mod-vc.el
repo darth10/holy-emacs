@@ -42,4 +42,4 @@
   (bind-key "C-: C-c C-d" 'git-diff-tree)
   (add-hook 'magit-status-mode-hook 'configure-magit-status-mode))
 
-(provide 'config-vc)
+(provide 'mod-vc)

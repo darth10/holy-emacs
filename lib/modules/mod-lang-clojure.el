@@ -69,4 +69,4 @@
 
   (add-hook 'cider-mode-hook 'config-init-cider-eval-sexp-fu))
 
-(provide 'config-clojure)
+(provide 'mod-lang-clojure)

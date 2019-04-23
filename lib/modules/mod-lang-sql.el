@@ -23,4 +23,4 @@
   (add-hook 'sql-mode-hook 'configure-sql)
   (add-hook 'sql-interactive-mode-hook 'configure-sql-interactive))
 
-(provide 'config-sql)
+(provide 'mod-lang-sql)

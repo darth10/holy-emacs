@@ -63,4 +63,4 @@
     (global-gud-set-key config-key-gud-run1 "gud-run")
     (global-gud-set-key config-key-gud-run2 "gud-run")))
 
-(provide 'config-gud)
+(provide 'mod-gud)

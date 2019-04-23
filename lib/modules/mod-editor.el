@@ -449,4 +449,4 @@
   :ensure t
   :defer 2)
 
-(provide 'config-editor)
+(provide 'mod-editor)

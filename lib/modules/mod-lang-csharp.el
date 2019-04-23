@@ -77,4 +77,4 @@
     :config
     (exec-path-from-shell-copy-env "NUGET_PACKAGES")))
 
-(provide 'config-csharp)
+(provide 'mod-lang-csharp)

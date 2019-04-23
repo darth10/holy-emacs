@@ -61,4 +61,4 @@
   ;; increase size of calculator window
   (advice-add 'calculator :after #'(lambda () (enlarge-window 2))))
 
-(provide 'config-org)
+(provide 'mod-org)

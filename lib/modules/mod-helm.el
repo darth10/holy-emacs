@@ -35,4 +35,4 @@
   :bind (("C-c : :" . helm-bm)
          ("C-c : C-:" . helm-bm)))
 
-(provide 'config-helm)
+(provide 'mod-helm)

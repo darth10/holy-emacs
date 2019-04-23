@@ -24,4 +24,4 @@
       (insert ".")
       (call-interactively 'company-go))))
 
-(provide 'config-go)
+(provide 'mod-lang-go)

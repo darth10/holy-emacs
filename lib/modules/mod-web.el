@@ -49,4 +49,4 @@
 (use-package handlebars-mode
   :ensure t)
 
-(provide 'config-web)
+(provide 'mod-web)

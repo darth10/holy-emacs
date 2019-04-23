@@ -17,4 +17,4 @@
          ("C-! C-r" . gnuplot-show-gnuplot-buffer)
          ("C-?" . gnuplot-info-at-point)))
 
-(provide 'config-gnuplot)
+(provide 'mod-lang-gnuplot)

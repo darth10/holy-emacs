@@ -66,4 +66,4 @@
     (bind-key "C-! C-d" 'geben php-mode-map)
     (bind-key "C-<f11>" 'geben php-mode-map)))
 
-(provide 'config-php)
+(provide 'mod-lang-php)

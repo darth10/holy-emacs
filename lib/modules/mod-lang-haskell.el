@@ -74,4 +74,4 @@
   (push 'company-ghc company-backends)
   (setq company-ghc-show-info t))
 
-(provide 'config-haskell)
+(provide 'mod-lang-haskell)

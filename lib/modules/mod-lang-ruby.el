@@ -48,4 +48,4 @@
   :config
   (add-hook 'ruby-mode-hook 'rvm-use-default))
 
-(provide 'config-ruby)
+(provide 'mod-lang-ruby)

@@ -79,4 +79,4 @@
 
   (advice-add 'bm-toggle :after 'bm-buffer-save))
 
-(provide 'config-files)
+(provide 'mod-files)

@@ -26,4 +26,4 @@
 (use-package web-beautify
   :ensure t)
 
-(provide 'config-js)
+(provide 'mod-lang-js)

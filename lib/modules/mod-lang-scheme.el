@@ -22,4 +22,4 @@
     (interactive)
     (geiser-load-file buffer-file-name)))
 
-(provide 'config-scheme)
+(provide 'mod-lang-scheme)

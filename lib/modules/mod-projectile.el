@@ -15,4 +15,4 @@
 	:config
 	(setq projectile-completion-system 'helm)))
 
-(provide 'config-projectile)
+(provide 'mod-projectile)

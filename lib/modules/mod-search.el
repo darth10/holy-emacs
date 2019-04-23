@@ -28,4 +28,4 @@
          ("<f3>" . isearch-repeat-forward)
          ("S-<f3>" . isearch-repeat-backward)))
 
-(provide 'config-search)
+(provide 'mod-search)

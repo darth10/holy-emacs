@@ -23,4 +23,4 @@
     (interactive)
     (python-shell-send-file (buffer-file-name))))
 
-(provide 'config-python)
+(provide 'mod-lang-python)

@@ -12,4 +12,4 @@
   :ensure t
   :defer 5)
 
-(provide 'config-compile)
+(provide 'mod-compile)

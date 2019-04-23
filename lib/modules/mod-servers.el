@@ -14,4 +14,4 @@
   :config
   (edit-server-start))
 
-(provide 'config-servers)
+(provide 'mod-servers)

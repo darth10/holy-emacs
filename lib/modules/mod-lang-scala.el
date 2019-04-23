@@ -12,4 +12,4 @@
   :ensure t
   :defer 2)
 
-(provide 'config-scala)
+(provide 'mod-lang-scala)

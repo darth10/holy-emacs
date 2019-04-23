@@ -10,4 +10,4 @@
   :ensure t
   :defer 5)
 
-(provide 'config-docker)
+(provide 'mod-docker)

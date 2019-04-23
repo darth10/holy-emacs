@@ -34,4 +34,4 @@
   :ensure t
   :defer 2)
 
-(provide 'config-elisp)
+(provide 'mod-lang-elisp)
