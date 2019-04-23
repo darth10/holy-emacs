@@ -42,4 +42,11 @@
     :config
     (add-hook 'web-mode-hook 'emmet-mode)))
 
+(use-package restclient
+  :ensure t
+  :defer 5)
+
+(use-package handlebars-mode
+  :ensure t)
+
 (provide 'config-web)

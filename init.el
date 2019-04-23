@@ -10,11 +10,12 @@
 
 ;;; load before language configurations
 (require 'config-company)
+(require 'config-compile)
 (require 'config-editor)
+(require 'config-files)
 (require 'config-gud)
 (require 'config-helm)
 (require 'config-search)
-(require 'config-utils)
 (require 'config-vc)
 
 ;;; language configurations
@@ -36,6 +37,8 @@
 (require 'config-sql)
 
 ;;; load after language configurations
+(require 'config-docker)
+(require 'config-github)
 (require 'config-projectile)
 (require 'config-servers)
 (require 'config-web)

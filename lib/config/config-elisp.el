@@ -26,4 +26,12 @@
   (add-hook 'ielm-mode-hook 'eldoc-mode)
   (add-hook 'eshell-mode-hook 'eldoc-mode))
 
+(use-package esup
+  :ensure t
+  :defer 2)
+
+(use-package try
+  :ensure t
+  :defer 2)
+
 (provide 'config-elisp)

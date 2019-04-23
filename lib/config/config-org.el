@@ -48,4 +48,17 @@
   :ensure t
   :defer 5)
 
+(use-package calendar
+  :bind (("C-! c" . calendar)
+         ("C-! C-c" . calendar)
+         ("C-x <f11>" . calendar)))
+
+(use-package calculator
+  :bind (("C-! n" . calculator)
+         ("C-! C-n" . calculator)
+         ("C-x <f12>" . calculator))
+  :config
+  ;; increase size of calculator window
+  (advice-add 'calculator :after #'(lambda () (enlarge-window 2))))
+
 (provide 'config-org)
