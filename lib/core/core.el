@@ -36,7 +36,7 @@
 (defconst core-lib-path "lib/core/"
   "Relative path of core files.")
 
-(defconst core-modules-lib-path "lib/config/"
+(defconst core-modules-lib-path "lib/modules/"
   "Relative path of all module files.")
 
 (defconst core-var-dir-path "var/"
