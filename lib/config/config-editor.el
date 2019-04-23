@@ -314,48 +314,6 @@
    tramp-persistency-file-name (concat core-var-cache-dir-full-path "tramp")
    tramp-auto-save-directory (concat core-var-cache-dir-full-path "tramp-auto-save/")))
 
-(use-package bm
-  :ensure t
-  :defer 2
-  :bind (("C-c : #" . bm-remove-all-current-buffer)
-         ("C-c : C-#" . bm-remove-all-current-buffer)
-         ("C-c : c" . bm-show-all)
-         ("C-c : C-c" . bm-show-all)
-         ("C-c ," . bm-previous)
-         ("C-c ." . bm-next)
-         ("C-c : p" . bm-previous)
-         ("C-c : C-p" . bm-previous)
-         ("C-c : n" . bm-next)
-         ("C-c : C-n" . bm-next)
-         ("C-c : ." . bm-toggle)
-         ("C-c : C-." . bm-toggle))
-  :init
-  (setq bm-restore-repository-on-load t
-        bm-repository-file (concat core-var-cache-dir-full-path "bookmarks"))
-  (setq-default bm-buffer-persistence t)
-  :config
-  (defface +bm-fringe-face
-    '((t (:foreground "SkyBlue")))
-    "Face for bookmark fringe"
-    :group 'bm)
-
-  (setq bm-fringe-face '+bm-fringe-face
-        bm-fringe-persistent-face '+bm-fringe-face
-        bm-highlight-style 'bm-highlight-only-fringe
-        bm-cycle-all-buffers t)
-
-  (bm-repository-load)
-
-  (add-hook 'find-file-hooks 'bm-buffer-restore)
-  (add-hook 'after-revert-hook 'bm-buffer-restore)
-  (add-hook 'after-save-hook 'bm-buffer-save)
-  (add-hook 'kill-buffer-hook 'bm-buffer-save)
-  (add-hook 'kill-emacs-hook '(lambda ()
-                                (bm-buffer-save-all)
-                                (bm-repository-save)))
-
-  (advice-add 'bm-toggle :after 'bm-buffer-save))
-
 (use-package ws-butler
   :ensure t
   :bind (("C-' d" . ws-butler-mode)
