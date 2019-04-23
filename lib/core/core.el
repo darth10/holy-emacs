@@ -139,7 +139,8 @@ Lisp files for byte compilation."
                     (cl-remove-if
                      (lambda (x)
                        (or (equal x ".")
-                           (equal x ".gitignore")))
+                           (equal x ".gitignore")
+                           (equal x ".gitkeep")))
                      file-names)
                     :test #'equal)))
     (cl-loop for pkg in packages
