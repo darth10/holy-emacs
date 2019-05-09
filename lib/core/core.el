@@ -55,12 +55,10 @@ prone to change.")
   (expand-file-name core-var-cache-dir-path user-emacs-directory)
   "Absolute path of directory containing all cached data.")
 
-(defconst core-elpa-packages-path
-  (concat core-var-dir-path "packages/elpa/")
+(defconst core-elpa-packages-path (concat core-var-dir-path "packages/elpa/")
   "Relative path of ELPA/MELPA packages directory.")
 
-(defconst core-quelpa-packages-path
-  (concat core-var-dir-path "packages/quelpa/")
+(defconst core-quelpa-packages-path (concat core-var-dir-path "packages/quelpa/")
   "Relative path of quelpa packages directory.")
 
 (defconst core--required-packages
