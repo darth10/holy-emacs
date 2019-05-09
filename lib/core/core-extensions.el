@@ -111,7 +111,7 @@ within a `use-package' handler definition."
          (t
           (use-package-error
            (concat (symbol-name name)
-                   " :language received bad values"))))))
+                   " :lang received bad values"))))))
     args*))
 
 (defun core--lang-extension-handler (name _keyword args rest state)
