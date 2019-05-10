@@ -135,10 +135,14 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
     (if (doom-modeline--active)
         '(" " core--modeline-mode-string " ")
       "   "))
-  (doom-modeline-def-modeline
-    'main
+
+  (doom-modeline-def-modeline 'main
     '(workspace-name window-number bar cur-mode matches buffer-info-simple buffer-position selection-info)
-    '(debug buffer-encoding major-mode process vcs checker)))
+    '(debug buffer-encoding major-mode process vcs checker))
+
+  (doom-modeline-def-modeline 'helm
+    '(bar helm-number helm-follow helm-prefix-argument)
+    '(helm-help)))
 
 (use-package display-line-numbers
   :unless (version< emacs-version "26.0.50")
