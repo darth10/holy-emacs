@@ -220,7 +220,9 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
 
 (use-package unicode-fonts
   :ensure t
-  :defer 2)
+  :defer 2
+  :config
+  (unicode-fonts-setup))
 
 (use-package rainbow-delimiters
   :ensure t
