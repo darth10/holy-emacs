@@ -149,8 +149,8 @@
   :init
   (which-key-setup-side-window-bottom)
   (which-key-enable-god-mode-support)
-  (setq which-key-max-description-length 24)
-  (setq which-key-max-display-columns 4)
+  (setq which-key-max-description-length 24
+        which-key-max-display-columns 4)
   (unbind-key "C-h C-h")
   (which-key-mode t))
 
