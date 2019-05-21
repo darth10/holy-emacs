@@ -218,6 +218,10 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
     :config
     (add-hook 'magit-post-refresh-hook #'diff-hl-magit-post-refresh)))
 
+(use-package unicode-fonts
+  :ensure t
+  :defer 2)
+
 (use-package rainbow-delimiters
   :ensure t
   :init

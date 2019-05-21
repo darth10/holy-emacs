@@ -36,6 +36,8 @@ cd ~/.emacs.d
 make
 ```
 
+If you see strange icons/symbols, install unicode fonts (using `M-x unicode-fonts-setup`) and `all-the-icons` (using `M-x all-the-icons-install-fonts`).
+
 ## `god-mode`
 
 Use <kbd>ESC</kbd> or <kbd>M-i</kbd> to toggle `god-mode`.
