@@ -35,7 +35,8 @@
   :mode ("\\.pdf\\'" . pdf-view-mode)
   :config
   (unless noninteractive
-    (pdf-tools-install t)))
+    (pdf-tools-install t))
+  (add-hook 'pdf-view-mode-hook #'pdf-view-midnight-minor-mode))
 
 (use-package bm
   :ensure t
