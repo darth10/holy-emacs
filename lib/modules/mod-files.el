@@ -27,7 +27,9 @@
 
 (use-package nov
   :ensure t
-  :mode ("\\.epub\\'" . nov-mode))
+  :mode ("\\.epub\\'" . nov-mode)
+  :config
+  (setq nov-save-place-file (concat core-var-cache-dir-full-path "nov-places")))
 
 (use-package pdf-tools
   :ensure t
