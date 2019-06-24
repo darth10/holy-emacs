@@ -13,7 +13,6 @@
 (require 'mod-compile)
 (require 'mod-editor)
 (require 'mod-files)
-(require 'mod-gud)
 (require 'mod-helm)
 (require 'mod-search)
 (require 'mod-vc)
