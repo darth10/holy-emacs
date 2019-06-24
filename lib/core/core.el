@@ -10,7 +10,7 @@
 ;; * core-...      any other public definitions like vars, consts, etc
 ;;
 ;; Definitions in files outside the core/ directory should have the
-;; +pkg... prefix, depending on which package or feature (pkg) they are
+;; +pkg prefix, depending on which package or feature (pkg) they are
 ;; used for, and use the same conventions:
 ;; * +pkg/...      interactive functions
 ;; * +pkg:...      public non-interactive functions
@@ -18,8 +18,8 @@
 ;; * +pkg-...      any other public definitions like vars, consts, etc
 ;;
 ;; The only exceptions to these conventions are:
-;; * the `holy-emacs' customization group (core.el)
-;; * the `holy-emacs-version' const       (core.el)
+;; * the `holy-emacs' customization group  (core.el)
+;; * the `holy-emacs-version' const        (core.el)
 
 ;;; Key binding conventions:
 ;;
