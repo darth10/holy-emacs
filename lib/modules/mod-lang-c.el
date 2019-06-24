@@ -20,10 +20,8 @@
 
   (defun config-display-gdb-buffer ()
     (interactive)
-    (require 'config-gud)
-    (if (fboundp 'gdb-display-gdb-buffer)
-        (gdb-display-gdb-buffer)
-      (config-show-no-gud)))
+    (when (fboundp 'gdb-display-gdb-buffer)
+        (gdb-display-gdb-buffer)))
 
   (setq c-default-style '((java-mode . "k&r")
                           (csharp-mode . "c#")
