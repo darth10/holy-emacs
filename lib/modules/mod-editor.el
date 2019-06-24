@@ -164,14 +164,9 @@
   (add-hook 'org-mode-hook #'hl-line-mode)
   (add-hook 'dired-mode-hook #'hl-line-mode))
 
-(use-package highlight-symbol
+(use-package iedit
   :ensure t
-  :bind (("C-' ." . highlight-symbol-mode)
-         ("C-' C-." . highlight-symbol-mode))
-  :commands (highlight-symbol-mode)
-  :init
-  (add-hook 'prog-mode-hook #'highlight-symbol-mode)
-  (add-hook 'conf-mode-hook #'highlight-symbol-mode))
+  :bind ("C-;" . iedit-mode))
 
 (use-package highlight-sexp
   :quelpa (highlight-sexp :fetcher github :repo "daimrod/highlight-sexp")

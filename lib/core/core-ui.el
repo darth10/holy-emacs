@@ -271,7 +271,7 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
    '(mode-line-inactive ((t (:box nil :overline nil :underline nil))))
    `(isearch ,core--default-search-face-spec)
    `(helm-swoop-target-word-face ,core--default-search-face-spec)
-   `(highlight-symbol-face ,core--default-search-face-spec)
+   `(iedit-occurrence ,core--default-search-face-spec)
    `(show-paren-match ,core--default-search-face-spec))
 
   (when window-system
