@@ -18,14 +18,6 @@
   :type '(repeat string)
   :group 'holy-emacs)
 
-(defcustom core-lang-debugger-keys
-  '("C-<f11>"
-    "C-! d"
-    "C-! C-d")
-  "Keys to start a debugger for a language."
-  :type '(repeat string)
-  :group 'holy-emacs)
-
 (defcustom core-lang-find-definition-keys
   '("<f12>"
     "M-.")
@@ -81,7 +73,15 @@
   :type '(repeat string)
   :group 'holy-emacs)
 
-;;; GUD/debugger keys
+;;; debugger keys
+
+(defcustom core-lang-debugger-keys
+  '("C-<f11>"
+    "C-! d"
+    "C-! C-d")
+  "Keys to start a debugger for a language."
+  :type '(repeat string)
+  :group 'holy-emacs)
 
 (defcustom core-debugger-set-breakpoint
   '("<f9>"

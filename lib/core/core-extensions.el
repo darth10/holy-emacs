@@ -31,7 +31,6 @@
 (defconst core--lang-extension-keys-lookup-alist
     '((:repl-start      . core-lang-repl-start-keys)
       (:repl-connect    . core-lang-repl-connect-keys)
-      (:debugger        . core-lang-debugger-keys)
       (:find-definition . core-lang-find-definition-keys)
       (:find-usages     . core-lang-find-usages-keys)
       (:eval-buffer     . core-lang-eval-buffer-keys)
@@ -39,7 +38,8 @@
       (:load-file       . core-lang-load-file-keys)
       (:compile-file    . core-lang-compile-file-keys)
       (:test-file       . core-lang-test-file-keys)
-      (:test-all        . core-lang-test-all-keys)))
+      (:test-all        . core-lang-test-all-keys)
+      (:debugger        . core-lang-debugger-keys)))
 
 (defun core--bind-language-keys-form (args)
   "Internal function to generate `core-bind-keys' forms. Should be used
