@@ -3,19 +3,14 @@
 (use-package cc-mode
   :mode (("\\.c\\'" . c-mode)
          ("\\.cpp\\'" . c++-mode))
-
-  :bind (:map c-mode-map
-         ("C-<f10>" . config-display-gdb-buffer)
-         ("C-! C-r" . config-display-gdb-buffer)
-         ("C-c C-z" . config-display-gdb-buffer)
-         ("C-<f11>" . gdb)
-         ("C-! C-d" . gdb)
-         ("C-<f5>" . gud-run)
-         ("C-x C-a C-a" . gud-run)
-         ("C-x a a" . gud-run)
+  :bind (:map gud-minor-mode-map
          ("C-<f12>" . gdb-display-disassembly-buffer)
          ("C-x C-a C-q" . gdb-display-disassembly-buffer)
          ("C-x a q" . gdb-display-disassembly-buffer))
+  :lang (:map c-mode-map
+         (:repl-start . config-display-gdb-buffer)
+         (:eval-buffer . gud-run)
+         (:debugger . gdb))
   :config
 
   (defun config-display-gdb-buffer ()
@@ -26,8 +21,7 @@
   (setq c-default-style '((java-mode . "k&r")
                           (csharp-mode . "c#")
                           (awk-mode . "awk")
-                          (other . "k&r")
-                          ))
+                          (other . "k&r")))
 
   (setq-default c-basic-offset 4))
 
