@@ -36,9 +36,7 @@
     (setq org-reveal-root "http://cdn.jsdelivr.net/reveal.js/3.0.0/")))
 
 (use-package org-agenda
-  :bind (("C-c n" . org-agenda)
-         ("C-c C-n" . org-agenda)
-         :map org-mode-map
+  :bind (:map org-mode-map
          ("C-c n" . org-agenda)
          ("C-c C-n" . org-agenda)
          ("C-c t" . org-timeline)
