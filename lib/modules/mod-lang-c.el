@@ -5,8 +5,7 @@
          ("\\.cpp\\'" . c++-mode))
   :bind (:map gud-minor-mode-map
          ("C-<f12>" . gdb-display-disassembly-buffer)
-         ("C-x C-a C-q" . gdb-display-disassembly-buffer)
-         ("C-x a q" . gdb-display-disassembly-buffer))
+         ("C-c q" . gdb-display-disassembly-buffer))
   :lang (:map c-mode-map
          (:repl-start . config-display-gdb-buffer)
          (:eval-buffer . gud-run)
