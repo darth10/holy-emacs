@@ -1,4 +1,4 @@
-;;; Configuration for C/C++
+;;; mod-lang-c.el --- Configuration for C/C++        -*- lexical-binding: t; -*-
 
 (use-package cc-mode
   :mode (("\\.c\\'" . c-mode)
