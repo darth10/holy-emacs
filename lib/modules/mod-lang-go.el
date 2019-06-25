@@ -16,10 +16,10 @@
   (use-package company-go
     :ensure t
     :bind (:map go-mode-map
-           ("." . company-go-intellisense)
+           ("." . company-go-complete)
            ("M-SPC" . company-go))
     :config
-    (defun company-go-intellisense ()
+    (defun company-go-complete ()
       (interactive)
       (insert ".")
       (call-interactively 'company-go))))

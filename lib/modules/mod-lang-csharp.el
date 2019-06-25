@@ -6,7 +6,7 @@
   :ensure t
   :bind (:map omnisharp-mode-map
          ("M-SPC" . company-omnisharp)
-         ("." . company-omnisharp-intellisense)
+         ("." . company-omnisharp-complete)
          ("C-x <f5>" . omnisharp-solution-errors)
          ("C-! C-k" . omnisharp-solution-errors)
          ("C-c C-k" . omnisharp-solution-errors)
@@ -21,7 +21,7 @@
   (setq omnisharp-cache-directory
         (concat core-var-cache-dir-full-path "omnisharp/"))
   :config
-  (defun company-omnisharp-intellisense ()
+  (defun company-omnisharp-complete ()
     (interactive)
     (insert ".")
     (when omnisharp-mode
