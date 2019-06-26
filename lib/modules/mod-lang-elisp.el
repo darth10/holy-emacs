@@ -1,24 +1,17 @@
 ;;; Configuration for Emacs Lisp
 
 (use-package lisp-mode
+  :lang (:map emacs-lisp-mode-map
+         (:repl-start . core/find-or-run-eshell)
+         (:eval-buffer . eval-buffer)
+         (:load-file . load-file)
+         (:compile-file . +elisp-compile-file)
+         :map lisp-interaction-mode-map
+         (:eval-buffer . eval-print-last-sexp))
   :config
-  (bind-key "C-x a a" 'eval-print-last-sexp lisp-interaction-mode-map)
-  (bind-key "C-x C-a C-a" 'eval-print-last-sexp lisp-interaction-mode-map)
-  (bind-key "C-<f5>" 'eval-print-last-sexp lisp-interaction-mode-map)
-  (bind-key "C-c l" 'load-file emacs-lisp-mode-map)
-  (bind-key "C-c C-l" 'load-file emacs-lisp-mode-map)
-  (bind-key "C-x a a" 'eval-buffer emacs-lisp-mode-map)
-  (bind-key "C-x C-a C-a" 'eval-buffer emacs-lisp-mode-map)
-  (bind-key "C-<f5>" 'eval-buffer emacs-lisp-mode-map)
-  (bind-key "C-<f10>" 'core/find-or-run-eshell emacs-lisp-mode-map)
-  (bind-key "C-! C-r" 'core/find-or-run-eshell emacs-lisp-mode-map)
-
   (defun +elisp-compile-file ()
 	(interactive)
-	(core:compile-file buffer-file-name))
-
-  (bind-key "C-c k" '+elisp-compile-file emacs-lisp-mode-map)
-  (bind-key "C-c C-k" '+elisp-compile-file emacs-lisp-mode-map))
+	(core:compile-file buffer-file-name)))
 
 (use-package eldoc
   :config
