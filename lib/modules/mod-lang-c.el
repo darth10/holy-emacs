@@ -29,13 +29,13 @@
   :config
   (setq gdb-many-windows t)
 
-  (core-bind-keys core-debugger-set-breakpoint #'gud-break 'gud-minor-mode-map)
-  (core-bind-keys core-debugger-remove-breakpoint #'gud-remove 'gud-minor-mode-map)
-  (core-bind-keys core-debugger-step-over #'gud-next 'gud-minor-mode-map)
-  (core-bind-keys core-debugger-step-into #'gud-step 'gud-minor-mode-map)
-  (core-bind-keys core-debugger-step-out #'gud-finish 'gud-minor-mode-map)
-  (core-bind-keys core-debugger-continue #'gud-cont 'gud-minor-mode-map)
-  (core-bind-keys core-debugger-run #'gud-run 'gud-minor-mode-map))
+  (core-bind-keys core-lang-debug-set-breakpoint-keys #'gud-break 'gud-minor-mode-map)
+  (core-bind-keys core-lang-debug-remove-breakpoint-keys #'gud-remove 'gud-minor-mode-map)
+  (core-bind-keys core-lang-debug-step-over-keys #'gud-next 'gud-minor-mode-map)
+  (core-bind-keys core-lang-debug-step-into-keys #'gud-step 'gud-minor-mode-map)
+  (core-bind-keys core-lang-debug-step-out-keys #'gud-finish 'gud-minor-mode-map)
+  (core-bind-keys core-lang-debug-continue-keys #'gud-cont 'gud-minor-mode-map)
+  (core-bind-keys core-lang-debug-run-keys #'gud-run 'gud-minor-mode-map))
 
 (use-package c-eldoc
   :ensure t

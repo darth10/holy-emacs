@@ -83,49 +83,49 @@
   :type '(repeat string)
   :group 'holy-emacs)
 
-(defcustom core-debugger-set-breakpoint
+(defcustom core-lang-debug-set-breakpoint-keys
   '("<f9>"
     "C-x C-a C-b")
   "Keys to set a breakpoint for debugger."
   :type '(repeat string)
   :group 'holy-emacs)
 
-(defcustom core-debugger-remove-breakpoint
+(defcustom core-lang-debug-remove-breakpoint-keys
   '("S-<f9>"
     "C-x C-a C-d")
   "Keys to remove a breakpoint for debugger."
   :type '(repeat string)
   :group 'holy-emacs)
 
-(defcustom core-debugger-step-over
+(defcustom core-lang-debug-step-over-keys
   '("<f10>"
     "C-x C-a C-n")
   "Keys to step over current line while debugging."
   :type '(repeat string)
   :group 'holy-emacs)
 
-(defcustom core-debugger-step-into
+(defcustom core-lang-debug-step-into-keys
   '("<f11>"
     "C-x C-a C-s")
   "Keys to step into current line while debugging."
   :type '(repeat string)
   :group 'holy-emacs)
 
-(defcustom core-debugger-step-out
+(defcustom core-lang-debug-step-out-keys
   '("S-<f11>"
     "C-x C-a C-f")
   "Keys to step out of current function while debugging."
   :type '(repeat string)
   :group 'holy-emacs)
 
-(defcustom core-debugger-continue
+(defcustom core-lang-debug-continue-keys
   '("<f5>"
     "C-x C-a C-c")
   "Keys to continue execution while debugging."
   :type '(repeat string)
   :group 'holy-emacs)
 
-(defcustom core-debugger-run
+(defcustom core-lang-debug-run-keys
   '("<f8>"
     "C-x C-a C-r")
   "Keys to continue execution until program termination while debugging."
