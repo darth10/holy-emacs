@@ -1,4 +1,4 @@
-;;; Configuration for Haskell
+;;; mod-lang-haskell.el --- Configuration for Haskell  -*- lexical-binding: t; -*-
 
 (use-package haskell-mode
   :ensure t
