@@ -9,7 +9,15 @@
   :lang (:map c-mode-map
          (:repl-start . config-display-gdb-buffer)
          (:eval-buffer . gud-run)
-         (:debugger . gdb))
+         (:debugger . gdb)
+         :map gud-minor-mode-map
+         (:debug-set-break . gud-break)
+         (:debug-remove-break . gud-remove)
+         (:debug-step-over . gud-next)
+         (:debug-step-into . gud-step)
+         (:debug-step-out . gud-finish)
+         (:debug-continue . gud-cont)
+         (:debug-run . gud-run))
   :config
 
   (defun config-display-gdb-buffer ()
@@ -22,20 +30,11 @@
                           (awk-mode . "awk")
                           (other . "k&r")))
 
-  (setq-default c-basic-offset 4))
+  (setq-default c-basic-offset 4)
 
-(use-package gud
-  :defer 2
-  :config
-  (setq gdb-many-windows t)
-
-  (core-bind-keys core-lang-debug-set-breakpoint-keys #'gud-break 'gud-minor-mode-map)
-  (core-bind-keys core-lang-debug-remove-breakpoint-keys #'gud-remove 'gud-minor-mode-map)
-  (core-bind-keys core-lang-debug-step-over-keys #'gud-next 'gud-minor-mode-map)
-  (core-bind-keys core-lang-debug-step-into-keys #'gud-step 'gud-minor-mode-map)
-  (core-bind-keys core-lang-debug-step-out-keys #'gud-finish 'gud-minor-mode-map)
-  (core-bind-keys core-lang-debug-continue-keys #'gud-cont 'gud-minor-mode-map)
-  (core-bind-keys core-lang-debug-run-keys #'gud-run 'gud-minor-mode-map))
+  (use-package gud
+    :config
+    (setq gdb-many-windows t)))
 
 (use-package c-eldoc
   :ensure t
