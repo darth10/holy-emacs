@@ -30,15 +30,16 @@
                           (awk-mode . "awk")
                           (other . "k&r")))
 
-  (setq-default c-basic-offset 4)
+  (setq-default c-basic-offset 4))
 
-  (use-package gud
-    :config
-    (setq gdb-many-windows t)))
+(use-package gud
+  :after cc-mode
+  :config
+  (setq gdb-many-windows t))
 
 (use-package c-eldoc
   :ensure t
-  :defer 5
+  :after cc-mode
   :config
   (setq c-eldoc-includes "`pkg-config glib-2.0 gio-2.0 --cflags` `guile-config compile` -I/usr/include -I./ -I../ ")
   (add-hook 'c-mode-hook 'c-turn-on-eldoc-mode))

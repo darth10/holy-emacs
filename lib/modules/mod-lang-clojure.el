@@ -4,18 +4,7 @@
   :ensure t
   :mode (("\\.clj\\'" . clojure-mode)
          ("\\.cljs\\'" . clojurescript-mode)
-         ("\\.cljc\\'" . clojurec-mode))
-
-  :config
-  (use-package cider-eval-sexp-fu
-    :ensure t
-    :config
-    (defun config-init-cider-eval-sexp-fu ()
-      (require 'cider-eval-sexp-fu))
-
-    ;; TODO uncomment soon
-    ;; (add-hook 'cider-mode-hook 'config-init-cider-eval-sexp-fu)
-    ))
+         ("\\.cljc\\'" . clojurec-mode)))
 
 (use-package clj-refactor
   :ensure t
@@ -64,11 +53,20 @@
     (interactive)
     (cider-load-buffer)
     (cider-repl-set-ns (cider-current-ns))
-    (cider-switch-to-repl-buffer))
+    (cider-switch-to-repl-buffer)))
 
-  (use-package eldoc
-    :config
-    (add-hook 'cider-mode-hook 'eldoc-mode)
-    (add-hook 'cider-repl-mode-hook 'eldoc-mode)))
+(use-package eldoc
+  :after (clojure-mode cider)
+  :config
+  (add-hook 'cider-mode-hook 'eldoc-mode)
+  (add-hook 'cider-repl-mode-hook 'eldoc-mode))
+
+(use-package cider-eval-sexp-fu
+  :ensure t
+  :after (clojure-mode cider)
+  :config
+  (defun config-init-cider-eval-sexp-fu ()
+    (require 'cider-eval-sexp-fu))
+  (add-hook 'cider-mode-hook 'config-init-cider-eval-sexp-fu))
 
 (provide 'mod-lang-clojure)
