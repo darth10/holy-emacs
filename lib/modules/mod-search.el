@@ -9,7 +9,7 @@
          ("M-s g" . rgrep)))
 
 (use-package vc-git
-  :defer 2
+  :after magit
   :bind (("C-: <f3>" . vc-git-grep)
          ("M-s :" . vc-git-grep)
          ("C-: M-s" . vc-git-grep)))
