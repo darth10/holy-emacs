@@ -363,6 +363,15 @@
   (add-hook 'lisp-mode-hook 'hs-minor-mode)
   (add-hook 'sh-mode-hook 'hs-minor-mode))
 
+(use-package company
+  :ensure t
+  :defer 2
+  :bind (("C-' a" . global-company-mode)
+         ("C-' C-a" . global-company-mode)
+         ("M-SPC" . company-manual-begin))
+  :config
+  (global-company-mode t))
+
 (use-package yasnippet
   :ensure t
   :defer 2
