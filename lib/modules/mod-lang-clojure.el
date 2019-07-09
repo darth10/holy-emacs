@@ -8,7 +8,7 @@
 
 (use-package clj-refactor
   :ensure t
-  :defer 5
+  :after clojure-mode
   :config
   (setq cljr-warn-on-eval nil)
 
@@ -21,6 +21,7 @@
 
 (use-package cider
   :ensure t
+  :after clojure-mode
   :bind (:map cider-mode-map
          ("C-x a a" . load-file-in-nrepl)
          ("C-x C-a C-a" . load-file-in-nrepl)
