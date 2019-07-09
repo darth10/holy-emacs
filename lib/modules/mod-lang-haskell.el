@@ -17,6 +17,6 @@
          (:repl-start . intero-repl)
          (:load-file . intero-repl-load))
   :config
-  (add-hook 'haskell-mode-hook 'intero-mode))
+  (add-hook 'haskell-mode-hook #'intero-mode))
 
 (provide 'mod-lang-haskell)
