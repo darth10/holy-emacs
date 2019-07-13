@@ -1,4 +1,4 @@
-;;; Configuration for Clojure
+;;; mod-lang-clojure.el --- Configuration for Clojure   -*- lexical-binding: t; -*-
 
 (use-package clojure-mode
   :ensure t

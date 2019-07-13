@@ -1,4 +1,4 @@
-;;; Configuration for Emacs Lisp
+;;; mod-lang-elisp.el --- Configuration for Emacs Lisp  -*- lexical-binding: t; -*-
 
 (use-package lisp-mode
   :lang (:map emacs-lisp-mode-map
