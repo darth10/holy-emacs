@@ -21,10 +21,10 @@
 
 (use-package esup
   :ensure t
-  :defer 2)
+  :commands (esup))
 
 (use-package try
   :ensure t
-  :defer 2)
+  :commands (try))
 
 (provide 'mod-lang-elisp)
