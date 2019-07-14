@@ -15,6 +15,7 @@
   :after haskell-mode
   :lang (:map haskell-mode-map
          (:repl-start . intero-repl)
+         (:find-definition . intero-goto-definition)
          (:load-file . intero-repl-load))
   :config
   (add-hook 'haskell-mode-hook #'intero-mode))
