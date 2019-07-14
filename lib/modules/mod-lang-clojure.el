@@ -26,6 +26,7 @@
          :map clojurescript-mode-map
          (:repl-start . cider-jack-in-cljs)
          :map cider-mode-map
+         (:find-definition . +clojure/find-definition)
          (:eval-buffer . +clojure/eval-buffer-and-switch-ns)
          (:load-file . cider-load-file)
          (:test-file . cider-test-run-ns-tests)
@@ -36,6 +37,10 @@
     (cider-load-buffer)
     (cider-repl-set-ns (cider-current-ns))
     (cider-switch-to-repl-buffer))
+
+  (defun +clojure/find-definition ()
+    (interactive)
+    (cider-find-var (symbol-at-point)))
 
   (setq cider-auto-select-error-buffer t)
   (setq cider-repl-popup-stacktraces t)
