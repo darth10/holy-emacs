@@ -13,7 +13,6 @@
 (require 'mod-editor)
 (require 'mod-files)
 (require 'mod-helm)
-(require 'mod-search)
 (require 'mod-vc)
 
 ;;; Load language modules.
@@ -38,6 +37,4 @@
 (require 'mod-games)
 (require 'mod-github)
 (require 'mod-org)
-(require 'mod-projectile)
-(require 'mod-servers)
 (require 'mod-web)

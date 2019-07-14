@@ -418,6 +418,21 @@
   :config
   (desktop-save-mode t))
 
+(use-package projectile
+  :ensure t
+  :defer 2
+  :bind (:map projectile-mode-map
+		 ("C-c p" . projectile-command-map))
+  :init
+  (setq projectile-cache-file (concat core-var-cache-dir-full-path "projectile/cache")
+        projectile-known-projects-file (concat core-var-cache-dir-full-path "projectile/bookmarks.eld"))
+  :config
+  (projectile-mode t)
+  (use-package helm-projectile
+	:ensure t
+	:config
+	(setq projectile-completion-system 'helm)))
+
 (use-package expand-region
   :ensure t
   :bind ("C-=" . er/expand-region))
@@ -432,6 +447,34 @@
 (use-package woman
   :unless (core:is-windows-p)
   :bind ("C-x ?" . woman))
+
+(use-package findr
+  :ensure t
+  :defer 2)
+
+(use-package grep
+  :bind (("M-s G" . grep)
+         ("M-s g" . rgrep)))
+
+(use-package vc-git
+  :after magit
+  :bind (("C-: <f3>" . vc-git-grep)
+         ("M-s :" . vc-git-grep)
+         ("C-: M-s" . vc-git-grep)))
+
+(use-package ag
+  :ensure t
+  :bind (("M-s a a" . ag)
+         ("M-s a g" . ag-regexp)
+         ("M-s a A" . ag-project)
+         ("M-s a G" . ag-project-regexp)))
+
+(use-package isearch
+  :bind (("M-s s" . isearch-forward)
+         ("M-s r" . isearch-backward)
+         :map isearch-mode-map
+         ("<f3>" . isearch-repeat-forward)
+         ("S-<f3>" . isearch-repeat-backward)))
 
 (use-package clipmon
   :ensure t
@@ -455,5 +498,19 @@
 (use-package smex
   :ensure t
   :defer 2)
+
+(use-package server
+  :ensure t
+  :defer 2
+  :config
+  (setq server-auth-dir (concat core-var-cache-dir-full-path "server/"))
+  (server-start))
+
+(use-package edit-server
+  :ensure t
+  :if window-system
+  :defer 2
+  :config
+  (edit-server-start))
 
 (provide 'mod-editor)
