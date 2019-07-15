@@ -32,11 +32,6 @@
 
   (setq-default c-basic-offset 4))
 
-(use-package gud
-  :after cc-mode
-  :config
-  (setq gdb-many-windows t))
-
 (use-package c-eldoc
   :ensure t
   :after cc-mode

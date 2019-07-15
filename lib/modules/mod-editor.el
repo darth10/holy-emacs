@@ -476,6 +476,10 @@
          ("<f3>" . isearch-repeat-forward)
          ("S-<f3>" . isearch-repeat-backward)))
 
+(use-package gud
+  :config
+  (setq gdb-many-windows t))
+
 (use-package clipmon
   :ensure t
   :defer 2
