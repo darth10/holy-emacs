@@ -7,10 +7,11 @@
          ("C-<f12>" . gdb-display-disassembly-buffer)
          ("C-c q" . gdb-display-disassembly-buffer))
   :lang (:map c-mode-map
-         (:repl-start . config-display-gdb-buffer)
-         (:eval-buffer . gud-run)
+         (:debugger . gdb)
+         :map c++-mode-map
          (:debugger . gdb)
          :map gud-minor-mode-map
+         (:eval-buffer . gud-run)
          (:debug-set-break . gud-break)
          (:debug-remove-break . gud-remove)
          (:debug-step-over . gud-next)
@@ -19,12 +20,6 @@
          (:debug-continue . gud-cont)
          (:debug-run . gud-run))
   :config
-
-  (defun config-display-gdb-buffer ()
-    (interactive)
-    (when (fboundp 'gdb-display-gdb-buffer)
-        (gdb-display-gdb-buffer)))
-
   (setq c-default-style '((java-mode . "k&r")
                           (csharp-mode . "c#")
                           (awk-mode . "awk")
