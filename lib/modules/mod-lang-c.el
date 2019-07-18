@@ -20,6 +20,7 @@
          (:debug-continue . gud-cont)
          (:debug-run . gud-run))
   :config
+  (use-package gud)
   (setq c-default-style '((java-mode . "k&r")
                           (csharp-mode . "c#")
                           (awk-mode . "awk")

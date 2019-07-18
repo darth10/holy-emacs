@@ -477,6 +477,7 @@
          ("S-<f3>" . isearch-repeat-backward)))
 
 (use-package gud
+  :defer t
   :config
   (setq gdb-many-windows t))
 
