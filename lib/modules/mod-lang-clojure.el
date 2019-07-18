@@ -42,9 +42,9 @@
     (interactive)
     (cider-find-var (symbol-at-point)))
 
-  (setq cider-auto-select-error-buffer t)
-  (setq cider-repl-popup-stacktraces t)
-  (setq cider-inject-dependencies-at-jack-in nil))
+  (setq cider-auto-select-error-buffer t
+        cider-repl-popup-stacktraces t
+        cider-inject-dependencies-at-jack-in nil))
 
 (use-package eldoc
   :after (clojure-mode cider)
