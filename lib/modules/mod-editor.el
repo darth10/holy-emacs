@@ -433,6 +433,12 @@
 	:config
 	(setq projectile-completion-system 'helm)))
 
+(use-package docker
+  :ensure t
+  :defer 2
+  :config
+  (setq docker-container-shell-file-name "/bin/sh"))
+
 (use-package expand-region
   :ensure t
   :bind ("C-=" . er/expand-region))
@@ -501,6 +507,10 @@
   :ensure t)
 
 (use-package markdown-mode
+  :ensure t
+  :defer 5)
+
+(use-package dockerfile-mode
   :ensure t
   :defer 5)
 
