@@ -25,21 +25,6 @@
         image-dired-db-file (concat image-dired-dir "db/db.el"))
   :defer 2)
 
-(use-package nov
-  :ensure t
-  :mode ("\\.epub\\'" . nov-mode)
-  :config
-  (setq nov-save-place-file (concat core-var-cache-dir-full-path "nov-places")))
-
-(use-package pdf-tools
-  :ensure t
-  :unless (core:is-windows-p)
-  :mode ("\\.pdf\\'" . pdf-view-mode)
-  :config
-  (unless noninteractive
-    (pdf-tools-install t))
-  (add-hook 'pdf-view-mode-hook #'pdf-view-midnight-minor-mode))
-
 (use-package bm
   :ensure t
   :defer 2
@@ -81,5 +66,32 @@
                                 (bm-repository-save)))
 
   (advice-add 'bm-toggle :after 'bm-buffer-save))
+
+(use-package pdf-tools
+  :ensure t
+  :unless (core:is-windows-p)
+  :mode ("\\.pdf\\'" . pdf-view-mode)
+  :config
+  (unless noninteractive
+    (pdf-tools-install t))
+  (add-hook 'pdf-view-mode-hook #'pdf-view-midnight-minor-mode))
+
+(use-package nov
+  :ensure t
+  :mode ("\\.epub\\'" . nov-mode)
+  :config
+  (setq nov-save-place-file (concat core-var-cache-dir-full-path "nov-places")))
+
+(use-package yaml-mode
+  :ensure t
+  :mode ("\\.yaml\\'" . yaml-mode))
+
+(use-package markdown-mode
+  :ensure t
+  :mode ("\\.md\\'" . markdown-mode))
+
+(use-package dockerfile-mode
+  :ensure t
+  :mode ("\\Dockerfile\\'" . dockerfile-mode))
 
 (provide 'mod-files)

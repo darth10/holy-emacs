@@ -503,17 +503,6 @@
   :config
   (clipmon-mode-start))
 
-(use-package yaml-mode
-  :ensure t)
-
-(use-package markdown-mode
-  :ensure t
-  :defer 5)
-
-(use-package dockerfile-mode
-  :ensure t
-  :defer 5)
-
 (use-package inflections
   :ensure t)
 
