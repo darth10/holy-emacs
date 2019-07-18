@@ -9,7 +9,6 @@
 (core:initialize-packages-and-modules)
 
 ;;; Load before language modules.
-(require 'mod-compile)
 (require 'mod-editor)
 (require 'mod-files)
 (require 'mod-helm)

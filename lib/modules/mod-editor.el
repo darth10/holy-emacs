@@ -476,10 +476,20 @@
          ("<f3>" . isearch-repeat-forward)
          ("S-<f3>" . isearch-repeat-backward)))
 
+(use-package compile
+  :defer 2
+  :bind (("C-! k" . compile)
+         ("C-! C-k" . compile)
+         ("C-x <f5>" . compile)))
+
 (use-package gud
   :defer t
   :config
   (setq gdb-many-windows t))
+
+(use-package flycheck
+  :ensure t
+  :defer 2)
 
 (use-package clipmon
   :ensure t
