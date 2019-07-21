@@ -96,23 +96,22 @@ a new buffer named NEW-BUFFER-NAME."
   (interactive)
   (switch-to-buffer-other-frame core--scratch-buffer-name))
 
-;; TODO fix bug in this function
 (defun core/resize-window (key)
   "Interactively resize the current window."
   (interactive "cUse {/} to resize vertically, or </> to resize horizontally")
   (cond
    ((eq key (string-to-char "{"))
     (enlarge-window 1)
-    (call-interactively 'w-resize))
+    (call-interactively 'core/resize-window))
    ((eq key (string-to-char "}"))
     (enlarge-window -1)
-    (call-interactively 'w-resize))
+    (call-interactively 'core/resize-window))
    ((eq key (string-to-char ">"))
     (enlarge-window-horizontally 1)
-    (call-interactively 'w-resize))
+    (call-interactively 'core/resize-window))
    ((eq key (string-to-char "<"))
     (enlarge-window-horizontally -1)
-    (call-interactively 'w-resize))
+    (call-interactively 'core/resize-window))
    (t (push key unread-command-events))))
 
 (defun core/switch-to-window ()
