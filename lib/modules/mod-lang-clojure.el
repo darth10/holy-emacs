@@ -10,13 +10,13 @@
   :ensure t
   :after clojure-mode
   :config
-  (defun +clojure/configure-clj-refactor ()
+  (defun +clojure--configure-clj-refactor ()
     (clj-refactor-mode t)
     (local-unset-key (kbd "C-:"))
     (cljr-add-keybindings-with-prefix "C-c ESC"))
 
   (setq cljr-warn-on-eval nil)
-  (add-hook 'clojure-mode-hook #'+clojure/configure-clj-refactor))
+  (add-hook 'clojure-mode-hook #'+clojure--configure-clj-refactor))
 
 (use-package cider
   :ensure t

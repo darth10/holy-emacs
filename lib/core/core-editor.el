@@ -50,7 +50,7 @@ a new buffer named NEW-BUFFER-NAME."
       (goto-char end)
     (goto-char beg)))))
 
-(defun core/kill-line-utils-init ()
+(defun core:kill-line-utils-init ()
   "Sets alternate kill/copy key bindings."
   ;; M-w
   (global-set-key [remap kill-ring-save] 'core/kill-ring-save-line)
