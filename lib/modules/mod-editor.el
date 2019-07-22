@@ -488,7 +488,7 @@
 
 (use-package flycheck
   :ensure t
-  :defer 2)
+  :commands (flycheck-mode))
 
 (use-package clipmon
   :ensure t
