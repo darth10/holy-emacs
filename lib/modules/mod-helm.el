@@ -31,8 +31,14 @@
 
 (use-package helm-bm
   :ensure t
-  :after (bm)
+  :after bm
   :bind (("C-c : :" . helm-bm)
          ("C-c : C-:" . helm-bm)))
+
+(use-package helm-projectile
+  :ensure t
+  :after projectile
+  :config
+  (setq projectile-completion-system 'helm))
 
 (provide 'mod-helm)

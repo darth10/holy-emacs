@@ -103,6 +103,40 @@
 
   (add-hook 'eshell-mode-hook #'+eshell/load-bash-aliases))
 
+(use-package simple
+  :config
+  (defconst +simple-backup-dir
+    (concat user-emacs-directory (concat core-var-cache-dir-path "backups/")))
+  (setq auto-save-file-name-transforms `((".*" ,+simple-backup-dir t))
+        auto-save-list-file-prefix +simple-backup-dir
+        backup-directory-alist `((".*" . ,+simple-backup-dir))
+        create-lockfiles nil))
+
+(use-package tramp
+  :defer 2
+  :config
+  ;; File paths like `/sshx:user@remotehost|sudo:remotehost:/etc/dhcpd.conf`
+  ;; will open remote files over multiple hops.
+  (setq
+   ;; tramp-debug-buffer t
+   ;; tramp-verbose 9
+   tramp-default-method "scpx"
+   tramp-persistency-file-name (concat core-var-cache-dir-full-path "tramp")
+   tramp-auto-save-directory (concat core-var-cache-dir-full-path "tramp-auto-save/")))
+
+(use-package gud
+  :defer t
+  :config
+  (setq gdb-many-windows t))
+
+(use-package desktop
+  :init
+  (setq desktop-path (list core-var-cache-dir-full-path)
+        desktop-base-file-name "desktop"
+        desktop-base-lock-name "desktop.lock")
+  :config
+  (desktop-save-mode t))
+
 (use-package god-mode
   :ensure t
   :if core-enable-god-mode
@@ -144,130 +178,6 @@
 
   (add-hook 'overwrite-mode-hook #'+god--toggle-on-overwrite))
 
-(use-package which-key
-  :ensure t
-  :bind (("C-' k" . which-key-mode)
-         ("C-' C-k" . which-key-mode))
-  :init
-  (which-key-setup-side-window-bottom)
-  (which-key-enable-god-mode-support)
-  (setq which-key-max-description-length 24
-        which-key-max-display-columns 4
-        which-key-separator " : ")
-  (unbind-key "C-h C-h")
-  (which-key-mode t))
-
-(use-package hl-line
-  :bind (("C-' l" . hl-line-mode)
-         ("C-' C-l" . hl-line-mode)
-         ("C-<f4>" . hl-line-mode))
-  :init
-  (add-hook 'prog-mode-hook #'hl-line-mode)
-  (add-hook 'org-mode-hook #'hl-line-mode)
-  (add-hook 'dired-mode-hook #'hl-line-mode))
-
-(use-package iedit
-  :ensure t
-  :bind ("C-;" . iedit-mode))
-
-(use-package highlight-sexp
-  :quelpa (highlight-sexp :fetcher github :repo "daimrod/highlight-sexp")
-  :defer 2
-  :config
-  (defun +highlight-sexp--set-hl-line ()
-    (hl-line-mode (if highlight-sexp-mode -1 t)))
-
-  (add-hook 'highlight-sexp-mode-hook #'+highlight-sexp--set-hl-line)
-
-  (defconst +highlight-sexp--keys
-    '("C-<f12>"
-      "C-' C-s"
-      "C-' s"))
-
-  (defun +highlight-sexp--bind-keys (mode-map)
-    (core-bind-keys +highlight-sexp--keys #'highlight-sexp-mode mode-map))
-
-  (use-package lisp-mode
-    :config
-    (+highlight-sexp--bind-keys 'lisp-mode-map)
-    (+highlight-sexp--bind-keys 'emacs-lisp-mode-map))
-  (use-package clojure-mode :config (+highlight-sexp--bind-keys 'clojure-mode-map))
-  (use-package scheme :config (+highlight-sexp--bind-keys 'scheme-mode-map)))
-
-(use-package multiple-cursors
-  :ensure t
-  :bind (("C-<" . mc/mark-previous-like-this)
-         ("C->" . mc/mark-next-like-this)
-         ("C-c C-<f3>" . mc/mark-all-like-this)
-         ("C-c C->" . mc/mark-all-like-this)
-         ("C-x <C-return>" . mc/edit-lines)
-         ("C-x RET RET" . set-rectangular-region-anchor))
-  :init
-  (setq mc/list-file (concat core-var-cache-dir-full-path "mc-lists.el"))
-  (face-spec-set 'mc/cursor-bar-face '((t (:height 1 :background "green")))))
-
-(use-package paredit
-  :ensure t
-  :defer 2
-  :bind (("C-' (" . paredit-mode)
-         ("C-' C-(" . paredit-mode))
-  :config
-  (defun +paredit--bind-key (key function)
-    (bind-key key function paredit-mode-map))
-  (defun +paredit--unbind-key (key)
-    (unbind-key key paredit-mode-map))
-
-  (+paredit--unbind-key "M-s")
-  (+paredit--unbind-key "ESC <up>")
-  (+paredit--unbind-key "M-<up>")
-  (+paredit--bind-key "ESC M-<up>" #'paredit-splice-sexp-killing-backward)
-  (+paredit--bind-key "ESC ESC <up>" #'paredit-splice-sexp-killing-backward)
-  (+paredit--bind-key "C-, C-, C-k" #'paredit-splice-sexp-killing-backward)
-  (+paredit--bind-key "C-, , k" #'paredit-splice-sexp-killing-backward)
-  (+paredit--unbind-key "ESC <down>")
-  (+paredit--unbind-key "M-<down>")
-  (+paredit--bind-key "ESC M-<down>" #'paredit-splice-sexp-killing-forward)
-  (+paredit--bind-key "ESC ESC <down>" #'paredit-splice-sexp-killing-forward)
-  (+paredit--bind-key "C-, C-k" #'paredit-splice-sexp-killing-forward)
-  (+paredit--bind-key "C-, k" #'paredit-splice-sexp-killing-forward)
-  (+paredit--unbind-key "C-<right>")
-  (+paredit--bind-key "M-<right>" #'paredit-forward-slurp-sexp)
-  (+paredit--bind-key "ESC <right>" #'paredit-forward-slurp-sexp)
-  (+paredit--bind-key "C-, C-f" #'paredit-forward-slurp-sexp)
-  (+paredit--bind-key "C-, f" #'paredit-forward-slurp-sexp)
-  (+paredit--unbind-key "C-<left>")
-  (+paredit--bind-key "M-<left>" #'paredit-forward-barf-sexp)
-  (+paredit--bind-key "ESC <left>" #'paredit-forward-barf-sexp)
-  (+paredit--bind-key "C-, C-b" #'paredit-forward-barf-sexp)
-  (+paredit--bind-key "C-, b" #'paredit-forward-barf-sexp)
-  (+paredit--unbind-key "ESC C-<right>")
-  (+paredit--bind-key "ESC M-<right>" #'paredit-backward-barf-sexp)
-  (+paredit--bind-key "ESC ESC <right>" #'paredit-backward-barf-sexp)
-  (+paredit--bind-key "C-, C-, C-f" #'paredit-backward-barf-sexp)
-  (+paredit--bind-key "C-, , f" #'paredit-backward-barf-sexp)
-  (+paredit--unbind-key "ESC C-<left>")
-  (+paredit--bind-key "ESC M-<left>" #'paredit-backward-slurp-sexp)
-  (+paredit--bind-key "ESC ESC <left>" #'paredit-backward-slurp-sexp)
-  (+paredit--bind-key "C-, C-, C-b" #'paredit-backward-slurp-sexp)
-  (+paredit--bind-key "C-, , b" #'paredit-backward-slurp-sexp)
-
-  (add-hook 'eshell-mode-hook #'paredit-mode)
-
-  (use-package smartparens
-    :config
-    (defun +smartparens--disable-smartparens-mode ()
-      (smartparens-mode (if paredit-mode -1 t)))
-    (add-hook 'paredit-mode-hook #'+smartparens--disable-smartparens-mode))
-  (use-package lisp-mode
-    :config
-    (add-hook 'lisp-mode-hook #'paredit-mode)
-    (add-hook 'emacs-lisp-mode-hook #'paredit-mode))
-  (use-package ielm :config (add-hook 'ielm-mode-hook #'paredit-mode))
-  (use-package clojure-mode :config (add-hook 'clojure-mode-hook #'paredit-mode))
-  (use-package cider :config (add-hook 'cider-repl-mode-hook #'paredit-mode))
-  (use-package scheme :config (add-hook 'scheme-mode-hook #'paredit-mode))
-  (use-package geiser :config (add-hook 'geiser-repl-mode-hook #'paredit-mode)))
-
 (use-package transient
   :ensure t
   :defer 2
@@ -276,103 +186,6 @@
     (setq transient-levels-file (concat transient-dir-path "levels.el")
           transient-values-file (concat transient-dir-path "values.el")
           transient-history-file (concat transient-dir-path "history.el"))))
-
-(use-package simple
-  :config
-  (defconst +simple-backup-dir
-    (concat user-emacs-directory (concat core-var-cache-dir-path "backups/")))
-  (setq auto-save-file-name-transforms `((".*" ,+simple-backup-dir t))
-        auto-save-list-file-prefix +simple-backup-dir
-        backup-directory-alist `((".*" . ,+simple-backup-dir))
-        create-lockfiles nil))
-
-(use-package tramp
-  :defer 2
-  :config
-  ;; File paths like `/sshx:user@remotehost|sudo:remotehost:/etc/dhcpd.conf`
-  ;; will open remote files over multiple hops.
-  (setq
-   ;; tramp-debug-buffer t
-   ;; tramp-verbose 9
-   tramp-default-method "scpx"
-   tramp-persistency-file-name (concat core-var-cache-dir-full-path "tramp")
-   tramp-auto-save-directory (concat core-var-cache-dir-full-path "tramp-auto-save/")))
-
-(use-package ws-butler
-  :ensure t
-  :bind (("C-' d" . ws-butler-mode)
-         ("C-' C-d" . ws-butler-mode))
-  :commands (ws-butler-mode)
-  :init
-  (add-hook 'prog-mode-hook #'ws-butler-mode)
-  (add-hook 'conf-mode-hook #'ws-butler-mode))
-
-(use-package helpful
-  :ensure t
-  :bind (("C-h f" . helpful-function)
-         ("C-h v" . helpful-variable)
-         ("C-h k" . helpful-key)))
-
-(use-package fic-mode
-  :ensure t
-  :config
-  (setq fic-highlighted-words '("FIXME" "TODO" "BUG" "HACK"))
-  (add-hook 'prog-mode-hook #'fic-mode)
-  (add-hook 'conf-mode-hook #'fic-mode))
-
-(use-package abbrev
-  :defer 2)
-
-(use-package anzu
-  :ensure t
-  :defer t
-  :hook (after-init . global-anzu-mode))
-
-(use-package smartparens
-  :ensure t
-  :defer 2
-  :config
-  (add-hook 'prog-mode-hook #'smartparens-mode))
-
-(use-package hideshow
-  :bind (:map hs-minor-mode-map
-              ("C-c d" . hs-hide-block)
-              ("C-c v d" . hs-hide-all)
-              ("C-c s" . hs-show-block)
-              ("C-c v s" . hs-show-all))
-  :config
-  (add-hook 'prog-mode-hook #'hs-minor-mode))
-
-(use-package company
-  :ensure t
-  :defer 2
-  :bind (("C-' a" . global-company-mode)
-         ("C-' C-a" . global-company-mode)
-         ("M-SPC" . company-manual-begin))
-  :config
-  (global-company-mode t))
-
-(use-package yasnippet
-  :ensure t
-  :defer 2
-  :bind (("C-' C-y" . yas-global-mode)
-         ("C-' y" . yas-global-mode))
-  :config
-  (custom-set-faces
-   '(yas-field-highlight-face ((t (:inherit 'region)))))
-
-  (let* ((temp-yas-snippet-dirs
-          (append yas-snippet-dirs
-                  (list (expand-file-name (concat core-var-dir-path "snippets")
-                                          user-emacs-directory))))
-         (temp-yas-snippet-dirs
-          (delete yas--default-user-snippets-dir temp-yas-snippet-dirs)))
-    (setq yas-snippet-dirs temp-yas-snippet-dirs))
-
-  (use-package yasnippet-snippets
-    :ensure t)
-
-  (yas-global-mode t))
 
 (use-package exec-path-from-shell
   :ensure t
@@ -384,114 +197,22 @@
   (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize)))
 
-(use-package editorconfig
-  :ensure t
-  :defer 2
-  :config
-  (editorconfig-mode 1))
-
-(use-package desktop
-  :init
-  (setq desktop-path (list core-var-cache-dir-full-path)
-        desktop-base-file-name "desktop"
-        desktop-base-lock-name "desktop.lock")
-  :config
-  (desktop-save-mode t))
-
 (use-package projectile
   :ensure t
   :defer 2
   :bind (:map projectile-mode-map
-		 ("C-c p" . projectile-command-map))
+         ("C-c p" . projectile-command-map))
   :init
   (setq projectile-cache-file (concat core-var-cache-dir-full-path "projectile/cache")
         projectile-known-projects-file (concat core-var-cache-dir-full-path "projectile/bookmarks.eld"))
   :config
-  (projectile-mode t)
-  (use-package helm-projectile
-	:ensure t
-	:config
-	(setq projectile-completion-system 'helm)))
+  (projectile-mode t))
 
 (use-package docker
   :ensure t
   :defer 2
   :config
   (setq docker-container-shell-file-name "/bin/sh"))
-
-(use-package expand-region
-  :ensure t
-  :bind ("C-=" . er/expand-region))
-
-(use-package subword
-  :bind (("C-' c" . subword-mode)
-         ("C-' C-c" . subword-mode)))
-
-(use-package ibuffer
-  :bind ("C-x C-b" . ibuffer))
-
-(use-package woman
-  :unless (core:is-windows-p)
-  :bind ("C-x ?" . woman))
-
-(use-package findr
-  :ensure t
-  :defer 2)
-
-(use-package grep
-  :bind (("M-s G" . grep)
-         ("M-s g" . rgrep)))
-
-(use-package vc-git
-  :after magit
-  :bind (("C-: <f3>" . vc-git-grep)
-         ("M-s :" . vc-git-grep)
-         ("C-: M-s" . vc-git-grep)))
-
-(use-package ag
-  :ensure t
-  :bind (("M-s a a" . ag)
-         ("M-s a g" . ag-regexp)
-         ("M-s a A" . ag-project)
-         ("M-s a G" . ag-project-regexp)))
-
-(use-package isearch
-  :bind (("M-s s" . isearch-forward)
-         ("M-s r" . isearch-backward)
-         :map isearch-mode-map
-         ("<f3>" . isearch-repeat-forward)
-         ("S-<f3>" . isearch-repeat-backward)))
-
-(use-package compile
-  :defer 2
-  :bind (("C-! k" . compile)
-         ("C-! C-k" . compile)
-         ("C-x <f5>" . compile)))
-
-(use-package gud
-  :defer t
-  :config
-  (setq gdb-many-windows t))
-
-(use-package flycheck
-  :ensure t
-  :commands (flycheck-mode))
-
-(use-package clipmon
-  :ensure t
-  :defer 2
-  :config
-  (clipmon-mode-start))
-
-(use-package inflections
-  :ensure t)
-
-(use-package wide-column
-  :ensure t)
-
-(use-package smex
-  :ensure t
-  :defer 2)
 
 (use-package server
   :ensure t
@@ -506,5 +227,36 @@
   :defer 2
   :config
   (edit-server-start))
+
+(use-package clipmon
+  :ensure t
+  :defer 2
+  :config
+  (clipmon-mode-start))
+
+(use-package iedit
+  :ensure t
+  :bind ("C-;" . iedit-mode))
+
+(use-package multiple-cursors
+  :ensure t
+  :bind (("C-<" . mc/mark-previous-like-this)
+         ("C->" . mc/mark-next-like-this)
+         ("C-c C-<f3>" . mc/mark-all-like-this)
+         ("C-c C->" . mc/mark-all-like-this)
+         ("C-x <C-return>" . mc/edit-lines)
+         ("C-x RET RET" . set-rectangular-region-anchor))
+  :init
+  (setq mc/list-file (concat core-var-cache-dir-full-path "mc-lists.el"))
+  (face-spec-set 'mc/cursor-bar-face '((t (:height 1 :background "green")))))
+
+(use-package mod-editor-compile :load-path core-modules-lib-path)
+(use-package mod-editor-completion :load-path core-modules-lib-path)
+(use-package mod-editor-format :load-path core-modules-lib-path)
+(use-package mod-editor-help :load-path core-modules-lib-path)
+(use-package mod-editor-highlight :load-path core-modules-lib-path)
+(use-package mod-editor-navigation :load-path core-modules-lib-path)
+(use-package mod-editor-parens :load-path core-modules-lib-path)
+(use-package mod-editor-search :load-path core-modules-lib-path)
 
 (provide 'mod-editor)
