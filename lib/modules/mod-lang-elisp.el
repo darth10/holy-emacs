@@ -46,9 +46,10 @@
           (setq alias-list (cons (list alias-name command-string) alias-list))
           (forward-line 1))
         (setq eshell-command-aliases-list alias-list))
-      (if (get-buffer "bash-aliases")(kill-buffer "bash-aliases"))
-      (if (get-buffer "bash-errors")(kill-buffer "bash-errors"))
-      (message "Loaded aliases.")))
+      (if (get-buffer "bash-aliases") (kill-buffer "bash-aliases"))
+      (if (get-buffer "bash-errors") (kill-buffer "bash-errors"))
+      (message "Loaded aliases.")
+      (delete-other-windows)))
 
   (add-hook 'eshell-mode-hook #'+elisp/load-bash-aliases-in-eshell))
 
