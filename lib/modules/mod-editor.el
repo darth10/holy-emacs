@@ -268,19 +268,6 @@
   (use-package scheme :config (add-hook 'scheme-mode-hook #'paredit-mode))
   (use-package geiser :config (add-hook 'geiser-repl-mode-hook #'paredit-mode)))
 
-(use-package eval-sexp-fu
-  :ensure t
-  :defer 2
-  :config
-  (face-spec-set 'eval-sexp-fu-flash '((t (:background "green" :foreground "black"))))
-
-  (defun +eval-sexp-fu--init ()
-    (require 'eval-sexp-fu))
-
-  (add-hook 'lisp-mode-hook #'+eval-sexp-fu--init)
-  (add-hook 'emacs-lisp-mode-hook #'+eval-sexp-fu--init)
-  (add-hook 'eshell-mode-hook #'+eval-sexp-fu--init))
-
 (use-package transient
   :ensure t
   :defer 2
