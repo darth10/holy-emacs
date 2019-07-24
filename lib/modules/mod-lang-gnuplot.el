@@ -1,20 +1,16 @@
-;;; Configuration for gnuplot
+;;; mod-lang-gnuplot.el --- Configuration for gnuplot  -*- lexical-binding: t; -*-
 
 (use-package gnuplot
   :ensure t
-  :defer 5)
+  :mode ("\\.gnuplot\\'" . gnuplot-mode)
+  :lang (:map gnuplot-mode-map
+         (:repl-start . gnuplot-show-gnuplot-buffer)
+         (:eval-buffer . gnuplot-send-buffer-to-gnuplot))
+  :config
+  (add-hook 'gnuplot-mode-hook #'gnuplot-inline-display-mode))
 
 (use-package gnuplot-mode
   :ensure t
-  :defer 5
-  :bind (:map gnuplot-mode-map
-         ("C-c C-k" . gnuplot-send-buffer-to-gnuplot)
-         ("C-<f5>" . gnuplot-send-buffer-to-gnuplot)
-         ("C-x C-a C-a" . gnuplot-send-buffer-to-gnuplot)
-         ("C-x a a" . gnuplot-send-buffer-to-gnuplot)
-         ("C-c C-z" . gnuplot-show-gnuplot-buffer)
-         ("C-<f10>" . gnuplot-show-gnuplot-buffer)
-         ("C-! C-r" . gnuplot-show-gnuplot-buffer)
-         ("C-?" . gnuplot-info-at-point)))
+  :after gnuplot)
 
 (provide 'mod-lang-gnuplot)
