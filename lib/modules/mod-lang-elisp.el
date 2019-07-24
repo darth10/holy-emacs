@@ -20,7 +20,11 @@
   (add-hook 'eshell-mode-hook 'eldoc-mode))
 
 (use-package eshell
+  :commands (+elisp/load-bash-aliases-in-eshell)
+  :init
+  (add-hook 'eshell-mode-hook #'+elisp/load-bash-aliases-in-eshell)
   :config
+  (setq eshell-directory-name (concat core-var-cache-dir-full-path "eshell/"))
   (defun +elisp/load-bash-aliases-in-eshell ()
     "Reads bash aliases from Bash and inserts
     them into the list of eshell aliases."
@@ -49,9 +53,7 @@
       (if (get-buffer "bash-aliases") (kill-buffer "bash-aliases"))
       (if (get-buffer "bash-errors") (kill-buffer "bash-errors"))
       (message "Loaded aliases.")
-      (delete-other-windows)))
-
-  (add-hook 'eshell-mode-hook #'+elisp/load-bash-aliases-in-eshell))
+      (delete-other-windows))))
 
 (use-package eval-sexp-fu
   :ensure t
