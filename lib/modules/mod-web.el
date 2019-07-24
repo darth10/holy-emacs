@@ -49,4 +49,7 @@
 (use-package handlebars-mode
   :ensure t)
 
+(use-package web-beautify
+  :ensure t)
+
 (provide 'mod-web)
