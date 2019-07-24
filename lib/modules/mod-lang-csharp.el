@@ -1,6 +1,6 @@
 ;;; mod-lang-csharp.el --- Configuration for C#      -*- lexical-binding: t; -*-
 
-;;; Install omnisharp server using omnisharp-install-server
+;;; Requires omnisharp server. Install it using M-x omnisharp-install-server.
 
 (use-package csharp-mode
   :ensure t
