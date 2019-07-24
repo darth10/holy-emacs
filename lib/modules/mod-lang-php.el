@@ -45,11 +45,11 @@
 
     (defun php-debug-sentinel (process event)
       (when (= 0 (process-exit-status process))
-        (call-interactively 'geben-end)))
+        (call-interactively #'geben-end)))
 
     (defun php-debug ()
       (interactive)
-      (call-interactively 'geben)
+      (call-interactively #'geben)
       (let* ((php-debug-command (concat
                                  "XDEBUG_CONFIG='idekey=php-54' php "
                                  (buffer-file-name)))

@@ -24,6 +24,6 @@
   (defun +go/company-go-complete ()
     (interactive)
     (insert ".")
-    (call-interactively 'company-go)))
+    (call-interactively #'company-go)))
 
 (provide 'mod-lang-go)

@@ -35,7 +35,7 @@
     (interactive)
     (insert ".")
     (when omnisharp-mode
-      (call-interactively 'company-omnisharp)))
+      (call-interactively #'company-omnisharp)))
 
   (add-hook 'omnisharp-mode-hook #'flycheck-mode)
   (add-hook 'csharp-mode-hook #'omnisharp-mode))
