@@ -1,15 +1,15 @@
-;;; Configuration for Scala
+;;; mod-lang-scala.el --- Configuration for Scala    -*- lexical-binding: t; -*-
 
 (use-package scala-mode
   :ensure t
   :mode ("\\.scala\\'" . scala-mode))
 
-(use-package ensime
-  :ensure t
-  :defer 2)
-
 (use-package sbt-mode
   :ensure t
-  :defer 2)
+  :mode ("\\.sbt\\'" . sbt-mode))
+
+(use-package ensime
+  :ensure t
+  :after scala-mode)
 
 (provide 'mod-lang-scala)
