@@ -85,7 +85,8 @@ within a `use-package' handler definition."
                                   core--lang-extension-keys-lookup-alist)))
                 (fun (and (cdr form) (list 'function (cdr form)))))
             (if (and map (not (eq map 'global-map)))
-                `((core-bind-keys ,keys ,fun ',map ,filter))
+                `((defvar ,map (make-sparse-keymap))
+                  (core-bind-keys ,keys ,fun ',map ,filter))
               `((core-bind-keys ,keys ,fun nil ,filter)))))
         first)
        (when next
