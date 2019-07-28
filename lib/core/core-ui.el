@@ -111,11 +111,6 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
   :ensure t
   :defer 2)
 
-(use-package yascroll
-  :ensure t
-  :config
-  (global-yascroll-bar-mode 1))
-
 (use-package doom-modeline
   :ensure t
   :defer t
