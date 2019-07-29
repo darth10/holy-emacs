@@ -9,16 +9,7 @@
   :lang (:map c-mode-map
          (:debugger . gdb)
          :map c++-mode-map
-         (:debugger . gdb)
-         :map gud-minor-mode-map
-         (:eval-buffer . gud-run)
-         (:debug-set-break . gud-break)
-         (:debug-remove-break . gud-remove)
-         (:debug-step-over . gud-next)
-         (:debug-step-into . gud-step)
-         (:debug-step-out . gud-finish)
-         (:debug-continue . gud-cont)
-         (:debug-run . gud-run))
+         (:debugger . gdb))
   :config
   (use-package gud)
   (setq c-default-style '((java-mode . "k&r")
