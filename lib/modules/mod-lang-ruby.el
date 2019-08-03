@@ -1,51 +1,42 @@
-;;; Configuration for Ruby
+;;; mod-lang-ruby.el --- Configuration for Ruby      -*- lexical-binding: t; -*-
 
 (use-package ruby-mode
-  :ensure t
   :mode ("\\.rb\\'" . ruby-mode))
+
+(use-package ruby-end
+  :ensure t
+  :after ruby-mode)
 
 (use-package inf-ruby
   :ensure t
-  :defer 5
+  :after ruby-mode
+  :lang (:map ruby-mode-map
+         (:repl-start . run-ruby)
+         (:eval-buffer . +ruby/load-file)
+         (:load-file . +ruby/load-file)
+         (:debugger . +ruby/run-debugger))
   :config
-  (defun load-file-in-inf-ruby ()
+  (defun +ruby/load-file ()
     (interactive)
     (ruby-load-file (buffer-file-name))
     (ruby-switch-to-inf (get-buffer "*ruby*")))
-  (defun run-ruby-debugger ()
+  (defun +ruby/run-debugger ()
     (interactive)
     (let* ((debug-command (concat  "ruby -r debug " buffer-file-name))
            (user-debug-command (read-string "Run ruby -r debug (like this): "
                                             debug-command)))
-      (gud-gdb user-debug-command)))
-  (bind-key "C-! C-r" 'run-ruby ruby-mode-map)
-  (bind-key "C-<f10>" 'run-ruby ruby-mode-map)
-  (bind-key "C-x C-a C-a" 'load-file-in-inf-ruby ruby-mode-map)
-  (bind-key "C-x a a" 'load-file-in-inf-ruby ruby-mode-map)
-  (bind-key "C-<f5>" 'load-file-in-inf-ruby ruby-mode-map)
-  (bind-key "C-! C-d" 'run-ruby-debugger ruby-mode-map)
-  (bind-key "C-<f11>" 'run-ruby-debugger ruby-mode-map))
-
-(use-package ruby-end
-  :ensure t
-  :defer 5)
+      (gud-gdb user-debug-command))))
 
 (use-package rinari
   :ensure t
-  :defer 5
-  :bind (:map ruby-mode-map
-         ("C-! C-a" . rinari-rake)
-         ("C-<f7>" . rinari-rake))
-  :config
-  (defun rinari-run-all-test ()
-    (interactive)
-    (rinari-rake "test"))
-  (bind-key "C-x T" 'rinari-run-all-test ruby-mode-map))
+  :after ruby-mode
+  :lang (:map ruby-mode-map
+         (:test-all . rinari-test)))
 
 (use-package rvm
   :ensure t
-  :defer 5
+  :after ruby-mode
   :config
-  (add-hook 'ruby-mode-hook 'rvm-use-default))
+  (add-hook 'ruby-mode-hook #'rvm-use-default))
 
 (provide 'mod-lang-ruby)
