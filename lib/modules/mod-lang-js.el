@@ -1,26 +1,37 @@
-;;; Configuration for JavaScript
+;;; mod-lang-js.el --- Configuration for JavaScript  -*- lexical-binding: t; -*-
 
 (use-package js2-mode
   :ensure t
   :mode (("\\.js\\'" . js2-mode)
          ("\\.jsx\\'" . js2-jsx-mode))
   :config
-  (setq js2-basic-offset 2)
+  (setq js2-basic-offset 2))
 
-  (use-package js2-refactor
-    :ensure t
-    :config
-    (add-hook 'js2-mode-hook 'js2-refactor-mode))
+(use-package js2-refactor
+  :ensure t
+  :after js2-mode
+  :config
+  (add-hook 'js2-mode-hook #'js2-refactor-mode))
 
-  (use-package tern
-    :ensure t
-    :config
-    (add-hook 'js2-mode-hook 'tern-mode)
+(use-package tern
+  :ensure t
+  :after js2-mode
+  :config
+  (add-hook 'js2-mode-hook #'tern-mode))
 
-    (use-package company-tern
-      :ensure t
-      :config
-      (bind-key "M-SPC" 'company-tern js2-mode-map)
-      (bind-key "M-SPC" 'company-tern js2-jsx-mode-map))))
+(use-package company-tern
+  :ensure t
+  :after tern
+  :bind (:map js2-mode-map
+         ("." . +js/company-tern-complete)
+         ("M-SPC" . company-tern)
+         :map js2-jsx-mode-map
+         ("." . +js/company-tern-complete)
+         ("M-SPC" . company-tern))
+  :config
+  (defun +js/company-tern-complete ()
+    (interactive)
+    (insert ".")
+    (call-interactively #'company-tern)))
 
 (provide 'mod-lang-js)
