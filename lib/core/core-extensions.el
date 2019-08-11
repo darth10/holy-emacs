@@ -79,14 +79,15 @@ within a `use-package' handler definition."
         (error ":lang :map requires forms"))
 
       (append
+       (when (and map (not (eq map 'global-map)))
+         `((defvar ,map (make-sparse-keymap))))
        (cl-mapcan
         (lambda (form)
           (let ((keys (cdr (assoc (car form)
                                   core--lang-extension-keys-lookup-alist)))
                 (fun (and (cdr form) (list 'function (cdr form)))))
             (if (and map (not (eq map 'global-map)))
-                `((defvar ,map (make-sparse-keymap))
-                  (core-bind-keys ,keys ,fun ',map ,filter))
+                `((core-bind-keys ,keys ,fun ',map ,filter))
               `((core-bind-keys ,keys ,fun nil ,filter)))))
         first)
        (when next
