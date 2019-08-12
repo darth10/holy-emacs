@@ -11,11 +11,13 @@
 ;; Keywords:
 ;;     :map KEYMAP
 ;;     :filter SEXP
+;;     :comp (MODE . COMPANY-BACKEND)
 ;;
 ;; Example:
 ;; (use-package python
 ;;   ;; ...
-;;   :lang (:map python-mode-map
+;;   :lang (:comp (python-mode . company-jedi)
+;;          :map python-mode-map
 ;;          (:eval-buffer . load-file-in-inf-python)
 ;;          (:repl-start . run-python)
 ;;          :filter (is-python-p))
@@ -51,12 +53,15 @@
 (defun core--bind-language-keys-form (args)
   "Internal function to generate `core-bind-keys' forms. Should be used
 within a `use-package' handler definition."
-  (let (map
+  (let (comp
+        map
         filter)
 
     (let ((cont t))
       (while (and cont args)
-        (if (cond ((eq :map (car args))
+        (if (cond ((eq :comp (car args))
+                   (setq comp (cadr args)))
+                  ((eq :map (car args))
                    (setq map (cadr args)))
                   ((eq :filter (car args))
                    (setq filter (cadr args)) t))
@@ -74,12 +79,23 @@ within a `use-package' handler definition."
             (setq first (list (car args))))
           (setq args (cdr args))))
 
-      (when (or (not map)
-                (not first))
+      (when (and (not comp)
+                 (or (not map)
+                     (not first)))
         (error ":lang :map requires forms"))
 
       (append
-       (when (and map (not (eq map 'global-map)))
+       (when comp
+         (let* ((mode (car comp))
+                (mode-hook (intern (concat (symbol-name mode) "-hook")))
+                (comp-backend (cdr comp)))
+           `((when (boundp 'company-backends)
+               (add-hook
+                ',mode-hook
+                #'(lambda ()
+                    (setq-local company-backends
+                                (cons ',comp-backend company-backends))))))))
+       (when (and first map (not (eq map 'global-map)))
          `((defvar ,map (make-sparse-keymap))))
        (cl-mapcan
         (lambda (form)
@@ -109,6 +125,11 @@ within a `use-package' handler definition."
          ;; Keywords:
          ;;   :map KEYMAP
          ;;   :filter SEXP
+         ;;   :comp (MODE . COMPANY-BACKEND)
+         ((and (eq x :comp) (and (listp (cadr arg))
+                                 (not (listp (cdadr arg)))))
+          (setq args* (nconc args* (list x (cadr arg))))
+          (setq arg (cddr arg)))
          ((or (and (eq x :map) (symbolp (cadr arg)))
               (eq x :filter))
           (setq args* (nconc args* (list x (cadr arg))))
