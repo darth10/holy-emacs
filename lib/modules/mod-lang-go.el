@@ -17,13 +17,6 @@
 (use-package company-go
   :ensure t
   :after go-mode
-  :bind (:map go-mode-map
-         ("." . +go/company-go-complete)
-         ("M-SPC" . company-go))
-  :config
-  (defun +go/company-go-complete ()
-    (interactive)
-    (insert ".")
-    (call-interactively #'company-go)))
+  :lang (:comp (go-mode . company-go)))
 
 (provide 'mod-lang-go)
