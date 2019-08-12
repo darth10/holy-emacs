@@ -22,16 +22,6 @@
 (use-package company-tern
   :ensure t
   :after tern
-  :bind (:map js2-mode-map
-         ("." . +js/company-tern-complete)
-         ("M-SPC" . company-tern)
-         :map js2-jsx-mode-map
-         ("." . +js/company-tern-complete)
-         ("M-SPC" . company-tern))
-  :config
-  (defun +js/company-tern-complete ()
-    (interactive)
-    (insert ".")
-    (call-interactively #'company-tern)))
+  :lang (:comp (js2-mode . company-tern)))
 
 (provide 'mod-lang-js)
