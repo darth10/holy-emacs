@@ -15,6 +15,11 @@
 
 (use-package eldoc
   :config
+  ;; disable eldoc for eval-expression
+  (defun +elisp--turn-off-eldoc ()
+    (eldoc-mode -1))
+  (add-hook 'eval-expression-minibuffer-setup-hook #'+elisp--turn-off-eldoc)
+
   (add-hook 'emacs-lisp-mode-hook 'eldoc-mode)
   (add-hook 'ielm-mode-hook 'eldoc-mode)
   (add-hook 'eshell-mode-hook 'eldoc-mode))
