@@ -95,7 +95,6 @@
 (use-package gud
   :defer t
   :lang (:map gud-minor-mode-map
-         (:eval-buffer . gud-run)
          (:debug-set-break . gud-break)
          (:debug-remove-break . gud-remove)
          (:debug-step-over . gud-next)
