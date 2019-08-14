@@ -27,16 +27,23 @@
                                             debug-command)))
       (gud-gdb user-debug-command))))
 
+(use-package robe
+  :ensure t
+  :defer 2
+  :lang (:comp (ruby-mode . company-robe)
+         :map ruby-mode-map
+         (:find-definition . robe-jump))
+  :config
+  (add-hook 'ruby-mode-hook #'robe-mode))
+
 (use-package rinari
   :ensure t
-  :after ruby-mode
+  :defer 2
   :lang (:map ruby-mode-map
          (:test-all . rinari-test)))
 
 (use-package rvm
   :ensure t
-  :after ruby-mode
-  :config
-  (add-hook 'ruby-mode-hook #'rvm-use-default))
+  :defer 2)
 
 (provide 'mod-lang-ruby)
