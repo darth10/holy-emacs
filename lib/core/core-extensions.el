@@ -82,7 +82,7 @@ within a `use-package' handler definition."
       (when (and (not comp)
                  (or (not map)
                      (not first)))
-        (error ":lang :map requires forms"))
+        (error ":lang requires :map or :comp forms"))
 
       (append
        (when comp
