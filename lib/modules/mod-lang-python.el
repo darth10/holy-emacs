@@ -27,6 +27,12 @@
   (setq python-environment-directory
         (concat core-var-cache-dir-full-path "python-environments/")))
 
+(use-package jedi-core
+  :ensure t
+  :defer 2
+  :lang (:map python-mode-map
+         (:find-definition . jedi:goto-definition)))
+
 (use-package company-jedi
   :ensure t
   :defer 2
