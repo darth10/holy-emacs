@@ -16,6 +16,8 @@
 (use-package tern
   :ensure t
   :after js2-mode
+  :lang (:map js2-mode-map
+         (:find-definition . tern-find-definition))
   :config
   (add-hook 'js2-mode-hook #'tern-mode))
 
