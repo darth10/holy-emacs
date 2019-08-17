@@ -15,7 +15,9 @@
   :ensure t
   :defer 2
   :bind (("C-' C-y" . yas-global-mode)
-         ("C-' y" . yas-global-mode))
+         ("C-' y" . yas-global-mode)
+         :map yas-minor-mode-map
+         ("C-c & s" . yas-insert-snippet))
   :config
   (custom-set-faces
    '(yas-field-highlight-face ((t (:inherit 'region)))))
