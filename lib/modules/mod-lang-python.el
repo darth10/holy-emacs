@@ -23,6 +23,7 @@
 
 (use-package python-environment
   :ensure t
+  :defer 2
   :init
   (setq python-environment-directory
         (concat core-var-cache-dir-full-path "python-environments/")))
