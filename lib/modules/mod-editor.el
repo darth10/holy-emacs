@@ -52,7 +52,6 @@
          ("C-<f9>" . toggle-truncate-lines)
          ("C-' q" . auto-fill-mode)
          ("C-' C-q" . auto-fill-mode)
-         ("C-c C-\\" . just-one-space)
          ("C-c \\" . just-one-space)
          ("C-h C-l" . describe-personal-keybindings))
   :lang (:map global-map
@@ -220,8 +219,8 @@
   :ensure t
   :bind (("C-<" . mc/mark-previous-like-this)
          ("C->" . mc/mark-next-like-this)
-         ("C-c C-<f3>" . mc/mark-all-like-this)
-         ("C-c C->" . mc/mark-all-like-this)
+         ("C-c <f3>" . mc/mark-all-like-this)
+         ("C-c >" . mc/mark-all-like-this)
          ("C-x <C-return>" . mc/edit-lines)
          ("C-x RET RET" . set-rectangular-region-anchor))
   :init

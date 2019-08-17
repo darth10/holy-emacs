@@ -1,8 +1,7 @@
 ;;; mod-files.el --- File management and handling tools  -*- lexical-binding: t; -*-
 
 (use-package recentf
-  :bind (("C-c : ;" . recentf-open-files)
-         ("C-c C-: C-;" . recentf-open-files))
+  :bind (("C-c : ;" . recentf-open-files))
   :config
   (setq recentf-max-menu-items 40
         recentf-max-saved-items 40
@@ -10,14 +9,17 @@
   (recentf-mode t))
 
 (use-package dired
-  :bind (("C-x C-j" . dired-jump-other-window)
+  :bind (("C-x j" . dired-jump-other-window)
+         ("C-x C-j" . dired-jump-other-window)
          :map  dired-mode-map
-         ("C-x C-/" . wdired-change-to-wdired-mode))
-  :config
-  (use-package direx
-    :ensure t
-    :defer 2
-    :bind ("C-c C-j" . direx:jump-to-directory-other-window)))
+         ("C-x C-/" . wdired-change-to-wdired-mode)))
+
+(use-package direx
+  :ensure t
+  :defer 2
+  :after dired
+  :bind (("C-x ," . direx:jump-to-directory-other-window)
+         ("C-x C-," . direx:jump-to-directory-other-window)))
 
 (use-package image-dired
   :init
