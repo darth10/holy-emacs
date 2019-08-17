@@ -1,6 +1,8 @@
 ;;; core.el --- holy-emacs core                      -*- lexical-binding: t; -*-
 
-;;; Emacs Lisp naming conventions:
+;;; Commentary:
+;;
+;; Emacs Lisp naming conventions:
 ;;
 ;; Definitions in files within the core/ directory should use the
 ;; following conventions:
@@ -20,11 +22,15 @@
 ;; The only exceptions to these conventions are:
 ;; * the `holy-emacs' customization group  (core.el)
 ;; * the `holy-emacs-version' const        (core.el)
-
-;;; Key binding conventions:
 ;;
-;; TODO
-;; based on https://www.gnu.org/software/emacs/manual/html_node/elisp/Key-Binding-Conventions.html
+;;
+;; Key binding conventions:
+;;
+;; Based on `https://www.gnu.org/software/emacs/manual/html_node/elisp/Key-Binding-Conventions.html':
+;; * Avoid using the `C-x` prefix for mode specific key bindings.
+;; * Avoid using the `C-c C-` prefix for global key bindings.
+;; * Use `ESC` as a prefix but do not rebind it.
+;; * Do not rebind `C-g` or `C-h`.
 
 (defgroup holy-emacs nil
   "An opinionated and extensible Emacs configuration."
