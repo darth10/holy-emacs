@@ -1,4 +1,4 @@
-;;; Configuration for version control
+;;; mod-vc.el --- Integration with version control tools  -*- lexical-binding: t; -*-
 
 (use-package ediff
   :bind (("C-! +" . ediff)

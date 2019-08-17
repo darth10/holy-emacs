@@ -1,4 +1,4 @@
-;;; core-customize.el -*- lexical-binding: t; -*-
+;;; core-customize.el --- holy-emacs customize hooks  -*- lexical-binding: t; -*-
 
 (defconst core-custom-defs-file-path
   (expand-file-name

@@ -1,4 +1,4 @@
-;;; Configuration for file management
+;;; mod-files.el --- File management and handling tools  -*- lexical-binding: t; -*-
 
 (use-package recentf
   :bind (("C-c : ;" . recentf-open-files)

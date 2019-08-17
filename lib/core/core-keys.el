@@ -1,4 +1,4 @@
-;;; core-keys.el -*- lexical-binding: t; -*-
+;;; core-keys.el --- holy-emacs core key bindings    -*- lexical-binding: t; -*-
 
 ;;; :lang extension keys
 

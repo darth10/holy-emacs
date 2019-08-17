@@ -1,4 +1,4 @@
-;;; core.el -*- lexical-binding: t; -*-
+;;; core.el --- holy-emacs core                      -*- lexical-binding: t; -*-
 
 ;;; Emacs Lisp naming conventions:
 ;;

@@ -1,4 +1,4 @@
-;;; core-extensions.el -*- lexical-binding: t; -*-
+;;; core-extensions.el --- holy-emacs extensions for use-package  -*- lexical-binding: t; -*-
 
 ;;; Commentary:
 

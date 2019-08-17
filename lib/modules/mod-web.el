@@ -1,4 +1,4 @@
-;;; Configuration for Web -*- lexical-binding: t; -*-
+;;; mod-web.el --- Configuration for web development  -*- lexical-binding: t; -*-
 
 (use-package emmet-mode
   :ensure t

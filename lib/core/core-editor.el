@@ -1,4 +1,4 @@
-;;; core-editor.el -*- lexical-binding: t; -*-
+;;; core-editor.el --- holy-emacs core editor functions  -*- lexical-binding: t; -*-
 
 (defconst core--scratch-buffer-name "*scratch*")
 

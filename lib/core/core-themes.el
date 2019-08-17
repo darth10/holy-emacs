@@ -1,4 +1,4 @@
-;;; core-themes.el -*- lexical-binding: t; -*-
+;;; core-themes.el --- holy-emacs themes             -*- lexical-binding: t; -*-
 
 ;; Note that `custom-safe-themes' must be set appropriately before setting
 ;; `custom-enabled-themes' to avoid load errors and user prompts.

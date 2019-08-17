@@ -1,4 +1,4 @@
-;;; Configuration for Helm
+;;; mod-helm.el --- Configuration for helm           -*- lexical-binding: t; -*-
 
 (use-package helm
   :ensure t

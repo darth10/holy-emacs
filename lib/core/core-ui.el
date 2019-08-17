@@ -1,4 +1,4 @@
-;;; core-ui.el -*- lexical-binding: t; -*-
+;;; core-ui.el --- holy-emacs core user interface    -*- lexical-binding: t; -*-
 
 (defcustom core-enable-god-mode t
   "When nil, do not enable `god-mode' and relevant bindings."

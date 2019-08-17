@@ -1,4 +1,4 @@
-;;; Configuration for GitHub integration
+;;; mod-github.el --- Integration with GitHub        -*- lexical-binding: t; -*-
 
 (use-package gh
   :ensure t
