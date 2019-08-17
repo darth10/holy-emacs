@@ -88,13 +88,14 @@ within a `use-package' handler definition."
        (when comp
          (let* ((mode (car comp))
                 (mode-hook (intern (concat (symbol-name mode) "-hook")))
+                (mode-hook-fn (intern (format "core-lang-company-setup-%s"
+                                              mode)))
                 (comp-backend (cdr comp)))
-           `((when (boundp 'company-backends)
-               (add-hook
-                ',mode-hook
-                #'(lambda ()
-                    (setq-local company-backends
-                                (cons ',comp-backend company-backends))))))))
+           `((defalias ',mode-hook-fn
+               (lambda ()
+                 (when (boundp 'company-backends)
+                   (setq-local company-backends '(,comp-backend)))))
+             (add-hook ',mode-hook #',mode-hook-fn))))
        (when (and first map (not (eq map 'global-map)))
          `((defvar ,map (make-sparse-keymap))))
        (cl-mapcan
