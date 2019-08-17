@@ -13,7 +13,7 @@
   (defun +clojure--configure-clj-refactor ()
     (clj-refactor-mode t)
     (local-unset-key (kbd "C-:"))
-    (cljr-add-keybindings-with-prefix "C-c ESC"))
+    (cljr-add-keybindings-with-prefix "C-c '"))
 
   (setq cljr-warn-on-eval nil)
   (add-hook 'clojure-mode-hook #'+clojure--configure-clj-refactor))
