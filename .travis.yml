@@ -1,15 +1,24 @@
 language: emacs-lisp
 sudo: false
+addons:
+  apt:
+    packages:
+      - texinfo
 before_install:
   - git clone https://github.com/rejeep/evm.git /home/travis/.evm
   - export PATH="/home/travis/.evm/bin:$PATH"
   - evm config path /tmp
-  - evm install $EVM_EMACS --use
+  - evm install emacs-$EMACS_VERSION
+  - export PATH="/tmp/emacs-$EMACS_VERSION/bin:$PATH"
 env:
-  - EVM_EMACS=emacs-25.2-travis
-  - EVM_EMACS=emacs-25.3-travis
-  - EVM_EMACS=emacs-26.1-travis
-  - EVM_EMACS=emacs-26.2-travis
+  - EMACS_VERSION=25.2-travis
+  - EMACS_VERSION=25.3-travis
+  - EMACS_VERSION=26.1-travis
+  - EMACS_VERSION=26.2-travis
+  - EMACS_VERSION=git-snapshot
+matrix:
+  allow_failures:
+    - env: EMACS_VERSION=git-snapshot
 script:
   - emacs --version
   - make
