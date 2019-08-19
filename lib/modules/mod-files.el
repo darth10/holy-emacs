@@ -71,10 +71,10 @@
   :ensure t
   :unless (core:is-windows-p)
   :mode ("\\.pdf\\'" . pdf-view-mode)
+  :hook (pdf-view-mode . pdf-view-midnight-minor-mode)
   :config
   (unless noninteractive
-    (pdf-tools-install t))
-  (add-hook 'pdf-view-mode-hook #'pdf-view-midnight-minor-mode))
+    (pdf-tools-install t)))
 
 (use-package nov
   :ensure t

@@ -29,7 +29,6 @@
          ("C-c v d" . hs-hide-all)
          ("C-c s" . hs-show-block)
          ("C-c v s" . hs-show-all))
-  :config
-  (add-hook 'prog-mode-hook #'hs-minor-mode))
+  :hook ((prog-mode conf-mode) . hs-minor-mode))
 
 (provide 'mod-editor-navigation)

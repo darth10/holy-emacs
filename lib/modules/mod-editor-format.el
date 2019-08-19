@@ -14,8 +14,6 @@
   :bind (("C-' d" . ws-butler-mode)
          ("C-' C-d" . ws-butler-mode))
   :commands (ws-butler-mode)
-  :init
-  (add-hook 'prog-mode-hook #'ws-butler-mode)
-  (add-hook 'conf-mode-hook #'ws-butler-mode))
+  :hook ((prog-mode conf-mode) . ws-butler-mode))
 
 (provide 'mod-editor-format)

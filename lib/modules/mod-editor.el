@@ -126,7 +126,8 @@
          ("." . repeat)
          ("z" . repeat)
          ("i" . god-local-mode))
-  :hook (after-init . god-mode-all)
+  :hook ((after-init . god-mode-all)
+         (overwrite-mode . +god--toggle-on-overwrite))
   :config
   (defun +god--toggle-on-overwrite ()
     (if (bound-and-true-p overwrite-mode)
@@ -153,9 +154,7 @@
                         'wdired-mode
                         )))
     (dolist (i exempt-modes)
-      (add-to-list 'god-exempt-major-modes i)))
-
-  (add-hook 'overwrite-mode-hook #'+god--toggle-on-overwrite))
+      (add-to-list 'god-exempt-major-modes i))))
 
 (use-package transient
   :ensure t
