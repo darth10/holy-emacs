@@ -192,6 +192,10 @@
   :config
   (setq docker-container-shell-file-name "/bin/sh"))
 
+(use-package kubernetes
+  :ensure t
+  :commands (kubernetes-overview))
+
 (use-package server
   :ensure t
   :defer 2
