@@ -54,8 +54,6 @@
          ("C-' C-q" . auto-fill-mode)
          ("C-c \\" . just-one-space)
          ("C-h C-l" . describe-personal-keybindings))
-  :lang (:map global-map
-         (:find-definition . xref-find-definitions))
   :commands (core:kill-line-utils-init)
   :init
   (global-unset-key (kbd "<f10>"))
