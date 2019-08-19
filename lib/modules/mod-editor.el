@@ -227,7 +227,8 @@
          ("C-x RET RET" . set-rectangular-region-anchor))
   :init
   (setq mc/list-file (concat core-var-cache-dir-full-path "mc-lists.el"))
-  (face-spec-set 'mc/cursor-bar-face '((t (:height 1 :background "green")))))
+  :custom-face
+  (mc/cursor-bar-face ((t (:height 1 :background "green")))))
 
 (use-package mod-editor-compile    :load-path core-modules-lib-path)
 (use-package mod-editor-completion :load-path core-modules-lib-path)

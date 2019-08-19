@@ -115,12 +115,11 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
   :ensure t
   :defer t
   :hook (after-init . doom-modeline-init)
+  :custom-face
+  (doom-modeline-panel ((t (:inherit mode-line-emphasis))))
+  (doom-modeline-buffer-modified ((t (:inherit (warning bold) :background nil))))
+  (doom-modeline-inactive-bar ((t (:inherit mode-line-emphasis))))
   :config
-
-  (face-spec-set 'doom-modeline-panel '((t (:inherit mode-line-emphasis))))
-  (face-spec-set 'doom-modeline-buffer-modified '((t (:inherit (warning bold) :background nil))))
-  (face-spec-set 'doom-modeline-inactive-bar '((t (:inherit mode-line-emphasis))))
-
   ;; modeline on Windows needs a bit more height
   (let* ((modeline-height (if (core:is-windows-p) 40 34)))
     (setq doom-modeline-height modeline-height
@@ -187,19 +186,18 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
 (use-package diff-hl
   :ensure t
   :defer 2
+  :custom-face
+  (diff-hl-insert ((t (:background "ForestGreen" :foreground "ForestGreen"))))
+  (diff-hl-change ((t (:background "DimGray" :foreground "DimGray"))))
+  (diff-hl-delete ((t (:background "Orangered3" :foreground "Orangered3"))))
   :config
   (setq diff-hl-margin-symbols-alist '((insert . " ")
                                        (delete . " ")
                                        (change . " ")
                                        (unknown . " ")
                                        (ignored . " ")))
-
   (global-diff-hl-mode 1)
   (diff-hl-margin-mode t)
-
-  (face-spec-set 'diff-hl-insert '((t (:background "ForestGreen" :foreground "ForestGreen"))))
-  (face-spec-set 'diff-hl-change '((t (:background "DimGray" :foreground "DimGray"))))
-  (face-spec-set 'diff-hl-delete '((t (:background "Orangered3" :foreground "Orangered3"))))
 
   ;; Since both nlinum and diff-hl use the margin, diff-hl
   ;; seems to overwrite line numbers. To get around this,

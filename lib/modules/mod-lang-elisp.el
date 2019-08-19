@@ -62,13 +62,10 @@
 
 (use-package eval-sexp-fu
   :ensure t
-  :commands (+eval-sexp-fu--init)
-  :init
-  (add-hook 'lisp-mode-hook #'+eval-sexp-fu--init)
-  (add-hook 'emacs-lisp-mode-hook #'+eval-sexp-fu--init)
-  (add-hook 'eshell-mode-hook #'+eval-sexp-fu--init)
+  :hook ((lisp-mode emacs-lisp-mode eshell-mode) . +eval-sexp-fu--init)
+  :custom-face
+  (eval-sexp-fu-flash ((t (:background "green" :foreground "black"))))
   :config
-  (face-spec-set 'eval-sexp-fu-flash '((t (:background "green" :foreground "black"))))
   (defun +eval-sexp-fu--init ()
     (require 'eval-sexp-fu)))
 

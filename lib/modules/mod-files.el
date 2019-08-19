@@ -46,6 +46,9 @@
   (setq bm-restore-repository-on-load t
         bm-repository-file (concat core-var-cache-dir-full-path "bookmarks"))
   (setq-default bm-buffer-persistence t)
+  :hook (((find-file after-revert) . bm-buffer-restore)
+         ((save-hook kill-buffer) . bm-buffer-save)
+	     (kill-emacs . +bm:save-all))
   :config
   (defface +bm-fringe-face
     '((t (:foreground "SkyBlue")))
@@ -57,17 +60,12 @@
         bm-highlight-style 'bm-highlight-only-fringe
         bm-cycle-all-buffers t)
 
-  (bm-repository-load)
+  (defun +bm:save-all ()
+    (bm-buffer-save-all)
+    (bm-repository-save))
 
-  (add-hook 'find-file-hooks 'bm-buffer-restore)
-  (add-hook 'after-revert-hook 'bm-buffer-restore)
-  (add-hook 'after-save-hook 'bm-buffer-save)
-  (add-hook 'kill-buffer-hook 'bm-buffer-save)
-  (add-hook 'kill-emacs-hook '(lambda ()
-                                (bm-buffer-save-all)
-                                (bm-repository-save)))
-
-  (advice-add 'bm-toggle :after 'bm-buffer-save))
+  (advice-add 'bm-toggle :after #'bm-buffer-save)
+  (bm-repository-load))
 
 (use-package pdf-tools
   :ensure t
