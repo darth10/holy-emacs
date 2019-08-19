@@ -27,10 +27,11 @@
 ;; Key binding conventions:
 ;;
 ;; Based on `https://www.gnu.org/software/emacs/manual/html_node/elisp/Key-Binding-Conventions.html':
-;; * Avoid using the `C-x` prefix for mode specific key bindings.
-;; * Avoid using the `C-c C-` prefix for global key bindings.
-;; * Use `ESC` as a prefix but do not rebind it.
-;; * Do not rebind `C-g` or `C-h`.
+;; * Avoid using the [C-x] prefix for mode specific key bindings.
+;; * Avoid using the [C-c C-] prefix for global key bindings.
+;; * Use the [C-'] and [C-' C-] prefixes for toggling minor modes.
+;; * Use [ESC] as a prefix but do not rebind it.
+;; * Do not rebind [C-g] or [C-h].
 
 (defgroup holy-emacs nil
   "An opinionated and extensible Emacs configuration."
