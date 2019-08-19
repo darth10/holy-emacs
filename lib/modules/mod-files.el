@@ -48,7 +48,7 @@
   (setq-default bm-buffer-persistence t)
   :hook (((find-file after-revert) . bm-buffer-restore)
          ((save-hook kill-buffer) . bm-buffer-save)
-	     (kill-emacs . +bm:save-all))
+         (kill-emacs . +bm:save-all))
   :config
   (defface +bm-fringe-face
     '((t (:foreground "SkyBlue")))
