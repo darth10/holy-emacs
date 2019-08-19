@@ -13,9 +13,9 @@
 
 (use-package yasnippet
   :ensure t
-  :defer 2
-  :bind (("C-' C-y" . yas-global-mode)
-         ("C-' y" . yas-global-mode)
+  :hook (prog-mode . yas-minor-mode)
+  :bind (("C-' C-y" . yas-minor-mode)
+         ("C-' y" . yas-minor-mode)
          :map yas-minor-mode-map
          ("C-c & s" . yas-insert-snippet))
   :custom-face
