@@ -27,9 +27,6 @@
   (unbind-key "C-c C-p" org-mode-map)
   (unbind-key "C-c C-b" org-mode-map)
 
-  (setq org-agenda-files '("~/Dropbox/org/TODO.org"
-                           "~/Dropbox/org/birthdays.org"))
-
   (use-package ox-reveal
     :ensure t
     :config
