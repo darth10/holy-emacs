@@ -18,10 +18,9 @@
          ("C-' y" . yas-global-mode)
          :map yas-minor-mode-map
          ("C-c & s" . yas-insert-snippet))
+  :custom-face
+  (yas-field-highlight-face ((t (:inherit 'region))))
   :config
-  (custom-set-faces
-   '(yas-field-highlight-face ((t (:inherit 'region)))))
-
   (let* ((temp-yas-snippet-dirs
           (append yas-snippet-dirs
                   (list (expand-file-name (concat core-var-dir-path "snippets")

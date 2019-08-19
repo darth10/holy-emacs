@@ -3,6 +3,12 @@
 (use-package chess
   :ensure t
   :commands (chess)
+  :custom-face
+  (chess-display-white-face ((t (:foreground "light gray"))))
+  (chess-display-black-face ((t (:background "gray8" :foreground "gold3"))))
+  (chess-ics1-white-face ((t (:foreground "light gray"))))
+  (chess-ics1-black-face ((t (:background "gray8" :foreground "gold3"))))
+  (chess-ics1-highlight-face ((t (:background "chartreuse"))))
   :config
   (setq chess-default-display '(chess-ics1 chess-plain)
         chess-default-engine '(chess-stockfish
@@ -11,12 +17,6 @@
                                chess-glaurung
                                chess-fruit
                                chess-phalanx
-                               chess-ai))
-  (custom-set-faces
-   '(chess-display-white-face ((t (:foreground "light gray"))))
-   '(chess-display-black-face ((t (:background "gray8" :foreground "gold3"))))
-   '(chess-ics1-white-face ((t (:foreground "light gray"))))
-   '(chess-ics1-black-face ((t (:background "gray8" :foreground "gold3"))))
-   '(chess-ics1-highlight-face ((t (:background "chartreuse"))))))
+                               chess-ai)))
 
 (provide 'mod-games)
