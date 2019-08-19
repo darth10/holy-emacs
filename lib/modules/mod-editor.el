@@ -72,6 +72,10 @@
     (setq w32-get-true-file-attributes nil)
     (w32-send-sys-command 61488)))
 
+(use-package whitespace
+  :bind (("C-' ." . whitespace-mode)
+         ("C-' C-." . whitespace-mode)))
+
 (use-package simple
   :config
   (defconst +simple-backup-dir
