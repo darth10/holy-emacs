@@ -1,7 +1,13 @@
 ;;; mod-lang-scheme.el --- Configuration for Scheme  -*- lexical-binding: t; -*-
 
+(use-package scheme
+  :mode (("\\.scm\\'" . scheme-mode)
+         ("\\.rkt\\'" . scheme-mode))
+  :hook (scheme-mode . paredit-mode))
+
 (use-package geiser
   :ensure t
+  :hook (geiser-repl-mode . paredit-mode)
   :lang (:map scheme-mode-map
          (:repl-start . run-geiser)
          :map geiser-mode-map

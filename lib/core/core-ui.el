@@ -208,8 +208,7 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
     (core--refresh-nlinum))
 
   (use-package magit
-    :config
-    (add-hook 'magit-post-refresh-hook #'diff-hl-magit-post-refresh)))
+    :hook (magit-post-refresh . diff-hl-magit-post-refresh)))
 
 (use-package unicode-fonts
   :ensure t
@@ -222,9 +221,7 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
   :init
   (setq rainbow-delimiters-highlight-braces-p nil
         rainbow-delimiters-highlight-brackets-p nil)
-  :config
-  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
-  (add-hook 'conf-mode-hook #'rainbow-delimiters-mode))
+  :hook ((prog-mode conf-mode) . rainbow-delimiters-mode))
 
 (use-package tmm       ;; textual menu
   :config

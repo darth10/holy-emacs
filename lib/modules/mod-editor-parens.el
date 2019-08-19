@@ -2,18 +2,22 @@
 
 (use-package smartparens
   :ensure t
-  :defer 2
-  :config
-  (add-hook 'prog-mode-hook #'smartparens-mode))
+  :commands (smartparens-mode)
+  :hook (prog-mode . smartparens-mode))
 
 (use-package paredit
   :ensure t
-  :defer 2
+  :commands (paredit-mode)
   :bind (("C-' (" . paredit-mode)
          ("C-' C-(" . paredit-mode))
+  :hook (paredit-mode . +paredit--disable-smartparens-mode)
   :config
+  (defun +paredit--disable-smartparens-mode ()
+    (smartparens-mode (if paredit-mode -1 t)))
+
   (defun +paredit--bind-key (key function)
     (bind-key key function paredit-mode-map))
+
   (defun +paredit--unbind-key (key)
     (unbind-key key paredit-mode-map))
 
@@ -49,23 +53,6 @@
   (+paredit--bind-key "M-S-<left>" #'paredit-backward-slurp-sexp)
   (+paredit--bind-key "ESC ESC <left>" #'paredit-backward-slurp-sexp)
   (+paredit--bind-key "C-, C-, C-b" #'paredit-backward-slurp-sexp)
-  (+paredit--bind-key "C-, , b" #'paredit-backward-slurp-sexp)
-
-  (add-hook 'eshell-mode-hook #'paredit-mode)
-
-  (use-package smartparens
-    :config
-    (defun +smartparens--disable-smartparens-mode ()
-      (smartparens-mode (if paredit-mode -1 t)))
-    (add-hook 'paredit-mode-hook #'+smartparens--disable-smartparens-mode))
-  (use-package lisp-mode
-    :config
-    (add-hook 'lisp-mode-hook #'paredit-mode)
-    (add-hook 'emacs-lisp-mode-hook #'paredit-mode))
-  (use-package ielm :config (add-hook 'ielm-mode-hook #'paredit-mode))
-  (use-package clojure-mode :config (add-hook 'clojure-mode-hook #'paredit-mode))
-  (use-package cider :config (add-hook 'cider-repl-mode-hook #'paredit-mode))
-  (use-package scheme :config (add-hook 'scheme-mode-hook #'paredit-mode))
-  (use-package geiser :config (add-hook 'geiser-repl-mode-hook #'paredit-mode)))
+  (+paredit--bind-key "C-, , b" #'paredit-backward-slurp-sexp))
 
 (provide 'mod-editor-parens)
