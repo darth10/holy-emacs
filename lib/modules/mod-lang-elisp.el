@@ -1,7 +1,8 @@
 ;;; mod-lang-elisp.el --- Configuration for Emacs Lisp  -*- lexical-binding: t; -*-
 
 (use-package lisp-mode
-  :hook ((lisp-mode emacs-lisp-mode) . paredit-mode)
+  :hook (((lisp-mode emacs-lisp-mode) . paredit-mode)
+         ((lisp-mode emacs-lisp-mode) . +elisp--highlight-sexp-setup))
   :lang (:map emacs-lisp-mode-map
          (:repl-start . core/find-or-run-eshell)
          (:eval-buffer . eval-buffer)
@@ -9,6 +10,10 @@
          (:compile-file . +elisp/compile-file)
          :map lisp-interaction-mode-map
          (:eval-buffer . eval-print-last-sexp))
+  :init
+  (defun +elisp--highlight-sexp-setup ()
+    (+highlight-sexp:bind-keys 'lisp-mode-map)
+    (+highlight-sexp:bind-keys 'emacs-lisp-mode-map))
   :config
   (defun +elisp/compile-file ()
 	(interactive)

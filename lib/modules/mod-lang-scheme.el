@@ -3,7 +3,11 @@
 (use-package scheme
   :mode (("\\.scm\\'" . scheme-mode)
          ("\\.rkt\\'" . scheme-mode))
-  :hook (scheme-mode . paredit-mode))
+  :hook ((scheme-mode . paredit-mode)
+         (scheme-mode . +scheme--highlight-sexp-setup))
+  :init
+  (defun +scheme--highlight-sexp-setup ()
+    (+highlight-sexp:bind-keys 'scheme-mode-map)))
 
 (use-package geiser
   :ensure t

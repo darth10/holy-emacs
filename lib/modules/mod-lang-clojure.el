@@ -5,7 +5,11 @@
   :mode (("\\.clj\\'" . clojure-mode)
          ("\\.cljs\\'" . clojurescript-mode)
          ("\\.cljc\\'" . clojurec-mode))
-  :hook (clojure-mode . paredit-mode))
+  :hook ((clojure-mode . paredit-mode)
+         (clojure-mode . +clojure--highlight-sexp-setup))
+  :init
+  (defun +clojure--highlight-sexp-setup ()
+    (+highlight-sexp:bind-keys 'clojure-mode-map)))
 
 (use-package clj-refactor
   :ensure t
