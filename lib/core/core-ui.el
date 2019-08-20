@@ -186,6 +186,7 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
 (use-package diff-hl
   :ensure t
   :defer 2
+  :commands (diff-hl-magit-post-refresh)
   :custom-face
   (diff-hl-insert ((t (:background "ForestGreen" :foreground "ForestGreen"))))
   (diff-hl-change ((t (:background "DimGray" :foreground "DimGray"))))
@@ -205,10 +206,7 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
   (use-package nlinum
     :if (version< emacs-version "26.0.50")
     :config
-    (core--refresh-nlinum))
-
-  (use-package magit
-    :hook (magit-post-refresh . diff-hl-magit-post-refresh)))
+    (core--refresh-nlinum)))
 
 (use-package unicode-fonts
   :ensure t
@@ -218,10 +216,10 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
 
 (use-package rainbow-delimiters
   :ensure t
+  :hook ((prog-mode conf-mode) . rainbow-delimiters-mode)
   :init
   (setq rainbow-delimiters-highlight-braces-p nil
-        rainbow-delimiters-highlight-brackets-p nil)
-  :hook ((prog-mode conf-mode) . rainbow-delimiters-mode))
+        rainbow-delimiters-highlight-brackets-p nil))
 
 (use-package tmm       ;; textual menu
   :config

@@ -11,9 +11,9 @@
 
 (use-package ws-butler
   :ensure t
+  :hook ((prog-mode conf-mode) . ws-butler-mode)
   :bind (("C-' d" . ws-butler-mode)
          ("C-' C-d" . ws-butler-mode))
-  :commands (ws-butler-mode)
-  :hook ((prog-mode conf-mode) . ws-butler-mode))
+  :commands (ws-butler-mode))
 
 (provide 'mod-editor-format)

@@ -21,6 +21,8 @@
 
 (use-package magit
   :ensure t
+  :hook ((magit-status-mode . +vc--magit-status-mode-setup)
+         (magit-post-refresh . diff-hl-magit-post-refresh))
   :bind (("C-: :" . magit-status)
          ("C-: C-:" . magit-status)
          ("C-: C-s" . magit-status)
@@ -28,7 +30,6 @@
          ("C-: C-c C-d" . git-diff-tree)
          ("C-: C-l" . magit-log-current)
          ("C-: C-k" . magit-run-gitk))
-  :hook (magit-status-mode . +vc--magit-status-mode-setup)
   :config
   (defun git-diff-tree ()
     (interactive)

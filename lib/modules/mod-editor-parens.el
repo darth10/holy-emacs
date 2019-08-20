@@ -8,9 +8,9 @@
 (use-package paredit
   :ensure t
   :commands (paredit-mode)
+  :hook (paredit-mode . +paredit--disable-smartparens-mode)
   :bind (("C-' (" . paredit-mode)
          ("C-' C-(" . paredit-mode))
-  :hook (paredit-mode . +paredit--disable-smartparens-mode)
   :config
   (defun +paredit--disable-smartparens-mode ()
     (smartparens-mode (if paredit-mode -1 t)))

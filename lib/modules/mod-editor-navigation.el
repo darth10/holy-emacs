@@ -24,11 +24,11 @@
   :defer 2)
 
 (use-package hideshow
+  :hook ((prog-mode conf-mode) . hs-minor-mode)
   :bind (:map hs-minor-mode-map
          ("C-c d" . hs-hide-block)
          ("C-c v d" . hs-hide-all)
          ("C-c s" . hs-show-block)
-         ("C-c v s" . hs-show-all))
-  :hook ((prog-mode conf-mode) . hs-minor-mode))
+         ("C-c v s" . hs-show-all)))
 
 (provide 'mod-editor-navigation)

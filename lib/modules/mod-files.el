@@ -30,6 +30,9 @@
 (use-package bm
   :ensure t
   :defer 2
+  :hook (((find-file after-revert) . bm-buffer-restore)
+         ((save-hook kill-buffer) . bm-buffer-save)
+         (kill-emacs . +bm:save-all))
   :bind (("C-c : #" . bm-remove-all-current-buffer)
          ("C-c : C-#" . bm-remove-all-current-buffer)
          ("C-c : c" . bm-show-all)
@@ -46,9 +49,6 @@
   (setq bm-restore-repository-on-load t
         bm-repository-file (concat core-var-cache-dir-full-path "bookmarks"))
   (setq-default bm-buffer-persistence t)
-  :hook (((find-file after-revert) . bm-buffer-restore)
-         ((save-hook kill-buffer) . bm-buffer-save)
-         (kill-emacs . +bm:save-all))
   :config
   (defface +bm-fringe-face
     '((t (:foreground "SkyBlue")))

@@ -121,6 +121,8 @@
 (use-package god-mode
   :ensure t
   :if core-enable-god-mode
+  :hook ((after-init . god-mode-all)
+         (overwrite-mode . +god--toggle-on-overwrite))
   :bind (("<escape>" . god-local-mode)
          ("S-<escape>" . god-mode-all)
          ("M-i" . god-local-mode)
@@ -128,8 +130,6 @@
          ("." . repeat)
          ("z" . repeat)
          ("i" . god-local-mode))
-  :hook ((after-init . god-mode-all)
-         (overwrite-mode . +god--toggle-on-overwrite))
   :config
   (defun +god--toggle-on-overwrite ()
     (if (bound-and-true-p overwrite-mode)
