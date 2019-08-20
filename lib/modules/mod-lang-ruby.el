@@ -29,16 +29,16 @@
 
 (use-package robe
   :ensure t
-  :defer 2
+  :commands (robe-mode)
+  :hook (ruby-mode . robe-mode)
   :lang (:comp (ruby-mode . company-robe)
          :map ruby-mode-map
-         (:find-definition . robe-jump))
-  :config
-  (add-hook 'ruby-mode-hook #'robe-mode))
+         (:find-definition . robe-jump)))
 
 (use-package rinari
   :ensure t
-  :defer 2
+  :commands (rinari-minor-mode)
+  :hook (ruby-mode . rinari-minor-mode)
   :lang (:map ruby-mode-map
          (:test-all . rinari-test)))
 
