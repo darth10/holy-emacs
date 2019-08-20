@@ -3,11 +3,10 @@
 (use-package gnuplot
   :ensure t
   :mode ("\\.gnuplot\\'" . gnuplot-mode)
+  :hook (gnuplot-mode . gnuplot-inline-display-mode)
   :lang (:map gnuplot-mode-map
          (:repl-start . gnuplot-show-gnuplot-buffer)
-         (:eval-buffer . gnuplot-send-buffer-to-gnuplot))
-  :config
-  (add-hook 'gnuplot-mode-hook #'gnuplot-inline-display-mode))
+         (:eval-buffer . gnuplot-send-buffer-to-gnuplot)))
 
 (use-package gnuplot-mode
   :ensure t
