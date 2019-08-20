@@ -14,14 +14,13 @@
 (use-package clj-refactor
   :ensure t
   :after clojure-mode
+  :hook (clojure-mode . +clojure--clj-refactor-setup)
   :config
+  (setq cljr-warn-on-eval nil)
   (defun +clojure--clj-refactor-setup ()
     (clj-refactor-mode t)
     (local-unset-key (kbd "C-:"))
-    (cljr-add-keybindings-with-prefix "C-c '"))
-
-  (setq cljr-warn-on-eval nil)
-  (add-hook 'clojure-mode-hook #'+clojure--clj-refactor-setup))
+    (cljr-add-keybindings-with-prefix "C-c '")))
 
 (use-package cider
   :ensure t
