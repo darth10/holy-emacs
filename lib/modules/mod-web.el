@@ -1,24 +1,7 @@
 ;;; mod-web.el --- Configuration for web development  -*- lexical-binding: t; -*-
 
-(use-package emmet-mode
-  :ensure t
-  :defer 5
-  :bind (:map emmet-mode-keymap
-         ("M-SPC" . emmet-expand-line))
-  :config
-  (add-hook 'sgml-mode-hook 'emmet-mode)
-  (add-hook 'css-mode-hook  'emmet-mode))
-
-(use-package rainbow-mode
-  :ensure t
-  :defer 5
-  :config
-  (add-hook 'css-mode-hook 'rainbow-mode)
-  (add-hook 'web-mode-hook 'rainbow-mode))
-
 (use-package web-mode
   :ensure t
-  :defer 5
   :mode (("\\.html\\'" . web-mode)
          ("\\.phtml\\'" . web-mode)
          ("\\.tpl\\.php\\'" . web-mode)
@@ -30,21 +13,25 @@
          ("\\.djhtml\\'" . web-mode))
   :config
   (setq web-mode-enable-auto-quoting t
-        web-mode-enable-auto-expanding t)
+        web-mode-enable-auto-expanding t))
 
-  (use-package smartparens
-    :config
-    (defun configure-web-smartparens-mode ()
-      (if smartparens-mode (smartparens-mode -1)))
-    (add-hook 'web-mode-hook 'configure-web-smartparens-mode))
+(use-package emmet-mode
+  :ensure t
+  :commands (emmet-mode)
+  :after (:any sgml-mode web-mode css-mode)
+  :bind (:map emmet-mode-keymap
+         ("M-SPC" . emmet-expand-line))
+  :hook ((sgml-mode web-mode css-mode) . emmet-mode))
 
-  (use-package emmet-mode
-    :config
-    (add-hook 'web-mode-hook 'emmet-mode)))
+(use-package rainbow-mode
+  :ensure t
+  :commands (rainbow-mode)
+  :after (:any web-mode css-mode)
+  :hook ((web-mode css-mode) . rainbow-mode))
 
 (use-package restclient
   :ensure t
-  :defer 5)
+  :commands (restclient-mode))
 
 (use-package handlebars-mode
   :ensure t)
