@@ -7,12 +7,12 @@
 (use-package go-mode
   :ensure t
   :mode ("\\.go\\'" . go-mode)
+  :hook ((before-save . gofmt-before-save)
+         (go-mode . flycheck-mode))
   :lang (:map go-mode-map
          (:find-definition . godef-jump))
   :config
-  (setq gofmt-show-errors 'echo)
-  (add-hook 'before-save-hook #'gofmt-before-save)
-  (add-hook 'go-mode-hook #'flycheck-mode))
+  (setq gofmt-show-errors 'echo))
 
 (use-package company-go
   :ensure t
