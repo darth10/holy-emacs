@@ -94,4 +94,10 @@
   :ensure t
   :mode ("\\Dockerfile\\'" . dockerfile-mode))
 
+(use-package k8s-mode
+  :ensure t
+  :commands (k8s-mode)
+  :config
+  (setq k8s-search-documentation-browser-function 'browse-url))
+
 (provide 'mod-files)
