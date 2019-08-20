@@ -2,6 +2,8 @@
 
 (use-package sql
   :mode ("\\.sql\\'" . sql-mode)
+  :hook ((sql-mode . +sql/sql-product-setup)
+         (sql-interactive-mode . +sql/sql-interactive-setup))
   :lang (:map sql-mode-map
          (:repl-start . sql-product-interactive)
          (:eval-buffer . sql-send-buffer))
@@ -10,14 +12,11 @@
   (setq sql-ms-program "sqlcmd")
   (setq sql-ms-options nil)
 
-  (defun +sql/configure-sql-product ()
+  (defun +sql/sql-product-setup ()
     (sql-set-product 'postgres))
 
-  (defun +sql/configure-sql-interactive ()
+  (defun +sql/sql-interactive-setup ()
     (toggle-truncate-lines t)
-    (setq yas-extra-modes '(sql-mode)))
-
-  (add-hook 'sql-mode-hook #'+sql/configure-sql-product)
-  (add-hook 'sql-interactive-mode-hook #'+sql/configure-sql-interactive))
+    (setq yas-extra-modes '(sql-mode))))
 
 (provide 'mod-lang-sql)
