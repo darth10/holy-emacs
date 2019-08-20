@@ -58,7 +58,6 @@
   :init
   (global-unset-key (kbd "<f10>"))
   (global-unset-key (kbd "C-z"))
-  (setq shell-command-switch "-ic")
 
   ;; enable disabled commands
   (put 'upcase-region 'disabled nil)
@@ -68,7 +67,10 @@
 
   (when (core:is-windows-p)     ;; Windows-only config
     (setq w32-get-true-file-attributes nil)
-    (w32-send-sys-command 61488)))
+    (w32-send-sys-command 61488))
+
+  (unless (core:is-windows-p)   ;; Linux-only config
+    (setq shell-command-switch "-ic")))
 
 (use-package whitespace
   :bind (("C-' ." . whitespace-mode)
