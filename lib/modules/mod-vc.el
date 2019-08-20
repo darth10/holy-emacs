@@ -28,13 +28,13 @@
          ("C-: C-c C-d" . git-diff-tree)
          ("C-: C-l" . magit-log-current)
          ("C-: C-k" . magit-run-gitk))
-  :hook (magit-status-mode . +vc--configure-magit-status-mode)
+  :hook (magit-status-mode . +vc--magit-status-mode-setup)
   :config
   (defun git-diff-tree ()
     (interactive)
     (magit-diff-working-tree "HEAD"))
 
-  (defun +vc--configure-magit-status-mode ()
+  (defun +vc--magit-status-mode-setup ()
     (local-unset-key (kbd "x"))
     (local-unset-key (kbd ":")))
 

@@ -15,13 +15,13 @@
   :ensure t
   :after clojure-mode
   :config
-  (defun +clojure--configure-clj-refactor ()
+  (defun +clojure--clj-refactor-setup ()
     (clj-refactor-mode t)
     (local-unset-key (kbd "C-:"))
     (cljr-add-keybindings-with-prefix "C-c '"))
 
   (setq cljr-warn-on-eval nil)
-  (add-hook 'clojure-mode-hook #'+clojure--configure-clj-refactor))
+  (add-hook 'clojure-mode-hook #'+clojure--clj-refactor-setup))
 
 (use-package cider
   :ensure t
@@ -61,9 +61,9 @@
 (use-package cider-eval-sexp-fu
   :ensure t
   :after (clojure-mode cider)
-  :hook (cider-mode-hook . +clojure--config-init-cider-eval-sexp-fu)
+  :hook (cider-mode-hook . +clojure--cider-eval-sexp-fu-setup)
   :config
-  (defun +clojure--config-init-cider-eval-sexp-fu ()
+  (defun +clojure--cider-eval-sexp-fu-setup ()
     (require 'cider-eval-sexp-fu)))
 
 (provide 'mod-lang-clojure)
