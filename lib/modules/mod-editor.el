@@ -196,7 +196,14 @@
 
 (use-package kubernetes
   :ensure t
-  :commands (kubernetes-overview))
+  :commands (kubernetes-overview)
+  :hook (kubernetes-mode . +kubernetes--popup-setup)
+  :bind (:map kubernetes-mode-map
+         ("N" . kubernetes-set-namespace))
+  :config
+  (defun +kubernetes--popup-setup ()
+    (magit-define-popup-action 'kubernetes-overview-popup
+      ?N "Set namespace" 'kubernetes-set-namespace ?c)))
 
 (use-package server
   :ensure t
