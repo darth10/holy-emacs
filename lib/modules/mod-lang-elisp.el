@@ -22,7 +22,9 @@
 	(core:compile-file buffer-file-name)))
 
 (use-package ielm
-  :hook (ielm-mode . paredit-mode))
+  :hook (ielm-mode . paredit-mode)
+  :bind (("C-! i" . ielm)
+         ("C-! C-i" . ielm)))
 
 (use-package eldoc
   :hook (((emacs-lisp-mode ielm-mode eshell-mode) . eldoc-mode)
