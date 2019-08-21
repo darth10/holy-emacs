@@ -155,8 +155,8 @@
                        'recentf-dialog-mode
                        'wdired-mode
                        )))
-    (dolist (i exempt-modes)
-      (add-to-list 'god-exempt-major-modes i))))
+    (cl-loop for mode in exempt-modes
+             do (add-to-list 'god-exempt-major-modes mode))))
 
 (use-package transient
   :ensure t
