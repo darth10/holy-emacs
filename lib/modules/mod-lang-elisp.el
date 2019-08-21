@@ -38,8 +38,17 @@
   :commands (+elisp/load-bash-aliases-in-eshell)
   :hook ((eshell-mode . +elisp/load-bash-aliases-in-eshell)
          (eshell-mode . paredit-mode))
+  :bind (("C-! e" . +elisp/find-or-run-eshell)
+         ("C-! C-e" . +elisp/find-or-run-eshell))
   :config
   (setq eshell-directory-name (concat core-var-cache-dir-full-path "eshell/"))
+
+  (defun +elisp/find-or-run-eshell ()
+    (interactive)
+    (core:find-or-run-process
+     "*eshell*"
+     #'eshell))
+
   (defun +elisp/load-bash-aliases-in-eshell ()
     "Reads bash aliases from Bash and inserts
     them into the list of eshell aliases."

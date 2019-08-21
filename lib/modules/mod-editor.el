@@ -10,8 +10,6 @@
   :bind (("C-' n" . core/display-line-numbers)
          ("C-' C-n" . core/display-line-numbers)
          ("C-<f6>" . core/display-line-numbers)
-         ("C-! e" . core/find-or-run-eshell)
-         ("C-! C-e" . core/find-or-run-eshell)
          ("C-! p" . core/list-processes-and-switch)
          ("C-! C-p" . core/list-processes-and-switch)
          ("C-! s" . core/find-or-run-shell)

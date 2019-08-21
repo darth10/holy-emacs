@@ -153,14 +153,7 @@ a new buffer named NEW-BUFFER-NAME."
   (interactive)
   (core:find-or-run-process
    "*shell*"
-   (lambda () (shell))))
-
-(defun core/find-or-run-eshell ()
-  "Switches to or opens up a new eshell."
-  (interactive)
-  (core:find-or-run-process
-   "*eshell*"
-   (lambda () (eshell "new"))))
+   #'shell))
 
 ;;; Interactive line and region movement functions
 
