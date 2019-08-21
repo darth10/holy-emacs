@@ -10,7 +10,10 @@
 (use-package js2-refactor
   :ensure t
   :after js2-mode
-  :hook (js2-mode . js2-refactor-mode))
+  :hook (js2-mode . js2-refactor-mode)
+  :config
+  (cl-loop for key in core-lang-apply-refactor-keys
+           do (js2r-add-keybindings-with-prefix key)))
 
 (use-package tern
   :ensure t

@@ -20,7 +20,8 @@
   (defun +clojure--clj-refactor-setup ()
     (clj-refactor-mode t)
     (local-unset-key (kbd "C-:"))
-    (cljr-add-keybindings-with-prefix "C-c '")))
+    (cl-loop for key in core-lang-apply-refactor-keys
+             do (cljr-add-keybindings-with-prefix key))))
 
 (use-package cider
   :ensure t

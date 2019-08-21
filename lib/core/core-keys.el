@@ -57,6 +57,12 @@
   :type '(repeat string)
   :group 'holy-emacs)
 
+(defcustom core-lang-apply-refactor-keys
+  '("C-c '")
+  "Keys to apply refactoring."
+  :type '(repeat string)
+  :group 'holy-emacs)
+
 (defcustom core-lang-test-file-keys
   '("C-c t"
     "C-! t"

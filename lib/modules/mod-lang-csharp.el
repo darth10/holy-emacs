@@ -19,9 +19,8 @@
          (:find-definition . omnisharp-go-to-definition)
          (:find-usages . omnisharp-find-usages)
          (:format-buffer . omnisharp-code-format-entire-file)
-         (:compile-file . omnisharp-solution-errors))
-  :bind (:map omnisharp-mode-map
-         ("C-." . omnisharp-run-code-action-refactoring))
+         (:compile-file . omnisharp-solution-errors)
+         (:apply-refactor . omnisharp-run-code-action-refactoring))
   :init
   (setq omnisharp-cache-directory
         (concat core-var-cache-dir-full-path "omnisharp/"))

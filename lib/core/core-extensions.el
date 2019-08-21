@@ -39,6 +39,7 @@
     (:format-buffer      . core-lang-format-buffer-keys)
     (:load-file          . core-lang-load-file-keys)
     (:compile-file       . core-lang-compile-file-keys)
+    (:apply-refactor     . core-lang-apply-refactor-keys)
     (:test-file          . core-lang-test-file-keys)
     (:test-all           . core-lang-test-all-keys)
     (:debugger           . core-lang-debugger-keys)
