@@ -10,6 +10,8 @@
          (:compile-file . +elisp/compile-file)
          :map lisp-interaction-mode-map
          (:eval-buffer . eval-print-last-sexp))
+  :bind (:map emacs-lisp-mode-map
+         ("C-c M-m" . emacs-lisp-macroexpand))
   :init
   (defun +elisp--highlight-sexp-setup ()
     (+highlight-sexp:bind-keys 'lisp-mode-map)
