@@ -136,25 +136,25 @@
         (god-local-mode-pause)
       (god-local-mode-resume)))
 
-  (let* ((exempt-modes (list
-                        'Custom-mode
-                        'Info-mode
-                        'ag-mode
-                        'calendar-mode
-                        'calculator-mode
-                        'cider-test-report-mode
-                        'compilation-mode
-                        'debugger-mode
-                        'dired-mode
-                        'edebug-mode
-                        'ediff-mode
-                        'eww-mode
-                        'geben-breakpoint-list-mode
-                        'ibuffer-mode
-                        'org-agenda-mode
-                        'recentf-dialog-mode
-                        'wdired-mode
-                        )))
+  (let ((exempt-modes (list
+                       'Custom-mode
+                       'Info-mode
+                       'ag-mode
+                       'calendar-mode
+                       'calculator-mode
+                       'cider-test-report-mode
+                       'compilation-mode
+                       'debugger-mode
+                       'dired-mode
+                       'edebug-mode
+                       'ediff-mode
+                       'eww-mode
+                       'geben-breakpoint-list-mode
+                       'ibuffer-mode
+                       'org-agenda-mode
+                       'recentf-dialog-mode
+                       'wdired-mode
+                       )))
     (dolist (i exempt-modes)
       (add-to-list 'god-exempt-major-modes i))))
 
