@@ -32,6 +32,7 @@
 (require 'mod-lang-sql)
 
 ;;; Load after language modules.
+(require 'mod-containers)
 (require 'mod-games)
 (require 'mod-github)
 (require 'mod-org)
