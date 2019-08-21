@@ -53,16 +53,10 @@
 
 (use-package eldoc
   :after (clojure-mode cider)
-  :config
-  (add-hook 'cider-mode-hook #'eldoc-mode)
-  (add-hook 'cider-repl-mode-hook #'eldoc-mode))
+  :hook ((cider-mode cider-repl-mode) . eldoc-mode))
 
 (use-package cider-eval-sexp-fu
   :ensure t
-  :after (clojure-mode cider)
-  :hook (cider-mode-hook . +clojure--cider-eval-sexp-fu-setup)
-  :config
-  (defun +clojure--cider-eval-sexp-fu-setup ()
-    (require 'cider-eval-sexp-fu)))
+  :after (clojure-mode cider))
 
 (provide 'mod-lang-clojure)
