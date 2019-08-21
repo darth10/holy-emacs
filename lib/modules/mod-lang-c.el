@@ -22,9 +22,9 @@
 (use-package c-eldoc
   :ensure t
   :after cc-mode
+  :hook (c-mode . c-turn-on-eldoc-mode)
   :config
   (setq c-eldoc-includes
-        "`pkg-config glib-2.0 gio-2.0 --cflags` `guile-config compile` -I/usr/include -I./ -I../ ")
-  (add-hook 'c-mode-hook #'c-turn-on-eldoc-mode))
+        "`pkg-config glib-2.0 gio-2.0 --cflags` `guile-config compile` -I/usr/include -I./ -I../ "))
 
 (provide 'mod-lang-c)

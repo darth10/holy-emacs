@@ -10,16 +10,14 @@
 (use-package js2-refactor
   :ensure t
   :after js2-mode
-  :config
-  (add-hook 'js2-mode-hook #'js2-refactor-mode))
+  :hook (js2-mode . js2-refactor-mode))
 
 (use-package tern
   :ensure t
   :after js2-mode
+  :hook (js2-mode . tern-mode)
   :lang (:map js2-mode-map
-         (:find-definition . tern-find-definition))
-  :config
-  (add-hook 'js2-mode-hook #'tern-mode))
+         (:find-definition . tern-find-definition)))
 
 (use-package company-tern
   :ensure t
