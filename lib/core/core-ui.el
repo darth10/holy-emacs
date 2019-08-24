@@ -6,6 +6,16 @@
   :safe #'booleanp
   :group 'holy-emacs)
 
+(defcustom core-modeline-god-mode-indicator ":"
+  "Modeline indicator for `god-mode'."
+  :type 'string
+  :group 'holy-emacs)
+
+(defcustom core-modeline-overwrite-mode-indicator "!"
+  "Modeline indicator for `overwrite-mode'."
+  :type 'string
+  :group 'holy-emacs)
+
 (defcustom core-enabled-custom-themes '(solarized-dark)
   "List of custom themes to enable by default. When nil, do not
 use any custom theme."
@@ -116,9 +126,11 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
                          ((and overwrite-mode is-god-mode) 'hollow)
                          ((or is-god-mode overwrite-mode) 'box)
                          (t 'bar)))
-         (next-mode-string (cond ((and overwrite-mode is-god-mode) "λ")
-                                 (is-god-mode "λ")
-                                 (overwrite-mode "!")
+         (next-mode-string (cond ((or is-god-mode
+                                      (and overwrite-mode is-god-mode))
+                                  core-modeline-god-mode-indicator)
+                                 (overwrite-mode
+                                  core-modeline-overwrite-mode-indicator)
                                  (t " "))))
     (unless (eq prev-cur-color cur-color)
       (set-cursor-color cur-color))
