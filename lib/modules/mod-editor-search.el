@@ -17,21 +17,21 @@
 
 (use-package vc-git
   :after magit
-  :bind (("C-: <f3>" . vc-git-grep)
-         ("M-s :" . vc-git-grep)
+  :bind (("M-s :" . vc-git-grep)
          ("M-s M-:" . vc-git-grep)
+         ("C-: <f3>" . vc-git-grep)
          ("C-: M-s" . vc-git-grep)))
 
 (use-package ag
   :ensure t
-  :bind (("M-s a a" . ag)
-         ("M-s M-a M-a" . ag)
-         ("M-s a g" . ag-regexp)
-         ("M-s M-a M-g" . ag-regexp)
-         ("M-s M-a A" . ag-project)
-         ("M-s M-a M-A" . ag-project)
-         ("M-s M-a M-G" . ag-project-regexp)
-         ("M-s M-a M-G" . ag-project-regexp)))
+  :bind (("M-s a" . ag)
+         ("M-s M-a" . ag)
+         ("M-s e" . ag-regexp)
+         ("M-s e" . ag-regexp)
+         ("M-s p" . ag-project)
+         ("M-s M-p" . ag-project)
+         ("M-s P" . ag-project-regexp)
+         ("M-s M-P" . ag-project-regexp)))
 
 (use-package isearch
   :bind (("M-s s" . isearch-forward)
