@@ -3,13 +3,13 @@
 (use-package cc-mode
   :mode (("\\.c\\'" . c-mode)
          ("\\.cpp\\'" . c++-mode))
-  :bind (:map gud-minor-mode-map
-         ("C-<f12>" . gdb-display-disassembly-buffer)
-         ("C-c q" . gdb-display-disassembly-buffer))
   :lang (:map c-mode-map
          (:debugger . gdb)
          :map c++-mode-map
          (:debugger . gdb))
+  :bind (:map gud-minor-mode-map
+         ("C-<f12>" . gdb-display-disassembly-buffer)
+         ("C-c q" . gdb-display-disassembly-buffer))
   :config
   (use-package gud)
   (setq c-default-style '((java-mode . "k&r")

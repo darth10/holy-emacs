@@ -7,6 +7,7 @@
 
 (use-package core-editor
   :load-path core-lib-path
+  :commands (core:kill-line-utils-init)
   :bind (("C-' n" . core/display-line-numbers)
          ("C-' C-n" . core/display-line-numbers)
          ("C-<f6>" . core/display-line-numbers)
@@ -52,7 +53,6 @@
          ("C-' C-q" . auto-fill-mode)
          ("C-c \\" . just-one-space)
          ("C-h C-l" . describe-personal-keybindings))
-  :commands (core:kill-line-utils-init)
   :init
   (global-unset-key (kbd "<f10>"))
   (global-unset-key (kbd "C-z"))

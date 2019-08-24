@@ -1,9 +1,9 @@
 ;;; mod-editor-navigation.el --- Editor packages for navigation  -*- lexical-binding: t; -*-
 
 (use-package xref
-  :bind ("C--" . pop-tag-mark)
   :lang (:map global-map
-         (:find-definition . xref-find-definitions)))
+              (:find-definition . xref-find-definitions))
+  :bind ("C--" . pop-tag-mark))
 
 (use-package expand-region
   :ensure t

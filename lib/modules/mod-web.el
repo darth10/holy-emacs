@@ -18,15 +18,15 @@
 (use-package emmet-mode
   :ensure t
   :commands (emmet-mode)
+  :hook ((sgml-mode web-mode css-mode) . emmet-mode)
   :after (:any sgml-mode web-mode css-mode)
   :bind (:map emmet-mode-keymap
-         ("M-SPC" . emmet-expand-line))
-  :hook ((sgml-mode web-mode css-mode) . emmet-mode))
+         ("M-SPC" . emmet-expand-line)))
 
 (use-package rainbow-mode
   :ensure t
-  :commands (rainbow-mode)
   :after (:any web-mode css-mode)
+  :commands (rainbow-mode)
   :hook ((web-mode css-mode) . rainbow-mode))
 
 (use-package restclient

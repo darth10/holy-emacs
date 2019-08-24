@@ -24,6 +24,24 @@
 ;; * the `holy-emacs-version' const        (core.el)
 ;;
 ;;
+;; `use-package' conventions:
+;;
+;; Declare `use-package' keyword arguments in the following order:
+;; * :ensure
+;; * :if
+;; * :defer
+;; * :after
+;; * :load-path
+;; * :mode
+;; * :commands
+;; * :hook
+;; * :lang
+;; * :bind
+;; * :init
+;; * :config
+;; * :catch
+;;
+;;
 ;; Key binding conventions:
 ;;
 ;; Based on `https://www.gnu.org/software/emacs/manual/html_node/elisp/Key-Binding-Conventions.html':
