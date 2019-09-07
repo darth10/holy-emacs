@@ -11,19 +11,19 @@
   "Internal function added as advice before `customize-save-variable'.
 This is intended to be called indirectly by `customize-themes' when
 the state is saved after modifying the currently enabled theme."
-  (when (or (eq variable 'core-enabled-custom-themes)
+  (when (or (eq variable 'holy-emacs-enabled-custom-themes)
             (eq variable 'custom-enabled-themes))
     (custom-set-variables
-     `(core-enabled-custom-themes (quote ,value))
+     `(holy-emacs-enabled-custom-themes (quote ,value))
      `(custom-enabled-themes (quote ,value)))))
 
 (defun core--before-custom-save-all ()
   "Internal function added as advice before `custom-save-all'.
 This is intented to be called when `customize-group' changes values
 for the `holy-emacs' group and saves the resulting state."
-  (when (not (eq core-enabled-custom-themes custom-enabled-themes))
+  (when (not (eq holy-emacs-enabled-custom-themes custom-enabled-themes))
     (custom-set-variables
-     `(custom-enabled-themes (quote ,core-enabled-custom-themes)))))
+     `(custom-enabled-themes (quote ,holy-emacs-enabled-custom-themes)))))
 
 (use-package cus-edit
   :bind (:map custom-mode-map

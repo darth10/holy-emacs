@@ -1,22 +1,22 @@
 ;;; core-ui.el --- holy-emacs core user interface    -*- lexical-binding: t; -*-
 
-(defcustom core-enable-god-mode t
+(defcustom holy-emacs-enable-god-mode t
   "When nil, do not enable `god-mode' and relevant bindings."
   :type 'boolean
   :safe #'booleanp
   :group 'holy-emacs)
 
-(defcustom core-modeline-god-mode-indicator ":"
+(defcustom holy-emacs-modeline-god-mode-indicator ":"
   "Modeline indicator for `god-mode'."
   :type 'string
   :group 'holy-emacs)
 
-(defcustom core-modeline-overwrite-mode-indicator "!"
+(defcustom holy-emacs-modeline-overwrite-mode-indicator "!"
   "Modeline indicator for `overwrite-mode'."
   :type 'string
   :group 'holy-emacs)
 
-(defcustom core-enabled-custom-themes '(solarized-dark)
+(defcustom holy-emacs-enabled-custom-themes '(solarized-dark)
   "List of custom themes to enable by default. When nil, do not
 use any custom theme."
   :type '(repeat (choice
@@ -46,7 +46,7 @@ use any custom theme."
                   (const wombat)))
   :group 'holy-emacs)
 
-(defface core-fringe-highlight-face '((t (:foreground "Yellow")))
+(defface holy-emacs-fringe-highlight-face '((t (:foreground "Yellow")))
   "Face for the fringe bitmaps."
   :group 'holy-emacs)
 
@@ -128,9 +128,9 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
                          (t 'bar)))
          (next-mode-string (cond ((or is-god-mode
                                       (and overwrite-mode is-god-mode))
-                                  core-modeline-god-mode-indicator)
+                                  holy-emacs-modeline-god-mode-indicator)
                                  (overwrite-mode
-                                  core-modeline-overwrite-mode-indicator)
+                                  holy-emacs-modeline-overwrite-mode-indicator)
                                  (t " "))))
     (unless (eq prev-cur-color cur-color)
       (set-cursor-color cur-color))
@@ -299,15 +299,15 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
    `(show-paren-match ,core--default-search-face-spec))
 
   (when window-system
-    (set-fringe-bitmap-face 'right-triangle 'core-fringe-highlight-face)
-    (set-fringe-bitmap-face 'right-arrow 'core-fringe-highlight-face)
-    (set-fringe-bitmap-face 'right-curly-arrow 'core-fringe-highlight-face)
-    (set-fringe-bitmap-face 'left-triangle 'core-fringe-highlight-face)
-    (set-fringe-bitmap-face 'left-arrow 'core-fringe-highlight-face)
-    (set-fringe-bitmap-face 'left-curly-arrow 'core-fringe-highlight-face)
-    (set-fringe-bitmap-face 'exclamation-mark 'core-fringe-highlight-face)
-    (set-fringe-bitmap-face 'question-mark 'core-fringe-highlight-face)
-    (set-fringe-bitmap-face 'empty-line 'core-fringe-highlight-face)
+    (set-fringe-bitmap-face 'right-triangle 'holy-emacs-fringe-highlight-face)
+    (set-fringe-bitmap-face 'right-arrow 'holy-emacs-fringe-highlight-face)
+    (set-fringe-bitmap-face 'right-curly-arrow 'holy-emacs-fringe-highlight-face)
+    (set-fringe-bitmap-face 'left-triangle 'holy-emacs-fringe-highlight-face)
+    (set-fringe-bitmap-face 'left-arrow 'holy-emacs-fringe-highlight-face)
+    (set-fringe-bitmap-face 'left-curly-arrow 'holy-emacs-fringe-highlight-face)
+    (set-fringe-bitmap-face 'exclamation-mark 'holy-emacs-fringe-highlight-face)
+    (set-fringe-bitmap-face 'question-mark 'holy-emacs-fringe-highlight-face)
+    (set-fringe-bitmap-face 'empty-line 'holy-emacs-fringe-highlight-face)
 
     (tool-bar-mode -1)
     (menu-bar-mode -1)

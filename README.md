@@ -52,17 +52,16 @@ This has the same effect as using the meta (<kbd>M-</kbd>) modifier.
 * <kbd>M-10 C-n</kbd> becomes <kbd>10n</kbd>.
 * <kbd>.</kbd> or <kbd>z</kbd> will repeat the last command.
 
-If you prefer to not use `god-mode`, toggle the `core-enable-god-mode` variable through 
-`M-x customize-group RET holy-emacs RET`.
+If you prefer to not use `god-mode`, toggle the `holy-emacs-enable-god-mode` variable through `M-x customize-group RET holy-emacs RET`.
 
 ## Customization
 
-You can customize your Emacs configuration in addition to the default configuration provided by `holy-emacs` in a few ways.
+There are several options that you can customize through `M-x customize-group RET holy-emacs RET`.
+All customized variables and faces are saved to `~/.emacs.d/var/lib/custom-defs.el` and will be loaded before the default configuration on startup.
 
-* All customized variables and faces (done through `M-x customize` or `M-x customize-group`) are saved to `~/.emacs.d/var/lib/custom-defs.el` and will be loaded before the default configuration on startup.
-* Any additional Emacs Lisp files that need to be loaded on startup can be saved in either of the following locations:
-  * The `~/.emacs.d/var/lib/` directory. Files in this directory will be loaded before the default configuration on startup.
-  * A directory specified by the `HOLY_EMACS_HOME` environment variable. This defaults to `~/.holy-emacs.d/` if the `HOLY_EMACS_HOME` environment variable is not set. This folder can be stored together with your dotfiles. Files in this directory will be loaded after the default configuration on startup.
+You can also further customize your Emacs configuration using Emacs Lisp code in a couple ways.
+* The `~/.emacs.d/var/lib/` directory. Files in this directory will be loaded before the default configuration on startup.
+* A directory specified by the `HOLY_EMACS_HOME` environment variable. This defaults to `~/.holy-emacs.d/` if the `HOLY_EMACS_HOME` environment variable is not set. This folder can be stored together with your dotfiles. Files in this directory will be loaded after the default configuration on startup.
 
 ## Overridden default key bindings
 

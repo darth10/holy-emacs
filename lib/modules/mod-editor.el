@@ -3,7 +3,7 @@
 ;;; config-editor.el -*- lexical-binding: t; -*-
 
 (custom-set-variables   ;; Set color theme
- `(custom-enabled-themes (quote ,core-enabled-custom-themes)))
+ `(custom-enabled-themes (quote ,holy-emacs-enabled-custom-themes)))
 
 (use-package core-editor
   :load-path core-lib-path
@@ -118,7 +118,7 @@
 
 (use-package god-mode
   :ensure t
-  :if core-enable-god-mode
+  :if holy-emacs-enable-god-mode
   :hook ((after-init . god-mode-all)
          (overwrite-mode . +god--toggle-on-overwrite))
   :bind (("<escape>" . god-local-mode)
