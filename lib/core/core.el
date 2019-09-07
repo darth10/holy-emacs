@@ -80,6 +80,14 @@ prone to change.")
   (expand-file-name core-var-cache-dir-path user-emacs-directory)
   "Absolute path of directory containing all cached data.")
 
+(defconst core-default-user-dir "~/.holy-emacs.d/"
+  "Default absolute path of user configuration Emacs Lisp files.")
+
+(defvar core-user-dir (or (getenv "HOLY_EMACS_HOME")
+                          (and (file-directory-p core-default-user-dir)
+                               core-default-user-dir))
+  "Absolute path of user configuration Emacs Lisp files.")
+
 (defconst core-elpa-packages-path (concat core-var-dir-path "packages/elpa/")
   "Relative path of ELPA/MELPA packages directory.")
 
@@ -139,23 +147,26 @@ Lisp files for byte compilation."
   (cl-loop for dir in (list core-lib-path
                             core-modules-lib-path
                             core-var-lib-path
-                            core-elpa-packages-path)
+                            core-elpa-packages-path
+                            core-user-dir)
+           if dir
            collect (expand-file-name dir user-emacs-directory)))
 
 (defun core--init-load-path ()
   "Adds required paths to the `load-path' variable."
-  (cl-loop for path in (list core-lib-path
-                             core-modules-lib-path
-                             core-var-lib-path)
-           collect path
+  (cl-loop for dir in (list core-lib-path
+                            core-modules-lib-path
+                            core-var-lib-path
+                            core-user-dir)
+           if dir
+           collect dir
            and do (add-to-list
                    'load-path
-                   (expand-file-name path user-emacs-directory))))
+                   (expand-file-name dir user-emacs-directory))))
 
-(defun core--load-var-dir ()
-  "Loads all Emacs Lisp files from directory `core-var-lib-path'."
-  (let* ((var-dir (concat user-emacs-directory core-var-lib-path))
-         (files (directory-files var-dir))
+(defun core--load-dir (dir)
+  "Loads all Emacs Lisp files from directory `dir'."
+  (let* ((files (directory-files dir))
          (file-names (cl-loop for file in files
                               collect (file-name-base file)))
          (packages (cl-remove-duplicates
@@ -229,7 +240,12 @@ and installs them if needed. Must be called after
   (require 'core-ui)
   (require 'core-extensions)
   ;; core-editor.el is not loaded here as it's not required.
-  (core--load-var-dir))
+  (core--load-dir (concat user-emacs-directory core-var-lib-path)))
+
+(defun core:load-user-dir ()
+  "Loads all Emacs Lisp files from directory `core-user-dir'."
+  (when core-user-dir
+    (core--load-dir core-user-dir)))
 
 (defun core/upgrade-packages ()
   "Upgrade all packages."

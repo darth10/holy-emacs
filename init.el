@@ -37,3 +37,5 @@
 (require 'mod-github)
 (require 'mod-org)
 (require 'mod-web)
+
+(core:load-user-dir)
