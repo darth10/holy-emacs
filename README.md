@@ -38,6 +38,15 @@ make
 
 If you see strange icons/symbols, install `all-the-icons` using `M-x all-the-icons-install-fonts`.
 
+## Customization
+
+There are several options that you can customize through `M-x customize-group RET holy-emacs RET`.
+All customized variables and faces are saved to `~/.emacs.d/var/lib/custom-defs.el` and will be loaded before the default configuration on startup.
+
+You can also further customize your Emacs configuration using Emacs Lisp code in a couple ways.
+* The `~/.emacs.d/var/lib/` directory. Files in this directory will be loaded before the default configuration on startup.
+* A directory specified by the `HOLY_EMACS_HOME` environment variable. This defaults to `~/.holy-emacs.d/` if the `HOLY_EMACS_HOME` environment variable is not set. This folder can be stored together with your dotfiles. Files in this directory will be loaded after the default configuration on startup.
+
 ## `god-mode`
 
 Use <kbd>ESC</kbd> or <kbd>M-i</kbd> to toggle `god-mode`.
@@ -53,15 +62,6 @@ This has the same effect as using the meta (<kbd>M-</kbd>) modifier.
 * <kbd>.</kbd> or <kbd>z</kbd> will repeat the last command.
 
 If you prefer to not use `god-mode`, toggle the `holy-emacs-enable-god-mode` variable through `M-x customize-group RET holy-emacs RET`.
-
-## Customization
-
-There are several options that you can customize through `M-x customize-group RET holy-emacs RET`.
-All customized variables and faces are saved to `~/.emacs.d/var/lib/custom-defs.el` and will be loaded before the default configuration on startup.
-
-You can also further customize your Emacs configuration using Emacs Lisp code in a couple ways.
-* The `~/.emacs.d/var/lib/` directory. Files in this directory will be loaded before the default configuration on startup.
-* A directory specified by the `HOLY_EMACS_HOME` environment variable. This defaults to `~/.holy-emacs.d/` if the `HOLY_EMACS_HOME` environment variable is not set. This folder can be stored together with your dotfiles. Files in this directory will be loaded after the default configuration on startup.
 
 ## Overridden default key bindings
 
