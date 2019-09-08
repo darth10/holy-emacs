@@ -2,7 +2,7 @@
 
 (use-package xref
   :lang (:map global-map
-              (:find-definition . xref-find-definitions))
+         (:find-definition . xref-find-definitions))
   :bind ("C--" . pop-tag-mark))
 
 (use-package expand-region
