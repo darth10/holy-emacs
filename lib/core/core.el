@@ -1,57 +1,5 @@
 ;;; core.el --- holy-emacs core                      -*- lexical-binding: t; -*-
 
-;;; Commentary:
-;;
-;; Emacs Lisp naming conventions:
-;;
-;; Definitions in files within the core/ directory should use the
-;; following conventions:
-;; * holy-emacs-...  customizable variables and faces
-;; * core/...        interactive functions
-;; * core:...        public non-interactive functions
-;; * core--...       any non-interactive private definitions
-;; * core-...        any other public definitions like vars, consts, etc
-;;
-;; Definitions in files outside the core/ directory should have the
-;; +pkg prefix, depending on which package or feature (pkg) they are
-;; used for, and use the same conventions:
-;; * +pkg/...        interactive functions
-;; * +pkg:...        public non-interactive functions
-;; * +pkg--...       any non-interactive private definitions
-;; * +pkg-...        any other public definitions like vars, consts, etc
-;;
-;; The only exceptions to these conventions are:
-;; * the `holy-emacs' customization group  (core.el)
-;; * the `holy-emacs-version' const        (core.el)
-;;
-;;
-;; `use-package' conventions:
-;;
-;; Declare `use-package' keyword arguments in the following order:
-;; * :ensure
-;; * :if
-;; * :defer
-;; * :after
-;; * :load-path
-;; * :mode
-;; * :commands
-;; * :hook
-;; * :lang
-;; * :bind
-;; * :init
-;; * :config
-;; * :catch
-;;
-;;
-;; Key binding conventions:
-;;
-;; Based on `https://www.gnu.org/software/emacs/manual/html_node/elisp/Key-Binding-Conventions.html':
-;; * Avoid using the [C-x] prefix for mode specific key bindings.
-;; * Avoid using the [C-c C-] prefix for global key bindings.
-;; * Use the [C-'] and [C-' C-] prefixes for toggling minor modes.
-;; * Use [ESC] as a prefix but do not rebind it.
-;; * Do not rebind [C-g] or [C-h].
-
 (defgroup holy-emacs nil
   "An opinionated and extensible Emacs configuration."
   :group 'emacs)
@@ -196,6 +144,13 @@ and installs them if needed. Must be called after
              if (to-install-package-p pkg)
              collect pkg
              and do (package-install pkg))))
+
+(defun core--check-and-install-required-packages-2 ()
+  "Checks if packages in `core--required-packages' are installed
+and installs them if needed. Must be called after
+`package-initialize'."
+  (cl-loop for pkg in core--required-packages
+           do (straight-use-package pkg)))
 
 (defun core:is-windows-p ()
   "Checks if the current OS is Windows."
