@@ -145,13 +145,6 @@ and installs them if needed. Must be called after
              collect pkg
              and do (package-install pkg))))
 
-(defun core--check-and-install-required-packages-2 ()
-  "Checks if packages in `core--required-packages' are installed
-and installs them if needed. Must be called after
-`package-initialize'."
-  (cl-loop for pkg in core--required-packages
-           do (straight-use-package pkg)))
-
 (defun core:is-windows-p ()
   "Checks if the current OS is Windows."
   (equal system-type 'windows-nt))
