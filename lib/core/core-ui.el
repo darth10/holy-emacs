@@ -26,7 +26,6 @@ use any custom theme."
                   (const monokai)
                   (const solarized-dark)
                   (const solarized-light)
-                  (const solarized)
                   (const spacemacs-dark)
                   (const spacemacs-light)
                   (const zenburn)
