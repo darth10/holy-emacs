@@ -92,8 +92,4 @@
   :ensure t
   :commands (esup))
 
-(use-package try
-  :ensure t
-  :commands (try))
-
 (provide 'mod-lang-elisp)
