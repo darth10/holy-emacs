@@ -16,8 +16,7 @@
          ("M-<left>" . ediff-copy-B-to-A))
   :config
   (setq ediff-split-window-function 'split-window-horizontally
-        ediff-window-setup-function 'ediff-setup-windows-plain)
-  (ediff-toggle-skip-similar))
+        ediff-window-setup-function 'ediff-setup-windows-plain))
 
 (use-package magit
   :ensure t
