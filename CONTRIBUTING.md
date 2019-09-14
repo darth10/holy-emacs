@@ -30,8 +30,9 @@ The only exceptions to these conventions are:
 ## `use-package` conventions
 
 Declare `use-package` keyword arguments in the following order:
-* `:ensure`
+* `:straight`
 * `:if`
+* `:unless`
 * `:defer`
 * `:after`
 * `:load-path`
@@ -44,6 +45,8 @@ Declare `use-package` keyword arguments in the following order:
 * `:config`
 * `:catch`
 * Other keywords
+
+Do not use the `:ensure` keyword argument with `use-package` as `straight` package manager is used.
 
 ## Key binding conventions
 

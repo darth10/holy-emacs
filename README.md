@@ -16,16 +16,15 @@
 
 ## Overview
 
-* Installs all required packages from MELPA and GNU ELPA repositories on startup.
-  Packages can also be installed through `quelpa`.
+* Uses `straight` for package and dependency management to provide a completely reproducible setup.
+  All required packages are installed on startup.
 * Includes `magit`, `helm`, `projectile`, `company` and `yasnippet`.
 * Uses `god-mode` for modal editing. All key bindings work in `god-mode` and it's only used to reduce the usage of modifier keys.
 * Uses `use-package` and `bind-key`. <kbd>C-h C-l</kbd> (or <kbd>M-x describe-personal-keybindings</kbd>) will display all available key bindings.
 * Uses `which-key` to interactively describe key bindings.
 * Uses `desktop-save-mode` to manage sessions and buffers.
 * Uses `editorconfig` to handle multiple indentation styles.
-* Upgrade all packages using <kbd>M-x core/upgrade-packages</kbd> or `make upgrade`.
-* Recompile all packages and configuration using <kbd>M-x core/byte-recompile-files</kbd> or `make recompile`.
+* Upgrade all packages using <kbd>M-x straight-pull-all</kbd> or `make upgrade-packages`.
 
 ## Installation
 
