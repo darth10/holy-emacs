@@ -30,6 +30,7 @@
 (use-package bm
   :ensure t
   :defer 2
+  :unless noninteractive
   :hook (((find-file after-revert) . bm-buffer-restore)
          ((save-hook kill-buffer) . bm-buffer-save)
          (kill-emacs . +bm:save-all))
