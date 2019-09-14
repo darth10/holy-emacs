@@ -12,7 +12,7 @@
   :after js2-mode
   :hook (js2-mode . js2-refactor-mode)
   :config
-  (cl-loop for key in core-lang-apply-refactor-keys
+  (cl-loop for key in holy-emacs-lang-apply-refactor-keys
            do (js2r-add-keybindings-with-prefix key)))
 
 (use-package tern

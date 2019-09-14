@@ -20,7 +20,7 @@
   (defun +clojure--clj-refactor-setup ()
     (clj-refactor-mode t)
     (local-unset-key (kbd "C-:"))
-    (cl-loop for key in core-lang-apply-refactor-keys
+    (cl-loop for key in holy-emacs-lang-apply-refactor-keys
              do (cljr-add-keybindings-with-prefix key))))
 
 (use-package cider
