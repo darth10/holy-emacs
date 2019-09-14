@@ -8,8 +8,4 @@
          (:repl-start . gnuplot-show-gnuplot-buffer)
          (:eval-buffer . gnuplot-send-buffer-to-gnuplot)))
 
-(use-package gnuplot-mode
-  :ensure t
-  :after gnuplot)
-
 (provide 'mod-lang-gnuplot)
