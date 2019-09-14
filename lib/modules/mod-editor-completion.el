@@ -29,9 +29,10 @@
           (delete yas--default-user-snippets-dir temp-yas-snippet-dirs)))
     (setq yas-snippet-dirs temp-yas-snippet-dirs))
 
-  (use-package yasnippet-snippets
-    :ensure t)
+  (yas-reload-all))
 
-  (yas-global-mode t))
+(use-package yasnippet-snippets
+  :ensure t
+  :after yas-minor-mode)
 
 (provide 'mod-editor-completion)
