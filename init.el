@@ -1,11 +1,6 @@
 ;;; init.el -*- lexical-binding: t; no-byte-compile: t; -*-
 
 (require 'core (concat user-emacs-directory "lib/core/core"))
-
-;;; Set proxy if required.
-;;; (setq url-proxy-services '(("http" . "host:port")))
-(core:defsource '("org-elpa"  . "https://orgmode.org/elpa/"))
-(core:defsource '("melpa"     . "https://melpa.org/packages/"))
 (core:initialize-packages-and-modules)
 
 ;;; Load before language modules.

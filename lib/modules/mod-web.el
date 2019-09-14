@@ -1,7 +1,6 @@
 ;;; mod-web.el --- Configuration for web development  -*- lexical-binding: t; -*-
 
 (use-package web-mode
-  :ensure t
   :mode (("\\.html\\'" . web-mode)
          ("\\.phtml\\'" . web-mode)
          ("\\.tpl\\.php\\'" . web-mode)
@@ -16,7 +15,6 @@
         web-mode-enable-auto-expanding t))
 
 (use-package emmet-mode
-  :ensure t
   :commands (emmet-mode)
   :hook ((sgml-mode web-mode css-mode) . emmet-mode)
   :after (:any sgml-mode web-mode css-mode)
@@ -24,19 +22,15 @@
          ("M-SPC" . emmet-expand-line)))
 
 (use-package rainbow-mode
-  :ensure t
   :after (:any web-mode css-mode)
   :commands (rainbow-mode)
   :hook ((web-mode css-mode) . rainbow-mode))
 
 (use-package restclient
-  :ensure t
   :commands (restclient-mode))
 
-(use-package handlebars-mode
-  :ensure t)
+(use-package handlebars-mode)
 
-(use-package web-beautify
-  :ensure t)
+(use-package web-beautify)
 
 (provide 'mod-web)

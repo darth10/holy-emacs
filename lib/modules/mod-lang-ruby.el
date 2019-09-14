@@ -1,14 +1,13 @@
 ;;; mod-lang-ruby.el --- Configuration for Ruby      -*- lexical-binding: t; -*-
 
 (use-package ruby-mode
+  :straight nil
   :mode ("\\.rb\\'" . ruby-mode))
 
 (use-package ruby-end
-  :ensure t
   :after ruby-mode)
 
 (use-package inf-ruby
-  :ensure t
   :after ruby-mode
   :lang (:map ruby-mode-map
          (:repl-start . run-ruby)
@@ -28,7 +27,6 @@
       (gud-gdb user-debug-command))))
 
 (use-package robe
-  :ensure t
   :commands (robe-mode)
   :hook (ruby-mode . robe-mode)
   :lang (:comp (ruby-mode . company-robe)
@@ -36,14 +34,12 @@
          (:find-definition . robe-jump)))
 
 (use-package rinari
-  :ensure t
   :commands (rinari-minor-mode)
   :hook (ruby-mode . rinari-minor-mode)
   :lang (:map ruby-mode-map
          (:test-all . rinari-test)))
 
 (use-package rvm
-  :ensure t
   :defer 2)
 
 (provide 'mod-lang-ruby)

@@ -1,7 +1,6 @@
 ;;; mod-lang-clojure.el --- Configuration for Clojure   -*- lexical-binding: t; -*-
 
 (use-package clojure-mode
-  :ensure t
   :mode (("\\.clj\\'" . clojure-mode)
          ("\\.cljs\\'" . clojurescript-mode)
          ("\\.cljc\\'" . clojurec-mode))
@@ -12,7 +11,6 @@
     (+highlight-sexp:bind-keys 'clojure-mode-map)))
 
 (use-package clj-refactor
-  :ensure t
   :after clojure-mode
   :hook (clojure-mode . +clojure--clj-refactor-setup)
   :config
@@ -24,7 +22,6 @@
              do (cljr-add-keybindings-with-prefix key))))
 
 (use-package cider
-  :ensure t
   :after clojure-mode
   :hook (cider-repl-mode . paredit-mode)
   :lang (:map clojure-mode-map
@@ -53,11 +50,11 @@
         cider-inject-dependencies-at-jack-in nil))
 
 (use-package eldoc
+  :straight nil
   :after (clojure-mode cider)
   :hook ((cider-mode cider-repl-mode) . eldoc-mode))
 
 (use-package cider-eval-sexp-fu
-  :ensure t
   :after (clojure-mode cider))
 
 (provide 'mod-lang-clojure)

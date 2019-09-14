@@ -1,12 +1,10 @@
 ;;; mod-editor-parens.el --- Editor packages for parentheses  -*- lexical-binding: t; -*-
 
 (use-package smartparens
-  :ensure t
   :commands (smartparens-mode)
   :hook (prog-mode . smartparens-mode))
 
 (use-package paredit
-  :ensure t
   :commands (paredit-mode)
   :hook (paredit-mode . +paredit--disable-smartparens-mode)
   :bind (("C-' (" . paredit-mode)

@@ -4,14 +4,12 @@
   :defer 5)
 
 (use-package github-review
-  :ensure t
   :after magit
   :config
   (transient-append-suffix 'magit-merge "i"
     '("y" "Review pull request" github-review-forge-pr-at-point)))
 
 (use-package forge
-  :ensure t
   :after magit
   :config
   (setq forge-database-file (concat core-var-cache-dir-full-path

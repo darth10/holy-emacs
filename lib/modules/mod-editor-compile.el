@@ -7,7 +7,6 @@
          ("C-x <f5>" . compile)))
 
 (use-package flycheck
-  :ensure t
   :commands (flycheck-mode))
 
 (provide 'mod-editor-compile)

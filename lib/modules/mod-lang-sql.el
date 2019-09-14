@@ -1,6 +1,7 @@
 ;;; mod-lang-sql.el --- Configuration for SQL        -*- lexical-binding: t; -*-
 
 (use-package sql
+  :straight nil
   :mode ("\\.sql\\'" . sql-mode)
   :hook ((sql-mode . +sql/sql-product-setup)
          (sql-interactive-mode . +sql/sql-interactive-setup))

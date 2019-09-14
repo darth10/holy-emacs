@@ -3,13 +3,11 @@
 ;;; Requires omnisharp server. Install it using M-x omnisharp-install-server.
 
 (use-package csharp-mode
-  :ensure t
   :mode (("\\.cs\\'" . csharp-mode))
   :lang (:map csharp-mode-map
          (:repl-start . +csharp/start-omnisharp-server)))
 
 (use-package omnisharp
-  :ensure t
   :after csharp-mode
   :commands (+csharp/start-omnisharp-server)
   :hook ((csharp-mode . omnisharp-mode)

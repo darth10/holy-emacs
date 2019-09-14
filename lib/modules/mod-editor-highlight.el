@@ -1,13 +1,13 @@
 ;;; mod-editor-highlight.el --- Editor packages for syntax highlighting  -*- lexical-binding: t; -*-
 
 (use-package hl-line
+  :straight nil
   :bind (("C-' l" . hl-line-mode)
          ("C-' C-l" . hl-line-mode)
          ("C-<f4>" . hl-line-mode))
   :hook ((prog-mode org-mode dired-mode) . hl-line-mode))
 
 (use-package highlight-sexp
-  :quelpa (highlight-sexp :fetcher github :repo "daimrod/highlight-sexp")
   :commands (+highlight-sexp:bind-keys)
   :hook (highlight-sexp-mode . +highlight-sexp--set-hl-line)
   :config
@@ -23,7 +23,6 @@
     (core-bind-keys +highlight-sexp--keys #'highlight-sexp-mode mode-map)))
 
 (use-package fic-mode
-  :ensure t
   :hook ((prog-mode org-mode dired-mode) . fic-mode)
   :config
   (setq fic-highlighted-words '("FIXME" "TODO" "BUG" "HACK")))

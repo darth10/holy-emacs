@@ -1,7 +1,6 @@
 ;;; mod-lang-gnuplot.el --- Configuration for gnuplot  -*- lexical-binding: t; -*-
 
 (use-package gnuplot
-  :ensure t
   :mode ("\\.gnuplot\\'" . gnuplot-mode)
   :hook (gnuplot-mode . gnuplot-inline-display-mode)
   :lang (:map gnuplot-mode-map

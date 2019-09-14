@@ -1,10 +1,10 @@
 ;;; mod-editor-completion.el --- Editor packages for code completion  -*- lexical-binding: t; -*-
 
 (use-package abbrev
+  :straight nil
   :defer 2)
 
 (use-package company
-  :ensure t
   :bind (("C-' a" . global-company-mode)
          ("C-' C-a" . global-company-mode)
          ("M-SPC" . company-manual-begin))
@@ -12,7 +12,6 @@
   (global-company-mode t))
 
 (use-package yasnippet
-  :ensure t
   :hook (prog-mode . yas-minor-mode)
   :bind (("C-' C-y" . yas-minor-mode)
          ("C-' y" . yas-minor-mode)
@@ -32,7 +31,6 @@
   (yas-reload-all))
 
 (use-package yasnippet-snippets
-  :ensure t
   :after yas-minor-mode)
 
 (provide 'mod-editor-completion)

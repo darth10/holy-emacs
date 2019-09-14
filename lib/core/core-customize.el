@@ -26,10 +26,12 @@ for the `holy-emacs' group and saves the resulting state."
      `(custom-enabled-themes (quote ,holy-emacs-enabled-custom-themes)))))
 
 (use-package cus-edit
+  :straight nil
   :bind (:map custom-mode-map
          ("C-s" . Custom-save)))
 
 (use-package cus-theme
+  :straight nil
   :bind (:map custom-new-theme-mode-map
          ("C-s" . custom-theme-save)
          :map custom-theme-choose-mode-map

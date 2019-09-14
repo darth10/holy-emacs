@@ -4,6 +4,7 @@
  `(custom-enabled-themes (quote ,holy-emacs-enabled-custom-themes)))
 
 (use-package core-editor
+  :straight nil
   :load-path core-lib-path
   :commands (core:kill-line-utils-init)
   :bind (("C-' n" . core/display-line-numbers)
@@ -73,6 +74,7 @@
          ("C-' C-." . whitespace-mode)))
 
 (use-package simple
+  :straight nil
   :config
   (defconst +simple-backup-dir
     (concat user-emacs-directory (concat core-var-cache-dir-path "backups/")))
@@ -115,7 +117,6 @@
   (desktop-save-mode t))
 
 (use-package god-mode
-  :ensure t
   :if holy-emacs-enable-god-mode
   :hook ((after-init . god-mode-all)
          (overwrite-mode . +god--toggle-on-overwrite))
@@ -155,7 +156,6 @@
              do (add-to-list 'god-exempt-major-modes mode))))
 
 (use-package transient
-  :ensure t
   :defer 2
   :init
   (let ((transient-dir-path (concat core-var-cache-dir-full-path "transient/")))
@@ -164,7 +164,6 @@
           transient-history-file (concat transient-dir-path "history.el"))))
 
 (use-package exec-path-from-shell
-  :ensure t
   :unless (core:is-windows-p)
   :defer 2
   :init
@@ -174,7 +173,6 @@
     (exec-path-from-shell-initialize)))
 
 (use-package projectile
-  :ensure t
   :defer 2
   :bind (:map projectile-mode-map
          ("C-c p" . projectile-command-map))
@@ -185,31 +183,26 @@
   (projectile-mode t))
 
 (use-package server
-  :ensure t
   :defer 2
   :config
   (setq server-auth-dir (concat core-var-cache-dir-full-path "server/"))
   (server-start))
 
 (use-package edit-server
-  :ensure t
   :if window-system
   :defer 2
   :config
   (edit-server-start))
 
 (use-package clipmon
-  :ensure t
   :defer 2
   :config
   (clipmon-mode-start))
 
 (use-package iedit
-  :ensure t
   :bind ("C-;" . iedit-mode))
 
 (use-package multiple-cursors
-  :ensure t
   :bind (("C-<" . mc/mark-previous-like-this)
          ("C->" . mc/mark-next-like-this)
          ("C-c <f3>" . mc/mark-all-like-this)
@@ -221,13 +214,13 @@
   :custom-face
   (mc/cursor-bar-face ((t (:height 1 :background "green")))))
 
-(use-package mod-editor-compile    :load-path core-modules-lib-path)
-(use-package mod-editor-completion :load-path core-modules-lib-path)
-(use-package mod-editor-format     :load-path core-modules-lib-path)
-(use-package mod-editor-help       :load-path core-modules-lib-path)
-(use-package mod-editor-highlight  :load-path core-modules-lib-path)
-(use-package mod-editor-navigation :load-path core-modules-lib-path)
-(use-package mod-editor-parens     :load-path core-modules-lib-path)
-(use-package mod-editor-search     :load-path core-modules-lib-path)
+(use-package mod-editor-compile    :straight nil :load-path core-modules-lib-path)
+(use-package mod-editor-completion :straight nil :load-path core-modules-lib-path)
+(use-package mod-editor-format     :straight nil :load-path core-modules-lib-path)
+(use-package mod-editor-help       :straight nil :load-path core-modules-lib-path)
+(use-package mod-editor-highlight  :straight nil :load-path core-modules-lib-path)
+(use-package mod-editor-navigation :straight nil :load-path core-modules-lib-path)
+(use-package mod-editor-parens     :straight nil :load-path core-modules-lib-path)
+(use-package mod-editor-search     :straight nil :load-path core-modules-lib-path)
 
 (provide 'mod-editor)

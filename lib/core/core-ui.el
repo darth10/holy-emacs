@@ -142,7 +142,6 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
     (setq core--modeline-mode-string next-mode-string)))
 
 (use-package doom-modeline
-  :ensure t
   :defer t
   :hook (after-init . doom-modeline-init)
   :custom-face
@@ -169,6 +168,7 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
     '(helm-help)))
 
 (use-package display-line-numbers
+  :straight nil
   :unless (version< emacs-version "26.0.50")
   :commands (display-line-numbers-mode)
   :init
@@ -177,7 +177,7 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
 ;; Emacs versions less than 26.1 will have to use nlinum-mode
 ;; for line numbers. There's a few minor issues it has with edebug.
 (use-package nlinum
-  :ensure t
+  :straight nil
   :if (version< emacs-version "26.0.50")
   :commands (nlinum-mode)
   :init
@@ -208,13 +208,12 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
   (setq nlinum-format-function 'core--nlinum-format-fn)
 
   (use-package nlinum-hl
-    :ensure t
+    :straight nil
     :if (version< emacs-version "26.0.50")
     :config
     (advice-add 'set-frame-font :after #'nlinum-hl-flush-all-windows)))
 
 (use-package diff-hl
-  :ensure t
   :defer 2
   :commands (diff-hl-magit-post-refresh)
   :custom-face
@@ -234,24 +233,24 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
   ;; seems to overwrite line numbers. To get around this,
   ;; enable nlinum-mode again if it's active.
   (use-package nlinum
+    :straight nil
     :if (version< emacs-version "26.0.50")
     :config
     (core--refresh-nlinum)))
 
 (use-package unicode-fonts
-  :ensure t
   :defer 2
   :config
   (unicode-fonts-setup))
 
 (use-package rainbow-delimiters
-  :ensure t
   :hook ((prog-mode conf-mode) . rainbow-delimiters-mode)
   :init
   (setq rainbow-delimiters-highlight-braces-p nil
         rainbow-delimiters-highlight-brackets-p nil))
 
 (use-package tmm       ;; textual menu
+  :straight nil
   :config
   (setq tmm-completion-prompt nil
         tmm-shortcut-style 'downcase

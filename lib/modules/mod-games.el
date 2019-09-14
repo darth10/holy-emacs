@@ -1,7 +1,6 @@
 ;;; mod-games.el --- Games for Emacs                 -*- lexical-binding: t; -*-
 
 (use-package chess
-  :ensure t
   :commands (chess)
   :custom-face
   (chess-display-white-face ((t (:foreground "light gray"))))

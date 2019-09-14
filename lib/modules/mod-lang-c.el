@@ -1,6 +1,7 @@
 ;;; mod-lang-c.el --- Configuration for C/C++        -*- lexical-binding: t; -*-
 
 (use-package cc-mode
+  :straight nil
   :mode (("\\.c\\'" . c-mode)
          ("\\.cpp\\'" . c++-mode))
   :lang (:map c-mode-map
@@ -20,7 +21,6 @@
   (setq-default c-basic-offset 4))
 
 (use-package c-eldoc
-  :ensure t
   :after cc-mode
   :hook (c-mode . c-turn-on-eldoc-mode)
   :config

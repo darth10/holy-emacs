@@ -3,6 +3,7 @@
 ;;; Requires jedi server. Install it using M-x jedi:install-server.
 
 (use-package python
+  :straight nil
   :mode ("\\.py\\'" . python-mode)
   :lang (:map python-mode-map
          (:repl-start . run-python)
@@ -22,20 +23,17 @@
     (python-shell-send-file (buffer-file-name))))
 
 (use-package python-environment
-  :ensure t
   :defer 2
   :init
   (setq python-environment-directory
         (concat core-var-cache-dir-full-path "python-environments/")))
 
 (use-package jedi-core
-  :ensure t
   :defer 2
   :lang (:map python-mode-map
          (:find-definition . jedi:goto-definition)))
 
 (use-package company-jedi
-  :ensure t
   :defer 2
   :lang (:comp (python-mode . company-jedi)))
 

@@ -19,7 +19,6 @@
         ediff-window-setup-function 'ediff-setup-windows-plain))
 
 (use-package magit
-  :ensure t
   :hook ((magit-status-mode . +vc--magit-status-mode-setup)
          (magit-post-refresh . diff-hl-magit-post-refresh))
   :bind (("C-: :" . magit-status)

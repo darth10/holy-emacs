@@ -1,6 +1,7 @@
 ;;; mod-files.el --- File management and handling tools  -*- lexical-binding: t; -*-
 
 (use-package recentf
+  :straight nil
   :bind (("C-c : ;" . recentf-open-files))
   :config
   (setq recentf-max-menu-items 40
@@ -9,13 +10,13 @@
   (recentf-mode t))
 
 (use-package dired
+  :straight nil
   :bind (("C-x j" . dired-jump-other-window)
          ("C-x C-j" . dired-jump-other-window)
          :map  dired-mode-map
          ("C-x C-/" . wdired-change-to-wdired-mode)))
 
 (use-package direx
-  :ensure t
   :defer 2
   :after dired
   :bind (("C-x ," . direx:jump-to-directory-other-window)
@@ -28,7 +29,6 @@
   :defer 2)
 
 (use-package bm
-  :ensure t
   :defer 2
   :unless noninteractive
   :hook (((find-file after-revert) . bm-buffer-restore)
@@ -69,7 +69,6 @@
   (bm-repository-load))
 
 (use-package pdf-tools
-  :ensure t
   :unless (core:is-windows-p)
   :mode ("\\.pdf\\'" . pdf-view-mode)
   :hook (pdf-view-mode . pdf-view-midnight-minor-mode)
@@ -78,17 +77,14 @@
     (pdf-tools-install t)))
 
 (use-package nov
-  :ensure t
   :mode ("\\.epub\\'" . nov-mode)
   :config
   (setq nov-save-place-file (concat core-var-cache-dir-full-path "nov-places")))
 
 (use-package yaml-mode
-  :ensure t
   :mode ("\\.yaml\\'" . yaml-mode))
 
 (use-package markdown-mode
-  :ensure t
   :mode ("\\.md\\'" . markdown-mode))
 
 (provide 'mod-files)

@@ -1,7 +1,6 @@
 ;;; mod-editor-help.el --- Editor packages for help  -*- lexical-binding: t; -*-
 
 (use-package which-key
-  :ensure t
   :bind (("C-' k" . which-key-mode)
          ("C-' C-k" . which-key-mode))
   :init
@@ -14,12 +13,12 @@
   (which-key-mode t))
 
 (use-package helpful
-  :ensure t
   :bind (("C-h f" . helpful-function)
          ("C-h v" . helpful-variable)
          ("C-h k" . helpful-key)))
 
 (use-package woman
+  :straight nil
   :unless (core:is-windows-p)
   :bind ("C-x ?" . woman))
 

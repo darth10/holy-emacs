@@ -1,6 +1,7 @@
 ;;; mod-lang-elisp.el --- Configuration for Emacs Lisp  -*- lexical-binding: t; -*-
 
 (use-package lisp-mode
+  :straight nil
   :hook (((lisp-mode emacs-lisp-mode) . paredit-mode)
          ((lisp-mode emacs-lisp-mode) . +elisp--highlight-sexp-setup))
   :lang (:map emacs-lisp-mode-map
@@ -22,11 +23,13 @@
 	(core:compile-file buffer-file-name)))
 
 (use-package ielm
+  :straight nil
   :hook (ielm-mode . paredit-mode)
   :bind (("C-! i" . ielm)
          ("C-! C-i" . ielm)))
 
 (use-package eldoc
+  :straight nil
   :hook (((emacs-lisp-mode ielm-mode eshell-mode) . eldoc-mode)
          (eval-expression-minibuffer-setup . +elisp--turn-off-eldoc))
   :config
@@ -35,6 +38,7 @@
     (eldoc-mode -1)))
 
 (use-package eshell
+  :straight nil
   :commands (+elisp/load-bash-aliases-in-eshell)
   :hook ((eshell-mode . +elisp/load-bash-aliases-in-eshell)
          (eshell-mode . paredit-mode))
@@ -80,7 +84,6 @@
       (delete-other-windows))))
 
 (use-package eval-sexp-fu
-  :ensure t
   :hook ((lisp-mode emacs-lisp-mode eshell-mode) . +eval-sexp-fu--init)
   :custom-face
   (eval-sexp-fu-flash ((t (:background "green" :foreground "black"))))
@@ -89,7 +92,6 @@
     (require 'eval-sexp-fu)))
 
 (use-package esup
-  :ensure t
   :commands (esup))
 
 (provide 'mod-lang-elisp)

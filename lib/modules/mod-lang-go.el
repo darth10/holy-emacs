@@ -5,7 +5,6 @@
 ;; $ go get -v github.com/rogpeppe/godef
 
 (use-package go-mode
-  :ensure t
   :mode ("\\.go\\'" . go-mode)
   :hook ((before-save . gofmt-before-save)
          (go-mode . flycheck-mode))
@@ -15,7 +14,6 @@
   (setq gofmt-show-errors 'echo))
 
 (use-package company-go
-  :ensure t
   :after go-mode
   :lang (:comp (go-mode . company-go)))
 

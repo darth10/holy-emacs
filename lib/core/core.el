@@ -37,14 +37,10 @@ prone to change.")
                                core-default-user-dir))
   "Absolute path of user configuration Emacs Lisp files.")
 
-(defconst core-elpa-packages-path (concat core-var-dir-path "packages/elpa/")
-  "Relative path of ELPA/MELPA packages directory.")
+(defconst core-packages-path (concat core-var-dir-path "packages/")
+  "Relative path of directory to store packages.")
 
-(defconst core-quelpa-packages-path (concat core-var-dir-path "packages/quelpa/")
-  "Relative path of quelpa packages directory.")
-
-(defconst core--required-packages
-  '(epl async quelpa use-package quelpa-use-package)
+(defconst core--required-packages '(async use-package)
   "List of required packages.")
 
 (eval-and-compile
@@ -80,7 +76,6 @@ prone to change.")
           mode-line-format nil))
 
   (require 'cl-lib)
-  (require 'package)
 
   (defun core--finalize-startup ()
     ;; Reset GC limits and file handlers
@@ -96,7 +91,6 @@ Lisp files for byte compilation."
   (cl-loop for dir in (list core-lib-path
                             core-modules-lib-path
                             core-var-lib-path
-                            core-elpa-packages-path
                             core-user-dir)
            if dir
            collect (expand-file-name dir user-emacs-directory)))
@@ -134,16 +128,8 @@ Lisp files for byte compilation."
   "Checks if packages in `core--required-packages' are installed
 and installs them if needed. Must be called after
 `package-initialize'."
-  (cl-flet ((to-install-package-p (pkg)
-                                  (not (package-installed-p pkg))))
-    (when (cl-some #'to-install-package-p
-                   core--required-packages)
-      (package-refresh-contents))
-
-    (cl-loop for pkg in core--required-packages
-             if (to-install-package-p pkg)
-             collect pkg
-             and do (package-install pkg))))
+  (cl-loop for pkg in core--required-packages
+           do (straight-use-package pkg)))
 
 (defun core:is-windows-p ()
   "Checks if the current OS is Windows."
@@ -161,25 +147,34 @@ and installs them if needed. Must be called after
 
 (defun core:initialize-packages-and-modules ()
   "Initializes the packages and modules sub-system."
-  (setq package-user-dir (expand-file-name
-                          core-elpa-packages-path user-emacs-directory)
-        package-gnupghome-dir (expand-file-name "gnupg/" package-user-dir)
-        quelpa-dir (expand-file-name
-                    core-quelpa-packages-path user-emacs-directory)
-        quelpa-checkout-melpa-p nil
-        quelpa-update-melpa-p nil
-        quelpa-melpa-recipe-stores nil
-        quelpa-self-upgrade-p nil
-        quelpa-use-package-inhibit-loading-quelpa t)
-  (package-initialize)
+
+  (defvar bootstrap-version)
+  (defvar straight-repository-user "raxod502")
+  (defvar straight-repository-branch "develop")
+  (defvar straight-base-dir (expand-file-name core-packages-path user-emacs-directory))
+
+  (let ((bootstrap-file
+         (expand-file-name "straight/repos/straight.el/bootstrap.el" straight-base-dir))
+        (bootstrap-version 5))
+    (unless (file-exists-p bootstrap-file)
+      (with-current-buffer
+          (url-retrieve-synchronously
+           (format "https://raw.githubusercontent.com/%s/straight.el/%s/install.el"
+                   straight-repository-user
+                   straight-repository-branch)
+           'silent 'inhibit-cookies)
+        (goto-char (point-max))
+        (eval-print-last-sexp)))
+    (load bootstrap-file nil 'nomessage))
+
   (core--check-and-install-required-packages)
+  (setq straight-use-package-by-default t)
 
   ;; Require only a few packages here and the rest when they're
   ;; needed. They should be available on the `load-path' as
   ;; `package-initialize' has been called.
   (eval-when-compile
     (require 'use-package))
-  (require 'quelpa-use-package)
   (require 'bind-key)
   (core--init-load-path)
 
@@ -188,28 +183,13 @@ and installs them if needed. Must be called after
   (require 'core-themes)
   (require 'core-ui)
   (require 'core-extensions)
-  ;; core-editor.el is not loaded here as it's not required.
+  ;; core-editor.el is not loaded here as it's not yet needed.
   (core--load-dir (concat user-emacs-directory core-var-lib-path)))
 
 (defun core:load-user-dir ()
   "Loads all Emacs Lisp files from directory `core-user-dir'."
   (when core-user-dir
     (core--load-dir core-user-dir)))
-
-(defun core/upgrade-packages ()
-  "Upgrade all packages."
-  (interactive)
-  (require 'epl)
-  (epl-refresh)
-  (quelpa-upgrade)
-  (epl-upgrade)
-  (message "Upgraded all packages!"))
-
-(defun core/autoremove-packages ()
-  "Delete unused packages."
-  (interactive)
-  (package--save-selected-packages (package--find-non-dependencies))
-  (package-autoremove))
 
 (defun core/byte-recompile-files ()
   "Recompile all Emacs Lisp files."

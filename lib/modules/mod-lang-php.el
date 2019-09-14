@@ -11,16 +11,13 @@
 ;;     public/index.php
 
 (use-package php-mode
-  :ensure t
   :mode ("\\.php\\'" . php-mode))
 
 (use-package company-php
-  :ensure t
   :after php-mode
   :lang (:comp (php-mode . company-ac-php-backend)))
 
 (use-package geben
-  :ensure t
   :after php-mode
   :lang (:map php-mode-map
          (:debugger . geben)
