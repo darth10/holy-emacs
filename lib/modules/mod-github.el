@@ -1,11 +1,6 @@
 ;;; mod-github.el --- Integration with GitHub        -*- lexical-binding: t; -*-
 
-(use-package gh
-  :ensure t
-  :defer 5)
-
 (use-package gist
-  :ensure t
   :defer 5)
 
 (use-package github-review
