@@ -142,11 +142,6 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
     (setq cursor-type cur-type)
     (setq core--modeline-mode-string next-mode-string)))
 
-;; This package is needed for eval-sexp-fu
-(use-package highlight
-  :ensure t
-  :defer 2)
-
 (use-package doom-modeline
   :ensure t
   :defer t
