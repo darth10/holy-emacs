@@ -1,7 +1,5 @@
 ;;; mod-editor.el --- Primary editor configuration   -*- lexical-binding: t; -*-
 
-;;; config-editor.el -*- lexical-binding: t; -*-
-
 (custom-set-variables   ;; Set color theme
  `(custom-enabled-themes (quote ,holy-emacs-enabled-custom-themes)))
 
