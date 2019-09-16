@@ -35,7 +35,7 @@ cd ~/.emacs.d
 make
 ```
 
-If you see strange icons/symbols, install `all-the-icons` using `M-x all-the-icons-install-fonts`.
+On Windows, if you see strange icons/symbols, [install `all-the-icons`](https://github.com/domtronn/all-the-icons.el#installing-fonts).
 
 ## Customization
 

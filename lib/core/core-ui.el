@@ -167,6 +167,12 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
     '(bar helm-number helm-follow helm-prefix-argument)
     '(helm-help)))
 
+(use-package all-the-icons
+  :init
+  (unless (or (core:is-windows-p)
+              (member "all-the-icons" (font-family-list)))
+    (all-the-icons-install-fonts t)))
+
 (use-package display-line-numbers
   :straight nil
   :unless (version< emacs-version "26.0.50")
