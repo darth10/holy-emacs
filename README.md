@@ -20,11 +20,11 @@
   All required packages are installed on startup.
 * Includes `magit`, `helm`, `projectile`, `company` and `yasnippet`.
 * Uses `god-mode` for modal editing. All key bindings work in `god-mode` and it's only used to reduce the usage of modifier keys.
-* Uses `use-package` and `bind-key`. <kbd>C-h C-l</kbd> (or <kbd>M-x describe-personal-keybindings</kbd>) will display all available key bindings.
+* Uses `use-package` and `bind-key`. <kbd>C-h C-l</kbd> or `M-x describe-personal-keybindings RET` will display all available key bindings.
 * Uses `which-key` to interactively describe key bindings.
 * Uses `desktop-save-mode` to manage sessions and buffers.
 * Uses `editorconfig` to handle multiple indentation styles.
-* Upgrade all packages using <kbd>M-x straight-pull-all</kbd> or `make upgrade-packages`.
+* Upgrade all packages using `M-x straight-pull-all RET` or `make upgrade-packages`.
 
 ## Installation
 
