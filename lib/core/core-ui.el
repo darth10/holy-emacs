@@ -170,6 +170,7 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
     '(helm-help)))
 
 (use-package all-the-icons
+  :unless noninteractive
   :init
   (unless (or (core:is-windows-p)
               (member "all-the-icons" (font-family-list)))
