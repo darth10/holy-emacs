@@ -17,8 +17,8 @@
   :group 'holy-emacs)
 
 (defcustom holy-emacs-enabled-custom-themes '(solarized-dark)
-  "List of custom themes to enable by default. When nil, do not
-use any custom theme."
+  "List of custom themes to enable by default.
+When nil, do not use any custom theme."
   :type '(repeat (choice
                   (const clues)
                   (const flatland)
@@ -86,6 +86,7 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
   "Function to call for displaying line numbers.")
 
 (defun core--get-scratch-message ()
+  "Get message to show in *scratch* buffer."
   (let* ((face-for-logo 'font-lock-function-name-face)
          (face-for-keys 'font-lock-string-face)
          (face-for-comments 'font-lock-comment-delimiter-face)
@@ -111,6 +112,7 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
      "\n\n")))
 
 (defun core--configure-mode ()
+  "Configure cursor type and color depending on mode."
   (let* ((is-line-overflow (> (current-column) core--default-fill-column))
          (prev-cur-color (face-background 'cursor))
          (prev-modeline-color (and (facep 'doom-modeline-bar)

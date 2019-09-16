@@ -14,20 +14,18 @@
   "Relative path of all module files.")
 
 (defconst core-var-dir-path "var/"
-  "Relative path of directory containing all files that are
-prone to change.")
+  "Relative path of all files that are prone to change.")
 
 (defconst core-var-lib-path "var/lib/"
-  "Relative path of directory containing Emacs Lisp files that are
-prone to change.")
+  "Relative path of Emacs Lisp files that are prone to change.")
 
 (defconst core-var-cache-dir-path
   (concat core-var-dir-path "cache/")
-  "Relative path of directory containing all cached data.")
+  "Relative path of all cached data.")
 
 (defconst core-var-cache-dir-full-path
   (expand-file-name core-var-cache-dir-path user-emacs-directory)
-  "Absolute path of directory containing all cached data.")
+  "Absolute path of all cached data.")
 
 (defconst core-default-user-dir "~/.holy-emacs.d/"
   "Default absolute path of user configuration Emacs Lisp files.")
@@ -38,7 +36,7 @@ prone to change.")
   "Absolute path of user configuration Emacs Lisp files.")
 
 (defconst core-packages-path (concat core-var-dir-path "packages/")
-  "Relative path of directory to store packages.")
+  "Relative path of installed packages.")
 
 (defconst core--required-packages '(async use-package)
   "List of required packages.")
@@ -86,8 +84,7 @@ prone to change.")
   (add-hook 'emacs-startup-hook #'core--finalize-startup))
 
 (defun core--get-elisp-compile-dirs ()
-  "Get a list of absolute paths of directories containing Emacs
-Lisp files for byte compilation."
+  "Get a list of absolute paths of files for byte compilation."
   (cl-loop for dir in (list core-lib-path
                             core-modules-lib-path
                             core-var-lib-path
@@ -96,7 +93,7 @@ Lisp files for byte compilation."
            collect (expand-file-name dir user-emacs-directory)))
 
 (defun core--init-load-path ()
-  "Adds required paths to the `load-path' variable."
+  "Add required paths to the `load-path' variable."
   (cl-loop for dir in (list core-lib-path
                             core-modules-lib-path
                             core-var-lib-path
@@ -108,7 +105,7 @@ Lisp files for byte compilation."
                    (expand-file-name dir user-emacs-directory))))
 
 (defun core--load-dir (dir)
-  "Loads all Emacs Lisp files from directory `dir'."
+  "Load all Emacs Lisp files from directory DIR."
   (let* ((files (directory-files dir))
          (file-names (cl-loop for file in files
                               collect (file-name-base file)))
@@ -125,14 +122,13 @@ Lisp files for byte compilation."
              and do (load pkg))))
 
 (defun core--check-and-install-required-packages ()
-  "Checks if packages in `core--required-packages' are installed
-and installs them if needed. Must be called after
-`package-initialize'."
+  "Check and install required packages.
+Required packages are defined by `core--required-packages'."
   (cl-loop for pkg in core--required-packages
            do (straight-use-package pkg)))
 
 (defun core:is-windows-p ()
-  "Checks if the current OS is Windows."
+  "Check if the current OS is Windows."
   (equal system-type 'windows-nt))
 
 (defun core:defsource (name-uri-cons)
@@ -140,13 +136,13 @@ and installs them if needed. Must be called after
   (add-to-list 'package-archives name-uri-cons t))
 
 (defun core:compile-file (file)
-  "Compile/recompile an Emacs Lisp file."
+  "Compile/recompile an Emacs Lisp file FILE."
   (if (file-exists-p (concat file "c"))
       (byte-recompile-file file)
     (byte-compile-file file)))
 
 (defun core:initialize-packages-and-modules ()
-  "Initializes the packages and modules sub-system."
+  "Initialize the packages and modules sub-system."
 
   (defvar bootstrap-version)
   (defvar straight-repository-user "raxod502")
@@ -187,7 +183,7 @@ and installs them if needed. Must be called after
   (core--load-dir (concat user-emacs-directory core-var-lib-path)))
 
 (defun core:load-user-dir ()
-  "Loads all Emacs Lisp files from directory `core-user-dir'."
+  "Load all Emacs Lisp files from directory `core-user-dir'."
   (when core-user-dir
     (core--load-dir core-user-dir)))
 

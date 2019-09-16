@@ -3,8 +3,9 @@
 (defconst core--scratch-buffer-name "*scratch*")
 
 (defun core:find-or-run-process (new-buffer-name process-f)
-  "Switches to or opens up a process using PROCESS-F in
-a new buffer named NEW-BUFFER-NAME."
+  "Switch to or start a process in a new buffer.
+PROCESS-F is used to create the new process in a new
+buffer named NEW-BUFFER-NAME."
   (let* ((process-buffer (get-buffer new-buffer-name)))
     (if (eq (window-buffer) process-buffer)
         (delete-other-windows)
@@ -51,7 +52,7 @@ a new buffer named NEW-BUFFER-NAME."
     (goto-char beg)))))
 
 (defun core:kill-line-utils-init ()
-  "Sets alternate kill/copy key bindings."
+  "Set alternate kill/copy key bindings."
   ;; M-w
   (global-set-key [remap kill-ring-save] 'core/kill-ring-save-line)
   ;; C-w
@@ -68,7 +69,7 @@ a new buffer named NEW-BUFFER-NAME."
     (save-buffers-kill-terminal)))
 
 (defun core/find-user-init-file ()
-  "Edit user-init-file in another window."
+  "Edit `user-init-file' in another window."
   (interactive)
   (find-file-other-window user-init-file))
 
@@ -115,7 +116,7 @@ a new buffer named NEW-BUFFER-NAME."
    (t (push key unread-command-events))))
 
 (defun core/switch-to-window ()
-  "Switches to a different window."
+  "Switch to a different window."
   (interactive)
   (let ((wind-key (read-key "Use f/b/n/p or cursor keys to move to next ")))
     (cond
@@ -149,7 +150,7 @@ a new buffer named NEW-BUFFER-NAME."
   (other-window 1))
 
 (defun core/find-or-run-shell ()
-  "Switches to or opens up a new shell."
+  "Switch to or opens up a new shell."
   (interactive)
   (core:find-or-run-process
    "*shell*"

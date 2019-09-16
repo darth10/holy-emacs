@@ -52,8 +52,8 @@
     (:debug-run          . holy-emacs-lang-debug-run-keys)))
 
 (defun core--bind-language-keys-form (args)
-  "Internal function to generate `core-bind-keys' forms. Should be used
-within a `use-package' handler definition."
+  "Internal function to generate `core-bind-keys' forms.
+Should be used within a `use-package' handler definition."
   (let (comp
         map
         filter)
