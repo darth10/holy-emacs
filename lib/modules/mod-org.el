@@ -23,11 +23,12 @@
   (unbind-key "C-c C-j" org-mode-map)
   (unbind-key "C-c C-n" org-mode-map)
   (unbind-key "C-c C-p" org-mode-map)
-  (unbind-key "C-c C-b" org-mode-map)
+  (unbind-key "C-c C-b" org-mode-map))
 
-  (use-package ox-reveal
-    :config
-    (setq org-reveal-root "http://cdn.jsdelivr.net/reveal.js/3.0.0/")))
+(use-package ox-reveal
+  :after org
+  :config
+  (setq org-reveal-root "http://cdn.jsdelivr.net/reveal.js/3.0.0/"))
 
 (use-package org-agenda
   :straight nil

@@ -107,6 +107,7 @@
  ("nov.el" . "ecbdecc927a3b3f7e0927d225e6e6464c244c2ae")
  ("omnisharp-emacs" . "c1dab2beae4b1e67f20f3e90cddeba81bd236fe5")
  ("org" . "6f32e7af88805441c1261e16f729172639d8b3fa")
+ ("org-reveal" . "4abd898da3b24530a80336327ec29d3ae6ad4ec9")
  ("paredit" . "acbe10fdd85d2e91831adf70b6a828bc7e900da0")
  ("parseclj" . "b34d3e13a249d4b92f1a008cdc1df20a92f866c5")
  ("parseedn" . "ddf824bc1df1585867cb7f27f2dd8ca8df760569")
