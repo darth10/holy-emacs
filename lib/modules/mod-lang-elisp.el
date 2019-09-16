@@ -5,7 +5,7 @@
   :hook (((lisp-mode emacs-lisp-mode) . paredit-mode)
          ((lisp-mode emacs-lisp-mode) . +elisp--highlight-sexp-setup))
   :lang (:map emacs-lisp-mode-map
-         (:repl-start . core/find-or-run-eshell)
+         (:repl-start . +elisp/find-or-run-eshell)
          (:eval-buffer . eval-buffer)
          (:load-file . load-file)
          (:compile-file . +elisp/compile-file)
@@ -39,7 +39,8 @@
 
 (use-package eshell
   :straight nil
-  :commands (+elisp/load-bash-aliases-in-eshell)
+  :commands (+elisp/load-bash-aliases-in-eshell
+             +elisp/find-or-run-eshell)
   :hook ((eshell-mode . +elisp/load-bash-aliases-in-eshell)
          (eshell-mode . paredit-mode))
   :bind (("C-! e" . +elisp/find-or-run-eshell)
