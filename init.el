@@ -13,6 +13,7 @@
 (require 'mod-lang-c)
 (require 'mod-lang-clojure)
 (require 'mod-lang-csharp)
+(require 'mod-lang-clisp)
 (require 'mod-lang-elisp)
 (require 'mod-lang-gnuplot)
 (require 'mod-lang-go)

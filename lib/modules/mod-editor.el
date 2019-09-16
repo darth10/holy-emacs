@@ -150,6 +150,7 @@
                        'ibuffer-mode
                        'org-agenda-mode
                        'recentf-dialog-mode
+                       'sldb-mode
                        'wdired-mode
                        )))
     (cl-loop for mode in exempt-modes

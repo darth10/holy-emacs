@@ -2,8 +2,8 @@
 
 (use-package lisp-mode
   :straight nil
-  :hook (((lisp-mode emacs-lisp-mode) . paredit-mode)
-         ((lisp-mode emacs-lisp-mode) . +elisp--highlight-sexp-setup))
+  :hook ((emacs-lisp-mode . paredit-mode)
+         (emacs-lisp-mode . +elisp--highlight-sexp-setup))
   :lang (:map emacs-lisp-mode-map
          (:repl-start . +elisp/find-or-run-eshell)
          (:eval-buffer . eval-buffer)
@@ -15,7 +15,6 @@
          ("C-c M-m" . emacs-lisp-macroexpand))
   :init
   (defun +elisp--highlight-sexp-setup ()
-    (+highlight-sexp:bind-keys 'lisp-mode-map)
     (+highlight-sexp:bind-keys 'emacs-lisp-mode-map))
   :config
   (defun +elisp/compile-file ()
