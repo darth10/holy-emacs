@@ -26,8 +26,10 @@
   :hook (cider-repl-mode . paredit-mode)
   :lang (:map clojure-mode-map
          (:repl-start . cider-jack-in)
+         (:repl-connect . cider-connect-clj)
          :map clojurescript-mode-map
          (:repl-start . cider-jack-in-cljs)
+         (:repl-connect . cider-connect-cljs)
          :map cider-mode-map
          (:find-definition . +clojure/find-definition)
          (:eval-buffer . +clojure/eval-buffer-and-switch-ns)

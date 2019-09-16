@@ -14,6 +14,7 @@
   :hook (geiser-repl-mode . paredit-mode)
   :lang (:map scheme-mode-map
          (:repl-start . run-geiser)
+         (:repl-connect . geiser-connect)
          :map geiser-mode-map
          (:find-definition . geiser-edit-symbol-at-point)
          (:eval-buffer . +scheme/load-and-repl)
