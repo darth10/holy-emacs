@@ -11,7 +11,8 @@
     (+highlight-sexp:bind-keys 'scheme-mode-map)))
 
 (use-package geiser
-  :hook (geiser-repl-mode . paredit-mode)
+  :hook ((geiser-mode . flycheck-mode)
+         (geiser-repl-mode . paredit-mode))
   :lang (:map scheme-mode-map
          (:repl-start . run-geiser)
          (:repl-connect . geiser-connect)
