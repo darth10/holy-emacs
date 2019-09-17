@@ -9,4 +9,8 @@
 (use-package flycheck
   :commands (flycheck-mode))
 
+(use-package flycheck-pos-tip
+  :commands (flycheck-pos-tip-mode)
+  :hook (flycheck-mode . flycheck-pos-tip-mode))
+
 (provide 'mod-editor-compile)
