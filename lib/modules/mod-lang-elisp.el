@@ -4,7 +4,8 @@
   :straight nil
   :hook ((emacs-lisp-mode . flycheck-mode)
          (emacs-lisp-mode . paredit-mode)
-         (emacs-lisp-mode . +elisp--highlight-sexp-setup))
+         (emacs-lisp-mode . +elisp--highlight-sexp-setup)
+         (flycheck-mode . +elisp--flycheck-setup))
   :lang (:map emacs-lisp-mode-map
          (:repl-start . +elisp/find-or-run-eshell)
          (:eval-buffer . eval-buffer)
@@ -15,8 +16,23 @@
   :bind (:map emacs-lisp-mode-map
          ("C-c M-m" . emacs-lisp-macroexpand))
   :init
+  (setq flycheck-emacs-lisp-initialize-packages t
+        flycheck-emacs-lisp-load-path 'inherit)
+
   (defun +elisp--highlight-sexp-setup ()
     (+highlight-sexp:bind-keys 'emacs-lisp-mode-map))
+
+  (defun +elisp--flycheck-setup ()
+    ;; Flycheck for emacs-lisp calls `byte-compile-file'.
+    ;; Set `flycheck-emacs-lisp-package-initialize-form' here to:
+    ;; 1. Avoid calling `package-initialize'.
+    ;; 2. Partially load Emacs configuration (part of init.el) so that
+    ;;    forms like `use-package' can be compiled.
+    (setq flycheck-emacs-lisp-package-initialize-form
+          (flycheck-sexp-to-string
+           '(with-demoted-errors "Error during package initialization: %S"
+              (require 'core (concat user-emacs-directory "lib/core/core"))
+              (core:initialize-packages-and-modules)))))
   :config
   (defun +elisp/compile-file ()
 	(interactive)
