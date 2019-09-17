@@ -2,7 +2,8 @@
 
 (use-package lisp-mode
   :straight nil
-  :hook ((emacs-lisp-mode . paredit-mode)
+  :hook ((emacs-lisp-mode . flycheck-mode)
+         (emacs-lisp-mode . paredit-mode)
          (emacs-lisp-mode . +elisp--highlight-sexp-setup))
   :lang (:map emacs-lisp-mode-map
          (:repl-start . +elisp/find-or-run-eshell)
@@ -93,5 +94,13 @@
 
 (use-package esup
   :commands (esup))
+
+(use-package flycheck-elsa
+  :commands (flycheck-elsa-setup)
+  :hook (flycheck-mode . flycheck-elsa-setup))
+
+(use-package flycheck-package
+  :commands (flycheck-package-setup)
+  :hook (flycheck-mode . flycheck-package-setup))
 
 (provide 'mod-lang-elisp)
