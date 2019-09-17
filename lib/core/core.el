@@ -164,6 +164,7 @@ Required packages are defined by `core--required-packages'."
     (load bootstrap-file nil 'nomessage))
 
   (core--check-and-install-required-packages)
+  (core--init-load-path)
   (setq straight-use-package-by-default t)
 
   ;; Require only a few packages here and the rest when they're
@@ -172,13 +173,12 @@ Required packages are defined by `core--required-packages'."
   (eval-when-compile
     (require 'use-package))
   (require 'bind-key)
-  (core--init-load-path)
 
   (require 'core-keys)
+  (require 'core-extensions)
   (require 'core-customize)
   (require 'core-themes)
   (require 'core-ui)
-  (require 'core-extensions)
   ;; core-editor.el is not loaded here as it's not yet needed.
   (core--load-dir (concat user-emacs-directory core-var-lib-path)))
 
