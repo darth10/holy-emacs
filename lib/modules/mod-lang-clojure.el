@@ -1,5 +1,16 @@
 ;;; mod-lang-clojure.el --- Configuration for Clojure   -*- lexical-binding: t; -*-
 
+;;; Requires a few plugins in ~/.lein/profiles.clj.
+;;; The following dependencies should be included:
+;;;
+;;; {:repl {:plugins
+;;;         [[refactor-nrepl "2.5.0-SNAPSHOT"]
+;;;          [cider/cider-nrepl "0.22.3"]]
+;;;         :dependencies
+;;;         [[org.clojure/tools.nrepl "0.2.13"]
+;;;          [acyclic/squiggly-clojure "0.1.9-SNAPSHOT"]
+;;;          [compliment "0.3.9"]]}}
+
 (use-package clojure-mode
   :mode (("\\.clj\\'" . clojure-mode)
          ("\\.cljs\\'" . clojurescript-mode)
