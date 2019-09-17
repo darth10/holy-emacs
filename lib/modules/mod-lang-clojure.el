@@ -23,7 +23,8 @@
 
 (use-package cider
   :after clojure-mode
-  :hook (cider-repl-mode . paredit-mode)
+  :hook ((cider-mode . flycheck-mode)
+         (cider-repl-mode . paredit-mode))
   :lang (:map clojure-mode-map
          (:repl-start . cider-jack-in)
          (:repl-connect . cider-connect-clj)
@@ -58,5 +59,9 @@
 
 (use-package cider-eval-sexp-fu
   :after (clojure-mode cider))
+
+(use-package flycheck-clojure
+  :commands (flycheck-clojure-setup)
+  :hook (flycheck-mode . flycheck-clojure-setup))
 
 (provide 'mod-lang-clojure)

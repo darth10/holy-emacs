@@ -141,6 +141,7 @@
  ("solarized-emacs" . "55cd77b61b6968048c61e13358ba487d217f24c0")
  ("spacemacs-theme" . "32ddc1a9b9f4f58ebe8410abc1124b7acf0f36b1")
  ("spinner" . "2daa167bec1c7566d662d48613a94453536b524a")
+ ("squiggly-clojure" . "4c5d0c723bd564d632a4b93046679ed19d0e49d9")
  ("straight.el" . "d2416276442f1e157c2f6571e59c5e83ae7b852c")
  ("tablist" . "8079801527da1f596bc942162026328d7bdf6ad9")
  ("tern" . "556f5559255518865456af0b228f86bfabd43e6b")
