@@ -115,8 +115,4 @@
   :commands (flycheck-elsa-setup)
   :hook (flycheck-mode . flycheck-elsa-setup))
 
-(use-package flycheck-package
-  :commands (flycheck-package-setup)
-  :hook (flycheck-mode . flycheck-package-setup))
-
 (provide 'mod-lang-elisp)
