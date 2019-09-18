@@ -131,10 +131,6 @@ Required packages are defined by `core--required-packages'."
   "Check if the current OS is Windows."
   (equal system-type 'windows-nt))
 
-(defun core:defsource (name-uri-cons)
-  "Add a source name and URI pair NAME-URI-CONS to the list of package sources."
-  (add-to-list 'package-archives name-uri-cons t))
-
 (defun core:compile-file (file)
   "Compile/recompile an Emacs Lisp file FILE."
   (if (file-exists-p (concat file "c"))
