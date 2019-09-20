@@ -10,7 +10,7 @@
 (use-package omnisharp
   :after csharp-mode
   :commands (+csharp/start-omnisharp-server)
-  :hook ((csharp-mode . omnisharp-mode)
+  :hook ((csharp-mode . +csharp--enable-omnisharp-mode)
          (omnisharp-mode . flycheck-mode))
   :lang (:comp (omnisharp-mode . company-omnisharp)
          :map omnisharp-mode-map
@@ -26,7 +26,13 @@
   (defun +csharp/start-omnisharp-server ()
     (interactive)
     (omnisharp-start-omnisharp-server)
-    (omnisharp-mode t)))
+    (omnisharp-mode t))
+
+  (defun +csharp--enable-omnisharp-mode ()
+    ;; Check if omnisharp server has started before
+    ;; enabling `omnisharp-mode'.
+    (when omnisharp--server-info
+      (omnisharp-mode t))))
 
 (use-package exec-path-from-shell
   :after csharp-mode
