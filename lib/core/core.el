@@ -161,7 +161,12 @@ Required packages are defined by `core--required-packages'."
 
   (core--check-and-install-required-packages)
   (core--init-load-path)
-  (setq straight-use-package-by-default t)
+  (setq straight-use-package-by-default t
+        ;; Set package.el variables just in case to avoid polluting
+        ;; the root directory.
+        package-user-dir (expand-file-name (concat core-packages-path "elpa/")
+                                           user-emacs-directory)
+        package-gnupghome-dir (expand-file-name "gnupg/" package-user-dir))
 
   ;; Require only a few packages here and the rest when they're
   ;; needed. They should be available on the `load-path' as
