@@ -11,7 +11,8 @@
 ;;     public/index.php
 
 (use-package php-mode
-  :mode ("\\.php\\'" . php-mode))
+  :mode ("\\.php\\'" . php-mode)
+  :hook (php-mode . flycheck-mode))
 
 (use-package company-php
   :after php-mode

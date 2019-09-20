@@ -4,6 +4,8 @@
   :straight nil
   :mode (("\\.c\\'" . c-mode)
          ("\\.cpp\\'" . c++-mode))
+  :hook ((c-mode . flycheck-mode)
+         (c++-mode . flycheck-mode))
   :lang (:map c-mode-map
          (:debugger . gdb)
          :map c++-mode-map

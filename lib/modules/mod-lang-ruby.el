@@ -2,7 +2,8 @@
 
 (use-package ruby-mode
   :straight nil
-  :mode ("\\.rb\\'" . ruby-mode))
+  :mode ("\\.rb\\'" . ruby-mode)
+  :hook (ruby-mode . flycheck-mode))
 
 (use-package ruby-end
   :after ruby-mode)

@@ -5,6 +5,7 @@
 (use-package python
   :straight nil
   :mode ("\\.py\\'" . python-mode)
+  :hook (python-mode . flycheck-mode)
   :lang (:map python-mode-map
          (:repl-start . run-python)
          (:eval-buffer . +python/load-file)
