@@ -111,8 +111,4 @@
 (use-package esup
   :commands (esup))
 
-(use-package flycheck-elsa
-  :commands (flycheck-elsa-setup)
-  :hook (flycheck-mode . flycheck-elsa-setup))
-
 (provide 'mod-lang-elisp)
