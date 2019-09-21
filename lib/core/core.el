@@ -148,7 +148,8 @@ Required packages are defined by `core--required-packages'."
   (let ((bootstrap-file
          (expand-file-name "straight/repos/straight.el/bootstrap.el" straight-base-dir))
         (bootstrap-version 5))
-    (unless (file-exists-p bootstrap-file)
+    (unless (or (require 'straight nil t)
+                (file-readable-p bootstrap-file))
       (with-current-buffer
           (url-retrieve-synchronously
            (format "https://raw.githubusercontent.com/%s/straight.el/%s/install.el"
@@ -157,13 +158,16 @@ Required packages are defined by `core--required-packages'."
            'silent 'inhibit-cookies)
         (goto-char (point-max))
         (eval-print-last-sexp)))
-    (load bootstrap-file nil 'nomessage))
+    (load bootstrap-file nil t))
 
   (core--check-and-install-required-packages)
   (core--init-load-path)
   (setq straight-use-package-by-default t
+        straight-enable-package-integration nil
+        straight-cache-autoloads nil
         ;; Set package.el variables just in case to avoid polluting
         ;; the root directory.
+        package-enable-at-startup nil
         package-user-dir (expand-file-name (concat core-packages-path "elpa/")
                                            user-emacs-directory)
         package-gnupghome-dir (expand-file-name "gnupg/" package-user-dir))
