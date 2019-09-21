@@ -65,7 +65,7 @@ buffer named NEW-BUFFER-NAME."
 (defun core/confirm-and-kill-terminal ()
   "Quit Emacs with a confirmation."
   (interactive)
-  (when (yes-or-no-p "Quit Emacs? ")
+  (when (y-or-n-p "Quit Emacs? ")
     (save-buffers-kill-terminal)))
 
 (defun core/find-user-init-file ()
